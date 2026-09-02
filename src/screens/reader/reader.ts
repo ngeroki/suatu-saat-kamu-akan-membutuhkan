@@ -1,11 +1,6 @@
 ﻿/**
- * SUATU SAAT v2 — Authentic 3D Book Spread Reader with Physics Page Curl
- * Modeled after Mobile Legends Hero Mastery / Achievement Book
- * Features:
- *   - Strictly structured 74 pages (1..15 per chapter)
- *   - Unique illustration plate & quote for EVERY page
- *   - 3D perspective physical page flip animation with dynamic lighting
- *   - Authentic multi-layer paper rustle sound
+ * SUATU SAAT v2 — Screen 4: 100% Mockup Aligned Physical Book Spread Reader
+ * Reference: media_1788368709063.png
  */
 import { BOOK_SPREAD_PAGES, SpreadPage } from "../../data/spread-pages";
 import { navigate, Route } from "../../router";
@@ -21,7 +16,6 @@ export class ReaderScreen {
 
   private topBarEl!: HTMLElement;
   private bookSpreadEl!: HTMLElement;
-  private navTrackEl!: HTMLElement;
   private dotEl!: HTMLElement;
   private prevBtn!: HTMLElement;
   private nextBtn!: HTMLElement;
@@ -227,14 +221,14 @@ export class ReaderScreen {
       position: absolute; inset: 0;
       backface-visibility: hidden;
       transform: rotateY(180deg);
-      background: #DDD4C6;
+      background: #E2D9CC;
       box-shadow: inset -15px 0 25px -10px rgba(0,0,0,0.3);
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
       display: flex; align-items: center; justify-content: center;
     `;
     backFace.innerHTML = `
-      <div style="opacity: 0.15; font-family: var(--serif); font-size: 28px; letter-spacing: 2px; color: #141310;">
+      <div style="opacity: 0.15; font-family: var(--serif); font-size: 26px; letter-spacing: 2px; color: #141310;">
         SUATU SAAT
       </div>
     `;
@@ -315,15 +309,15 @@ export class ReaderScreen {
       background: #E2D9CC;
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
-      padding: 24px 18px 18px;
+      padding: 26px 18px 20px;
       display: flex; flex-direction: column; justify-content: space-between;
       box-shadow: inset -15px 0 25px -10px rgba(0,0,0,0.22);
     `;
     const curPage = BOOK_SPREAD_PAGES[this.currentGlobalIndex];
     frontFace.innerHTML = `
       <div>
-        <div style="font-family: var(--serif); font-size: 32px; font-weight: 500; color: #161513; margin-bottom: 12px;">${curPage.pageNumberDisplay}</div>
-        <div style="font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.25; color: #161513; margin-bottom: 14px;">${curPage.title}</div>
+        <div style="font-family: var(--serif); font-size: 38px; font-weight: 400; color: #161513; margin-bottom: 14px; line-height: 1;">${curPage.pageNumberDisplay}</div>
+        <div style="font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.28; color: #161513; margin-bottom: 18px;">${curPage.title}</div>
       </div>
       <div style="font-family: var(--sans); font-size: 9px; letter-spacing: 1.5px; color: #7A6045;">SUATU SAAT</div>
     `;
@@ -351,9 +345,9 @@ export class ReaderScreen {
     if (leftPageEl) {
       leftPageEl.innerHTML = `
         <div>
-          <div style="font-family: var(--serif); font-size: 32px; font-weight: 500; color: #161513; margin-bottom: 12px;">${prevPage.pageNumberDisplay}</div>
-          <div style="font-family: var(--serif); font-size: 16px; font-weight: 500; line-height: 1.25; color: #161513; margin-bottom: 14px;">${prevPage.title}</div>
-          <div style="font-family: var(--serif); font-size: 12px; line-height: 1.55; color: #2C2822;">
+          <div style="font-family: var(--serif); font-size: 38px; font-weight: 400; color: #161513; margin-bottom: 14px; line-height: 1;">${prevPage.pageNumberDisplay}</div>
+          <div style="font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.28; color: #161513; margin-bottom: 18px;">${prevPage.title}</div>
+          <div style="font-family: var(--serif); font-size: 13px; line-height: 1.55; color: #2C2822;">
             ${prevPage.paragraphs.map(p => `<p style="margin-bottom: 8px;">${p}</p>`).join("")}
           </div>
         </div>
@@ -428,22 +422,22 @@ export class ReaderScreen {
       `;
     } else {
       // Authentic 3D Book Spread (Matches Mockup 100%)
-      const bodyFontSize = this.isLargeText ? "13.5px" : "12px";
-      const titleFontSize = this.isLargeText ? "18px" : "16px";
-      const numberFontSize = this.isLargeText ? "36px" : "32px";
+      const bodyFontSize = this.isLargeText ? "14px" : "13px";
+      const titleFontSize = this.isLargeText ? "19px" : "17px";
+      const numberFontSize = this.isLargeText ? "42px" : "38px";
 
       this.bookSpreadEl.innerHTML = `
-        <div class="physical-book-spread" style="display: flex; width: 100%; height: 100%; max-height: 520px; border-radius: 6px; overflow: visible; box-shadow: 0 25px 60px -10px rgba(0,0,0,0.85), 0 10px 25px rgba(0,0,0,0.6); position: relative;">
-          <!-- LEFT PAGE: Bone Paper Typography -->
-          <div class="spread-page-left" style="flex: 1; background: #E2D9CC; color: #161513; padding: 24px 18px 18px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: inset -15px 0 25px -10px rgba(0,0,0,0.22); border-top-left-radius: 4px; border-bottom-left-radius: 4px; overflow: hidden;">
+        <div class="physical-book-spread" style="display: flex; width: 100%; height: 100%; max-height: 520px; border-radius: 6px; overflow: visible; box-shadow: -10px 25px 60px -10px rgba(0,0,0,0.85), 10px 25px 60px -10px rgba(0,0,0,0.85); position: relative;">
+          <!-- LEFT PAGE: Bone Paper Typography with Page Stack Edge -->
+          <div class="spread-page-left" style="flex: 1; background: #E4DAD0; color: #161513; padding: 26px 20px 22px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: inset -18px 0 25px -10px rgba(0,0,0,0.25); border-left: 2px solid #C4B9A7; border-top-left-radius: 5px; border-bottom-left-radius: 5px; overflow: hidden;">
             <div>
               <!-- Big Page Number -->
-              <div style="font-family: var(--serif); font-size: ${numberFontSize}; font-weight: 500; color: #161513; line-height: 1; margin-bottom: 12px;">
+              <div style="font-family: var(--serif); font-size: ${numberFontSize}; font-weight: 400; color: #161513; line-height: 1; margin-bottom: 14px;">
                 ${page.pageNumberDisplay}
               </div>
 
               <!-- Page Title -->
-              <div style="font-family: var(--serif); font-size: ${titleFontSize}; font-weight: 500; line-height: 1.25; color: #161513; white-space: pre-line; margin-bottom: 16px;">
+              <div style="font-family: var(--serif); font-size: ${titleFontSize}; font-weight: 500; line-height: 1.28; color: #161513; white-space: pre-line; margin-bottom: 20px;">
                 ${page.title}
               </div>
 
@@ -454,7 +448,7 @@ export class ReaderScreen {
             </div>
 
             <!-- Brand Footer -->
-            <div style="font-family: var(--sans); font-size: 9px; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase;">
+            <div style="font-family: var(--sans); font-size: 9.5px; letter-spacing: 1.8px; color: #7A6045; text-transform: uppercase; font-weight: 500;">
               SUATU SAAT
             </div>
           </div>
@@ -463,13 +457,13 @@ export class ReaderScreen {
           <div style="width: 3px; background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1), rgba(0,0,0,0.4)); box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 5; flex-shrink: 0;"></div>
 
           <!-- RIGHT PAGE: Dedicated Unique Artwork + Quote Overlay -->
-          <div class="spread-page-right" style="flex: 1; position: relative; overflow: hidden; background: #0F0E0C; box-shadow: inset 15px 0 25px -10px rgba(0,0,0,0.35); border-top-right-radius: 4px; border-bottom-right-radius: 4px;">
+          <div class="spread-page-right" style="flex: 1; position: relative; overflow: hidden; background: #0F0E0C; box-shadow: inset 18px 0 25px -10px rgba(0,0,0,0.38); border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
             <img src="${page.image}" alt="${page.title}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
             <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.8) 100%);"></div>
 
             <!-- Bottom Quote Overlay -->
-            <div style="position: absolute; bottom: 20px; left: 16px; right: 16px; z-index: 3;">
-              <div style="font-family: var(--serif); font-size: 13px; font-style: italic; line-height: 1.45; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
+            <div style="position: absolute; bottom: 22px; left: 18px; right: 18px; z-index: 3;">
+              <div style="font-family: var(--serif); font-size: 13.5px; font-style: italic; line-height: 1.45; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
                 "${page.quote}"
               </div>
             </div>
