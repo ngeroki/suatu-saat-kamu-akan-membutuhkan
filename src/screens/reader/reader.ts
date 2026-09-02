@@ -1,6 +1,5 @@
 ﻿/**
- * SUATU SAAT v2 — Main Reader Shell Controller
- * Manages top/bottom chrome, NavTrack, TabBar, and sub-modes (Flip / Spread / Immersive)
+ * SUATU SAAT v2 — Main Reader Shell Controller (Fullscreen WebApp)
  */
 import { CHAPTERS, TOTAL_PAGES, getPageByGlobal } from "../../data/chapters";
 import { navigate, Route } from "../../router";
@@ -32,32 +31,23 @@ export class ReaderScreen {
     this.el.id = "screen-reader";
 
     this.el.innerHTML = `
-      <!-- Status Bar -->
-      <div class="statusbar">
-        <span>9:41</span>
-        <div class="icons">
-          <svg width="22" height="11" viewBox="0 0 24 12"><rect x="0.5" y="0.5" width="20" height="11" rx="2.5" stroke="#EBE2D6" fill="none"/><rect x="2" y="2" width="15" height="8" rx="1" fill="#EBE2D6"/></svg>
-        </div>
-      </div>
-
       <!-- Top Reader Chrome Header -->
-      <div class="ph-header" style="padding-bottom: 8px;">
+      <div class="ph-header" style="padding: 12px 24px;">
         <div class="back-btn" id="reader-back-btn">← Kembali ke Bab</div>
-        <div style="font-size: 11.5px; letter-spacing: 1px; color: var(--bone-dim); text-align: center;" id="reader-chap-badge">
+        <div style="font-size: 12px; letter-spacing: 1.2px; color: var(--bone-dim); text-align: center;" id="reader-chap-badge">
           BAB 01 · 01 / 15
         </div>
-        <div style="font-size: 16px; letter-spacing: 2px; color: var(--bone); cursor: pointer;" id="reader-menu-dots">···</div>
+        <div style="font-size: 18px; letter-spacing: 2px; color: var(--bone); cursor: pointer;" id="reader-menu-dots">···</div>
       </div>
 
       <!-- Main Reader Content Area -->
       <div class="reader-content-wrap" style="flex: 1; position: relative; overflow: hidden; display: flex; flex-direction: column;">
       </div>
 
-      <!-- Bottom Chrome: NavTrack + TabBar + Home Bar -->
-      <div class="reader-bottom-chrome" style="display: flex; flex-direction: column; gap: 4px; padding-bottom: 4px; background: rgba(17,17,15,0.95); backdrop-filter: blur(10px); z-index: var(--z-chrome);">
+      <!-- Bottom Chrome: NavTrack + TabBar -->
+      <div class="reader-bottom-chrome" style="display: flex; flex-direction: column; gap: 4px; padding-bottom: 8px; background: rgba(17,17,15,0.95); backdrop-filter: blur(10px); z-index: var(--z-chrome);">
         <div id="nav-track-mount"></div>
         <div id="tab-bar-mount"></div>
-        <div class="home-bar"></div>
       </div>
     `;
 
@@ -76,7 +66,6 @@ export class ReaderScreen {
     // Event Listeners
     this.el.querySelector("#reader-back-btn")?.addEventListener("click", () => navigate("bab"));
     this.el.querySelector("#reader-menu-dots")?.addEventListener("click", () => {
-      // Toggle mode between flip and spread
       const nextMode = this.activeModeName === "flip" ? "spread" : "flip";
       this.switchMode(nextMode);
     });
@@ -88,7 +77,6 @@ export class ReaderScreen {
       if (action === "toc") {
         navigate("toc");
       } else if (action === "teks") {
-        // Toggle text size / mode
         const nextMode = this.activeModeName === "spread" ? "flip" : "spread";
         this.switchMode(nextMode);
       } else if (action === "layar") {
@@ -104,7 +92,6 @@ export class ReaderScreen {
     const chapId = route?.params.chap ?? 1;
     const pageInChap = route?.params.page ?? 1;
 
-    // Calculate global page
     const chapData = CHAPTERS.find(c => c.id === chapId) || CHAPTERS[0];
     const globalPage = chapData.pageStart + Math.max(0, pageInChap - 1);
 

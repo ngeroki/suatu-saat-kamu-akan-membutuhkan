@@ -1,5 +1,5 @@
 ﻿/**
- * SUATU SAAT v2 — Screen 2: Daftar Bab (Matches Mockup Panel 2)
+ * SUATU SAAT v2 — Screen 2: Daftar Bab (Fullscreen WebApp)
  */
 import { CHAPTERS } from "../data/chapters";
 import { navigate } from "../router";
@@ -27,15 +27,6 @@ export class BabListScreen {
     `).join("");
 
     this.el.innerHTML = `
-      <!-- Status Bar -->
-      <div class="statusbar">
-        <span>9:41</span>
-        <div class="icons">
-          <svg width="16" height="11" viewBox="0 0 16 11"><path d="M1 9L1 9C2 4 4 2 8 2C12 2 14 4 15 9" stroke="#EBE2D6" stroke-width="1.3" fill="none"/></svg>
-          <svg width="22" height="11" viewBox="0 0 24 12"><rect x="0.5" y="0.5" width="20" height="11" rx="2.5" stroke="#EBE2D6" fill="none"/><rect x="2" y="2" width="15" height="8" rx="1" fill="#EBE2D6"/></svg>
-        </div>
-      </div>
-
       <!-- Top Header -->
       <div class="ph-header">
         <span class="brand" id="bab-brand-home" style="cursor: pointer;">SUATU SAAT</span>
@@ -43,18 +34,18 @@ export class BabListScreen {
       </div>
 
       <!-- Sub Header -->
-      <div style="padding: 0 22px 14px; display: flex; justify-content: space-between; align-items: flex-end;">
-        <span style="font-family: var(--sans); font-size: 12.5px; letter-spacing: 1.6px; color: var(--bone); font-weight: 500;">DAFTAR BAB</span>
-        <span style="font-size: 9.5px; color: var(--bone-faint); text-align: right; line-height: 1.5; letter-spacing: 0.3px;">Berbeda perspektif,<br>satu kesadaran.</span>
+      <div style="max-width: 700px; width: 100%; margin: 0 auto; padding: 0 24px 16px; display: flex; justify-content: space-between; align-items: flex-end;">
+        <span style="font-family: var(--sans); font-size: 13px; letter-spacing: 1.8px; color: var(--bone); font-weight: 500;">DAFTAR BAB</span>
+        <span style="font-size: 10px; color: var(--bone-faint); text-align: right; line-height: 1.5; letter-spacing: 0.3px;">Berbeda perspektif,<br>satu kesadaran.</span>
       </div>
 
       <!-- Bab List Scrollable -->
-      <div class="bab-list" style="flex: 1; overflow-y: auto; padding: 0 22px 8px; display: flex; flex-direction: column; gap: 10px;">
+      <div class="bab-list" style="flex: 1; overflow-y: auto; padding: 0 24px 12px; display: flex; flex-direction: column; gap: 12px;">
         ${cardsHTML}
       </div>
 
       <!-- Footer CTA -->
-      <div style="padding: 14px 22px 22px;">
+      <div style="padding: 16px 24px 24px; max-width: 700px; width: 100%; margin: 0 auto;">
         <button class="btn-primary" id="btn-mulai-membaca">
           Mulai Membaca →
         </button>
