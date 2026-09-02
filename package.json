@@ -1,0 +1,19 @@
+{
+  "name": "suatu-saat",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "page-flip": "^2.0.7"
+  }
+}
