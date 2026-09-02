@@ -1,17 +1,13 @@
 ﻿# PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-03T01:45:20+07:00
+Last Updated: 2026-09-03T02:04:00+07:00
 
-## Quick Status
-- Server: Running on http://localhost:4173 (PID: 20832).
-- Verification: Tested with Playwright across landmark pages (Bab 1 Page 1 & 2, Bab 2 Page 7, Bab 3 Page 1, Bab 5 Page 15).
-- Zero overflow: `scrollHeight === clientHeight` (520px/520px).
-- Structure:
-  - 5 Chapters strictly mapped:
-    - Bab 01: 15 pages (Halaman 01..15)
-    - Bab 02: 15 pages (Halaman 01..15)
-    - Bab 03: 15 pages (Halaman 01..15)
-    - Bab 04: 14 pages (Halaman 01..14)
-    - Bab 05 & Penutup: 15 pages (Halaman 01..15)
-    - Total: 74 authentic sequential pages from manuscript!
-  - Text density curated: 45-60 words per page (generous breathing room, authentic editorial design, zero clipping of watermark or text).
-  - Landmark Bab 02 Page 07 verified 1:1 against user's mockup `media_1788368709063.png`.
+## Architecture Audit & Refactoring Summary
+1. **Single Source of Truth (`src/data/book.ts`)**:
+   - Replaced duplicate data structures (`chapters.ts`, hardcoded arrays in `bab-list.ts`, `toc.ts`, `spread-pages.ts`) with a single canonical database in `src/data/book.ts`.
+   - All 5 chapters and 74 sequential pages are synchronized across all screens.
+2. **Dead Code Elimination**:
+   - Removed obsolete files: `src/screens/reader/flip.ts`, `spread.ts`, `immersive.ts`, `src/components/nav-track.ts`, `tab-bar.ts`, `test-flip.html`.
+3. **Browser Cache Fix**:
+   - Added `Cache-Control: no-store, no-cache, must-revalidate` to `scripts/server.js` preventing the browser from serving stale bundled JavaScript.
+4. **End-to-End Navigation Verified**:
+   - Cover -> Buka Buku -> Bab 1 Page 1 -> Flip -> Page 2 -> Back -> Bab List -> Bab 2 -> TOC -> Subitem Jump -> Reader. All verified and passing in headless browser.

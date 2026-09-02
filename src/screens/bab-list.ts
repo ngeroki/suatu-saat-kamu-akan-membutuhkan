@@ -1,6 +1,6 @@
 ﻿/**
  * SUATU SAAT v2 — Screen 2: Daftar Bab
- * Powered by Single Source of Truth (src/data/book.ts)
+ * Backed by 187 Unabridged Pages from Single Source of Truth (src/data/book.ts)
  */
 import { CHAPTERS } from "../data/book";
 import { navigate } from "../router";
@@ -14,7 +14,8 @@ export class BabListScreen {
     this.el.id = "screen-bab";
     this.el.style.background = "#0A0A08";
 
-    const cardsHTML = CHAPTERS.map(ch => {
+    // Show chapters (including Prolog and Bab 1-5, Epilog)
+    const cardsHTML = CHAPTERS.filter(ch => ch.id >= 1 && ch.id <= 5).map(ch => {
       const bulletsHTML = ch.tags.map(tag => `<div style="margin-bottom: 2px;">• ${tag}</div>`).join("");
       return `
         <div class="bab-card-exact" data-chap="${ch.id}" style="position: relative; height: 168px; border-radius: 14px; overflow: hidden; cursor: pointer; background: #121210; border: 1px solid rgba(235, 226, 214, 0.1); display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s ease, border-color 0.2s ease; flex-shrink: 0;">
@@ -22,7 +23,7 @@ export class BabListScreen {
           <div style="position: relative; z-index: 2; padding: 14px 18px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; max-width: 65%;">
             <div>
               <div style="font-family: var(--serif); font-size: 24px; color: #EDE4D8; font-weight: 500; line-height: 1; margin-bottom: 4px;">
-                ${ch.num}
+                ${ch.code}
               </div>
               <div style="font-family: var(--serif); font-size: 16.5px; line-height: 1.25; font-weight: 500; color: #EDE4D8; white-space: pre-line; margin-bottom: 8px;">
                 ${ch.title}
@@ -35,7 +36,7 @@ export class BabListScreen {
 
           <!-- Right Artwork Plate with Smooth Fade Mask -->
           <div style="position: absolute; right: 0; top: 0; bottom: 0; width: 55%; z-index: 1; overflow: hidden;">
-            <img src="${ch.image}" alt="${ch.num}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            <img src="${ch.image}" alt="${ch.code}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
             <div style="position: absolute; inset: 0; background: linear-gradient(to right, #121210 5%, rgba(18,18,16,0.7) 35%, rgba(18,18,16,0.15) 75%, transparent 100%);"></div>
           </div>
 
@@ -74,7 +75,7 @@ export class BabListScreen {
       <!-- Bottom Sticky CTA -->
       <div style="padding: 12px 24px 24px; max-width: 480px; width: 100%; margin: 0 auto; background: linear-gradient(180deg, transparent 0%, #0A0A08 40%);">
         <button class="btn-primary" id="btn-mulai-membaca" style="background: #CDB397; color: #1C1916; border: none; padding: 16px 20px; border-radius: 12px; font-family: var(--sans); font-size: 14.5px; font-weight: 600; letter-spacing: 0.2px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-          Mulai Membaca →
+          Mulai Membaca (Prolog) →
         </button>
       </div>
     `;
@@ -84,7 +85,7 @@ export class BabListScreen {
     // Event Listeners
     this.el.querySelector("#bab-brand-home")?.addEventListener("click", () => navigate("cover"));
     this.el.querySelector("#bab-menu-toc")?.addEventListener("click", () => navigate("toc"));
-    this.el.querySelector("#btn-mulai-membaca")?.addEventListener("click", () => navigate("read", { chap: 1, page: 1 }));
+    this.el.querySelector("#btn-mulai-membaca")?.addEventListener("click", () => navigate("read", { chap: 0, page: 1 }));
 
     this.el.querySelectorAll(".bab-card-exact").forEach(card => {
       card.addEventListener("click", () => {

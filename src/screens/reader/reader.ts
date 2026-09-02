@@ -1,15 +1,43 @@
 ﻿/**
  * SUATU SAAT v2 — Screen 4: 100% Mockup Aligned Physical Book Spread Reader
- * Powered by Single Source of Truth (src/data/book.ts)
+ * Backed by 389 Unabridged Manuscript Pages
  */
-import { PAGES, Page } from "../../data/book";
+import { PAGES, Page, CHAPTERS } from "../../data/book";
 import { navigate, Route } from "../../router";
 import { playPaperRustle } from "../../lib/audio";
 import { attachGestures, attachKeyboardNav } from "../../lib/gestures";
 
+function formatMarkdownToHTML(md: string): string {
+  const blocks = md.split(/\n\n+/);
+  return blocks.map(b => {
+    const trimmed = b.trim();
+    if (!trimmed) return "";
+    if (trimmed.startsWith("### ")) {
+      return `<h3 style="font-family: var(--serif); font-size: 15px; font-weight: 500; color: #161513; margin: 8px 0 4px; line-height: 1.2;">${trimmed.replace(/^###\s+/, "")}</h3>`;
+    }
+    if (trimmed.startsWith("## ")) {
+      return `<h2 style="font-family: var(--serif); font-size: 16.5px; font-weight: 500; color: #161513; margin: 10px 0 6px; line-height: 1.2;">${trimmed.replace(/^##\s+/, "")}</h2>`;
+    }
+    if (trimmed.startsWith("# ")) {
+      return `<h1 style="font-family: var(--serif); font-size: 18px; font-weight: 500; color: #161513; margin: 12px 0 6px; line-height: 1.2;">${trimmed.replace(/^#\s+/, "")}</h1>`;
+    }
+    if (trimmed.startsWith(">")) {
+      const quoteText = trimmed.replace(/^>\s*/gm, "").replace(/[\*\_]/g, "");
+      return `<blockquote style="border-left: 2px solid #7A6045; padding-left: 8px; margin: 6px 0; font-family: var(--serif); font-style: italic; font-size: 12px; color: #4A3E30; line-height: 1.4;">${quoteText}</blockquote>`;
+    }
+    if (trimmed.startsWith("---")) {
+      return `<hr style="border: none; border-top: 1px solid rgba(122,96,69,0.2); margin: 8px 0;">`;
+    }
+    const formatted = trimmed
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    return `<p style="margin-bottom: 6px; font-family: var(--serif); font-size: 12.5px; line-height: 1.45; color: #2C2822;">${formatted}</p>`;
+  }).join("");
+}
+
 export class ReaderScreen {
   private el: HTMLElement;
-  private currentGlobalIndex = 0; // 0..73
+  private currentGlobalIndex = 0; // 0..388
   private isImmersive = false;
   private isLargeText = false;
   private isFlipping = false;
@@ -43,7 +71,7 @@ export class ReaderScreen {
           BAB 01
         </div>
         <div id="reader-page-counter" style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.7); letter-spacing: 0.5px;">
-          01 / 15
+          01 / 41
         </div>
       </div>
 
@@ -94,7 +122,6 @@ export class ReaderScreen {
     this.chapBadgeEl = this.el.querySelector("#reader-chap-badge") as HTMLElement;
     this.pageCounterEl = this.el.querySelector("#reader-page-counter") as HTMLElement;
 
-    // Attach Event Listeners
     this.el.querySelector("#reader-back-btn")?.addEventListener("click", () => navigate("bab"));
     this.el.querySelector("#tab-btn-toc")?.addEventListener("click", () => navigate("toc"));
     
@@ -111,15 +138,14 @@ export class ReaderScreen {
     this.prevBtn.addEventListener("click", () => this.flipPrevWithCurl());
     this.nextBtn.addEventListener("click", () => this.flipNextWithCurl());
 
-    // Track click for direct jump within chapter
     const trackBar = this.el.querySelector("#nav-track-bar") as HTMLElement;
     trackBar?.addEventListener("click", (e: MouseEvent) => {
       const rect = trackBar.getBoundingClientRect();
       const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
       const curPage = PAGES[this.currentGlobalIndex];
-      const chapPages = PAGES.filter(p => p.chapterId === curPage.chapterId);
+      const chapPages = PAGES.filter(p => p.chapter_id === curPage.chapter_id);
       const targetInChap = Math.round(clickRatio * (chapPages.length - 1));
-      const targetGlobal = chapPages[targetInChap].globalPage - 1;
+      const targetGlobal = chapPages[targetInChap].page_number - 1;
       if (targetGlobal !== this.currentGlobalIndex) {
         if (targetGlobal > this.currentGlobalIndex) {
           this.flipNextWithCurl(targetGlobal);
@@ -129,7 +155,6 @@ export class ReaderScreen {
       }
     });
 
-    // Gestures & Keyboard navigation
     attachGestures(this.el, {
       onSwipeLeft: () => this.flipNextWithCurl(),
       onSwipeRight: () => this.flipPrevWithCurl(),
@@ -147,9 +172,8 @@ export class ReaderScreen {
     const requestedChap = route?.params.chap ?? 1;
     const requestedPageInChap = route?.params.page ?? 1;
 
-    // Find exact page in canonical PAGES
     const matchIndex = PAGES.findIndex(
-      p => p.chapterId === requestedChap && p.pageInChap === requestedPageInChap
+      p => p.chapter_id === requestedChap && p.page_in_chap === requestedPageInChap
     );
 
     this.currentGlobalIndex = matchIndex >= 0 ? matchIndex : 0;
@@ -160,9 +184,6 @@ export class ReaderScreen {
     this.el.classList.remove("active");
   }
 
-  /**
-   * 3D Physics Page Curl Animation (Next)
-   */
   private flipNextWithCurl(targetIndex?: number): void {
     if (this.isFlipping) return;
     const nextIdx = targetIndex !== undefined ? targetIndex : this.currentGlobalIndex + 1;
@@ -182,7 +203,6 @@ export class ReaderScreen {
     const curPage = PAGES[this.currentGlobalIndex];
     const nextPage = PAGES[nextIdx];
 
-    // Create 3D flipping sheet element over the right page
     const flipSheet = document.createElement("div");
     flipSheet.className = "flipping-sheet-3d";
     flipSheet.style.cssText = `
@@ -195,7 +215,6 @@ export class ReaderScreen {
       transition: transform 0.52s cubic-bezier(0.25, 1, 0.35, 1);
     `;
 
-    // Front of sheet (Current right image turning over)
     const frontFace = document.createElement("div");
     frontFace.style.cssText = `
       position: absolute; inset: 0;
@@ -206,16 +225,15 @@ export class ReaderScreen {
       box-shadow: inset 15px 0 25px -10px rgba(0,0,0,0.4);
     `;
     frontFace.innerHTML = `
-      <img src="${curPage.image}" style="width: 100%; height: 100%; object-fit: cover;">
+      <img src="${curPage.image_path}" style="width: 100%; height: 100%; object-fit: cover;">
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.8) 100%);"></div>
       <div style="position: absolute; bottom: 20px; left: 16px; right: 16px;">
         <div style="font-family: var(--serif); font-size: 13px; font-style: italic; line-height: 1.45; color: #FFFFFF;">
-          "${curPage.quote}"
+          "${curPage.subchapter_name}"
         </div>
       </div>
     `;
 
-    // Back of sheet (Parchment reverse side folding onto left)
     const backFace = document.createElement("div");
     backFace.style.cssText = `
       position: absolute; inset: 0;
@@ -237,28 +255,25 @@ export class ReaderScreen {
     flipSheet.appendChild(backFace);
     book.appendChild(flipSheet);
 
-    // Pre-render the upcoming next page underneath right page
     const rightPageEl = book.querySelector(".spread-page-right") as HTMLElement;
     if (rightPageEl) {
       rightPageEl.innerHTML = `
-        <img src="${nextPage.image}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+        <img src="${nextPage.image_path}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
         <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.8) 100%);"></div>
         <div style="position: absolute; bottom: 20px; left: 16px; right: 16px; z-index: 3;">
           <div style="font-family: var(--serif); font-size: 13px; font-style: italic; line-height: 1.45; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
-            "${nextPage.quote}"
+            "${nextPage.subchapter_name}"
           </div>
         </div>
       `;
     }
 
-    // Trigger 3D turn animation on next frame
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         flipSheet.style.transform = "rotateY(-180deg)";
       });
     });
 
-    // Settle after animation
     setTimeout(() => {
       flipSheet.remove();
       this.currentGlobalIndex = nextIdx;
@@ -267,9 +282,6 @@ export class ReaderScreen {
     }, 530);
   }
 
-  /**
-   * 3D Physics Page Curl Animation (Prev)
-   */
   private flipPrevWithCurl(targetIndex?: number): void {
     if (this.isFlipping) return;
     const prevIdx = targetIndex !== undefined ? targetIndex : this.currentGlobalIndex - 1;
@@ -288,7 +300,6 @@ export class ReaderScreen {
 
     const prevPage = PAGES[prevIdx];
 
-    // Create 3D flipping sheet element starting from left page
     const flipSheet = document.createElement("div");
     flipSheet.className = "flipping-sheet-3d-prev";
     flipSheet.style.cssText = `
@@ -301,7 +312,6 @@ export class ReaderScreen {
       transition: transform 0.52s cubic-bezier(0.25, 1, 0.35, 1);
     `;
 
-    // Front of sheet (Current left page turning back)
     const frontFace = document.createElement("div");
     frontFace.style.cssText = `
       position: absolute; inset: 0;
@@ -309,20 +319,20 @@ export class ReaderScreen {
       background: #E2D9CC;
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
-      padding: 26px 18px 20px;
+      padding: 24px 18px 18px;
       display: flex; flex-direction: column; justify-content: space-between;
       box-shadow: inset -15px 0 25px -10px rgba(0,0,0,0.22);
     `;
     const curPage = PAGES[this.currentGlobalIndex];
+    const pCurStr = curPage.page_in_chap < 10 ? `0${curPage.page_in_chap}` : `${curPage.page_in_chap}`;
     frontFace.innerHTML = `
       <div>
-        <div style="font-family: var(--serif); font-size: 38px; font-weight: 400; color: #161513; margin-bottom: 14px; line-height: 1;">${curPage.pageNumberDisplay}</div>
-        <div style="font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.28; color: #161513; margin-bottom: 18px;">${curPage.title}</div>
+        <div style="font-family: var(--serif); font-size: 32px; font-weight: 400; color: #161513; margin-bottom: 10px; line-height: 1;">${pCurStr}</div>
+        <div style="font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.25; color: #161513; margin-bottom: 12px;">${curPage.subchapter_name}</div>
       </div>
       <div style="font-family: var(--sans); font-size: 9px; letter-spacing: 1.5px; color: #7A6045;">SUATU SAAT</div>
     `;
 
-    // Back of sheet (Artwork of prev page landing on right)
     const backFace = document.createElement("div");
     backFace.style.cssText = `
       position: absolute; inset: 0;
@@ -333,36 +343,19 @@ export class ReaderScreen {
       border-bottom-right-radius: 4px;
     `;
     backFace.innerHTML = `
-      <img src="${prevPage.image}" style="width: 100%; height: 100%; object-fit: cover;">
+      <img src="${prevPage.image_path}" style="width: 100%; height: 100%; object-fit: cover;">
     `;
 
     flipSheet.appendChild(frontFace);
     flipSheet.appendChild(backFace);
     book.appendChild(flipSheet);
 
-    // Pre-render previous page content onto left page underneath
-    const leftPageEl = book.querySelector(".spread-page-left") as HTMLElement;
-    if (leftPageEl) {
-      leftPageEl.innerHTML = `
-        <div>
-          <div style="font-family: var(--serif); font-size: 38px; font-weight: 400; color: #161513; margin-bottom: 14px; line-height: 1;">${prevPage.pageNumberDisplay}</div>
-          <div style="font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.28; color: #161513; margin-bottom: 18px;">${prevPage.title}</div>
-          <div style="font-family: var(--serif); font-size: 13px; line-height: 1.55; color: #2C2822;">
-            ${prevPage.paragraphs.map(p => `<p style="margin-bottom: 8px;">${p}</p>`).join("")}
-          </div>
-        </div>
-        <div style="font-family: var(--sans); font-size: 9px; letter-spacing: 1.5px; color: #7A6045;">SUATU SAAT</div>
-      `;
-    }
-
-    // Trigger turn back
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         flipSheet.style.transform = "rotateY(180deg)";
       });
     });
 
-    // Settle after animation
     setTimeout(() => {
       flipSheet.remove();
       this.currentGlobalIndex = prevIdx;
@@ -375,19 +368,16 @@ export class ReaderScreen {
     const page = PAGES[this.currentGlobalIndex];
     if (!page) return;
 
-    // Update Top Chrome Header
-    this.chapBadgeEl.textContent = page.chapterNum;
-    const pStr = page.pageInChap < 10 ? `0${page.pageInChap}` : `${page.pageInChap}`;
-    const totStr = page.totalInChap < 10 ? `0${page.totalInChap}` : `${page.totalInChap}`;
+    this.chapBadgeEl.textContent = page.chapter_code;
+    const pStr = page.page_in_chap < 10 ? `0${page.page_in_chap}` : `${page.page_in_chap}`;
+    const totStr = page.total_in_chap < 10 ? `0${page.total_in_chap}` : `${page.total_in_chap}`;
     this.pageCounterEl.textContent = `${pStr} / ${totStr}`;
 
-    // Update Nav Track Slider within Chapter
-    const chapPages = PAGES.filter(p => p.chapterId === page.chapterId);
-    const chapIndex = chapPages.findIndex(p => p.globalPage === page.globalPage);
+    const chapPages = PAGES.filter(p => p.chapter_id === page.chapter_id);
+    const chapIndex = chapPages.findIndex(p => p.page_number === page.page_number);
     const percent = ((chapIndex) / Math.max(1, chapPages.length - 1)) * 100;
     this.dotEl.style.left = `${percent}%`;
 
-    // Button states
     if (this.currentGlobalIndex <= 0) {
       this.prevBtn.style.opacity = "0.3";
       this.prevBtn.style.pointerEvents = "none";
@@ -404,67 +394,62 @@ export class ReaderScreen {
       this.nextBtn.style.pointerEvents = "auto";
     }
 
-    // Render Book Spread (or Immersive Mode)
     if (this.isImmersive) {
       this.bookSpreadEl.innerHTML = `
         <div style="width: 100%; height: 100%; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8);">
-          <img src="${page.image}" alt="${page.title}" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="${page.image_path}" alt="${page.subchapter_name}" style="width: 100%; height: 100%; object-fit: cover;">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(10,10,8,0.85) 100%);"></div>
           <div style="position: absolute; bottom: 24px; left: 24px; right: 24px;">
             <div style="font-family: var(--serif); font-size: 20px; color: #FFFFFF; font-style: italic; line-height: 1.4; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
-              "${page.quote}"
+              "${page.subchapter_name}"
             </div>
             <div style="font-family: var(--sans); font-size: 11px; letter-spacing: 1.5px; color: rgba(235, 226, 214, 0.7); text-transform: uppercase; margin-top: 10px;">
-              ${page.chapterTitle} · HAL ${page.pageNumberDisplay} / ${page.totalInChap}
+              ${page.chapter_name} · HAL ${pStr} / ${totStr} (TOTAL: ${page.page_number}/389)
             </div>
           </div>
         </div>
       `;
     } else {
-      // Authentic 3D Book Spread (Matches Mockup 100%)
-      const bodyFontSize = this.isLargeText ? "14px" : "13px";
-      const titleFontSize = this.isLargeText ? "19px" : "17px";
-      const numberFontSize = this.isLargeText ? "42px" : "38px";
+      const formattedHTML = formatMarkdownToHTML(page.text);
 
       this.bookSpreadEl.innerHTML = `
         <div class="physical-book-spread" style="display: flex; width: 100%; height: 100%; max-height: 520px; border-radius: 6px; overflow: visible; box-shadow: -10px 25px 60px -10px rgba(0,0,0,0.85), 10px 25px 60px -10px rgba(0,0,0,0.85); position: relative;">
           <!-- LEFT PAGE: Bone Paper Typography with Page Stack Edge -->
-          <div class="spread-page-left" style="flex: 1; background: #E4DAD0; color: #161513; padding: 26px 20px 22px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: inset -18px 0 25px -10px rgba(0,0,0,0.25); border-left: 2px solid #C4B9A7; border-top-left-radius: 5px; border-bottom-left-radius: 5px; overflow: hidden;">
-            <div>
+          <div class="spread-page-left" style="flex: 1; background: #E4DAD0; color: #161513; padding: 22px 16px 16px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: inset -18px 0 25px -10px rgba(0,0,0,0.25); border-left: 2px solid #C4B9A7; border-top-left-radius: 5px; border-bottom-left-radius: 5px; overflow: hidden;">
+            <div style="flex: 1; overflow-y: auto; padding-right: 2px;" class="page-text-content">
               <!-- Big Page Number -->
-              <div style="font-family: var(--serif); font-size: ${numberFontSize}; font-weight: 400; color: #161513; line-height: 1; margin-bottom: 14px;">
-                ${page.pageNumberDisplay}
+              <div style="font-family: var(--serif); font-size: 32px; font-weight: 400; color: #161513; line-height: 1; margin-bottom: 8px;">
+                ${pStr}
               </div>
 
-              <!-- Page Title -->
-              <div style="font-family: var(--serif); font-size: ${titleFontSize}; font-weight: 500; line-height: 1.28; color: #161513; white-space: pre-line; margin-bottom: 20px;">
-                ${page.title}
-              </div>
-
-              <!-- Paragraphs -->
-              <div style="font-family: var(--serif); font-size: ${bodyFontSize}; line-height: 1.55; color: #2C2822;">
-                ${page.paragraphs.map(p => `<p style="margin-bottom: 8px;">${p}</p>`).join("")}
+              <!-- Unabridged Manuscript Body -->
+              <div style="font-family: var(--serif); color: #2C2822;">
+                ${formattedHTML}
               </div>
             </div>
 
             <!-- Brand Footer -->
-            <div style="font-family: var(--sans); font-size: 9.5px; letter-spacing: 1.8px; color: #7A6045; text-transform: uppercase; font-weight: 500;">
-              SUATU SAAT
+            <div style="font-family: var(--sans); font-size: 9px; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase; font-weight: 500; padding-top: 8px; border-top: 1px solid rgba(122,96,69,0.15); margin-top: 6px; flex-shrink: 0; display: flex; justify-content: space-between;">
+              <span>SUATU SAAT</span>
+              <span style="letter-spacing: 0.5px; opacity: 0.7;">HAL ${page.page_number} / 389</span>
             </div>
           </div>
 
           <!-- CENTER GUTTER / SPINE CREASE -->
           <div style="width: 3px; background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1), rgba(0,0,0,0.4)); box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 5; flex-shrink: 0;"></div>
 
-          <!-- RIGHT PAGE: Dedicated Unique Artwork + Quote Overlay -->
+          <!-- RIGHT PAGE: Dedicated Unique Artwork + Context Overlay -->
           <div class="spread-page-right" style="flex: 1; position: relative; overflow: hidden; background: #0F0E0C; box-shadow: inset 18px 0 25px -10px rgba(0,0,0,0.38); border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-            <img src="${page.image}" alt="${page.title}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.8) 100%);"></div>
+            <img src="${page.image_path}" alt="${page.subchapter_name}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.85) 100%);"></div>
 
-            <!-- Bottom Quote Overlay -->
-            <div style="position: absolute; bottom: 22px; left: 18px; right: 18px; z-index: 3;">
-              <div style="font-family: var(--serif); font-size: 13.5px; font-style: italic; line-height: 1.45; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
-                "${page.quote}"
+            <!-- Bottom Context Overlay -->
+            <div style="position: absolute; bottom: 20px; left: 16px; right: 16px; z-index: 3;">
+              <div style="font-family: var(--sans); font-size: 8.5px; letter-spacing: 1.5px; color: #CDB397; text-transform: uppercase; margin-bottom: 4px;">
+                ${page.chapter_code} · HALAMAN ${pStr}
+              </div>
+              <div style="font-family: var(--serif); font-size: 13px; font-style: italic; line-height: 1.4; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
+                "${page.subchapter_name}"
               </div>
             </div>
           </div>

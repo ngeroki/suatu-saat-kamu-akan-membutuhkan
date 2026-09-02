@@ -1,6 +1,6 @@
 ﻿/**
  * SUATU SAAT v2 — Screen 3: Daftar Isi / TOC
- * Powered by Single Source of Truth (src/data/book.ts)
+ * Backed by 187 Unabridged Pages from Single Source of Truth (src/data/book.ts)
  */
 import { CHAPTERS, PAGES } from "../data/book";
 import { navigate } from "../router";
@@ -16,20 +16,26 @@ export class TocScreen {
 
     // Build TOC breakdown directly from canonical CHAPTERS and PAGES
     const blocksHTML = CHAPTERS.map((ch, idx) => {
-      const isInitialOpen = idx === 0;
-      const chapPages = PAGES.filter(p => p.chapterId === ch.id);
+      const isInitialOpen = idx === 1; // Open Bab 1 by default
+      const chapPages = PAGES.filter(p => p.chapter_id === ch.id);
 
-      // Select key milestone sub-pages for clean display
-      const milestoneIndices = [0, 3, 7, 12].filter(i => i < chapPages.length);
-      const subitemsRows = milestoneIndices.map((pIdx, sIdx) => {
-        const p = chapPages[pIdx];
+      // Extract unique subchapters with their first page
+      const subchaptersMap = new Map<string, number>();
+      for (const p of chapPages) {
+        if (!subchaptersMap.has(p.subchapter_name)) {
+          subchaptersMap.set(p.subchapter_name, p.page_in_chap);
+        }
+      }
+
+      const subitems = Array.from(subchaptersMap.entries()).slice(0, 5);
+      const subitemsRows = subitems.map(([subTitle, pageInChap], sIdx) => {
         const subNumStr = (sIdx + 1) < 10 ? `0${sIdx + 1}` : `${sIdx + 1}`;
-        const globalPageStr = p.globalPage < 10 ? `0${p.globalPage}` : `${p.globalPage}`;
-        // Clean single line title
-        const cleanTitle = p.title.replace(/\n/g, " ");
+        const targetPage = chapPages.find(p => p.page_in_chap === pageInChap);
+        const globalPageStr = targetPage ? (targetPage.page_number < 10 ? `0${targetPage.page_number}` : `${targetPage.page_number}`) : "01";
+        const cleanTitle = subTitle.replace(/\n/g, " ");
 
         return `
-          <div class="toc-subitem-row" data-chap="${ch.id}" data-page="${p.pageInChap}" style="display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; cursor: pointer; transition: color 0.15s ease;">
+          <div class="toc-subitem-row" data-chap="${ch.id}" data-page="${pageInChap}" style="display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; cursor: pointer; transition: color 0.15s ease;">
             <span style="display: flex; align-items: baseline; gap: 12px; flex: 1; padding-right: 12px;">
               <span style="font-family: var(--sans); font-size: 12px; color: rgba(235, 226, 214, 0.45); font-weight: 500; width: 20px; flex-shrink: 0;">${subNumStr}</span>
               <span class="sub-title-text" style="font-family: var(--serif); font-size: 14.5px; color: #EDE4D8; line-height: 1.35;">${cleanTitle}</span>
@@ -47,7 +53,7 @@ export class TocScreen {
           <div class="toc-accordion-header" style="display: flex; justify-content: space-between; align-items: flex-start; cursor: pointer; user-select: none;">
             <div>
               <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 2px; color: #9E8062; font-weight: 600; text-transform: uppercase; margin-bottom: 6px;">
-                BAB ${ch.num}
+                ${ch.code}
               </div>
               <div style="font-family: var(--serif); font-size: 17.5px; font-weight: 500; line-height: 1.25; color: #EDE4D8; white-space: pre-line;">
                 ${ch.title}
@@ -79,17 +85,9 @@ export class TocScreen {
       <div class="toc-scroll-area" style="flex: 1; overflow-y: auto; padding: 0 26px 24px; max-width: 480px; width: 100%; margin: 0 auto;">
         ${blocksHTML}
 
-        <!-- PENUTUP ROW -->
-        <div class="toc-penutup-item" style="border-bottom: 1px solid rgba(235, 226, 214, 0.08); padding: 18px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
-          <div>
-            <div style="font-family: var(--serif); font-size: 17.5px; font-weight: 500; color: #EDE4D8; letter-spacing: 0.5px;">PENUTUP</div>
-          </div>
-          <span style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.45);">74</span>
-        </div>
-
         <!-- Total Page Counter -->
-        <div style="text-align: left; font-family: var(--sans); font-size: 10.5px; color: rgba(235, 226, 214, 0.35); padding: 24px 0 32px; letter-spacing: 0.3px;">
-          Total 74 halaman
+        <div style="text-align: left; font-family: var(--sans); font-size: 11px; color: rgba(235, 226, 214, 0.45); padding: 24px 0 32px; letter-spacing: 0.3px;">
+          Total 187 Halaman Lengkap · 22.786 Kata Naskah Asli
         </div>
       </div>
     `;
@@ -139,11 +137,6 @@ export class TocScreen {
         const titleEl = row.querySelector(".sub-title-text") as HTMLElement;
         if (titleEl) titleEl.style.color = "#EDE4D8";
       });
-    });
-
-    // Penutup Click
-    this.el.querySelector(".toc-penutup-item")?.addEventListener("click", () => {
-      navigate("read", { chap: 5, page: 15 });
     });
   }
 
