@@ -1,8 +1,8 @@
 ﻿/**
  * SUATU SAAT v2 — Screen 4: 100% Mockup Aligned Physical Book Spread Reader
- * Reference: media_1788368709063.png
+ * Powered by Single Source of Truth (src/data/book.ts)
  */
-import { BOOK_SPREAD_PAGES, SpreadPage } from "../../data/spread-pages";
+import { PAGES, Page } from "../../data/book";
 import { navigate, Route } from "../../router";
 import { playPaperRustle } from "../../lib/audio";
 import { attachGestures, attachKeyboardNav } from "../../lib/gestures";
@@ -116,8 +116,8 @@ export class ReaderScreen {
     trackBar?.addEventListener("click", (e: MouseEvent) => {
       const rect = trackBar.getBoundingClientRect();
       const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-      const curPage = BOOK_SPREAD_PAGES[this.currentGlobalIndex];
-      const chapPages = BOOK_SPREAD_PAGES.filter(p => p.chapterId === curPage.chapterId);
+      const curPage = PAGES[this.currentGlobalIndex];
+      const chapPages = PAGES.filter(p => p.chapterId === curPage.chapterId);
       const targetInChap = Math.round(clickRatio * (chapPages.length - 1));
       const targetGlobal = chapPages[targetInChap].globalPage - 1;
       if (targetGlobal !== this.currentGlobalIndex) {
@@ -147,8 +147,8 @@ export class ReaderScreen {
     const requestedChap = route?.params.chap ?? 1;
     const requestedPageInChap = route?.params.page ?? 1;
 
-    // Find exact page in BOOK_SPREAD_PAGES
-    const matchIndex = BOOK_SPREAD_PAGES.findIndex(
+    // Find exact page in canonical PAGES
+    const matchIndex = PAGES.findIndex(
       p => p.chapterId === requestedChap && p.pageInChap === requestedPageInChap
     );
 
@@ -166,7 +166,7 @@ export class ReaderScreen {
   private flipNextWithCurl(targetIndex?: number): void {
     if (this.isFlipping) return;
     const nextIdx = targetIndex !== undefined ? targetIndex : this.currentGlobalIndex + 1;
-    if (nextIdx >= BOOK_SPREAD_PAGES.length) return;
+    if (nextIdx >= PAGES.length) return;
 
     this.isFlipping = true;
     playPaperRustle();
@@ -179,8 +179,8 @@ export class ReaderScreen {
       return;
     }
 
-    const curPage = BOOK_SPREAD_PAGES[this.currentGlobalIndex];
-    const nextPage = BOOK_SPREAD_PAGES[nextIdx];
+    const curPage = PAGES[this.currentGlobalIndex];
+    const nextPage = PAGES[nextIdx];
 
     // Create 3D flipping sheet element over the right page
     const flipSheet = document.createElement("div");
@@ -286,7 +286,7 @@ export class ReaderScreen {
       return;
     }
 
-    const prevPage = BOOK_SPREAD_PAGES[prevIdx];
+    const prevPage = PAGES[prevIdx];
 
     // Create 3D flipping sheet element starting from left page
     const flipSheet = document.createElement("div");
@@ -313,7 +313,7 @@ export class ReaderScreen {
       display: flex; flex-direction: column; justify-content: space-between;
       box-shadow: inset -15px 0 25px -10px rgba(0,0,0,0.22);
     `;
-    const curPage = BOOK_SPREAD_PAGES[this.currentGlobalIndex];
+    const curPage = PAGES[this.currentGlobalIndex];
     frontFace.innerHTML = `
       <div>
         <div style="font-family: var(--serif); font-size: 38px; font-weight: 400; color: #161513; margin-bottom: 14px; line-height: 1;">${curPage.pageNumberDisplay}</div>
@@ -372,7 +372,7 @@ export class ReaderScreen {
   }
 
   private renderCurrentSpread(): void {
-    const page = BOOK_SPREAD_PAGES[this.currentGlobalIndex];
+    const page = PAGES[this.currentGlobalIndex];
     if (!page) return;
 
     // Update Top Chrome Header
@@ -382,7 +382,7 @@ export class ReaderScreen {
     this.pageCounterEl.textContent = `${pStr} / ${totStr}`;
 
     // Update Nav Track Slider within Chapter
-    const chapPages = BOOK_SPREAD_PAGES.filter(p => p.chapterId === page.chapterId);
+    const chapPages = PAGES.filter(p => p.chapterId === page.chapterId);
     const chapIndex = chapPages.findIndex(p => p.globalPage === page.globalPage);
     const percent = ((chapIndex) / Math.max(1, chapPages.length - 1)) * 100;
     this.dotEl.style.left = `${percent}%`;
@@ -396,7 +396,7 @@ export class ReaderScreen {
       this.prevBtn.style.pointerEvents = "auto";
     }
 
-    if (this.currentGlobalIndex >= BOOK_SPREAD_PAGES.length - 1) {
+    if (this.currentGlobalIndex >= PAGES.length - 1) {
       this.nextBtn.style.opacity = "0.3";
       this.nextBtn.style.pointerEvents = "none";
     } else {

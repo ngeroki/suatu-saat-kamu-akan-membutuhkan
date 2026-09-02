@@ -1,70 +1,9 @@
 ﻿/**
- * SUATU SAAT v2 — Screen 3: Daftar Isi / TOC (100% Mockup Aligned Dropdown Per Bab)
+ * SUATU SAAT v2 — Screen 3: Daftar Isi / TOC
+ * Powered by Single Source of Truth (src/data/book.ts)
  */
-import { CHAPTERS } from "../data/chapters";
+import { CHAPTERS, PAGES } from "../data/book";
 import { navigate } from "../router";
-
-// Sub-items breakdown per chapter matching manuscript & mockup
-const TOC_BREAKDOWN = [
-  {
-    chapId: 1,
-    num: "01",
-    title: "Anatomi Tubuh Energi\n& Memori Karma",
-    pageStart: "01",
-    subitems: [
-      { subNum: "01", title: "Tubuh Energi Manusia", page: "01", pageInChap: 1 },
-      { subNum: "02", title: "Medan Torus Manusia", page: "04", pageInChap: 4 },
-      { subNum: "03", title: "Memori Karma", page: "09", pageInChap: 9 },
-      { subNum: "04", title: "Cairan CSF", page: "14", pageInChap: 14 },
-    ]
-  },
-  {
-    chapId: 2,
-    num: "02",
-    title: "Meretas Pikiran Bawah Sadar\n& Reprogramming Nasib",
-    pageStart: "16",
-    subitems: [
-      { subNum: "01", title: "Meretas Pikiran Bawah Sadar", page: "16", pageInChap: 1 },
-      { subNum: "02", title: "Zona Theta & Critical Faculty", page: "20", pageInChap: 5 },
-      { subNum: "03", title: "4 Gerbang Reprogramming Bawah Sadar", page: "24", pageInChap: 9 },
-      { subNum: "04", title: "Jeda 3 Detik yang Mengubah Takdir", page: "28", pageInChap: 13 },
-    ]
-  },
-  {
-    chapId: 3,
-    num: "03",
-    title: "Sistem Hormon,\nBiohacking Leluhur",
-    pageStart: "31",
-    subitems: [
-      { subNum: "01", title: "Sistem Hormon & Biohacking Leluhur", page: "31", pageInChap: 1 },
-      { subNum: "02", title: "Dopamin Baseline & Reset Reseptor", page: "35", pageInChap: 5 },
-      { subNum: "03", title: "Ritme Sirkadian & Melatonin Otak", page: "40", pageInChap: 10 },
-      { subNum: "04", title: "Puasa Weton sebagai Teknologi Biologis", page: "43", pageInChap: 13 },
-    ]
-  },
-  {
-    chapId: 4,
-    num: "04",
-    title: "Fisika Kuantum,\nRelativitas & Keterhubungan",
-    pageStart: "46",
-    subitems: [
-      { subNum: "01", title: "Keterhubungan Kuantum & Medan Semesta", page: "46", pageInChap: 1 },
-      { subNum: "02", title: "Relativitas Waktu & Dimensi Batin", page: "50", pageInChap: 5 },
-      { subNum: "03", title: "Titik Nol (Suwung) sebagai Realitas Sejati", page: "55", pageInChap: 10 },
-    ]
-  },
-  {
-    chapId: 5,
-    num: "05",
-    title: "Menjadi Manusia Normal &\nSeni Berserah",
-    pageStart: "60",
-    subitems: [
-      { subNum: "01", title: "Menjadi Manusia Normal yang Sadar Utuh", page: "60", pageInChap: 1 },
-      { subNum: "02", title: "Anti Spiritual Bypass & Menembus Fisik", page: "64", pageInChap: 5 },
-      { subNum: "03", title: "Protokol Seni Berserah & Ketenangan", page: "70", pageInChap: 11 },
-    ]
-  },
-];
 
 export class TocScreen {
   private el: HTMLElement;
@@ -75,18 +14,32 @@ export class TocScreen {
     this.el.id = "screen-toc";
     this.el.style.background = "#0A0A08";
 
-    const blocksHTML = TOC_BREAKDOWN.map((ch, idx) => {
-      // Bab 01 open by default (like mockup), others closed
+    // Build TOC breakdown directly from canonical CHAPTERS and PAGES
+    const blocksHTML = CHAPTERS.map((ch, idx) => {
       const isInitialOpen = idx === 0;
-      const subitemsRows = ch.subitems.map(sub => `
-        <div class="toc-subitem-row" data-chap="${ch.chapId}" data-page="${sub.pageInChap}" style="display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; cursor: pointer; transition: color 0.15s ease;">
-          <span style="display: flex; align-items: baseline; gap: 12px; flex: 1; padding-right: 12px;">
-            <span style="font-family: var(--sans); font-size: 12px; color: rgba(235, 226, 214, 0.45); font-weight: 500; width: 20px; flex-shrink: 0;">${sub.subNum}</span>
-            <span class="sub-title-text" style="font-family: var(--serif); font-size: 14.5px; color: #EDE4D8; line-height: 1.35;">${sub.title}</span>
-          </span>
-          <span style="font-family: var(--sans); font-size: 12px; color: rgba(235, 226, 214, 0.45); font-weight: 400; flex-shrink: 0;">${sub.page}</span>
-        </div>
-      `).join("");
+      const chapPages = PAGES.filter(p => p.chapterId === ch.id);
+
+      // Select key milestone sub-pages for clean display
+      const milestoneIndices = [0, 3, 7, 12].filter(i => i < chapPages.length);
+      const subitemsRows = milestoneIndices.map((pIdx, sIdx) => {
+        const p = chapPages[pIdx];
+        const subNumStr = (sIdx + 1) < 10 ? `0${sIdx + 1}` : `${sIdx + 1}`;
+        const globalPageStr = p.globalPage < 10 ? `0${p.globalPage}` : `${p.globalPage}`;
+        // Clean single line title
+        const cleanTitle = p.title.replace(/\n/g, " ");
+
+        return `
+          <div class="toc-subitem-row" data-chap="${ch.id}" data-page="${p.pageInChap}" style="display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; cursor: pointer; transition: color 0.15s ease;">
+            <span style="display: flex; align-items: baseline; gap: 12px; flex: 1; padding-right: 12px;">
+              <span style="font-family: var(--sans); font-size: 12px; color: rgba(235, 226, 214, 0.45); font-weight: 500; width: 20px; flex-shrink: 0;">${subNumStr}</span>
+              <span class="sub-title-text" style="font-family: var(--serif); font-size: 14.5px; color: #EDE4D8; line-height: 1.35;">${cleanTitle}</span>
+            </span>
+            <span style="font-family: var(--sans); font-size: 12px; color: rgba(235, 226, 214, 0.45); font-weight: 400; flex-shrink: 0;">${globalPageStr}</span>
+          </div>
+        `;
+      }).join("");
+
+      const startStr = ch.pageStart < 10 ? `0${ch.pageStart}` : `${ch.pageStart}`;
 
       return `
         <div class="toc-accordion-block ${isInitialOpen ? 'open' : ''}" style="border-bottom: 1px solid rgba(235, 226, 214, 0.08); padding: 18px 0;">
@@ -102,7 +55,7 @@ export class TocScreen {
             </div>
 
             <div style="display: flex; align-items: center; gap: 12px; padding-top: 4px;">
-              <span class="toc-page-badge" style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.45); ${isInitialOpen ? 'display: none;' : ''}">${ch.pageStart}</span>
+              <span class="toc-page-badge" style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.45); ${isInitialOpen ? 'display: none;' : ''}">${startStr}</span>
               <span class="toc-chevron" style="font-size: 13px; color: rgba(235, 226, 214, 0.7); transition: transform 0.25s ease; line-height: 1;">${isInitialOpen ? '⌃' : '⌄'}</span>
             </div>
           </div>
@@ -169,7 +122,7 @@ export class TocScreen {
       });
     });
 
-    // Subitem Click Navigation
+    // Subitem Click Navigation: Guarantee accurate chap and page
     this.el.querySelectorAll(".toc-subitem-row").forEach(row => {
       row.addEventListener("click", (e) => {
         e.stopPropagation();

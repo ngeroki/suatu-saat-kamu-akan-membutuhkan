@@ -1,10 +1,20 @@
 /**
- * SUATU SAAT v2 — Complete 74-Page Curated Dataset
- * Source of Truth: R:\flip-book\naskah-buku\
- * Strictly formatted for mobile dual-spread reading without text overflow!
+ * SUATU SAAT v2 — Canonical Single Source of Truth
+ * Contains all 5 Chapters and 74 Sequential Pages
  */
 
-export interface SpreadPage {
+export interface Chapter {
+  id: number;
+  num: string;
+  title: string;
+  subtitle: string;
+  tags: string[];
+  image: string;
+  pageStart: number;
+  pageCount: number;
+}
+
+export interface Page {
   globalPage: number;
   chapterId: number;
   chapterNum: string;
@@ -18,7 +28,80 @@ export interface SpreadPage {
   quote: string;
 }
 
-export const BOOK_SPREAD_PAGES: SpreadPage[] = [
+export const CHAPTERS: Chapter[] = [
+  {
+    "id": 1,
+    "num": "01",
+    "title": "Anatomi Tubuh Energi\n& Memori Karma",
+    "subtitle": "Medan Torus, Black Box Tulang Ekor & Kosmologi Kesadaran",
+    "tags": [
+      "Medan Torus",
+      "Memori Karma",
+      "Cairan CSF"
+    ],
+    "image": "assets/bab_01_torus.jpg",
+    "pageStart": 1,
+    "pageCount": 15
+  },
+  {
+    "id": 2,
+    "num": "02",
+    "title": "Meretas Pikiran\nBawah Sadar\n& Reprogramming Nasib",
+    "subtitle": "Zona Theta, Critical Faculty & Jeda 3 Detik",
+    "tags": [
+      "Zona Theta",
+      "Critical Faculty",
+      "Jeda 3 Detik"
+    ],
+    "image": "assets/bab_02_theta.jpg",
+    "pageStart": 16,
+    "pageCount": 15
+  },
+  {
+    "id": 3,
+    "num": "03",
+    "title": "Sistem Hormon,\nBiohacking Leluhur",
+    "subtitle": "Dopamin, Ritme Sirkadian & Puasa Weton",
+    "tags": [
+      "Dopamin",
+      "Ritme Sirkadian",
+      "Puasa Weton"
+    ],
+    "image": "assets/bab_03_biohack.jpg",
+    "pageStart": 31,
+    "pageCount": 15
+  },
+  {
+    "id": 4,
+    "num": "04",
+    "title": "Fisika Kuantum,\nRelativitas &\nKeterhubungan",
+    "subtitle": "Quantum Entanglement & Titik Nol (Suwung)",
+    "tags": [
+      "Keterhubungan",
+      "Relativitas",
+      "Titik Nol"
+    ],
+    "image": "assets/bab_04_kuantum.jpg",
+    "pageStart": 46,
+    "pageCount": 14
+  },
+  {
+    "id": 5,
+    "num": "05",
+    "title": "Menjadi Manusia\nNormal & Seni\nBerserah",
+    "subtitle": "Anti Spiritual Bypass & Ketenangan Batin",
+    "tags": [
+      "Anti Spiritual Bypass",
+      "Dunia Fisik",
+      "Titik Nol"
+    ],
+    "image": "assets/bab_05_berserah.jpg",
+    "pageStart": 60,
+    "pageCount": 15
+  }
+];
+
+export const PAGES: Page[] = [
   {
     "globalPage": 1,
     "chapterId": 1,
@@ -1131,14 +1214,18 @@ export const BOOK_SPREAD_PAGES: SpreadPage[] = [
   }
 ];
 
-export function getSpreadPage(chapId: number, pageInChap: number): SpreadPage {
-  const found = BOOK_SPREAD_PAGES.find(p => p.chapterId === chapId && p.pageInChap === pageInChap);
-  if (found) return found;
-  const closest = BOOK_SPREAD_PAGES.find(p => p.chapterId === chapId);
-  return closest || BOOK_SPREAD_PAGES[0];
+export function getChapter(id: number): Chapter {
+  return CHAPTERS.find(c => c.id === id) || CHAPTERS[0];
 }
 
-export function getSpreadPageByGlobal(globalPage: number): SpreadPage {
-  const found = BOOK_SPREAD_PAGES.find(p => p.globalPage === globalPage);
-  return found || BOOK_SPREAD_PAGES[0];
+export function getPage(chapId: number, pageInChap: number): Page {
+  const found = PAGES.find(p => p.chapterId === chapId && p.pageInChap === pageInChap);
+  if (found) return found;
+  const closest = PAGES.find(p => p.chapterId === chapId);
+  return closest || PAGES[0];
+}
+
+export function getPageByGlobal(globalPage: number): Page {
+  const found = PAGES.find(p => p.globalPage === globalPage);
+  return found || PAGES[0];
 }

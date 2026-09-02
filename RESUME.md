@@ -1,17 +1,17 @@
 ﻿# PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-03T01:27:30+07:00
+Last Updated: 2026-09-03T01:45:20+07:00
 
 ## Quick Status
-- Server: Detached Node.js HTTP server running on http://localhost:4173 (PID in server.pid).
-- Mode: Single Page App (Vite + TypeScript) with 100% Mockup Aligned UI.
+- Server: Running on http://localhost:4173 (PID: 20832).
+- Verification: Tested with Playwright across landmark pages (Bab 1 Page 1 & 2, Bab 2 Page 7, Bab 3 Page 1, Bab 5 Page 15).
+- Zero overflow: `scrollHeight === clientHeight` (520px/520px).
 - Structure:
-  - Screen 1 (Cover): Master artwork hero (centered 3D book on mountain rock), Cormorant Garamond display typography, warm sand CTA.
-  - Screen 2 (Daftar Bab): 5 cards with large numerals (01-05), titles, 3 teaser bullets, illustrations fading left-to-dark, circle arrow buttons.
-  - Screen 3 (Daftar Isi): Dropdown accordion per bab, showing page numbers and clickable sub-sections.
-  - Screen 4 (Spread Reader): Authentic physical book spread filling 80% screen height, 74 sequential pages mapped from manuscript, 74 unique page illustrations, 3D curl paper flip physics (MLBB style), and multi-layer procedural paper rustle audio.
-
-## Key Files
-- `src/screens/reader/reader.ts`: 3D physics page curl reader engine with sequential navigation.
-- `src/data/spread-pages.ts`: Complete 74-page dataset strictly structured per chapter.
-- `src/lib/audio.ts`: Procedural multi-layer paper turn audio synthesizer.
-- `public/assets/pages/`: 74 dedicated art plates for every single page.
+  - 5 Chapters strictly mapped:
+    - Bab 01: 15 pages (Halaman 01..15)
+    - Bab 02: 15 pages (Halaman 01..15)
+    - Bab 03: 15 pages (Halaman 01..15)
+    - Bab 04: 14 pages (Halaman 01..14)
+    - Bab 05 & Penutup: 15 pages (Halaman 01..15)
+    - Total: 74 authentic sequential pages from manuscript!
+  - Text density curated: 45-60 words per page (generous breathing room, authentic editorial design, zero clipping of watermark or text).
+  - Landmark Bab 02 Page 07 verified 1:1 against user's mockup `media_1788368709063.png`.

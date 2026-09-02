@@ -1,4 +1,4 @@
-import http from 'node:http';
+﻿import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -41,7 +41,13 @@ const server = http.createServer((req, res) => {
       res.end('500 Internal Server Error');
       console.log(`[${time}] 500 ${req.method} ${req.url}`);
     } else {
-      res.writeHead(200, { 'Content-Type': contentType });
+      // Prevent aggressive browser caching during development
+      res.writeHead(200, {
+        'Content-Type': contentType,
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+      });
       res.end(data);
       console.log(`[${time}] 200 ${req.method} ${req.url}`);
     }
@@ -52,5 +58,4 @@ server.listen(PORT, '0.0.0.0', () => {
   console.log(`[${new Date().toISOString()}] SUATU SAAT v2 Server ONLINE on http://localhost:${PORT}`);
 });
 
-// Keep process alive explicitly
 setInterval(() => {}, 3600000);

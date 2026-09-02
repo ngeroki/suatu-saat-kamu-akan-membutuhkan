@@ -1,45 +1,9 @@
 ﻿/**
- * SUATU SAAT v2 — Screen 2: Daftar Bab (100% Mockup Aligned)
+ * SUATU SAAT v2 — Screen 2: Daftar Bab
+ * Powered by Single Source of Truth (src/data/book.ts)
  */
+import { CHAPTERS } from "../data/book";
 import { navigate } from "../router";
-
-const BAB_CARDS_DATA = [
-  {
-    id: 1,
-    num: "01",
-    title: "Anatomi Tubuh Energi\n& Memori Karma",
-    tags: ["Medan Torus", "Memori Karma", "Cairan CSF"],
-    image: "assets/bab_01_torus.jpg",
-  },
-  {
-    id: 2,
-    num: "02",
-    title: "Meretas Pikiran\nBawah Sadar\n& Reprogramming Nasib",
-    tags: ["Zona Theta", "Critical Faculty", "Jeda 3 Detik"],
-    image: "assets/bab_02_theta.jpg",
-  },
-  {
-    id: 3,
-    num: "03",
-    title: "Sistem Hormon,\nBiohacking Leluhur",
-    tags: ["Dopamin", "Ritme Sirkadian", "Puasa Weton"],
-    image: "assets/bab_03_biohack.jpg",
-  },
-  {
-    id: 4,
-    num: "04",
-    title: "Fisika Kuantum,\nRelativitas &\nKeterhubungan",
-    tags: ["Keterhubungan", "Relativitas", "Titik Nol"],
-    image: "assets/bab_04_kuantum.jpg",
-  },
-  {
-    id: 5,
-    num: "05",
-    title: "Menjadi Manusia\nNormal & Seni\nBerserah",
-    tags: ["Anti Spiritual Bypass", "Dunia Fisik", "Titik Nol"],
-    image: "assets/bab_05_berserah.jpg",
-  },
-];
 
 export class BabListScreen {
   private el: HTMLElement;
@@ -50,7 +14,7 @@ export class BabListScreen {
     this.el.id = "screen-bab";
     this.el.style.background = "#0A0A08";
 
-    const cardsHTML = BAB_CARDS_DATA.map(ch => {
+    const cardsHTML = CHAPTERS.map(ch => {
       const bulletsHTML = ch.tags.map(tag => `<div style="margin-bottom: 2px;">• ${tag}</div>`).join("");
       return `
         <div class="bab-card-exact" data-chap="${ch.id}" style="position: relative; height: 168px; border-radius: 14px; overflow: hidden; cursor: pointer; background: #121210; border: 1px solid rgba(235, 226, 214, 0.1); display: flex; justify-content: space-between; align-items: center; transition: transform 0.2s ease, border-color 0.2s ease; flex-shrink: 0;">
