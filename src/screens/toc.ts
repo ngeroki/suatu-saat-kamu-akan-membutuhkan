@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SUATU SAAT v2 — Screen 3: Daftar Isi / TOC
  * Backed by 187 Unabridged Pages from Single Source of Truth (src/data/book.ts)
  */
@@ -27,7 +27,7 @@ export class TocScreen {
         }
       }
 
-      const subitems = Array.from(subchaptersMap.entries()).slice(0, 5);
+      const subitems = Array.from(subchaptersMap.entries());
       const subitemsRows = subitems.map(([subTitle, pageInChap], sIdx) => {
         const subNumStr = (sIdx + 1) < 10 ? `0${sIdx + 1}` : `${sIdx + 1}`;
         const targetPage = chapPages.find(p => p.page_in_chap === pageInChap);
@@ -87,7 +87,7 @@ export class TocScreen {
 
         <!-- Total Page Counter -->
         <div style="text-align: left; font-family: var(--sans); font-size: 11px; color: rgba(235, 226, 214, 0.45); padding: 24px 0 32px; letter-spacing: 0.3px;">
-          Total 187 Halaman Lengkap · 22.786 Kata Naskah Asli
+          Total ${PAGES.length} Halaman Lengkap · 5 Bab Nusantara
         </div>
       </div>
     `;

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SUATU SAAT v2 — Canonical Book Data Layer
  * Backed by 389 mathematically verified unabridged pages from R:\flip-book\naskah-buku
  */
@@ -12,8 +12,8 @@ export interface VisualContinuityContext {
 }
 
 export interface Page {
-  start_char: number;
-  end_char: number;
+  start_char?: number;
+  end_char?: number;
   text: string;
   word_count: number;
   chapter_id: number;
@@ -25,9 +25,16 @@ export interface Page {
   page_number: number;
   previous_page: number | null;
   next_page: number | null;
-  illustration_prompt: string;
-  illustration_description: string;
-  visual_continuity_context: VisualContinuityContext;
+  badge: string;
+  title: string;
+  subtitle?: string;
+  paragraphs: string[];
+  illustration_prompt?: string;
+  illustration_description?: string;
+  imageCaption?: string;
+  keyTakeaway?: string;
+  thumbnail?: string;
+  visual_continuity_context?: VisualContinuityContext;
   image_path: string;
 }
 
@@ -42,28 +49,18 @@ export interface ChapterMeta {
   pageCount: number;
 }
 
-export const PAGES: Page[] = pagesData as Page[];
+export const PAGES: Page[] = pagesData as unknown as Page[];
 
 export const CHAPTERS: ChapterMeta[] = [
-  {
-    id: 0,
-    code: "PROLOG",
-    title: "Prolog: Kata Pengantar",
-    subtitle: "Obrolan di Pinggir Jalan, Bukan di Atas Panggung",
-    tags: ["Obrolan Pinggir Jalan", "Rahwana Consciousness", "Kopi Tubruk"],
-    image: "assets/hero_bg.jpg",
-    pageStart: 1,
-    pageCount: 18,
-  },
   {
     id: 1,
     code: "BAB 01",
     title: "Anatomi Tubuh Energi\n& Memori Karma",
     subtitle: "Medan Torus, Black Box Tulang Ekor & Kosmologi Kesadaran",
     tags: ["Medan Torus", "Memori Karma", "Cairan CSF"],
-    image: "assets/bab_01_torus.jpg",
-    pageStart: 19,
-    pageCount: 41,
+    image: "/slides/bab-01/slide-1.png",
+    pageStart: 1,
+    pageCount: 15,
   },
   {
     id: 2,
@@ -71,9 +68,9 @@ export const CHAPTERS: ChapterMeta[] = [
     title: "Meretas Pikiran\nBawah Sadar\n& Reprogramming Nasib",
     subtitle: "Zona Theta, Critical Faculty & Jeda 3 Detik",
     tags: ["Zona Theta", "Critical Faculty", "Jeda 3 Detik"],
-    image: "assets/bab_02_theta.jpg",
-    pageStart: 60,
-    pageCount: 76,
+    image: "/slides/bab-02/slide-1.png",
+    pageStart: 16,
+    pageCount: 15,
   },
   {
     id: 3,
@@ -81,9 +78,9 @@ export const CHAPTERS: ChapterMeta[] = [
     title: "Sistem Hormon,\nBiohacking Leluhur",
     subtitle: "Dopamin, Ritme Sirkadian & Puasa Weton",
     tags: ["Dopamin", "Ritme Sirkadian", "Puasa Weton"],
-    image: "assets/bab_03_biohack.jpg",
-    pageStart: 136,
-    pageCount: 94,
+    image: "/slides/bab-03/slide-1.png",
+    pageStart: 31,
+    pageCount: 15,
   },
   {
     id: 4,
@@ -91,9 +88,9 @@ export const CHAPTERS: ChapterMeta[] = [
     title: "Fisika Kuantum,\nRelativitas &\nKeterhubungan",
     subtitle: "Quantum Entanglement & Titik Nol (Suwung)",
     tags: ["Keterhubungan", "Relativitas", "Titik Nol"],
-    image: "assets/bab_04_kuantum.jpg",
-    pageStart: 230,
-    pageCount: 76,
+    image: "/slides/bab-04/slide-1.png",
+    pageStart: 46,
+    pageCount: 14,
   },
   {
     id: 5,
@@ -101,19 +98,9 @@ export const CHAPTERS: ChapterMeta[] = [
     title: "Menjadi Manusia\nNormal & Seni\nBerserah",
     subtitle: "Anti Spiritual Bypass & Ketenangan Batin",
     tags: ["Anti Spiritual Bypass", "Dunia Fisik", "Titik Nol"],
-    image: "assets/bab_05_berserah.jpg",
-    pageStart: 306,
-    pageCount: 64,
-  },
-  {
-    id: 6,
-    code: "EPILOG",
-    title: "Epilog: Catatan Penutup",
-    subtitle: "Menjadi Manusia yang Utuh — Aldi",
-    tags: ["Catatan Penutup", "Pulang ke Diri", "Hening"],
-    image: "assets/closing_landscape.jpg",
-    pageStart: 370,
-    pageCount: 20,
+    image: "/slides/bab-05/slide-1.png",
+    pageStart: 60,
+    pageCount: 15,
   }
 ];
 

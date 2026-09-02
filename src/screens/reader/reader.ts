@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SUATU SAAT v2 — Screen 4: 100% Mockup Aligned Physical Book Spread Reader
  * Backed by 389 Unabridged Manuscript Pages
  */
@@ -397,41 +397,88 @@ export class ReaderScreen {
     if (this.isImmersive) {
       this.bookSpreadEl.innerHTML = `
         <div style="width: 100%; height: 100%; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8);">
-          <img src="${page.image_path}" alt="${page.subchapter_name}" style="width: 100%; height: 100%; object-fit: cover;">
-          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(10,10,8,0.85) 100%);"></div>
+          <img src="${page.image_path}" alt="${page.title}" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(10,10,8,0.9) 100%);"></div>
           <div style="position: absolute; bottom: 24px; left: 24px; right: 24px;">
-            <div style="font-family: var(--serif); font-size: 20px; color: #FFFFFF; font-style: italic; line-height: 1.4; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
-              "${page.subchapter_name}"
+            <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 2px; color: #C5A059; text-transform: uppercase; margin-bottom: 6px;">
+              ${page.badge}
             </div>
-            <div style="font-family: var(--sans); font-size: 11px; letter-spacing: 1.5px; color: rgba(235, 226, 214, 0.7); text-transform: uppercase; margin-top: 10px;">
-              ${page.chapter_name} · HAL ${pStr} / ${totStr} (TOTAL: ${page.page_number}/389)
+            <div style="font-family: var(--serif); font-size: 20px; color: #FFFFFF; font-style: italic; line-height: 1.35; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
+              "${page.title}"
+            </div>
+            ${page.subtitle ? `
+              <div style="font-family: var(--serif); font-size: 13px; color: rgba(235, 226, 214, 0.85); font-style: italic; margin-top: 4px; line-height: 1.35;">
+                ${page.subtitle}
+              </div>
+            ` : ''}
+            <div style="font-family: var(--sans); font-size: 10.5px; letter-spacing: 1.5px; color: rgba(235, 226, 214, 0.65); text-transform: uppercase; margin-top: 10px;">
+              ${page.chapter_name} · HAL ${pStr} / ${totStr} (TOTAL: ${page.page_number} / ${PAGES.length})
             </div>
           </div>
         </div>
       `;
     } else {
-      const formattedHTML = formatMarkdownToHTML(page.text);
+      const pSize = this.isLargeText ? '13px' : '11.5px';
+      const parasHTML = page.paragraphs.map((p, pIdx) => {
+        const isQuote = p.startsWith('"') || p.startsWith('“');
+        if (isQuote) {
+          return `<blockquote style="border-left: 2px solid #8F7645; padding-left: 8px; margin: 6px 0; font-family: var(--serif); font-style: italic; font-size: ${pSize}; color: #3E352B; line-height: 1.45;">${p}</blockquote>`;
+        }
+        if (pIdx === 0 && p.length > 20 && !isQuote) {
+          const firstLetter = p.charAt(0);
+          const rest = p.slice(1);
+          return `<p style="margin-bottom: 6px; font-family: var(--serif); font-size: ${pSize}; line-height: 1.45; color: #2C2822; text-align: justify;"><span style="float: left; font-size: 26px; line-height: 0.85; font-weight: 600; color: #7A6045; margin-right: 4px; padding-top: 2px;">${firstLetter}</span>${rest}</p>`;
+        }
+        return `<p style="margin-bottom: 6px; font-family: var(--serif); font-size: ${pSize}; line-height: 1.45; color: #2C2822; text-align: justify;">${p}</p>`;
+      }).join("");
+
+      const takeawayHTML = page.keyTakeaway ? `
+        <div style="background: rgba(197, 160, 89, 0.12); border-left: 2px solid #8F7645; border-radius: 3px; padding: 6px 8px; margin-top: 8px; flex-shrink: 0;">
+          <div style="font-family: var(--sans); font-size: 8px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #7A6045; margin-bottom: 2px;">Intisari Kesadaran</div>
+          <div style="font-family: var(--serif); font-size: ${this.isLargeText ? '11.5px' : '10.5px'}; font-style: italic; color: #3A3228; line-height: 1.35;">"${page.keyTakeaway}"</div>
+        </div>
+      ` : "";
 
       this.bookSpreadEl.innerHTML = `
         <div class="physical-book-spread" style="display: flex; width: 100%; height: 100%; max-height: 520px; border-radius: 6px; overflow: visible; box-shadow: -10px 25px 60px -10px rgba(0,0,0,0.85), 10px 25px 60px -10px rgba(0,0,0,0.85); position: relative;">
           <!-- LEFT PAGE: Bone Paper Typography with Page Stack Edge -->
-          <div class="spread-page-left" style="flex: 1; background: #E4DAD0; color: #161513; padding: 22px 16px 16px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: inset -18px 0 25px -10px rgba(0,0,0,0.25); border-left: 2px solid #C4B9A7; border-top-left-radius: 5px; border-bottom-left-radius: 5px; overflow: hidden;">
+          <div class="spread-page-left" style="flex: 1; background: #E4DAD0; color: #161513; padding: 18px 16px 14px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: inset -18px 0 25px -10px rgba(0,0,0,0.25); border-left: 2px solid #C4B9A7; border-top-left-radius: 5px; border-bottom-left-radius: 5px; overflow: hidden;">
             <div style="flex: 1; overflow-y: auto; padding-right: 2px;" class="page-text-content">
-              <!-- Big Page Number -->
-              <div style="font-family: var(--serif); font-size: 32px; font-weight: 400; color: #161513; line-height: 1; margin-bottom: 8px;">
-                ${pStr}
+              <!-- Top Header: Badge and Page Number -->
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid rgba(122,96,69,0.18); padding-bottom: 4px;">
+                <span style="font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase;">
+                  ${page.badge}
+                </span>
+                <span style="font-family: var(--serif); font-size: 22px; font-weight: 400; color: #161513; line-height: 1;">
+                  ${pStr}
+                </span>
               </div>
 
-              <!-- Unabridged Manuscript Body -->
-              <div style="font-family: var(--serif); color: #2C2822;">
-                ${formattedHTML}
+              <!-- Page Title -->
+              <h2 style="font-family: var(--serif); font-size: ${this.isLargeText ? '16px' : '14.5px'}; font-weight: 600; color: #161513; line-height: 1.25; margin: 4px 0 2px 0;">
+                ${page.title}
+              </h2>
+
+              <!-- Subtitle if exists -->
+              ${page.subtitle ? `
+                <div style="font-family: var(--serif); font-size: ${this.isLargeText ? '12px' : '11px'}; font-style: italic; color: #5C4B37; line-height: 1.35; margin-bottom: 6px;">
+                  ${page.subtitle}
+                </div>
+              ` : ''}
+
+              <!-- Narrative Body -->
+              <div style="font-family: var(--serif); color: #2C2822; margin-top: 4px;">
+                ${parasHTML}
               </div>
+
+              <!-- Key Takeaway -->
+              ${takeawayHTML}
             </div>
 
             <!-- Brand Footer -->
-            <div style="font-family: var(--sans); font-size: 9px; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase; font-weight: 500; padding-top: 8px; border-top: 1px solid rgba(122,96,69,0.15); margin-top: 6px; flex-shrink: 0; display: flex; justify-content: space-between;">
+            <div style="font-family: var(--sans); font-size: 8.5px; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase; font-weight: 500; padding-top: 6px; border-top: 1px solid rgba(122,96,69,0.15); margin-top: 4px; flex-shrink: 0; display: flex; justify-content: space-between;">
               <span>SUATU SAAT</span>
-              <span style="letter-spacing: 0.5px; opacity: 0.7;">HAL ${page.page_number} / 389</span>
+              <span style="letter-spacing: 0.5px; opacity: 0.7;">HAL ${page.page_number} / ${PAGES.length}</span>
             </div>
           </div>
 
@@ -440,17 +487,22 @@ export class ReaderScreen {
 
           <!-- RIGHT PAGE: Dedicated Unique Artwork + Context Overlay -->
           <div class="spread-page-right" style="flex: 1; position: relative; overflow: hidden; background: #0F0E0C; box-shadow: inset 18px 0 25px -10px rgba(0,0,0,0.38); border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-            <img src="${page.image_path}" alt="${page.subchapter_name}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.85) 100%);"></div>
+            <img src="${page.image_path}" alt="${page.title}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.85) 100%);"></div>
 
             <!-- Bottom Context Overlay -->
-            <div style="position: absolute; bottom: 20px; left: 16px; right: 16px; z-index: 3;">
-              <div style="font-family: var(--sans); font-size: 8.5px; letter-spacing: 1.5px; color: #CDB397; text-transform: uppercase; margin-bottom: 4px;">
+            <div style="position: absolute; bottom: 16px; left: 14px; right: 14px; z-index: 3;">
+              <div style="font-family: var(--sans); font-size: 8.5px; letter-spacing: 1.5px; color: #CDB397; text-transform: uppercase; margin-bottom: 2px;">
                 ${page.chapter_code} · HALAMAN ${pStr}
               </div>
-              <div style="font-family: var(--serif); font-size: 13px; font-style: italic; line-height: 1.4; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
-                "${page.subchapter_name}"
+              <div style="font-family: var(--serif); font-size: 12.5px; font-style: italic; line-height: 1.35; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
+                "${page.title}"
               </div>
+              ${page.imageCaption ? `
+                <div style="font-family: var(--sans); font-size: 8.5px; color: rgba(235, 226, 214, 0.75); font-style: italic; margin-top: 3px; line-height: 1.3; text-shadow: 0 1px 4px rgba(0,0,0,0.9);">
+                  ${page.imageCaption}
+                </div>
+              ` : ''}
             </div>
           </div>
         </div>
