@@ -1,34 +1,31 @@
 # PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-04T05:30:00+07:00
+Last Updated: 2026-09-04T05:33:00+07:00
 Git Branch: master
 Latest Commit: 0630038 ([AG] style: update homepage cover text with Yogyakarta, remove button arrow, and add subtle text shadow)
 
 ## Quick Status
 - Server: Running on http://localhost:4173 (Node static server serving dist/).
-- Build Status: Passing 100% (tsc --noEmit & vite build 0 errors).
+- Build Status: Passing 100% (tsc --noEmit & vite build 0 errors in 293ms).
 - Validation Suite: 5/5 Automated checks passed (validate_book.py).
 - E2E Tests: 7/7 End-to-end user flows passed (test_e2e_prolog_epilog.py).
 
 ## Work Completed in Session
-1. **Homepage Cover Typography & Button Polish**:
+1. **Dedicated Prolog & Epilog Hybrid Screens (`src/screens/prolog.ts`, `src/screens/epilog.ts`)**:
+   - Implemented authentic photographic artwork (night warkop underbridge & family dinner at sunset).
+   - Clean 1-screen editorial layout with centered literary pull-quote (no SaaS boxes), Cinzel headline, hairline divider, and drop cap.
+2. **End-to-End Reading Flow**:
+   - Cover -> Prolog -> Bab 1..5 (Hal 1..74) -> Epilog -> Cover.
+   - Dedicated Prolog & Epilog cards added to Daftar Isi accordion list.
+3. **Homepage Cover Polish**:
    - Replaced top kicker with "YOGYAKARTA · 2026".
    - Removed arrow from "Buka Buku" button.
-   - Added delicate, multi-layered text shadows to all cover typography for enhanced depth and readability against the sky background.
-   - Preserved downward arrow (`↓`) centered beneath "Lihat Daftar Isi".
-2. **End-to-End Reading Flow Integration**:
-   - Cover (`#/`): "Buka Buku →" navigates straight to Prolog (`#/prolog`).
-   - Reader (`#/read/1/1`): Left chevron returns to Prolog (`#/prolog`).
-   - Reader (`#/read/5/15`): Right chevron forwards to Epilog (`#/epilog`).
-   - Epilog (`#/epilog`): "Selesai Membaca ✦" returns to Cover (`#/`).
-   - Daftar Isi (`#/bab`): Added Prolog card at top and Epilog card at bottom, updated bottom CTA to "Mulai Membaca dari Prolog →".
-3. **Paper Audio Transitions**:
-   - Integrated `playPageTurn()` on Prolog and Epilog navigations.
+   - Added subtle layered text shadows to all typography for high contrast over the sky background.
+   - Positioned "Lihat Daftar Isi" with downward arrow (`↓`) centered vertically underneath.
 
 ## Current State
-- Full reading cycle tested and verified via Playwright on 390x844 mobile viewport.
-- Working tree clean, 0 lint/compile errors.
+- All automated checks and headless browser flows pass.
+- Clean working tree, production bundle built and live on port 4173.
 
 ## Immediate Next Actions
-1. Test and verify live experience on http://localhost:4173/#/prolog and http://localhost:4173/#/epilog.
-2. Review remaining chapters (Bab 2-5) for any further user polish requests.
-3. Test touch interactions on physical mobile device.
+1. Lakukan review visual menyeluruh untuk bab-bab berikutnya (Bab 2-5) di smartphone fisik.
+2. Cek apakah ada naskah atau takarir bab yang perlu dipoles lebih lanjut.
