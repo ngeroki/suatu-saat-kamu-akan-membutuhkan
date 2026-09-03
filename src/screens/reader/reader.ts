@@ -1,169 +1,50 @@
 /**
- * SUATU SAAT v2 — Screen 4: 100% Mockup Aligned Physical Book Spread Reader
- * Backed by 389 Unabridged Manuscript Pages
+ * SUATU SAAT v2 — Flipbook Reader with Peek Drawer (Bottom Sheet)
+ * Mobile (<= 480px, Target: 390px): 9:16 Portrait Hero Poster + Warm Bone Paper Editorial Peek Drawer
+ * Desktop (> 480px): Open-Book Two-Page Physical Spread
  */
-import { PAGES, Page, CHAPTERS } from "../../data/book";
+import { PAGES, Page } from "../../data/book";
 import { navigate, Route } from "../../router";
 import { playPaperRustle } from "../../lib/audio";
 import { attachGestures, attachKeyboardNav } from "../../lib/gestures";
 
-function formatMarkdownToHTML(md: string): string {
-  const blocks = md.split(/\n\n+/);
-  return blocks.map(b => {
-    const trimmed = b.trim();
-    if (!trimmed) return "";
-    if (trimmed.startsWith("### ")) {
-      return `<h3 style="font-family: var(--serif); font-size: 15px; font-weight: 500; color: #161513; margin: 8px 0 4px; line-height: 1.2;">${trimmed.replace(/^###\s+/, "")}</h3>`;
-    }
-    if (trimmed.startsWith("## ")) {
-      return `<h2 style="font-family: var(--serif); font-size: 16.5px; font-weight: 500; color: #161513; margin: 10px 0 6px; line-height: 1.2;">${trimmed.replace(/^##\s+/, "")}</h2>`;
-    }
-    if (trimmed.startsWith("# ")) {
-      return `<h1 style="font-family: var(--serif); font-size: 18px; font-weight: 500; color: #161513; margin: 12px 0 6px; line-height: 1.2;">${trimmed.replace(/^#\s+/, "")}</h1>`;
-    }
-    if (trimmed.startsWith(">")) {
-      const quoteText = trimmed.replace(/^>\s*/gm, "").replace(/[\*\_]/g, "");
-      return `<blockquote style="border-left: 2px solid #7A6045; padding-left: 8px; margin: 6px 0; font-family: var(--serif); font-style: italic; font-size: 12px; color: #4A3E30; line-height: 1.4;">${quoteText}</blockquote>`;
-    }
-    if (trimmed.startsWith("---")) {
-      return `<hr style="border: none; border-top: 1px solid rgba(122,96,69,0.2); margin: 8px 0;">`;
-    }
-    const formatted = trimmed
-      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-      .replace(/\*([^*]+)\*/g, "<em>$1</em>");
-    return `<p style="margin-bottom: 6px; font-family: var(--serif); font-size: 12.5px; line-height: 1.45; color: #2C2822;">${formatted}</p>`;
-  }).join("");
-}
-
 export class ReaderScreen {
   private el: HTMLElement;
-  private currentGlobalIndex = 0; // 0..388
-  private isImmersive = false;
-  private isLargeText = false;
+  private currentGlobalIndex = 0; // 0..73
+  private drawerExpanded = false;
+  private bookmarkedPages: Set<number> = new Set();
   private isFlipping = false;
-
-  private topBarEl!: HTMLElement;
-  private bookSpreadEl!: HTMLElement;
-  private dotEl!: HTMLElement;
-  private prevBtn!: HTMLElement;
-  private nextBtn!: HTMLElement;
-  private chapBadgeEl!: HTMLElement;
-  private pageCounterEl!: HTMLElement;
 
   constructor(container: HTMLElement) {
     this.el = document.createElement("div");
     this.el.className = "screen";
     this.el.id = "screen-reader";
-    this.el.style.background = "#0A0A08";
+    this.el.style.width = "100%";
+    this.el.style.height = "100%";
+    this.el.style.overflow = "hidden";
     this.el.style.display = "flex";
     this.el.style.flexDirection = "column";
-    this.el.style.justifyContent = "space-between";
-    this.el.style.padding = "0 0 8px 0";
-
-    this.el.innerHTML = `
-      <!-- 1. Top Header Bar -->
-      <div class="ph-header" style="padding: 16px 20px 8px; max-width: 480px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
-        <div class="back-btn" id="reader-back-btn" style="cursor: pointer; font-family: var(--sans); font-size: 12.5px; color: rgba(235, 226, 214, 0.7); display: flex; align-items: center; gap: 6px; letter-spacing: 0.2px;">
-          <span style="font-size: 15px;">←</span>
-          <span>Kembali ke Bab</span>
-        </div>
-        <div id="reader-chap-badge" style="font-family: var(--sans); font-size: 13.5px; letter-spacing: 1.5px; color: #EDE4D8; font-weight: 500; text-transform: uppercase;">
-          BAB 01
-        </div>
-        <div id="reader-page-counter" style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.7); letter-spacing: 0.5px;">
-          01 / 41
-        </div>
-      </div>
-
-      <!-- 2. The Core 3D Book Spread Container -->
-      <div id="book-spread-container" style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 4px 14px 10px; max-width: 480px; width: 100%; margin: 0 auto; position: relative; perspective: 1800px;">
-        <!-- Injected dynamically -->
-      </div>
-
-      <!-- 3. Bottom Controls Area -->
-      <div style="max-width: 480px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; z-index: 10;">
-        <!-- Nav Track (Left circle, line + dot, Right circle) -->
-        <div class="nav-track-bar" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 20px 8px;">
-          <div class="nav-circle" id="nav-btn-prev" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(235, 226, 214, 0.35); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #EDE4D8; font-size: 18px; background: rgba(18,18,16,0.3); transition: background 0.2s, border-color 0.2s;">
-            ←
-          </div>
-          <div class="nav-track" id="nav-track-bar" style="flex: 1; height: 2px; background: rgba(235, 226, 214, 0.15); position: relative; border-radius: 1px; cursor: pointer;">
-            <div id="reader-nav-dot" style="position: absolute; top: 50%; left: 0%; width: 12px; height: 12px; border-radius: 50%; background: #D1B498; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(209, 180, 152, 0.6); transition: left 0.25s ease;"></div>
-          </div>
-          <div class="nav-circle" id="nav-btn-next" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(235, 226, 214, 0.35); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #EDE4D8; font-size: 18px; background: rgba(18,18,16,0.3); transition: background 0.2s, border-color 0.2s;">
-            →
-          </div>
-        </div>
-
-        <!-- 4. Tab Bar (Daftar Isi | Teks | Layar Penuh) -->
-        <div class="tab-bar" style="display: flex; justify-content: space-around; align-items: center; padding: 12px 24px 8px; border-top: 1px solid rgba(235, 226, 214, 0.1);">
-          <div class="tab-item" id="tab-btn-toc" style="display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; color: rgba(235, 226, 214, 0.7); transition: color 0.2s;">
-            <span style="font-size: 17px; line-height: 1;">☰</span>
-            <span style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.2px;">Daftar Isi</span>
-          </div>
-          <div class="tab-item" id="tab-btn-teks" style="display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; color: rgba(235, 226, 214, 0.7); transition: color 0.2s;">
-            <span style="font-family: var(--serif); font-size: 18px; font-weight: 500; line-height: 1;">Aa</span>
-            <span style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.2px;">Teks</span>
-          </div>
-          <div class="tab-item" id="tab-btn-layar" style="display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; color: rgba(235, 226, 214, 0.7); transition: color 0.2s;">
-            <span style="font-size: 16px; line-height: 1;">⛶</span>
-            <span style="font-family: var(--sans); font-size: 10px; letter-spacing: 0.2px;">Layar Penuh</span>
-          </div>
-        </div>
-      </div>
-    `;
 
     container.appendChild(this.el);
 
-    this.bookSpreadEl = this.el.querySelector("#book-spread-container") as HTMLElement;
-    this.dotEl = this.el.querySelector("#reader-nav-dot") as HTMLElement;
-    this.prevBtn = this.el.querySelector("#nav-btn-prev") as HTMLElement;
-    this.nextBtn = this.el.querySelector("#nav-btn-next") as HTMLElement;
-    this.chapBadgeEl = this.el.querySelector("#reader-chap-badge") as HTMLElement;
-    this.pageCounterEl = this.el.querySelector("#reader-page-counter") as HTMLElement;
-
-    this.el.querySelector("#reader-back-btn")?.addEventListener("click", () => navigate("bab"));
-    this.el.querySelector("#tab-btn-toc")?.addEventListener("click", () => navigate("toc"));
-    
-    this.el.querySelector("#tab-btn-teks")?.addEventListener("click", () => {
-      this.isLargeText = !this.isLargeText;
-      this.renderCurrentSpread();
+    // Gestures for swipe navigation (left / right for page turns)
+    attachGestures(this.el, {
+      onSwipeLeft: () => this.nextPage(),
+      onSwipeRight: () => this.prevPage(),
     });
 
-    this.el.querySelector("#tab-btn-layar")?.addEventListener("click", () => {
-      this.isImmersive = !this.isImmersive;
-      this.renderCurrentSpread();
-    });
+    // Keyboard navigation (arrow keys)
+    attachKeyboardNav(
+      () => this.prevPage(),
+      () => this.nextPage()
+    );
 
-    this.prevBtn.addEventListener("click", () => this.flipPrevWithCurl());
-    this.nextBtn.addEventListener("click", () => this.flipNextWithCurl());
-
-    const trackBar = this.el.querySelector("#nav-track-bar") as HTMLElement;
-    trackBar?.addEventListener("click", (e: MouseEvent) => {
-      const rect = trackBar.getBoundingClientRect();
-      const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-      const curPage = PAGES[this.currentGlobalIndex];
-      const chapPages = PAGES.filter(p => p.chapter_id === curPage.chapter_id);
-      const targetInChap = Math.round(clickRatio * (chapPages.length - 1));
-      const targetGlobal = chapPages[targetInChap].page_number - 1;
-      if (targetGlobal !== this.currentGlobalIndex) {
-        if (targetGlobal > this.currentGlobalIndex) {
-          this.flipNextWithCurl(targetGlobal);
-        } else {
-          this.flipPrevWithCurl(targetGlobal);
-        }
+    // Re-render when window is resized across breakpoints
+    window.addEventListener("resize", () => {
+      if (this.el.classList.contains("active")) {
+        this.render();
       }
     });
-
-    attachGestures(this.el, {
-      onSwipeLeft: () => this.flipNextWithCurl(),
-      onSwipeRight: () => this.flipPrevWithCurl(),
-    });
-
-    attachKeyboardNav(
-      () => this.flipPrevWithCurl(),
-      () => this.flipNextWithCurl()
-    );
   }
 
   public show(route?: Route): void {
@@ -177,336 +58,440 @@ export class ReaderScreen {
     );
 
     this.currentGlobalIndex = matchIndex >= 0 ? matchIndex : 0;
-    this.renderCurrentSpread();
+    this.drawerExpanded = false; // Reset to peek view so user sees the hero artwork first
+    this.render();
   }
 
   public hide(): void {
     this.el.classList.remove("active");
   }
 
-  private flipNextWithCurl(targetIndex?: number): void {
+  public goToPage(index: number): void {
+    if (index < 0 || index >= PAGES.length || index === this.currentGlobalIndex) return;
     if (this.isFlipping) return;
-    const nextIdx = targetIndex !== undefined ? targetIndex : this.currentGlobalIndex + 1;
-    if (nextIdx >= PAGES.length) return;
 
     this.isFlipping = true;
     playPaperRustle();
-
-    const book = this.bookSpreadEl.querySelector(".physical-book-spread") as HTMLElement;
-    if (!book) {
-      this.currentGlobalIndex = nextIdx;
-      this.renderCurrentSpread();
-      this.isFlipping = false;
-      return;
-    }
-
-    const curPage = PAGES[this.currentGlobalIndex];
-    const nextPage = PAGES[nextIdx];
-
-    const flipSheet = document.createElement("div");
-    flipSheet.className = "flipping-sheet-3d";
-    flipSheet.style.cssText = `
-      position: absolute;
-      top: 0; right: 0; bottom: 0; width: 50%;
-      transform-origin: left center;
-      transform-style: preserve-3d;
-      z-index: 20;
-      pointer-events: none;
-      transition: transform 0.52s cubic-bezier(0.25, 1, 0.35, 1);
-    `;
-
-    const frontFace = document.createElement("div");
-    frontFace.style.cssText = `
-      position: absolute; inset: 0;
-      backface-visibility: hidden;
-      overflow: hidden;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
-      box-shadow: inset 15px 0 25px -10px rgba(0,0,0,0.4);
-    `;
-    frontFace.innerHTML = `
-      <img src="${curPage.image_path}" style="width: 100%; height: 100%; object-fit: cover;">
-      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.8) 100%);"></div>
-      <div style="position: absolute; bottom: 20px; left: 16px; right: 16px;">
-        <div style="font-family: var(--serif); font-size: 13px; font-style: italic; line-height: 1.45; color: #FFFFFF;">
-          "${curPage.subchapter_name}"
-        </div>
-      </div>
-    `;
-
-    const backFace = document.createElement("div");
-    backFace.style.cssText = `
-      position: absolute; inset: 0;
-      backface-visibility: hidden;
-      transform: rotateY(180deg);
-      background: #E2D9CC;
-      box-shadow: inset -15px 0 25px -10px rgba(0,0,0,0.3);
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-    `;
-    backFace.innerHTML = `
-      <div style="opacity: 0.15; font-family: var(--serif); font-size: 26px; letter-spacing: 2px; color: #141310;">
-        SUATU SAAT
-      </div>
-    `;
-
-    flipSheet.appendChild(frontFace);
-    flipSheet.appendChild(backFace);
-    book.appendChild(flipSheet);
-
-    const rightPageEl = book.querySelector(".spread-page-right") as HTMLElement;
-    if (rightPageEl) {
-      rightPageEl.innerHTML = `
-        <img src="${nextPage.image_path}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.8) 100%);"></div>
-        <div style="position: absolute; bottom: 20px; left: 16px; right: 16px; z-index: 3;">
-          <div style="font-family: var(--serif); font-size: 13px; font-style: italic; line-height: 1.45; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
-            "${nextPage.subchapter_name}"
-          </div>
-        </div>
-      `;
-    }
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        flipSheet.style.transform = "rotateY(-180deg)";
-      });
-    });
+    this.currentGlobalIndex = index;
+    this.drawerExpanded = false; // Collapse to peek mode on new page
+    this.render();
 
     setTimeout(() => {
-      flipSheet.remove();
-      this.currentGlobalIndex = nextIdx;
-      this.renderCurrentSpread();
       this.isFlipping = false;
-    }, 530);
+    }, 200);
   }
 
-  private flipPrevWithCurl(targetIndex?: number): void {
-    if (this.isFlipping) return;
-    const prevIdx = targetIndex !== undefined ? targetIndex : this.currentGlobalIndex - 1;
-    if (prevIdx < 0) return;
-
-    this.isFlipping = true;
-    playPaperRustle();
-
-    const book = this.bookSpreadEl.querySelector(".physical-book-spread") as HTMLElement;
-    if (!book) {
-      this.currentGlobalIndex = prevIdx;
-      this.renderCurrentSpread();
-      this.isFlipping = false;
-      return;
+  public nextPage(): void {
+    if (this.currentGlobalIndex < PAGES.length - 1) {
+      this.goToPage(this.currentGlobalIndex + 1);
     }
-
-    const prevPage = PAGES[prevIdx];
-
-    const flipSheet = document.createElement("div");
-    flipSheet.className = "flipping-sheet-3d-prev";
-    flipSheet.style.cssText = `
-      position: absolute;
-      top: 0; left: 0; bottom: 0; width: 50%;
-      transform-origin: right center;
-      transform-style: preserve-3d;
-      z-index: 20;
-      pointer-events: none;
-      transition: transform 0.52s cubic-bezier(0.25, 1, 0.35, 1);
-    `;
-
-    const frontFace = document.createElement("div");
-    frontFace.style.cssText = `
-      position: absolute; inset: 0;
-      backface-visibility: hidden;
-      background: #E2D9CC;
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
-      padding: 24px 18px 18px;
-      display: flex; flex-direction: column; justify-content: space-between;
-      box-shadow: inset -15px 0 25px -10px rgba(0,0,0,0.22);
-    `;
-    const curPage = PAGES[this.currentGlobalIndex];
-    const pCurStr = curPage.page_in_chap < 10 ? `0${curPage.page_in_chap}` : `${curPage.page_in_chap}`;
-    frontFace.innerHTML = `
-      <div>
-        <div style="font-family: var(--serif); font-size: 32px; font-weight: 400; color: #161513; margin-bottom: 10px; line-height: 1;">${pCurStr}</div>
-        <div style="font-family: var(--serif); font-size: 15px; font-weight: 500; line-height: 1.25; color: #161513; margin-bottom: 12px;">${curPage.subchapter_name}</div>
-      </div>
-      <div style="font-family: var(--sans); font-size: 9px; letter-spacing: 1.5px; color: #7A6045;">SUATU SAAT</div>
-    `;
-
-    const backFace = document.createElement("div");
-    backFace.style.cssText = `
-      position: absolute; inset: 0;
-      backface-visibility: hidden;
-      transform: rotateY(-180deg);
-      overflow: hidden;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
-    `;
-    backFace.innerHTML = `
-      <img src="${prevPage.image_path}" style="width: 100%; height: 100%; object-fit: cover;">
-    `;
-
-    flipSheet.appendChild(frontFace);
-    flipSheet.appendChild(backFace);
-    book.appendChild(flipSheet);
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        flipSheet.style.transform = "rotateY(180deg)";
-      });
-    });
-
-    setTimeout(() => {
-      flipSheet.remove();
-      this.currentGlobalIndex = prevIdx;
-      this.renderCurrentSpread();
-      this.isFlipping = false;
-    }, 530);
   }
 
-  private renderCurrentSpread(): void {
+  public prevPage(): void {
+    if (this.currentGlobalIndex > 0) {
+      this.goToPage(this.currentGlobalIndex - 1);
+    }
+  }
+
+  public toggleDrawer(): void {
+    this.drawerExpanded = !this.drawerExpanded;
+    this.render();
+  }
+
+  public setDrawerState(expanded: boolean): void {
+    if (this.drawerExpanded === expanded) return;
+    this.drawerExpanded = expanded;
+    this.render();
+  }
+
+  public toggleBookmark(): void {
+    if (this.bookmarkedPages.has(this.currentGlobalIndex)) {
+      this.bookmarkedPages.delete(this.currentGlobalIndex);
+    } else {
+      this.bookmarkedPages.add(this.currentGlobalIndex);
+    }
+    this.render();
+  }
+
+  private render(): void {
+    const isMobile = window.innerWidth <= 480;
     const page = PAGES[this.currentGlobalIndex];
     if (!page) return;
 
-    this.chapBadgeEl.textContent = page.chapter_code;
-    const pStr = page.page_in_chap < 10 ? `0${page.page_in_chap}` : `${page.page_in_chap}`;
-    const totStr = page.total_in_chap < 10 ? `0${page.total_in_chap}` : `${page.total_in_chap}`;
-    this.pageCounterEl.textContent = `${pStr} / ${totStr}`;
-
-    const chapPages = PAGES.filter(p => p.chapter_id === page.chapter_id);
-    const chapIndex = chapPages.findIndex(p => p.page_number === page.page_number);
-    const percent = ((chapIndex) / Math.max(1, chapPages.length - 1)) * 100;
-    this.dotEl.style.left = `${percent}%`;
-
-    if (this.currentGlobalIndex <= 0) {
-      this.prevBtn.style.opacity = "0.3";
-      this.prevBtn.style.pointerEvents = "none";
+    if (isMobile) {
+      this.renderMobile(page);
     } else {
-      this.prevBtn.style.opacity = "1";
-      this.prevBtn.style.pointerEvents = "auto";
+      this.renderDesktop(page);
     }
+  }
 
-    if (this.currentGlobalIndex >= PAGES.length - 1) {
-      this.nextBtn.style.opacity = "0.3";
-      this.nextBtn.style.pointerEvents = "none";
-    } else {
-      this.nextBtn.style.opacity = "1";
-      this.nextBtn.style.pointerEvents = "auto";
+  // =========================================================================
+  // MOBILE PEEK-DRAWER RENDERER (<= 480px, Target: 390px)
+  // =========================================================================
+  private renderMobile(page: Page): void {
+    const isBookmarked = this.bookmarkedPages.has(this.currentGlobalIndex);
+    const curNum = this.currentGlobalIndex + 1;
+    const totalNum = PAGES.length;
+    const progressPercent = ((curNum - 1) / Math.max(1, totalNum - 1)) * 100;
+    const isFirst = this.currentGlobalIndex === 0;
+    const isLast = this.currentGlobalIndex >= PAGES.length - 1;
+
+    this.el.style.background = "#0A0A08";
+    this.el.style.color = "#EDE4D8";
+
+    // Group quotes and citations together cleanly
+    const elements: string[] = [];
+    let i = 0;
+    while (i < page.paragraphs.length) {
+      const p = page.paragraphs[i];
+      const isQuote = p.startsWith('"') || p.startsWith('“') || p.startsWith("'");
+      const nextP = i + 1 < page.paragraphs.length ? page.paragraphs[i + 1] : "";
+      const nextIsCitation = nextP.startsWith("—") || nextP.startsWith("~") || nextP.startsWith("-");
+
+      if (isQuote) {
+        let citationHTML = "";
+        if (nextIsCitation) {
+          citationHTML = `<cite class="m-quote-citation">${nextP}</cite>`;
+          i++; // Consume citation paragraph
+        }
+        elements.push(`
+          <blockquote class="m-editorial-quote">
+            <p class="m-quote-text">${p}</p>
+            ${citationHTML}
+          </blockquote>
+        `);
+      } else {
+        if (elements.length === 0 && p.length > 20) {
+          const firstChar = p.charAt(0);
+          const rest = p.slice(1);
+          elements.push(`
+            <p class="m-editorial-p">
+              <span class="m-dropcap">${firstChar}</span>${rest}
+            </p>
+          `);
+        } else {
+          elements.push(`<p class="m-editorial-p">${p}</p>`);
+        }
+      }
+      i++;
     }
+    const parasHTML = elements.join("");
 
-    if (this.isImmersive) {
-      this.bookSpreadEl.innerHTML = `
-        <div style="width: 100%; height: 100%; position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8);">
-          <img src="${page.image_path}" alt="${page.title}" style="width: 100%; height: 100%; object-fit: cover;">
-          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(10,10,8,0.9) 100%);"></div>
-          <div style="position: absolute; bottom: 24px; left: 24px; right: 24px;">
-            <div style="font-family: var(--sans); font-size: 10px; letter-spacing: 2px; color: #C5A059; text-transform: uppercase; margin-bottom: 6px;">
-              ${page.badge}
+    this.el.innerHTML = `
+      <div class="mobile-reader-shell ${this.drawerExpanded ? 'drawer-is-expanded' : 'drawer-is-collapsed'}">
+        <!-- 1. Header Bar (Menu ☰ | Suatu Saat | Bookmark 🔖) -->
+        <header class="mobile-reader-header">
+          <button class="m-hdr-btn" id="m-btn-menu" aria-label="Daftar Bab & Isi">
+            <span class="m-icon">☰</span>
+          </button>
+          <div class="m-hdr-title">Suatu Saat</div>
+          <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-family: var(--sans); font-size: 11px; color: rgba(235, 226, 214, 0.6); font-weight: 500;">
+              ${curNum} / ${totalNum}
+            </span>
+            <button class="m-hdr-btn ${isBookmarked ? 'bookmarked' : ''}" id="m-btn-bookmark" aria-label="Simpan Penanda">
+              <span class="m-icon">${isBookmarked ? '★' : '🔖'}</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- 2. Hero Visual Stage (Poster 9:16 Contain) -->
+        <main class="m-visual-stage" id="m-visual-stage">
+          <div class="m-poster-box">
+            <img
+              src="${page.image_path}"
+              alt="${page.title}"
+              class="m-poster-img"
+              loading="eager"
+            />
+
+            <!-- Floating Chevrons: Left (<) and Right (>) -->
+            <button class="m-chevron m-chevron-prev ${isFirst ? 'disabled' : ''}" id="m-btn-prev" aria-label="Halaman Sebelumnya">
+              <span>‹</span>
+            </button>
+            <button class="m-chevron m-chevron-next ${isLast ? 'disabled' : ''}" id="m-btn-next" aria-label="Halaman Selanjutnya">
+              <span>›</span>
+            </button>
+          </div>
+        </main>
+
+        <!-- 3. Peek Drawer (Warm Bone Paper Bottom Sheet) -->
+        <div class="m-peek-drawer ${this.drawerExpanded ? 'expanded' : 'collapsed'}" id="m-peek-drawer">
+          <!-- When Expanded: Top Bar with Chapter/Page Badge + Close Button -->
+          <div class="m-drawer-top-bar" id="m-drawer-top-bar">
+            <div class="m-drawer-chip">
+              <span class="chip-code">${page.chapter_code}</span>
+              <span class="chip-sep">·</span>
+              <span class="chip-page">HAL ${curNum} / ${totalNum}</span>
             </div>
-            <div style="font-family: var(--serif); font-size: 20px; color: #FFFFFF; font-style: italic; line-height: 1.35; text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
-              "${page.title}"
-            </div>
-            ${page.subtitle ? `
-              <div style="font-family: var(--serif); font-size: 13px; color: rgba(235, 226, 214, 0.85); font-style: italic; margin-top: 4px; line-height: 1.35;">
-                ${page.subtitle}
-              </div>
-            ` : ''}
-            <div style="font-family: var(--sans); font-size: 10.5px; letter-spacing: 1.5px; color: rgba(235, 226, 214, 0.65); text-transform: uppercase; margin-top: 10px;">
-              ${page.chapter_name} · HAL ${pStr} / ${totStr} (TOTAL: ${page.page_number} / ${PAGES.length})
+            <div class="m-drawer-pill-handle"></div>
+            <button class="m-drawer-close-btn" id="m-btn-close-drawer" aria-label="Tutup naskah">
+              <span>Tutup ✕</span>
+            </button>
+          </div>
+
+          <!-- When Collapsed: Minimal Peek Header Bar -->
+          <div class="m-drawer-peek-header" id="m-drawer-peek-header">
+            <div class="m-drawer-pill-handle"></div>
+            <div class="m-drawer-action-hint">
+              <span>BACA NASKAH LENGKAP ▴</span>
             </div>
           </div>
+
+          <!-- Scrollable Drawer Body Content -->
+          <div class="m-drawer-body" id="m-drawer-body">
+            <!-- Article Header -->
+            <header class="m-article-header">
+              <h1 class="m-article-title">${page.title}</h1>
+              ${page.subtitle ? `<div class="m-article-subtitle">${page.subtitle}</div>` : ''}
+              <div class="m-article-ornament">✧ ─── ✧</div>
+            </header>
+
+            <!-- Full Paragraphs & Quotes -->
+            <div class="m-editorial-body">
+              ${parasHTML}
+            </div>
+
+            <!-- Bottom Progress in Drawer -->
+            <footer class="m-drawer-footer">
+              <div class="m-drawer-footer-brand">SUATU SAAT · KESADARAN NUSANTARA</div>
+              <div class="m-drawer-progress-wrap">
+                <button class="m-stepper-btn ${isFirst ? 'disabled' : ''}" id="m-btn-prev-naskah" aria-label="Sebelumnya">‹</button>
+                <div class="m-stepper-label">${curNum} / ${totalNum}</div>
+                <div class="m-progress-track naskah-track" id="m-progress-track">
+                  <div class="m-progress-fill naskah-fill" style="width: ${progressPercent}%;">
+                    <div class="m-progress-dot naskah-dot"></div>
+                  </div>
+                </div>
+                <button class="m-stepper-btn ${isLast ? 'disabled' : ''}" id="m-btn-next-naskah" aria-label="Selanjutnya">›</button>
+              </div>
+            </footer>
+          </div>
         </div>
-      `;
-    } else {
-      const pSize = this.isLargeText ? '13px' : '11.5px';
-      const parasHTML = page.paragraphs.map((p, pIdx) => {
-        const isQuote = p.startsWith('"') || p.startsWith('“');
-        if (isQuote) {
-          return `<blockquote style="border-left: 2px solid #8F7645; padding-left: 8px; margin: 6px 0; font-family: var(--serif); font-style: italic; font-size: ${pSize}; color: #3E352B; line-height: 1.45;">${p}</blockquote>`;
+      </div>
+    `;
+
+    // Bind Mobile DOM Events
+    this.bindMobileEvents();
+  }
+
+  private bindMobileEvents(): void {
+    // Menu (TOC / Bab List)
+    this.el.querySelector("#m-btn-menu")?.addEventListener("click", () => navigate("bab"));
+
+    // Bookmark Toggle
+    this.el.querySelector("#m-btn-bookmark")?.addEventListener("click", () => this.toggleBookmark());
+
+    // Navigation buttons
+    this.el.querySelector("#m-btn-prev")?.addEventListener("click", () => this.prevPage());
+    this.el.querySelector("#m-btn-next")?.addEventListener("click", () => this.nextPage());
+    this.el.querySelector("#m-btn-prev-naskah")?.addEventListener("click", () => this.prevPage());
+    this.el.querySelector("#m-btn-next-naskah")?.addEventListener("click", () => this.nextPage());
+
+    // Close button on expanded top bar
+    this.el.querySelector("#m-btn-close-drawer")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.setDrawerState(false);
+    });
+
+    // Toggle drawer on clicking top bar in expanded mode
+    this.el.querySelector("#m-drawer-top-bar")?.addEventListener("click", () => {
+      this.setDrawerState(false);
+    });
+
+    // Expand drawer on clicking peek header
+    this.el.querySelector("#m-drawer-peek-header")?.addEventListener("click", () => {
+      this.setDrawerState(true);
+    });
+
+    // Clicking anywhere on the peek drawer when collapsed will expand it
+    const peekDrawer = this.el.querySelector("#m-peek-drawer") as HTMLElement;
+    peekDrawer?.addEventListener("click", () => {
+      if (!this.drawerExpanded) {
+        this.setDrawerState(true);
+      }
+    });
+
+    // Touch gesture on the drawer handle: swipe up to expand, swipe down to collapse
+    const handleElements = [
+      this.el.querySelector("#m-drawer-top-bar"),
+      this.el.querySelector("#m-drawer-peek-header")
+    ];
+
+    handleElements.forEach(headerEl => {
+      let touchStartY = 0;
+      headerEl?.addEventListener("touchstart", (e: any) => {
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      headerEl?.addEventListener("touchend", (e: any) => {
+        const touchEndY = e.changedTouches[0].clientY;
+        const deltaY = touchEndY - touchStartY;
+        if (deltaY < -30 && !this.drawerExpanded) {
+          this.setDrawerState(true);
+        } else if (deltaY > 30 && this.drawerExpanded) {
+          this.setDrawerState(false);
         }
-        if (pIdx === 0 && p.length > 20 && !isQuote) {
+      }, { passive: true });
+    });
+
+    // Interactive progress track click
+    const trackBar = this.el.querySelector("#m-progress-track") as HTMLElement;
+    trackBar?.addEventListener("click", (e: MouseEvent) => {
+      e.stopPropagation();
+      const rect = trackBar.getBoundingClientRect();
+      const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const targetIndex = Math.round(clickRatio * (PAGES.length - 1));
+      this.goToPage(targetIndex);
+    });
+  }
+
+  // =========================================================================
+  // DESKTOP OPEN-BOOK TWO-PAGE SPREAD RENDERER (> 480px)
+  // =========================================================================
+  private renderDesktop(page: Page): void {
+    this.el.style.background = "#0A0A08";
+    this.el.style.color = "#EDE4D8";
+
+    const curNum = this.currentGlobalIndex + 1;
+    const totalNum = PAGES.length;
+    const pStr = page.page_in_chap < 10 ? `0${page.page_in_chap}` : `${page.page_in_chap}`;
+    const percent = ((curNum - 1) / Math.max(1, totalNum - 1)) * 100;
+
+    // Group quotes and citations together cleanly for desktop
+    const dElements: string[] = [];
+    let dIdx = 0;
+    while (dIdx < page.paragraphs.length) {
+      const p = page.paragraphs[dIdx];
+      const isQuote = p.startsWith('"') || p.startsWith('“') || p.startsWith("'");
+      const nextP = dIdx + 1 < page.paragraphs.length ? page.paragraphs[dIdx + 1] : "";
+      const nextIsCitation = nextP.startsWith("—") || nextP.startsWith("~") || nextP.startsWith("-");
+
+      if (isQuote) {
+        let citationHTML = "";
+        if (nextIsCitation) {
+          citationHTML = `<div style="margin-top: 6px; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 0.8px; color: #7A6045; text-transform: uppercase;">${nextP}</div>`;
+          dIdx++;
+        }
+        dElements.push(`
+          <blockquote style="border-left: 2.5px solid #8F7645; padding: 8px 12px; margin: 8px 0; font-family: var(--serif); font-style: italic; font-size: 13px; color: #2C251D; line-height: 1.55; background: rgba(122,96,69,0.06); border-radius: 0 4px 4px 0;">
+            <p style="margin: 0;">${p}</p>
+            ${citationHTML}
+          </blockquote>
+        `);
+      } else {
+        if (dElements.length === 0 && p.length > 20) {
           const firstLetter = p.charAt(0);
           const rest = p.slice(1);
-          return `<p style="margin-bottom: 6px; font-family: var(--serif); font-size: ${pSize}; line-height: 1.45; color: #2C2822; text-align: justify;"><span style="float: left; font-size: 26px; line-height: 0.85; font-weight: 600; color: #7A6045; margin-right: 4px; padding-top: 2px;">${firstLetter}</span>${rest}</p>`;
+          dElements.push(`<p style="margin-bottom: 8px; font-family: var(--serif); font-size: 13px; line-height: 1.6; color: #1D1A16; text-align: justify;"><span style="float: left; font-family: var(--display); font-size: 32px; line-height: 0.82; font-weight: 700; color: #7A6045; margin-right: 6px; padding-top: 2px;">${firstLetter}</span>${rest}</p>`);
+        } else {
+          dElements.push(`<p style="margin-bottom: 8px; font-family: var(--serif); font-size: 13px; line-height: 1.6; color: #1D1A16; text-align: justify;">${p}</p>`);
         }
-        return `<p style="margin-bottom: 6px; font-family: var(--serif); font-size: ${pSize}; line-height: 1.45; color: #2C2822; text-align: justify;">${p}</p>`;
-      }).join("");
-
-      const takeawayHTML = page.keyTakeaway ? `
-        <div style="background: rgba(197, 160, 89, 0.12); border-left: 2px solid #8F7645; border-radius: 3px; padding: 6px 8px; margin-top: 8px; flex-shrink: 0;">
-          <div style="font-family: var(--sans); font-size: 8px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #7A6045; margin-bottom: 2px;">Intisari Kesadaran</div>
-          <div style="font-family: var(--serif); font-size: ${this.isLargeText ? '11.5px' : '10.5px'}; font-style: italic; color: #3A3228; line-height: 1.35;">"${page.keyTakeaway}"</div>
-        </div>
-      ` : "";
-
-      this.bookSpreadEl.innerHTML = `
-        <div class="physical-book-spread" style="display: flex; width: 100%; height: 100%; max-height: 520px; border-radius: 6px; overflow: visible; box-shadow: -10px 25px 60px -10px rgba(0,0,0,0.85), 10px 25px 60px -10px rgba(0,0,0,0.85); position: relative;">
-          <!-- LEFT PAGE: Bone Paper Typography with Page Stack Edge -->
-          <div class="spread-page-left" style="flex: 1; background: #E4DAD0; color: #161513; padding: 18px 16px 14px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: inset -18px 0 25px -10px rgba(0,0,0,0.25); border-left: 2px solid #C4B9A7; border-top-left-radius: 5px; border-bottom-left-radius: 5px; overflow: hidden;">
-            <div style="flex: 1; overflow-y: auto; padding-right: 2px;" class="page-text-content">
-              <!-- Top Header: Badge and Page Number -->
-              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid rgba(122,96,69,0.18); padding-bottom: 4px;">
-                <span style="font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase;">
-                  ${page.badge}
-                </span>
-                <span style="font-family: var(--serif); font-size: 22px; font-weight: 400; color: #161513; line-height: 1;">
-                  ${pStr}
-                </span>
-              </div>
-
-              <!-- Page Title -->
-              <h2 style="font-family: var(--serif); font-size: ${this.isLargeText ? '16px' : '14.5px'}; font-weight: 600; color: #161513; line-height: 1.25; margin: 4px 0 2px 0;">
-                ${page.title}
-              </h2>
-
-              <!-- Subtitle if exists -->
-              ${page.subtitle ? `
-                <div style="font-family: var(--serif); font-size: ${this.isLargeText ? '12px' : '11px'}; font-style: italic; color: #5C4B37; line-height: 1.35; margin-bottom: 6px;">
-                  ${page.subtitle}
-                </div>
-              ` : ''}
-
-              <!-- Narrative Body -->
-              <div style="font-family: var(--serif); color: #2C2822; margin-top: 4px;">
-                ${parasHTML}
-              </div>
-
-              <!-- Key Takeaway -->
-              ${takeawayHTML}
-            </div>
-
-            <!-- Brand Footer -->
-            <div style="font-family: var(--sans); font-size: 8.5px; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase; font-weight: 500; padding-top: 6px; border-top: 1px solid rgba(122,96,69,0.15); margin-top: 4px; flex-shrink: 0; display: flex; justify-content: space-between;">
-              <span>SUATU SAAT</span>
-              <span style="letter-spacing: 0.5px; opacity: 0.7;">HAL ${page.page_number} / ${PAGES.length}</span>
-            </div>
-          </div>
-
-          <!-- CENTER GUTTER / SPINE CREASE -->
-          <div style="width: 3px; background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1), rgba(0,0,0,0.4)); box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 5; flex-shrink: 0;"></div>
-
-          <!-- RIGHT PAGE: Dedicated Unique Artwork + Context Overlay -->
-          <div class="spread-page-right" style="flex: 1; position: relative; overflow: hidden; background: #0F0E0C; box-shadow: inset 18px 0 25px -10px rgba(0,0,0,0.38); border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
-            <img src="${page.image_path}" alt="${page.title}" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.85) 100%);"></div>
-
-            <!-- Bottom Context Overlay -->
-            <div style="position: absolute; bottom: 16px; left: 14px; right: 14px; z-index: 3;">
-              <div style="font-family: var(--sans); font-size: 8.5px; letter-spacing: 1.5px; color: #CDB397; text-transform: uppercase; margin-bottom: 2px;">
-                ${page.chapter_code} · HALAMAN ${pStr}
-              </div>
-              <div style="font-family: var(--serif); font-size: 12.5px; font-style: italic; line-height: 1.35; color: #FFFFFF; text-shadow: 0 2px 10px rgba(0,0,0,0.95);">
-                "${page.title}"
-              </div>
-              ${page.imageCaption ? `
-                <div style="font-family: var(--sans); font-size: 8.5px; color: rgba(235, 226, 214, 0.75); font-style: italic; margin-top: 3px; line-height: 1.3; text-shadow: 0 1px 4px rgba(0,0,0,0.9);">
-                  ${page.imageCaption}
-                </div>
-              ` : ''}
-            </div>
-          </div>
-        </div>
-      `;
+      }
+      dIdx++;
     }
+    const parasHTML = dElements.join("");
+
+    this.el.innerHTML = `
+      <div class="desktop-reader-shell" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; padding-bottom: 8px;">
+        <!-- Top Bar -->
+        <div class="ph-header" style="padding: 16px 24px 8px; max-width: 900px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
+          <div class="back-btn" id="d-back-btn" style="cursor: pointer; font-family: var(--sans); font-size: 12.5px; color: rgba(235, 226, 214, 0.7); display: flex; align-items: center; gap: 6px;">
+            <span>← Kembali ke Bab</span>
+          </div>
+          <div style="font-family: var(--sans); font-size: 13.5px; letter-spacing: 1.5px; color: #EDE4D8; font-weight: 500; text-transform: uppercase;">
+            ${page.chapter_code}
+          </div>
+          <div style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.7); letter-spacing: 0.5px;">
+            ${curNum} / ${totalNum}
+          </div>
+        </div>
+
+        <!-- 3D Open-Book Physical Spread -->
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 4px 14px 10px; max-width: 900px; width: 100%; margin: 0 auto; position: relative;">
+          <div class="physical-book-spread" style="display: flex; width: 100%; height: 100%; max-height: 560px; border-radius: 6px; overflow: visible; box-shadow: -10px 25px 60px -10px rgba(0,0,0,0.85), 10px 25px 60px -10px rgba(0,0,0,0.85); position: relative;">
+            <!-- LEFT PAGE: Bone Paper Typography -->
+            <div class="spread-page-left" style="flex: 1; background: #F4EFE6; color: #1A1714; padding: 18px 18px 14px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: inset -18px 0 25px -10px rgba(0,0,0,0.2); border-left: 2px solid #C4B9A7; border-top-left-radius: 5px; border-bottom-left-radius: 5px; overflow: hidden;">
+              <div style="flex: 1; overflow-y: auto; padding-right: 4px;">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid rgba(122,96,69,0.18); padding-bottom: 4px;">
+                  <span style="font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase;">
+                    ${page.chapter_code}
+                  </span>
+                  <span style="font-family: var(--display); font-size: 20px; font-weight: 600; color: #161513; line-height: 1;">
+                    ${pStr}
+                  </span>
+                </div>
+                <h2 style="font-family: var(--serif); font-size: 15.5px; font-weight: 700; color: #161310; line-height: 1.28; margin: 4px 0 2px 0;">
+                  ${page.title}
+                </h2>
+                ${page.subtitle ? `<div style="font-family: var(--serif); font-size: 12px; font-style: italic; color: #554737; line-height: 1.38; margin-bottom: 6px;">${page.subtitle}</div>` : ''}
+                <div style="font-family: var(--serif); color: #1D1A16; margin-top: 6px;">
+                  ${parasHTML}
+                </div>
+              </div>
+              <div style="font-family: var(--sans); font-size: 8.5px; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase; font-weight: 600; padding-top: 6px; border-top: 1px solid rgba(122,96,69,0.15); margin-top: 4px; flex-shrink: 0; display: flex; justify-content: space-between;">
+                <span>SUATU SAAT</span>
+                <span style="letter-spacing: 0.5px; opacity: 0.7;">HAL ${curNum} / ${totalNum}</span>
+              </div>
+            </div>
+
+            <!-- CENTER GUTTER -->
+            <div style="width: 3px; background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1), rgba(0,0,0,0.4)); box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 5; flex-shrink: 0;"></div>
+
+            <!-- RIGHT PAGE: Artwork (Uncropped 9:16 Portrait) -->
+            <div class="spread-page-right" style="flex: 1; position: relative; overflow: hidden; background: #0E0D0B; box-shadow: inset 18px 0 25px -10px rgba(0,0,0,0.45); border-top-right-radius: 5px; border-bottom-right-radius: 5px; display: flex; align-items: center; justify-content: center; padding: 12px;">
+              <img
+                src="${page.image_path}"
+                alt="${page.title}"
+                style="max-width: 100%; max-height: 100%; aspect-ratio: 9 / 16; object-fit: contain; border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.75); display: block;"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop Bottom Controls -->
+        <div style="max-width: 600px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; z-index: 10;">
+          <div class="nav-track-bar" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 20px;">
+            <div class="nav-circle" id="d-btn-prev" style="${this.currentGlobalIndex <= 0 ? 'opacity: 0.3; pointer-events: none;' : ''}">←</div>
+            <div class="nav-track" id="d-nav-track" style="flex: 1; height: 2px; background: rgba(235, 226, 214, 0.15); position: relative; border-radius: 1px; cursor: pointer;">
+              <div style="position: absolute; top: 50%; left: ${percent}%; width: 12px; height: 12px; border-radius: 50%; background: #D1B498; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(209, 180, 152, 0.6); transition: left 0.2s ease;"></div>
+            </div>
+            <div class="nav-circle" id="d-btn-next" style="${this.currentGlobalIndex >= totalNum - 1 ? 'opacity: 0.3; pointer-events: none;' : ''}">→</div>
+          </div>
+
+          <div class="tab-bar" style="display: flex; justify-content: space-around; align-items: center; padding: 10px 24px 4px; border-top: 1px solid rgba(235, 226, 214, 0.1);">
+            <div class="tab-item" id="d-btn-toc" style="cursor: pointer;">
+              <span style="font-size: 17px; line-height: 1;">☰</span>
+              <span style="font-family: var(--sans); font-size: 10px;">Daftar Isi</span>
+            </div>
+            <div class="tab-item" id="d-btn-fullscreen" style="cursor: pointer;">
+              <span style="font-size: 16px; line-height: 1;">⛶</span>
+              <span style="font-family: var(--sans); font-size: 10px;">Layar Penuh</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Bind Desktop DOM Events
+    this.el.querySelector("#d-back-btn")?.addEventListener("click", () => navigate("bab"));
+    this.el.querySelector("#d-btn-toc")?.addEventListener("click", () => navigate("toc"));
+    this.el.querySelector("#d-btn-prev")?.addEventListener("click", () => this.prevPage());
+    this.el.querySelector("#d-btn-next")?.addEventListener("click", () => this.nextPage());
+    this.el.querySelector("#d-btn-fullscreen")?.addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    });
+
+    const dTrack = this.el.querySelector("#d-nav-track") as HTMLElement;
+    dTrack?.addEventListener("click", (e: MouseEvent) => {
+      const rect = dTrack.getBoundingClientRect();
+      const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const targetIndex = Math.round(clickRatio * (PAGES.length - 1));
+      this.goToPage(targetIndex);
+    });
   }
 }

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SUATU SAAT v2 — Main App Bootstrap
  */
 import "./style.css";
@@ -44,10 +44,8 @@ onRoute((route) => {
       coverScreen.show();
       break;
     case "bab":
-      babListScreen.show();
-      break;
     case "toc":
-      tocScreen.show();
+      babListScreen.show();
       break;
     case "read":
     case "spread":
