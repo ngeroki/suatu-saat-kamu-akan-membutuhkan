@@ -1,7 +1,7 @@
 # PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-04T02:49:00+07:00
+Last Updated: 2026-09-04T02:56:00+07:00
 Git Branch: master
-Latest Commit: af15780 (feat: add authentic paper audio, 3D page curl, navbar home link, and symmetrical tap-to-flip)
+Latest Commit: b5e86eb (fix: replace broken down chevron symbol with clean right arrow in homepage cover)
 
 ## Quick Status
 - Server: Running on http://localhost:4173 (Node static server serving dist/).
