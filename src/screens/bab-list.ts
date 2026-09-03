@@ -8,7 +8,7 @@ import { playPaperRustle } from "../lib/audio";
 
 export class BabListScreen {
   private el: HTMLElement;
-  private openChapterIds: Set<number> = new Set([1]); // Bab 1 open by default
+  private openChapterIds: Set<number> = new Set(); // All chapters closed by default
 
   constructor(container: HTMLElement) {
     this.el = document.createElement("div");
@@ -27,6 +27,7 @@ export class BabListScreen {
 
   public show(): void {
     this.el.classList.add("active");
+    this.openChapterIds.clear(); // Ensure all chapters are closed so user sees all chapters
     this.render();
   }
 
@@ -75,27 +76,23 @@ export class BabListScreen {
 
       return `
         <div class="unified-bab-card ${isOpen ? 'open' : ''}" data-chap="${ch.id}">
-          <!-- Header Banner (Artwork on Right + Text on Left + Toggle Chevron) -->
+          <!-- Header Banner (Artwork on Right + Text Centered on Left + Dropdown Cue Below) -->
           <div class="unified-bab-header" data-chap="${ch.id}">
-            <!-- Left Info -->
+            <!-- Left Info (Centered: Code, Title, Dropdown Cue) -->
             <div class="unified-bab-left">
-              <div>
-                <div class="unified-bab-code">${ch.code}</div>
-                <div class="unified-bab-title">${ch.title}</div>
+              <div class="unified-bab-code">${ch.code}</div>
+              <div class="unified-bab-title">${ch.title}</div>
+              <div class="unified-bab-dropdown-cue">
+                <span class="cue-text">${isOpen ? 'Tutup' : 'Isi bab'}</span>
+                <span class="cue-chevron">${isOpen ? '⌃' : '⌄'}</span>
               </div>
-              <div class="unified-bab-tags">${bulletsHTML}</div>
             </div>
 
-            <!-- Right Illustration Plate with Fade Mask -->
+            <!-- Right Illustration Plate with Fade Mask (100% Clean) -->
             <div class="unified-bab-right-artwork">
               <img src="${ch.image}" alt="${ch.code}" loading="lazy" />
               <div class="artwork-mask"></div>
             </div>
-
-            <!-- Expand / Collapse Chevron Button -->
-            <button class="unified-bab-toggle-chevron" data-chap="${ch.id}" aria-label="Buka Daftar Isi ${ch.code}">
-              <span>⌄</span>
-            </button>
           </div>
 
           <!-- Expandable Dropdown TOC Body -->
@@ -128,10 +125,9 @@ export class BabListScreen {
       </header>
 
       <!-- Sub Header Title Row -->
-      <div style="max-width: 480px; width: 100%; margin: 0 auto; padding: 4px 20px 12px; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="max-width: 480px; width: 100%; margin: 0 auto; padding: 6px 20px 14px; display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
-          <h1 style="font-family: var(--serif); font-size: 22px; letter-spacing: 1px; color: #EDE4D8; font-weight: 500; line-height: 1.15; margin: 0;">DAFTAR BAB & ISI</h1>
-          <p style="font-family: var(--sans); font-size: 10.5px; color: rgba(235, 226, 214, 0.55); margin-top: 4px; letter-spacing: 0.2px;">Sentuh bab untuk membuka atau menutup daftar isi.</p>
+          <h1 style="font-family: var(--serif); font-size: 24px; letter-spacing: 1px; color: #EDE4D8; font-weight: 500; line-height: 1.15; margin: 0;">Daftar Isi</h1>
         </div>
       </div>
 
@@ -179,11 +175,17 @@ export class BabListScreen {
         const chapId = parseInt(header.getAttribute("data-chap") || "1", 10);
 
         card.classList.toggle("open");
-        if (card.classList.contains("open")) {
+        const isOpenNow = card.classList.contains("open");
+        if (isOpenNow) {
           this.openChapterIds.add(chapId);
         } else {
           this.openChapterIds.delete(chapId);
         }
+
+        const cueText = card.querySelector(".cue-text");
+        const cueChevron = card.querySelector(".cue-chevron");
+        if (cueText) cueText.textContent = isOpenNow ? "Tutup" : "Isi bab";
+        if (cueChevron) cueChevron.textContent = isOpenNow ? "⌃" : "⌄";
       });
     });
 

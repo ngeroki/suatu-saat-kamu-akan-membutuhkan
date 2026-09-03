@@ -1,4 +1,4 @@
-﻿import http from 'node:http';
+import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -52,6 +52,14 @@ const server = http.createServer((req, res) => {
       console.log(`[${time}] 200 ${req.method} ${req.url}`);
     }
   });
+});
+
+server.on('error', (err) => {
+  console.error('[server error]', err.message);
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('[uncaught]', err.message);
 });
 
 server.listen(PORT, '0.0.0.0', () => {

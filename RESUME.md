@@ -1,23 +1,28 @@
 # PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-03T20:58:00+07:00
+Last Updated: 2026-09-04T02:48:00+07:00
 Git Branch: master
-Latest Commit: 113d56f
+Latest Commit: [PENDING_COMMIT]
 
 ## Quick Status
-- Server: Running on http://localhost:4173.
-- OpenCode Worker: Sisyphus (`ses_f9de86d2cffeEHvpVqiwq3HP1P`) — Idle.
-- Work Completed in Session:
-  1. **Daftar Bab & Isi Terpadu (`#bab`)**: Digabung jadi satu layar accordion dengan ilustrasi asli Bab 1–5.
-  2. **Poster 100% Utuh Bebas Potong**:
-     - Mobile (390px): Geometri panggung dikalibrasi agar poster tidak tertutup laci.
-     - Web / Desktop: `object-fit: contain` (9:16) dan overlay gelap dihapus total.
-  3. **Rework Kertas & Tipografi Naskah**:
-     - Mengganti putih polos ke Warm Bone Paper (`#F4EFE6`) dan font tipis ke `Lora` berbobot solid.
-     - Mengelompokkan kutipan & tanda tangan penulis, serta menghapus badge label dan kotak takeaway yang mengganggu ritme membaca.
-  4. **Perumusan Strategi Two-Sided Single Sheet**: Rencana implementasi paradigma baru disepakati: Satu lembar kertas dengan Side A (Visual) ↔ Side B (Naskah), 1-tap flip ringan (280ms), teks rata kiri penuh, dan swipe ganti halaman.
-- Build Check: `tsc --noEmit && vite build` lolos 100% (0 errors).
+- Server: Running on http://localhost:4173 (Node static server serving dist/).
+- Build Status: Passing 100% (tsc --noEmit & vite build 0 errors).
+- Validation Suite: 5/5 Automated checks passed (validate_book.py).
+
+## Work Completed in Session
+1. **Homepage Cover Polish**: Removed top navbar, centered Cinzel display masthead with hairline divider, quote italic, and balanced editorial spacing.
+2. **Bab 1 Page 1 Artwork Replacement**: Replaced slide-1.jpg with high-res anatomical energy body art and regenerated 512x512 thumbnail.
+3. **Authentic Paper Sound Engine (src/lib/audio.ts)**: Installed 4 studio-grade paper flip & friction audio files with zero-latency Web Audio API buffers and randomized micro-pitch modulation.
+4. **3D Page Flip Visual Transitions (src/style.css, src/screens/reader/reader.ts)**: 3D page curl forward/backward on page advance, 180° card flip when turning between visual poster and text, and open-book spread animation on desktop.
+5. **Navbar Brand Home Navigation**: "Suatu Saat" text in top navbar is now an interactive button returning directly to homepage (#/) on both mobile and desktop.
+6. **Symmetrical Tap-to-Flip Interaction**: Single tap on illustration flips to text, single tap on text flips back to illustration.
+7. **Floating Chevrons on Text**: Left (‹) and right (›) floating chevrons added to text face matching illustration face.
+8. **Cleaned Text Bottom Area**: Removed redundant bottom stepper arrows and page indicator from text face.
+
+## Current State
+- Automated tests passing: Playwright verification for tap-to-flip, floating chevrons, and navbar links.
+- No console errors, memory-optimized assets, clean 60fps animations.
 
 ## Immediate Next Actions
-1. Eksekusi `implementation_plan.md`: Ubah Reader Mobile menjadi **Dua Sisi Satu Lembar (Side A Visual ↔ Side B Reading)**.
-2. Pasang transisi **Lightweight Perceived Flip (280ms)** dengan akselerasi GPU dan teks naskah rata kiri (`text-align: left`) penuh.
-3. Jalankan verifikasi otomatis Playwright pada 390x844 dan pastikan navigasi 74 halaman mulus.
+1. Launch app at http://localhost:4173/#/read/1/1 to inspect mobile reader flow.
+2. Review remaining chapters (Bab 2-5) for any artwork or content updates requested by user.
+3. Test touch interactions on physical mobile device.

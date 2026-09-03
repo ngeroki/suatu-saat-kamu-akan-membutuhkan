@@ -5,13 +5,13 @@
  */
 import { PAGES, Page } from "../../data/book";
 import { navigate, Route } from "../../router";
-import { playPaperRustle } from "../../lib/audio";
+import { playPageTurn, playPaperSlide } from "../../lib/audio";
 import { attachGestures, attachKeyboardNav } from "../../lib/gestures";
 
 export class ReaderScreen {
   private el: HTMLElement;
   private currentGlobalIndex = 0; // 0..73
-  private drawerExpanded = false;
+  private activeSide: "A" | "B" = "A";
   private bookmarkedPages: Set<number> = new Set();
   private isFlipping = false;
 
@@ -58,7 +58,7 @@ export class ReaderScreen {
     );
 
     this.currentGlobalIndex = matchIndex >= 0 ? matchIndex : 0;
-    this.drawerExpanded = false; // Reset to peek view so user sees the hero artwork first
+    this.activeSide = "A"; // Reset to Side A (Visual reveal)
     this.render();
   }
 
@@ -66,42 +66,95 @@ export class ReaderScreen {
     this.el.classList.remove("active");
   }
 
-  public goToPage(index: number): void {
+  public goToPage(index: number, direction?: "next" | "prev"): void {
     if (index < 0 || index >= PAGES.length || index === this.currentGlobalIndex) return;
     if (this.isFlipping) return;
 
+    const dir = direction ?? (index > this.currentGlobalIndex ? "next" : "prev");
     this.isFlipping = true;
-    playPaperRustle();
-    this.currentGlobalIndex = index;
-    this.drawerExpanded = false; // Collapse to peek mode on new page
-    this.render();
+    playPageTurn();
 
-    setTimeout(() => {
-      this.isFlipping = false;
-    }, 200);
+    const isMobile = window.innerWidth <= 480;
+
+    if (isMobile) {
+      const posterBox = this.el.querySelector(".m-poster-box") as HTMLElement;
+      if (posterBox) {
+        posterBox.classList.add(dir === "next" ? "m-flip-out-next" : "m-flip-out-prev");
+      }
+
+      setTimeout(() => {
+        this.currentGlobalIndex = index;
+        this.activeSide = "A"; // Page navigation resets to Side A visual
+        this.render();
+
+        const newPosterBox = this.el.querySelector(".m-poster-box") as HTMLElement;
+        if (newPosterBox) {
+          newPosterBox.classList.add(dir === "next" ? "m-flip-in-next" : "m-flip-in-prev");
+          setTimeout(() => {
+            newPosterBox.classList.remove("m-flip-in-next", "m-flip-in-prev");
+            this.isFlipping = false;
+          }, 300);
+        } else {
+          this.isFlipping = false;
+        }
+      }, 160);
+    } else {
+      // Desktop Book Spread 3D Curl
+      const bookSpread = this.el.querySelector(".physical-book-spread") as HTMLElement;
+      if (bookSpread) {
+        bookSpread.classList.add(dir === "next" ? "d-flip-out-next" : "d-flip-out-prev");
+      }
+
+      setTimeout(() => {
+        this.currentGlobalIndex = index;
+        this.render();
+
+        const newBookSpread = this.el.querySelector(".physical-book-spread") as HTMLElement;
+        if (newBookSpread) {
+          newBookSpread.classList.add(dir === "next" ? "d-flip-in-next" : "d-flip-in-prev");
+          setTimeout(() => {
+            newBookSpread.classList.remove("d-flip-in-next", "d-flip-in-prev");
+            this.isFlipping = false;
+          }, 300);
+        } else {
+          this.isFlipping = false;
+        }
+      }, 160);
+    }
   }
 
   public nextPage(): void {
     if (this.currentGlobalIndex < PAGES.length - 1) {
-      this.goToPage(this.currentGlobalIndex + 1);
+      this.goToPage(this.currentGlobalIndex + 1, "next");
     }
   }
 
   public prevPage(): void {
     if (this.currentGlobalIndex > 0) {
-      this.goToPage(this.currentGlobalIndex - 1);
+      this.goToPage(this.currentGlobalIndex - 1, "prev");
     }
   }
 
-  public toggleDrawer(): void {
-    this.drawerExpanded = !this.drawerExpanded;
-    this.render();
-  }
+  public flipToSide(side: "A" | "B"): void {
+    if (this.activeSide === side || this.isFlipping) return;
+    this.isFlipping = true;
+    this.activeSide = side;
+    playPaperSlide();
 
-  public setDrawerState(expanded: boolean): void {
-    if (this.drawerExpanded === expanded) return;
-    this.drawerExpanded = expanded;
-    this.render();
+    const sheetContainer = this.el.querySelector(".m-sheet-container");
+    if (sheetContainer) {
+      if (side === "B") {
+        sheetContainer.classList.remove("side-a-active");
+        sheetContainer.classList.add("side-b-active");
+      } else {
+        sheetContainer.classList.remove("side-b-active");
+        sheetContainer.classList.add("side-a-active");
+      }
+    }
+
+    setTimeout(() => {
+      this.isFlipping = false;
+    }, 380);
   }
 
   public toggleBookmark(): void {
@@ -178,94 +231,114 @@ export class ReaderScreen {
     const parasHTML = elements.join("");
 
     this.el.innerHTML = `
-      <div class="mobile-reader-shell ${this.drawerExpanded ? 'drawer-is-expanded' : 'drawer-is-collapsed'}">
-        <!-- 1. Header Bar (Menu ☰ | Suatu Saat | Bookmark 🔖) -->
-        <header class="mobile-reader-header">
-          <button class="m-hdr-btn" id="m-btn-menu" aria-label="Daftar Bab & Isi">
-            <span class="m-icon">☰</span>
-          </button>
-          <div class="m-hdr-title">Suatu Saat</div>
-          <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
-            <span style="font-family: var(--sans); font-size: 11px; color: rgba(235, 226, 214, 0.6); font-weight: 500;">
-              ${curNum} / ${totalNum}
-            </span>
-            <button class="m-hdr-btn ${isBookmarked ? 'bookmarked' : ''}" id="m-btn-bookmark" aria-label="Simpan Penanda">
-              <span class="m-icon">${isBookmarked ? '★' : '🔖'}</span>
-            </button>
-          </div>
-        </header>
-
-        <!-- 2. Hero Visual Stage (Poster 9:16 Contain) -->
-        <main class="m-visual-stage" id="m-visual-stage">
-          <div class="m-poster-box">
-            <img
-              src="${page.image_path}"
-              alt="${page.title}"
-              class="m-poster-img"
-              loading="eager"
-            />
-
-            <!-- Floating Chevrons: Left (<) and Right (>) -->
-            <button class="m-chevron m-chevron-prev ${isFirst ? 'disabled' : ''}" id="m-btn-prev" aria-label="Halaman Sebelumnya">
-              <span>‹</span>
-            </button>
-            <button class="m-chevron m-chevron-next ${isLast ? 'disabled' : ''}" id="m-btn-next" aria-label="Halaman Selanjutnya">
-              <span>›</span>
-            </button>
-          </div>
-        </main>
-
-        <!-- 3. Peek Drawer (Warm Bone Paper Bottom Sheet) -->
-        <div class="m-peek-drawer ${this.drawerExpanded ? 'expanded' : 'collapsed'}" id="m-peek-drawer">
-          <!-- When Expanded: Top Bar with Chapter/Page Badge + Close Button -->
-          <div class="m-drawer-top-bar" id="m-drawer-top-bar">
-            <div class="m-drawer-chip">
-              <span class="chip-code">${page.chapter_code}</span>
-              <span class="chip-sep">·</span>
-              <span class="chip-page">HAL ${curNum} / ${totalNum}</span>
-            </div>
-            <div class="m-drawer-pill-handle"></div>
-            <button class="m-drawer-close-btn" id="m-btn-close-drawer" aria-label="Tutup naskah">
-              <span>Tutup ✕</span>
-            </button>
-          </div>
-
-          <!-- When Collapsed: Minimal Peek Header Bar -->
-          <div class="m-drawer-peek-header" id="m-drawer-peek-header">
-            <div class="m-drawer-pill-handle"></div>
-            <div class="m-drawer-action-hint">
-              <span>BACA NASKAH LENGKAP ▴</span>
-            </div>
-          </div>
-
-          <!-- Scrollable Drawer Body Content -->
-          <div class="m-drawer-body" id="m-drawer-body">
-            <!-- Article Header -->
-            <header class="m-article-header">
-              <h1 class="m-article-title">${page.title}</h1>
-              ${page.subtitle ? `<div class="m-article-subtitle">${page.subtitle}</div>` : ''}
-              <div class="m-article-ornament">✧ ─── ✧</div>
+      <div class="mobile-reader-shell">
+        <div class="m-sheet-container ${this.activeSide === 'B' ? 'side-b-active' : 'side-a-active'}">
+          <!-- ========================================================= -->
+          <!-- SIDE A: VISUAL FACE (Hero Poster 9:16 Uncropped + Tap to Flip) -->
+          <!-- ========================================================= -->
+          <div class="m-sheet-face m-face-a" id="m-face-a">
+            <!-- Header Bar -->
+            <header class="mobile-reader-header m-header-a">
+              <button class="m-hdr-btn" id="m-btn-menu-a" aria-label="Daftar Bab & Isi">
+                <span class="m-icon">☰</span>
+              </button>
+              <div class="m-hdr-title" id="m-hdr-title" role="button" tabindex="0" title="Kembali ke Beranda">Suatu Saat</div>
+              <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-family: var(--sans); font-size: 11px; color: rgba(235, 226, 214, 0.6); font-weight: 500;">
+                  ${curNum} / ${totalNum}
+                </span>
+                <button class="m-hdr-btn ${isBookmarked ? 'bookmarked' : ''}" id="m-btn-bookmark-a" aria-label="Simpan Penanda">
+                  <span class="m-icon">${isBookmarked ? '★' : '🔖'}</span>
+                </button>
+              </div>
             </header>
 
-            <!-- Full Paragraphs & Quotes -->
-            <div class="m-editorial-body">
-              ${parasHTML}
-            </div>
+            <!-- Visual Stage (Tap anywhere to flip to Side B) -->
+            <main class="m-visual-stage" id="m-stage-a">
+              <div class="m-poster-box" id="m-poster-box">
+                <img
+                  src="${page.image_path}"
+                  alt="${page.title}"
+                  class="m-poster-img"
+                  loading="eager"
+                />
 
-            <!-- Bottom Progress in Drawer -->
-            <footer class="m-drawer-footer">
-              <div class="m-drawer-footer-brand">SUATU SAAT · KESADARAN NUSANTARA</div>
-              <div class="m-drawer-progress-wrap">
-                <button class="m-stepper-btn ${isFirst ? 'disabled' : ''}" id="m-btn-prev-naskah" aria-label="Sebelumnya">‹</button>
-                <div class="m-stepper-label">${curNum} / ${totalNum}</div>
-                <div class="m-progress-track naskah-track" id="m-progress-track">
-                  <div class="m-progress-fill naskah-fill" style="width: ${progressPercent}%;">
-                    <div class="m-progress-dot naskah-dot"></div>
-                  </div>
-                </div>
-                <button class="m-stepper-btn ${isLast ? 'disabled' : ''}" id="m-btn-next-naskah" aria-label="Selanjutnya">›</button>
+                <!-- Floating Chevrons: Left (<) and Right (>) -->
+                <button class="m-chevron m-chevron-prev ${isFirst ? 'disabled' : ''}" id="m-btn-prev-a" aria-label="Halaman Sebelumnya">
+                  <span>‹</span>
+                </button>
+                <button class="m-chevron m-chevron-next ${isLast ? 'disabled' : ''}" id="m-btn-next-a" aria-label="Halaman Selanjutnya">
+                  <span>›</span>
+                </button>
               </div>
-            </footer>
+
+              <!-- Subtle Flip Cue -->
+              <div class="m-flip-hint-pill" id="m-btn-flip-cue">
+                <span class="m-hint-icon">↺</span>
+                <span class="m-hint-text">Ketuk poster untuk membaca naskah</span>
+              </div>
+            </main>
+          </div>
+
+          <!-- ========================================================= -->
+          <!-- SIDE B: READING FACE (Warm Bone Paper + Editorial Measure) -->
+          <!-- ========================================================= -->
+          <div class="m-sheet-face m-face-b" id="m-face-b">
+            <!-- Header Bar (Mirrors Side A) -->
+            <header class="mobile-reader-header m-header-b">
+              <button class="m-hdr-btn" id="m-btn-menu-b" aria-label="Daftar Bab & Isi" style="color: #4A3A2A;">
+                <span class="m-icon">☰</span>
+              </button>
+              <div class="m-hdr-title" id="m-hdr-title-b" role="button" tabindex="0" title="Kembali ke Beranda" style="cursor: pointer; color: #1E1A16;">Suatu Saat</div>
+              <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-family: var(--sans); font-size: 11px; color: #7A6045; font-weight: 600;">
+                  ${curNum} / ${totalNum}
+                </span>
+                <button class="m-hdr-btn ${isBookmarked ? 'bookmarked' : ''}" id="m-btn-bookmark-b" aria-label="Simpan Penanda" style="color: #7A6045;">
+                  <span class="m-icon">${isBookmarked ? '★' : '🔖'}</span>
+                </button>
+              </div>
+            </header>
+
+            <!-- Floating Chevrons: Left (<) and Right (>) matching Side A -->
+            <button class="m-chevron m-chevron-prev ${isFirst ? 'disabled' : ''}" id="m-btn-prev-b" aria-label="Halaman Sebelumnya">
+              <span>‹</span>
+            </button>
+            <button class="m-chevron m-chevron-next ${isLast ? 'disabled' : ''}" id="m-btn-next-b" aria-label="Halaman Selanjutnya">
+              <span>›</span>
+            </button>
+
+            <!-- Reading Body Stage (Tap anywhere to flip back to Side A) -->
+            <main class="m-reading-stage" id="m-reading-stage" style="cursor: pointer; position: relative;">
+              <div class="m-reading-container">
+                <!-- Article Header -->
+                <header class="m-article-header">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span class="m-hdr-b-chip">${page.chapter_code}</span>
+                    <span style="font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 1px; color: #7A6045;">HALAMAN ${curNum}</span>
+                  </div>
+                  <h1 class="m-article-title">${page.title}</h1>
+                  ${page.subtitle ? `<div class="m-article-subtitle">${page.subtitle}</div>` : ''}
+                  <div class="m-article-ornament">✧ ─── ✧</div>
+                </header>
+
+                <!-- Full Paragraphs & Quotes (text-align: left, generous measure) -->
+                <div class="m-editorial-body">
+                  ${parasHTML}
+                </div>
+
+                <!-- Clean Editorial End Marker (stepper & duplicate page count removed) -->
+                <footer class="m-reading-footer" style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(122, 96, 69, 0.18); text-align: center; padding-bottom: 36px;">
+                  <div class="m-reading-footer-brand">SUATU SAAT · KESADARAN NUSANTARA</div>
+                </footer>
+              </div>
+            </main>
+
+            <!-- Subtle Flip Cue Pill -->
+            <div class="m-flip-hint-pill m-flip-hint-pill-b" id="m-btn-flip-cue-b">
+              <span class="m-hint-icon">↺</span>
+              <span class="m-hint-text">Ketuk naskah untuk kembali ke visual</span>
+            </div>
           </div>
         </div>
       </div>
@@ -276,73 +349,72 @@ export class ReaderScreen {
   }
 
   private bindMobileEvents(): void {
-    // Menu (TOC / Bab List)
-    this.el.querySelector("#m-btn-menu")?.addEventListener("click", () => navigate("bab"));
-
-    // Bookmark Toggle
-    this.el.querySelector("#m-btn-bookmark")?.addEventListener("click", () => this.toggleBookmark());
-
-    // Navigation buttons
-    this.el.querySelector("#m-btn-prev")?.addEventListener("click", () => this.prevPage());
-    this.el.querySelector("#m-btn-next")?.addEventListener("click", () => this.nextPage());
-    this.el.querySelector("#m-btn-prev-naskah")?.addEventListener("click", () => this.prevPage());
-    this.el.querySelector("#m-btn-next-naskah")?.addEventListener("click", () => this.nextPage());
-
-    // Close button on expanded top bar
-    this.el.querySelector("#m-btn-close-drawer")?.addEventListener("click", (e) => {
+    // Menu (TOC / Bab List) from Side A and Side B
+    this.el.querySelector("#m-btn-menu-a")?.addEventListener("click", (e) => {
       e.stopPropagation();
-      this.setDrawerState(false);
+      navigate("bab");
     });
-
-    // Toggle drawer on clicking top bar in expanded mode
-    this.el.querySelector("#m-drawer-top-bar")?.addEventListener("click", () => {
-      this.setDrawerState(false);
-    });
-
-    // Expand drawer on clicking peek header
-    this.el.querySelector("#m-drawer-peek-header")?.addEventListener("click", () => {
-      this.setDrawerState(true);
-    });
-
-    // Clicking anywhere on the peek drawer when collapsed will expand it
-    const peekDrawer = this.el.querySelector("#m-peek-drawer") as HTMLElement;
-    peekDrawer?.addEventListener("click", () => {
-      if (!this.drawerExpanded) {
-        this.setDrawerState(true);
-      }
-    });
-
-    // Touch gesture on the drawer handle: swipe up to expand, swipe down to collapse
-    const handleElements = [
-      this.el.querySelector("#m-drawer-top-bar"),
-      this.el.querySelector("#m-drawer-peek-header")
-    ];
-
-    handleElements.forEach(headerEl => {
-      let touchStartY = 0;
-      headerEl?.addEventListener("touchstart", (e: any) => {
-        touchStartY = e.touches[0].clientY;
-      }, { passive: true });
-
-      headerEl?.addEventListener("touchend", (e: any) => {
-        const touchEndY = e.changedTouches[0].clientY;
-        const deltaY = touchEndY - touchStartY;
-        if (deltaY < -30 && !this.drawerExpanded) {
-          this.setDrawerState(true);
-        } else if (deltaY > 30 && this.drawerExpanded) {
-          this.setDrawerState(false);
-        }
-      }, { passive: true });
-    });
-
-    // Interactive progress track click
-    const trackBar = this.el.querySelector("#m-progress-track") as HTMLElement;
-    trackBar?.addEventListener("click", (e: MouseEvent) => {
+    this.el.querySelector("#m-btn-menu-b")?.addEventListener("click", (e) => {
       e.stopPropagation();
-      const rect = trackBar.getBoundingClientRect();
-      const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-      const targetIndex = Math.round(clickRatio * (PAGES.length - 1));
-      this.goToPage(targetIndex);
+      navigate("bab");
+    });
+
+    // "Suatu Saat" in navbar -> Navigate back to homepage
+    this.el.querySelector("#m-hdr-title")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navigate("cover");
+    });
+    this.el.querySelector("#m-hdr-title-b")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navigate("cover");
+    });
+
+    // Bookmarks on Side A and Side B
+    this.el.querySelector("#m-btn-bookmark-a")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.toggleBookmark();
+    });
+    this.el.querySelector("#m-btn-bookmark-b")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.toggleBookmark();
+    });
+
+    // Side A Chevrons (Previous / Next page)
+    this.el.querySelector("#m-btn-prev-a")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.prevPage();
+    });
+    this.el.querySelector("#m-btn-next-a")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.nextPage();
+    });
+
+    // Side B Chevrons (Previous / Next page)
+    this.el.querySelector("#m-btn-prev-b")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.prevPage();
+    });
+    this.el.querySelector("#m-btn-next-b")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.nextPage();
+    });
+
+    // Side A Flip Trigger (Tap poster stage or hint cue to flip to Side B)
+    const stageA = this.el.querySelector("#m-stage-a");
+    stageA?.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(".m-chevron")) return;
+      this.flipToSide("B");
+    });
+
+    // Side B Flip Trigger (Tap reading stage to flip back to Side A)
+    const stageB = this.el.querySelector("#m-reading-stage");
+    stageB?.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(".m-chevron") || target.closest("button") || target.closest("a")) return;
+      const selection = window.getSelection();
+      if (selection && selection.toString().trim().length > 0) return;
+      this.flipToSide("A");
     });
   }
 
@@ -396,8 +468,14 @@ export class ReaderScreen {
       <div class="desktop-reader-shell" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; padding-bottom: 8px;">
         <!-- Top Bar -->
         <div class="ph-header" style="padding: 16px 24px 8px; max-width: 900px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
-          <div class="back-btn" id="d-back-btn" style="cursor: pointer; font-family: var(--sans); font-size: 12.5px; color: rgba(235, 226, 214, 0.7); display: flex; align-items: center; gap: 6px;">
-            <span>← Kembali ke Bab</span>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div id="d-hdr-title" role="button" tabindex="0" title="Kembali ke Beranda" style="cursor: pointer; font-family: var(--serif); font-size: 15px; letter-spacing: 1.5px; color: #EDE4D8; font-weight: 500; transition: opacity 0.2s ease;">
+              SUATU SAAT
+            </div>
+            <span style="opacity: 0.25; font-size: 12px; color: #EDE4D8;">|</span>
+            <div class="back-btn" id="d-back-btn" style="cursor: pointer; font-family: var(--sans); font-size: 12.5px; color: rgba(235, 226, 214, 0.7); display: flex; align-items: center; gap: 6px;">
+              <span>← Kembali ke Bab</span>
+            </div>
           </div>
           <div style="font-family: var(--sans); font-size: 13.5px; letter-spacing: 1.5px; color: #EDE4D8; font-weight: 500; text-transform: uppercase;">
             ${page.chapter_code}
@@ -474,6 +552,7 @@ export class ReaderScreen {
     `;
 
     // Bind Desktop DOM Events
+    this.el.querySelector("#d-hdr-title")?.addEventListener("click", () => navigate("cover"));
     this.el.querySelector("#d-back-btn")?.addEventListener("click", () => navigate("bab"));
     this.el.querySelector("#d-btn-toc")?.addEventListener("click", () => navigate("toc"));
     this.el.querySelector("#d-btn-prev")?.addEventListener("click", () => this.prevPage());
