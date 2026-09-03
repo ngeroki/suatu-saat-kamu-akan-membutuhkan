@@ -1,7 +1,7 @@
 # PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-04T04:36:00+07:00
+Last Updated: 2026-09-04T04:44:00+07:00
 Git Branch: master
-Latest Commit: 921d06e ([AG] feat: add dedicated Prolog and Epilog hybrid screens with seamless navigation)
+Latest Commit: 7101be9 ([AG] style: polish typographic hierarchy and spacing for Prolog and Epilog)
 
 ## Quick Status
 - Server: Running on http://localhost:4173 (Node static server serving dist/).
@@ -10,9 +10,10 @@ Latest Commit: 921d06e ([AG] feat: add dedicated Prolog and Epilog hybrid screen
 - E2E Tests: 7/7 End-to-end user flows passed (test_e2e_prolog_epilog.py).
 
 ## Work Completed in Session
-1. **Prolog & Epilog Hybrid Editorial Screens (`src/screens/prolog.ts`, `src/screens/epilog.ts`)**:
-   - Implemented authentic, atmospheric photography (warkop night underbridge & family dinner at sunset).
-   - Editorial 1-screen layout: category badge, serif title, Mas Aldi gold quote card, narrative text with drop cap, and contextual CTA buttons.
+1. **Prolog & Epilog Typographic Hierarchy & Spacing Polish**:
+   - Replaced generic SaaS-like boxed quote cards with pure literary centered pull-quotes in italic Lora serif.
+   - Refined visual hierarchy: Tracked gold kicker, stately Cinzel display headline, subtle celestial hairline divider (`✧`), and left-aligned body prose with Cinzel drop cap.
+   - Restored natural, airy vertical rhythm and spacing across mobile viewports (360px–430px).
 2. **End-to-End Reading Flow Integration**:
    - Cover (`#/`): "Buka Buku →" navigates straight to Prolog (`#/prolog`).
    - Reader (`#/read/1/1`): Left chevron returns to Prolog (`#/prolog`).
