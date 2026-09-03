@@ -45,10 +45,13 @@ export class EpilogScreen {
         <!-- Bottom Editorial Content Box (55% Height) -->
         <div class="pe-content-box">
           <div>
-            <div class="pe-title-tag">CATATAN PENUTUP</div>
-            <h1 class="pe-title">Menjadi Manusia Normal</h1>
+            <div class="pe-meta-header">
+              <div class="pe-kicker">CATATAN PENUTUP</div>
+              <h1 class="pe-title">Menjadi Manusia Normal</h1>
+              <div class="pe-divider">✧</div>
+            </div>
 
-            <div class="pe-quote-card">
+            <div class="pe-pullquote">
               <p class="pe-quote-text">“Kamu cuma perlu jadi manusia biasa yang hadir—yang beneran dengerin anaknya cerita, nemenin istrinya ngobrol. Itu aja sudah spiritualitas tertinggi.”</p>
               <span class="pe-quote-cite">— ALDI (@RAHWANACONSCIOUSNESSROOM)</span>
             </div>

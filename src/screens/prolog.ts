@@ -45,16 +45,19 @@ export class PrologScreen {
         <!-- Bottom Editorial Content Box (55% Height) -->
         <div class="pe-content-box">
           <div>
-            <div class="pe-title-tag">KATA PENGANTAR</div>
-            <h1 class="pe-title">Obrolan di Pinggir Jalan</h1>
+            <div class="pe-meta-header">
+              <div class="pe-kicker">KATA PENGANTAR</div>
+              <h1 class="pe-title">Obrolan di Pinggir Jalan</h1>
+              <div class="pe-divider">✧</div>
+            </div>
 
-            <div class="pe-quote-card">
+            <div class="pe-pullquote">
               <p class="pe-quote-text">“Kita ngobrol ya, nggak usah serius-serius amat. Yang penting jujur. Nanti kalo udah waktunya butuh, bakal nyambung sendiri.”</p>
               <span class="pe-quote-cite">— ALDI (@RAHWANACONSCIOUSNESSROOM)</span>
             </div>
 
             <p class="pe-body-p">
-              <span class="pe-dropcap">B</span>uku ini tidak lahir dari panggung seminar ber-AC, melainkan dari obrolan tak terencana di warung kopi pinggir jalan Yogya di bawah jembatan layang. Sains tubuh, hormon, dan fisika kuantum dibedah tanpa menggurui—seperti kawan lama yang menemukan rahasia hidup. Cukup buka pikiranmu sedikit; suatu saat kata-kata ini akan menemukan muaranya.
+              <span class="pe-dropcap">B</span>uku ini lahir dari obrolan santai yang tak pernah direncanakan di warung kopi pinggir jalan Yogya di bawah jembatan layang. Sains tubuh, hormon, dan fisika kuantum dibedah tanpa menggurui—seperti kawan lama yang menemukan rahasia hidup. Cukup buka pikiranmu sedikit; suatu saat kata-kata ini akan menemukan muaranya.
             </p>
           </div>
 
