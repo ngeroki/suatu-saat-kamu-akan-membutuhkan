@@ -1,7 +1,7 @@
 # PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-04T05:22:00+07:00
+Last Updated: 2026-09-04T05:30:00+07:00
 Git Branch: master
-Latest Commit: b02a011 ([AG] fix: place downward arrow centered beneath Lihat Daftar Isi on cover)
+Latest Commit: 0630038 ([AG] style: update homepage cover text with Yogyakarta, remove button arrow, and add subtle text shadow)
 
 ## Quick Status
 - Server: Running on http://localhost:4173 (Node static server serving dist/).
@@ -10,7 +10,11 @@ Latest Commit: b02a011 ([AG] fix: place downward arrow centered beneath Lihat Da
 - E2E Tests: 7/7 End-to-end user flows passed (test_e2e_prolog_epilog.py).
 
 ## Work Completed in Session
-1. **Homepage Cover Quick Fix**: Re-aligned "Lihat Daftar Isi" with a downward arrow (`↓`) placed directly underneath the text in the center with subtle hover interaction.
+1. **Homepage Cover Typography & Button Polish**:
+   - Replaced top kicker with "YOGYAKARTA · 2026".
+   - Removed arrow from "Buka Buku" button.
+   - Added delicate, multi-layered text shadows to all cover typography for enhanced depth and readability against the sky background.
+   - Preserved downward arrow (`↓`) centered beneath "Lihat Daftar Isi".
 2. **End-to-End Reading Flow Integration**:
    - Cover (`#/`): "Buka Buku →" navigates straight to Prolog (`#/prolog`).
    - Reader (`#/read/1/1`): Left chevron returns to Prolog (`#/prolog`).
