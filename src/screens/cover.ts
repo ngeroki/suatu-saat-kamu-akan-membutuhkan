@@ -48,9 +48,9 @@ export class CoverScreen {
           Buka Buku →
         </button>
 
-        <div id="link-daftar-isi" style="text-align: center; font-family: var(--sans); font-size: 12px; color: rgba(235,226,214,0.7); margin-top: 14px; cursor: pointer; letter-spacing: 0.3px; display: flex; align-items: center; gap: 4px;">
+        <div id="link-daftar-isi" style="text-align: center; font-family: var(--sans); font-size: 12.5px; color: rgba(235,226,214,0.75); margin-top: 14px; cursor: pointer; letter-spacing: 0.3px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; transition: color 0.2s ease;">
           <span>Lihat Daftar Isi</span>
-          <span style="font-size: 13px;">⌄</span>
+          <span style="font-size: 14px; line-height: 1; transition: transform 0.2s ease;">→</span>
         </div>
       </div>
     `;
