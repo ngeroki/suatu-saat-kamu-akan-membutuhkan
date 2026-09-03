@@ -1,28 +1,32 @@
 # PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-04T02:56:00+07:00
+Last Updated: 2026-09-04T04:36:00+07:00
 Git Branch: master
-Latest Commit: b5e86eb (fix: replace broken down chevron symbol with clean right arrow in homepage cover)
+Latest Commit: 921d06e ([AG] feat: add dedicated Prolog and Epilog hybrid screens with seamless navigation)
 
 ## Quick Status
 - Server: Running on http://localhost:4173 (Node static server serving dist/).
 - Build Status: Passing 100% (tsc --noEmit & vite build 0 errors).
 - Validation Suite: 5/5 Automated checks passed (validate_book.py).
+- E2E Tests: 7/7 End-to-end user flows passed (test_e2e_prolog_epilog.py).
 
 ## Work Completed in Session
-1. **Homepage Cover Polish**: Removed top navbar, centered Cinzel display masthead with hairline divider, quote italic, and balanced editorial spacing.
-2. **Bab 1 Page 1 Artwork Replacement**: Replaced slide-1.jpg with high-res anatomical energy body art and regenerated 512x512 thumbnail.
-3. **Authentic Paper Sound Engine (src/lib/audio.ts)**: Installed 4 studio-grade paper flip & friction audio files with zero-latency Web Audio API buffers and randomized micro-pitch modulation.
-4. **3D Page Flip Visual Transitions (src/style.css, src/screens/reader/reader.ts)**: 3D page curl forward/backward on page advance, 180° card flip when turning between visual poster and text, and open-book spread animation on desktop.
-5. **Navbar Brand Home Navigation**: "Suatu Saat" text in top navbar is now an interactive button returning directly to homepage (#/) on both mobile and desktop.
-6. **Symmetrical Tap-to-Flip Interaction**: Single tap on illustration flips to text, single tap on text flips back to illustration.
-7. **Floating Chevrons on Text**: Left (‹) and right (›) floating chevrons added to text face matching illustration face.
-8. **Cleaned Text Bottom Area**: Removed redundant bottom stepper arrows and page indicator from text face.
+1. **Prolog & Epilog Hybrid Editorial Screens (`src/screens/prolog.ts`, `src/screens/epilog.ts`)**:
+   - Implemented authentic, atmospheric photography (warkop night underbridge & family dinner at sunset).
+   - Editorial 1-screen layout: category badge, serif title, Mas Aldi gold quote card, narrative text with drop cap, and contextual CTA buttons.
+2. **End-to-End Reading Flow Integration**:
+   - Cover (`#/`): "Buka Buku →" navigates straight to Prolog (`#/prolog`).
+   - Reader (`#/read/1/1`): Left chevron returns to Prolog (`#/prolog`).
+   - Reader (`#/read/5/15`): Right chevron forwards to Epilog (`#/epilog`).
+   - Epilog (`#/epilog`): "Selesai Membaca ✦" returns to Cover (`#/`).
+   - Daftar Isi (`#/bab`): Added Prolog card at top and Epilog card at bottom, updated bottom CTA to "Mulai Membaca dari Prolog →".
+3. **Paper Audio Transitions**:
+   - Integrated `playPageTurn()` on Prolog and Epilog navigations.
 
 ## Current State
-- Automated tests passing: Playwright verification for tap-to-flip, floating chevrons, and navbar links.
-- No console errors, memory-optimized assets, clean 60fps animations.
+- Full reading cycle tested and verified via Playwright on 390x844 mobile viewport.
+- Working tree clean, 0 lint/compile errors.
 
 ## Immediate Next Actions
-1. Launch app at http://localhost:4173/#/read/1/1 to inspect mobile reader flow.
-2. Review remaining chapters (Bab 2-5) for any artwork or content updates requested by user.
+1. Test and verify live experience on http://localhost:4173/#/prolog and http://localhost:4173/#/epilog.
+2. Review remaining chapters (Bab 2-5) for any further user polish requests.
 3. Test touch interactions on physical mobile device.
