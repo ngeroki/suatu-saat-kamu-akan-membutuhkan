@@ -133,18 +133,52 @@ export class BabListScreen {
 
       <!-- Scrollable Chapters & TOC List -->
       <main class="unified-bab-scroll" style="flex: 1; min-height: 0; overflow-y: auto; padding: 0 16px 20px; max-width: 480px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 12px;">
+        <!-- Prolog Card (Fixed Top) -->
+        <div class="unified-bab-card" id="card-prolog" style="cursor: pointer;">
+          <div class="unified-bab-header" style="cursor: pointer;">
+            <div class="unified-bab-left">
+              <div class="unified-bab-code" style="color: #C5A059; font-weight: 700;">PROLOG</div>
+              <div class="unified-bab-title">Obrolan di Pinggir Jalan</div>
+              <div class="unified-bab-dropdown-cue">
+                <span class="cue-text">Buka Prolog ➜</span>
+              </div>
+            </div>
+            <div class="unified-bab-right-artwork">
+              <img src="/assets/prolog_warkop.jpg" alt="Prolog" loading="lazy" />
+              <div class="artwork-mask"></div>
+            </div>
+          </div>
+        </div>
+
         ${cardsHTML}
+
+        <!-- Epilog Card (Fixed Bottom) -->
+        <div class="unified-bab-card" id="card-epilog" style="cursor: pointer;">
+          <div class="unified-bab-header" style="cursor: pointer;">
+            <div class="unified-bab-left">
+              <div class="unified-bab-code" style="color: #C5A059; font-weight: 700;">EPILOG</div>
+              <div class="unified-bab-title">Menjadi Manusia Normal</div>
+              <div class="unified-bab-dropdown-cue">
+                <span class="cue-text">Buka Epilog ➜</span>
+              </div>
+            </div>
+            <div class="unified-bab-right-artwork">
+              <img src="/assets/epilog_keluarga.jpg" alt="Epilog" loading="lazy" />
+              <div class="artwork-mask"></div>
+            </div>
+          </div>
+        </div>
 
         <!-- Total summary footer -->
         <div style="text-align: center; font-family: var(--sans); font-size: 10.5px; color: rgba(235, 226, 214, 0.4); padding: 16px 0 8px; letter-spacing: 0.5px;">
-          5 Bab · 74 Halaman Naskah Nusantara Lengkap
+          Prolog · 5 Bab · 74 Halaman · Epilog
         </div>
       </main>
 
       <!-- Bottom Sticky CTA -->
       <footer style="padding: 10px 20px 16px; max-width: 480px; width: 100%; margin: 0 auto; background: linear-gradient(180deg, transparent 0%, #0A0A08 40%); z-index: 10;">
         <button class="btn-primary" id="btn-start-reading" style="background: #C5A059; color: #11110F; border: none; padding: 14px 20px; border-radius: 12px; font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.3px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; box-shadow: 0 8px 24px rgba(197, 160, 89, 0.35);">
-          Mulai Membaca dari Awal →
+          Mulai Membaca dari Prolog →
         </button>
       </footer>
     `;
@@ -157,10 +191,21 @@ export class BabListScreen {
     // Back to Cover
     this.el.querySelector("#unified-btn-back")?.addEventListener("click", () => navigate("cover"));
 
-    // Start Reading from Page 1
+    // Prolog and Epilog Cards
+    this.el.querySelector("#card-prolog")?.addEventListener("click", () => {
+      playPaperRustle();
+      navigate("prolog");
+    });
+
+    this.el.querySelector("#card-epilog")?.addEventListener("click", () => {
+      playPaperRustle();
+      navigate("epilog");
+    });
+
+    // Start Reading from Prolog
     this.el.querySelector("#btn-start-reading")?.addEventListener("click", () => {
       playPaperRustle();
-      navigate("read", { chap: 1, page: 1 });
+      navigate("prolog");
     });
 
     // Accordion Toggle on clicking header or toggle chevron

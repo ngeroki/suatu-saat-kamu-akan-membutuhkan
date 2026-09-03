@@ -59,7 +59,7 @@ export class CoverScreen {
 
     // Event Listeners
     this.el.querySelector("#btn-buka-buku")?.addEventListener("click", () => {
-      navigate("read", { chap: 1, page: 1 });
+      navigate("prolog");
     });
 
     this.el.querySelector("#link-daftar-isi")?.addEventListener("click", () => {

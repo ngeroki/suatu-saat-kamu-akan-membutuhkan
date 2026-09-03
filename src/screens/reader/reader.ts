@@ -126,12 +126,18 @@ export class ReaderScreen {
   public nextPage(): void {
     if (this.currentGlobalIndex < PAGES.length - 1) {
       this.goToPage(this.currentGlobalIndex + 1, "next");
+    } else {
+      playPageTurn();
+      navigate("epilog");
     }
   }
 
   public prevPage(): void {
     if (this.currentGlobalIndex > 0) {
       this.goToPage(this.currentGlobalIndex - 1, "prev");
+    } else {
+      playPageTurn();
+      navigate("prolog");
     }
   }
 
@@ -264,10 +270,10 @@ export class ReaderScreen {
                 />
 
                 <!-- Floating Chevrons: Left (<) and Right (>) -->
-                <button class="m-chevron m-chevron-prev ${isFirst ? 'disabled' : ''}" id="m-btn-prev-a" aria-label="Halaman Sebelumnya">
+                <button class="m-chevron m-chevron-prev" id="m-btn-prev-a" aria-label="${isFirst ? 'Kembali ke Prolog' : 'Halaman Sebelumnya'}" title="${isFirst ? 'Kembali ke Prolog' : 'Halaman Sebelumnya'}">
                   <span>‹</span>
                 </button>
-                <button class="m-chevron m-chevron-next ${isLast ? 'disabled' : ''}" id="m-btn-next-a" aria-label="Halaman Selanjutnya">
+                <button class="m-chevron m-chevron-next" id="m-btn-next-a" aria-label="${isLast ? 'Lanjut ke Epilog' : 'Halaman Selanjutnya'}" title="${isLast ? 'Lanjut ke Epilog' : 'Halaman Selanjutnya'}">
                   <span>›</span>
                 </button>
               </div>
@@ -301,10 +307,10 @@ export class ReaderScreen {
             </header>
 
             <!-- Floating Chevrons: Left (<) and Right (>) matching Side A -->
-            <button class="m-chevron m-chevron-prev ${isFirst ? 'disabled' : ''}" id="m-btn-prev-b" aria-label="Halaman Sebelumnya">
+            <button class="m-chevron m-chevron-prev" id="m-btn-prev-b" aria-label="${isFirst ? 'Kembali ke Prolog' : 'Halaman Sebelumnya'}" title="${isFirst ? 'Kembali ke Prolog' : 'Halaman Sebelumnya'}">
               <span>‹</span>
             </button>
-            <button class="m-chevron m-chevron-next ${isLast ? 'disabled' : ''}" id="m-btn-next-b" aria-label="Halaman Selanjutnya">
+            <button class="m-chevron m-chevron-next" id="m-btn-next-b" aria-label="${isLast ? 'Lanjut ke Epilog' : 'Halaman Selanjutnya'}" title="${isLast ? 'Lanjut ke Epilog' : 'Halaman Selanjutnya'}">
               <span>›</span>
             </button>
 

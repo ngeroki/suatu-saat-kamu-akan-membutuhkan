@@ -6,6 +6,8 @@ import { initRouter, onRoute } from "./router";
 import { detectDeviceCapabilities } from "./lib/gpu-detect";
 import { unlockAudio } from "./lib/audio";
 import { CoverScreen } from "./screens/cover";
+import { PrologScreen } from "./screens/prolog";
+import { EpilogScreen } from "./screens/epilog";
 import { BabListScreen } from "./screens/bab-list";
 import { TocScreen } from "./screens/toc";
 import { ReaderScreen } from "./screens/reader/reader";
@@ -19,6 +21,8 @@ if (!device) {
 
 // 2. Instantiate all screen controllers
 const coverScreen = new CoverScreen(device);
+const prologScreen = new PrologScreen(device);
+const epilogScreen = new EpilogScreen(device);
 const babListScreen = new BabListScreen(device);
 const tocScreen = new TocScreen(device);
 const readerScreen = new ReaderScreen(device);
@@ -34,6 +38,8 @@ console.log(`[SUATU SAAT v2] Device tier: ${caps.tier}, recommended render mode:
 onRoute((route) => {
   // Hide all screens
   coverScreen.hide();
+  prologScreen.hide();
+  epilogScreen.hide();
   babListScreen.hide();
   tocScreen.hide();
   readerScreen.hide();
@@ -42,6 +48,12 @@ onRoute((route) => {
   switch (route.name) {
     case "cover":
       coverScreen.show();
+      break;
+    case "prolog":
+      prologScreen.show();
+      break;
+    case "epilog":
+      epilogScreen.show();
       break;
     case "bab":
     case "toc":

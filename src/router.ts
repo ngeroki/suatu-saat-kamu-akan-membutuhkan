@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SUATU SAAT v2 — Lightweight Hash Router
  * Routes: #/ | #/bab | #/toc | #/read/:chap/:page | #/spread/:chap/:page | #/immersive/:chap/:page
  */
@@ -8,7 +8,7 @@ export interface RouteParams {
   page?: number;
 }
 
-export type RouteName = "cover" | "bab" | "toc" | "read" | "spread" | "immersive";
+export type RouteName = "cover" | "prolog" | "epilog" | "bab" | "toc" | "read" | "spread" | "immersive";
 
 export interface Route {
   name: RouteName;
@@ -24,6 +24,8 @@ function parseRoute(hash: string): Route {
   const parts = clean.split("/");
 
   if (!clean || clean === "") return { name: "cover", params: {} };
+  if (clean === "prolog") return { name: "prolog", params: {} };
+  if (clean === "epilog") return { name: "epilog", params: {} };
   if (clean === "bab") return { name: "bab", params: {} };
   if (clean === "toc") return { name: "toc", params: {} };
 
@@ -40,7 +42,9 @@ function parseRoute(hash: string): Route {
 
 export function navigate(name: RouteName, params: RouteParams = {}): void {
   let hash = "#/";
-  if (name === "bab") hash = "#/bab";
+  if (name === "prolog") hash = "#/prolog";
+  else if (name === "epilog") hash = "#/epilog";
+  else if (name === "bab") hash = "#/bab";
   else if (name === "toc") hash = "#/toc";
   else if (name === "read") hash = `#/read/${params.chap ?? 1}/${params.page ?? 1}`;
   else if (name === "spread") hash = `#/spread/${params.chap ?? 1}/${params.page ?? 1}`;
