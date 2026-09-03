@@ -1,17 +1,20 @@
 # PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-03T03:12:00+07:00
+Last Updated: 2026-09-03T16:00:00+07:00
 Git Branch: master
 
 ## Quick Status
 - Server: Running on http://localhost:4173 (PID: 24816).
-- State: 100% 74-PAGE FLIPBOOK JSON CURATED DATASET LOADED & VALIDATED.
-  - Total Pages: 74 curated pages across 5 canonical chapters (Bab 1: 15, Bab 2: 15, Bab 3: 15, Bab 4: 14, Bab 5: 15).
-  - Total Words: 8,089 words with rich metadata (badge, title, subtitle, paragraphs, key takeaways).
-  - Visual Assets: 100% (74/74) high-resolution slide illustrations integrated and served from public/slides/.
-  - Reader UI: Physical book spread with bone paper typography, drop caps, takeaway cards, 3D curl flip animation, and audio effects.
-  - Validation Suite: scripts/validate_book.py passed all 5 automated points.
-  - Build Status: npm run build passes with 0 errors (dist/ updated).
+- State: ALL 5 CHAPTERS (74/74 SLIDES) PORTRAIT 9:16 REDESIGN COMPLETED & VERIFIED (100% COMPLETE).
+  - Visual Assets (Portrait 9:16): 74 dari 74 slide di seluruh 5 bab (`public/slides-portrait/bab-01/` s/d `bab-05/`) telah resmi selesai diproduksi ulang ke dalam format master portrait `1536 x 2752 px` (rasio vertikal 1.79:1).
+  - Bab 1: 15/15 Selesai (100%)
+  - Bab 2: 15/15 Selesai (100%)
+  - Bab 3: 15/15 Selesai (100%)
+  - Bab 4: 14/14 Selesai (100%)
+  - Bab 5: 15/15 Selesai (100%)
+  - Dataset Integration: `src/data/book-pages.json` telah diperbarui 100% (74/74 halaman mengarah ke `/slides-portrait/bab-0X/slide-Y.jpg`).
+  - Validation Suite: `scripts/validate_book.py` lolos 5/5 pengujian integritas tanpa cacat.
+  - Background Cron: Cron schedule `task-622` telah dibatalkan/di-kill secara otomatis.
 
 ## Immediate Next Actions
-1. Test swipe and tap interactions on physical mobile devices (390px iPhone viewport).
-2. Explore PWA / service worker offline caching for offline reading capability.
+1. Verifikasi tampilan interaktif pada mobile device frame di browser (http://localhost:4173).
+2. Siap untuk tahap review dan deployment jika diperlukan.
