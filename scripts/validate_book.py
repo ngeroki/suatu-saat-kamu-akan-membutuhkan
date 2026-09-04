@@ -10,14 +10,13 @@ ASCI_DIAGRAM_RE = re.compile(r'[\u2500-\u257F]{3,}')
 
 
 def has_sentence_end(para: str) -> bool:
-    """Return True if paragraph ends with [.!?] optionally followed by quote."""
+    """Return True if paragraph ends with [.!?] optionally followed by quote or parenthesis."""
     if not para:
         return False
     s = para.rstrip()
     if len(s) == 0:
         return False
-    last = s[-1]
-    return last in '.!?'
+    return bool(re.search(r'[.!?]["\'\”\)]?$', s))
 
 
 def validate_provenance(p: dict) -> str | None:
@@ -28,7 +27,9 @@ def validate_provenance(p: dict) -> str | None:
     missing = [k for k in needed if k not in prov]
     if missing:
         return f'missing provenance fields: {missing}'
-    for k in needed:
+    if not isinstance(prov['source_section'], str) or not prov['source_section'].strip():
+        return f'invalid source_section: {prov["source_section"]!r}'
+    for k in ('source_chapter', 'source_paragraph_start', 'source_paragraph_end'):
         v = prov[k]
         if not isinstance(v, int) or v < 1:
             return f'invalid {k}: {v!r}'
