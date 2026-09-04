@@ -44,13 +44,15 @@ export class CoverScreen {
 
       <!-- Bottom Action Area -->
       <div style="position: relative; z-index: 3; padding: 0 24px 28px; max-width: 480px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
-        <button id="btn-buka-buku" style="background: #CDB397; color: #1C1916; border: none; padding: 16px 20px; border-radius: 12px; font-family: var(--sans); font-size: 14.5px; font-weight: 600; letter-spacing: 0.2px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.2s ease, background 0.2s ease;">
-          Buka Buku →
+        <button id="btn-buka-buku" style="background: #CDB397; color: #1C1916; border: none; padding: 16px 20px; border-radius: 12px; font-family: var(--sans); font-size: 14.5px; font-weight: 600; letter-spacing: 0.2px; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.2s ease, background 0.2s ease;">
+          Buka Buku
         </button>
 
-        <div id="link-daftar-isi" style="text-align: center; font-family: var(--sans); font-size: 12.5px; color: rgba(235,226,214,0.85); margin-top: 14px; cursor: pointer; letter-spacing: 0.3px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; transition: color 0.2s ease; text-shadow: 0 2px 8px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.95);">
+        <div id="link-daftar-isi" role="button" tabindex="0" aria-label="Lihat Daftar Isi" style="text-align: center; font-family: var(--sans); font-size: 12.5px; color: rgba(235,226,214,0.85); margin-top: 14px; cursor: pointer; letter-spacing: 0.3px; display: inline-flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 16px; transition: color 0.2s ease, transform 0.2s ease; text-shadow: 0 2px 8px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.95);">
           <span>Lihat Daftar Isi</span>
-          <span style="font-size: 14px; line-height: 1; transition: transform 0.2s ease;">→</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.8; transition: transform 0.2s ease;">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
         </div>
       </div>
     `;
