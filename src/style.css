@@ -755,6 +755,7 @@ body {
   border-radius: 20px;
   background: rgba(18, 18, 16, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  outline: none;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: rgba(235, 226, 214, 0.88);

@@ -303,10 +303,10 @@ export class ReaderScreen {
               </div>
 
               <!-- Subtle Flip Cue -->
-              <div class="m-flip-hint-pill" id="m-btn-flip-cue">
+              <button type="button" class="m-flip-hint-pill" id="m-btn-flip-cue" aria-label="Baca naskah bab ini" title="Balik ke naskah editorial">
                 <span class="m-hint-icon">↺</span>
-                <span class="m-hint-text">Baca →</span>
-              </div>
+                <span class="m-hint-text">Baca naskah</span>
+              </button>
             </main>
           </div>
 
@@ -365,10 +365,10 @@ export class ReaderScreen {
             </main>
 
             <!-- Subtle Flip Cue Pill -->
-            <div class="m-flip-hint-pill m-flip-hint-pill-b" id="m-btn-flip-cue-b">
+            <button type="button" class="m-flip-hint-pill m-flip-hint-pill-b" id="m-btn-flip-cue-b" aria-label="Lihat gambar karya visual" title="Balik ke karya visual">
               <span class="m-hint-icon">↺</span>
               <span class="m-hint-text">Lihat gambar</span>
-            </div>
+            </button>
           </div>
         </div>
       </div>
@@ -454,6 +454,16 @@ export class ReaderScreen {
       if (target.closest(".m-chevron") || target.closest("button") || target.closest("a")) return;
       const selection = window.getSelection();
       if (selection && selection.toString().trim().length > 0) return;
+      this.flipToSide("A");
+    });
+
+    // Explicit Flip Cue Pill Buttons ("Baca naskah" & "Lihat gambar")
+    this.el.querySelector("#m-btn-flip-cue")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.flipToSide("B");
+    });
+    this.el.querySelector("#m-btn-flip-cue-b")?.addEventListener("click", (e) => {
+      e.stopPropagation();
       this.flipToSide("A");
     });
   }
