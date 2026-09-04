@@ -9,7 +9,6 @@ import { CoverScreen } from "./screens/cover";
 import { PrologScreen } from "./screens/prolog";
 import { EpilogScreen } from "./screens/epilog";
 import { BabListScreen } from "./screens/bab-list";
-import { TocScreen } from "./screens/toc";
 import { ReaderScreen } from "./screens/reader/reader";
 
 // 1. Initialize DOM container
@@ -24,7 +23,6 @@ const coverScreen = new CoverScreen(device);
 const prologScreen = new PrologScreen(device);
 const epilogScreen = new EpilogScreen(device);
 const babListScreen = new BabListScreen(device);
-const tocScreen = new TocScreen(device);
 const readerScreen = new ReaderScreen(device);
 
 // 3. Unlock Web Audio API on first touch/click interaction
@@ -41,7 +39,6 @@ onRoute((route) => {
   prologScreen.hide();
   epilogScreen.hide();
   babListScreen.hide();
-  tocScreen.hide();
   readerScreen.hide();
 
   // Show active screen based on route

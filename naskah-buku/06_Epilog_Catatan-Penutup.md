@@ -17,7 +17,7 @@ Sekarang, di halaman terakhir buku ini, izinkan saya mengajakmu untuk berhenti s
 
 Sepanjang buku ini, kita telah berulang kali menyinggung satu paradox yang mungkin terdengar kontradiktif: **puncak pencapaian spiritual bukanlah kemampuan untuk terbang, membaca pikiran, atau menghilang dari dunia. Puncak spiritualitas adalah kemampuan untuk menjadi manusia normal.**
 
-Bukan manusia normal yang眠tak punya kesadaran. Bukan manusia normal yang hanya mengikuti arus tanpa pernah bertanya. Tapi manusia normal **yang hadir sepenuhnya** dalam setiap momen kehidupannya.
+Bukan manusia normal yang tak punya kesadaran. Bukan manusia normal yang hanya mengikuti arus tanpa pernah bertanya. Tapi manusia normal **yang hadir sepenuhnya** dalam setiap momen kehidupannya.
 
 Manusia normal yang:
 

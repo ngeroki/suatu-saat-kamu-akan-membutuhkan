@@ -3,6 +3,7 @@
  */
 import { navigate } from "../router";
 import { playPageTurn } from "../lib/audio";
+import { PAGES } from "../data/book";
 
 export class EpilogScreen {
   private el: HTMLElement;
@@ -74,7 +75,8 @@ export class EpilogScreen {
 
     this.el.querySelector("#epilog-btn-prev")?.addEventListener("click", () => {
       playPageTurn();
-      navigate("read", { chap: 5, page: 15 });
+      const lastPage = PAGES[PAGES.length - 1];
+      navigate("read", { chap: lastPage.chapter_id, page: lastPage.page_in_chap });
     });
 
     const finish = () => {
