@@ -52,12 +52,12 @@ export class PrologScreen {
             </div>
 
             <div class="pe-pullquote">
-              <p class="pe-quote-text">“Kita ngobrol ya, nggak usah serius-serius amat. Yang penting jujur. Nanti kalo udah waktunya butuh, bakal nyambung sendiri.”</p>
-              <span class="pe-quote-cite">— ALDI (@RAHWANACONSCIOUSNESSROOM)</span>
+              <p class="pe-quote-text">“Kita ngobrol ya, nggak usah serius-serius amat. Yang penting jujur. Nanti juga kalo udah waktunya kamu butuh, semua yang kita obrolin ini bakal nyambung sendiri.”</p>
+              <span class="pe-quote-cite">— Mas Aldi</span>
             </div>
 
             <p class="pe-body-p">
-              <span class="pe-dropcap">B</span>uku ini lahir dari obrolan santai yang tak pernah direncanakan di warung kopi pinggir jalan Yogya di bawah jembatan layang. Sains tubuh, hormon, dan fisika kuantum dibedah tanpa menggurui—seperti kawan lama yang menemukan rahasia hidup. Cukup buka pikiranmu sedikit; suatu saat kata-kata ini akan menemukan muaranya.
+              <span class="pe-dropcap">B</span>uku ini lahir dari obrolan larut malam di warung kopi Yogya, di bawah jembatan layang yang catnya mengelupas, di antara cangkir kopi tubruk yang mendingin. Tak ada panggung atau pretensi menggurui. Hanya obrolan jujur tentang bagaimana tubuh dan pikiran kita bekerja. Buka pikiranmu sedikit, simpan dulu di sudut ingatan. Suatu saat nanti, kamu akan membutuhkannya.
             </p>
           </div>
 

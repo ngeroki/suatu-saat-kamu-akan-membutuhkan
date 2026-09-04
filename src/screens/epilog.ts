@@ -50,12 +50,12 @@ export class EpilogScreen {
             </div>
 
             <div class="pe-pullquote">
-              <p class="pe-quote-text">“Kamu cuma perlu jadi manusia biasa yang hadir—yang beneran dengerin anaknya cerita, nemenin istrinya ngobrol. Itu aja sudah spiritualitas tertinggi.”</p>
-              <span class="pe-quote-cite">— ALDI (@RAHWANACONSCIOUSNESSROOM)</span>
+              <p class="pe-quote-text">“Kamu nggak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir—yang beneran dengerin anaknya cerita, nemenin istrinya ngobrol, ngerjain kerjaannya dengan jujur. Itu aja sudah spiritualitas tertinggi.”</p>
+              <span class="pe-quote-cite">— Mas Aldi</span>
             </div>
 
             <p class="pe-body-p">
-              <span class="pe-dropcap">P</span>uncak pencapaian spiritual bukanlah terbang atau membaca pikiran, melainkan kemampuan kembali menjadi manusia biasa yang hadir utuh bagi sesama. Bekerja jujur tanpa jargon rumit, menolong dengan empati tanpa menghakimi, dan menyadari bahwa semua sains tubuh tak berarti jika kita gagal hadir untuk keluarga.
+              <span class="pe-dropcap">B</span>uku ini selesai, tapi hidup nyata baru dimulai. Semua sains tubuh dan teori kuantum tak ada artinya kalau kita gagal hadir untuk orang-orang di rumah. Anakmu tak butuh ceramah energi saat ia takut di malam hari. Yang mereka butuhkan hanya kamu. Duduk di samping mereka apa adanya, dan hadapi hidup bersama.
             </p>
           </div>
 
