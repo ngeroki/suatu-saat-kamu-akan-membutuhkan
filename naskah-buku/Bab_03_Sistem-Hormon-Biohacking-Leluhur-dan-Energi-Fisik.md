@@ -91,11 +91,7 @@ Untuk meretas kembali kesadaran dan nasib hidup kita, kita wajib memahami bahasa
 ### 2.1 Perang Biokimiawi: Kortisol & Adrenalin vs Melatonin & Endorfin
 
 Di dalam sistem peredaran darah manusia, berlangsung pertempuran konstan antara dua kubu biokimiawi besar:
-
-1. **Kubu Katabolik / Survival (Kortisol, Adrenalin, Norepinefrin)**:
-   Diproduksi terutama oleh kelenjar adrenal dan dikomandoi oleh **amigdala**. Hormon-hormon ini dirancang untuk situasi darurat: mempercepat detak jantung, menyempitkan pembuluh darah tepi, mematikan fungsi regenerasi sel organ, dan mengalihkan seluruh glukosa darah ke otot lurik untuk lari atau bertarung (*fight-or-flight*).
-2. **Kubu Anabolik / Regenerasi (Endorfin, Melatonin, Oksitosin, Serotonin)**:
-   Diproduksi saat tubuh berada dalam dominasi saraf parasimpatis, keheningan batin, dan cinta kasih. Hormon-hormon ini memicu perbaikan jaringan DNA, menenangkan detak jantung, meredakan peradangan, serta membuka gerbang persepsi transendental.
+Sistem hormon tubuh beroperasi dalam dua mode konstan yang saling berlawanan. Kubu katabolik/survival, dipandu kortisol, adrenalin, dan norepinefrin dari kelenjar adrenal, mempersiapkan tubuh darurat dengan mempercepat detak jantung, menyempitkan pembuluh darah, mematikan fungsi regenerasi sel, mengalurkan glukosa ke otot lurik untuk melawan atau lari. Sebaliknya, kubu anabolik/regenerasi aktif saat tubuh merenangkan saraf parasimpatis—terakomodasi endorfin, melatonin, oksitosin, dan serotonin—memfasilitasi perbaikan DNA, menenangkan detak jantung, meredakan peradangan, dan membuka persepsi transendental.
 
 #### Sindrom Sirus (*Syros Syndrome*) & Oksidasi Seluler
 Apa yang terjadi jika manusia hidup dalam mode waspada kortisol berkepanjangan tanpa pernah dinetralisir?

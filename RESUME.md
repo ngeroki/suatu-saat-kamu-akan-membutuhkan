@@ -1,11 +1,11 @@
 # PROJECT RESUME — SUATU SAAT (Flip-Book SPA)
-Last Updated: 2026-09-04T14:48:00+07:00
+Last Updated: 2026-09-04T14:55:00+07:00
 Git Branch: master
-Latest Commit: ecb3539 ([AG] docs: sync commit SHA in RESUME.md)
+Latest Commit: 9f45273 ([AG] fix: wire explicit click handler and semantic button for mobile 'Lihat gambar' cue)
 
 ## Quick Status
 - Server: Running on http://localhost:4173 (Node static server serving dist/).
-- Build Status: Passing 100% (tsc --noEmit & vite build 0 errors in 476ms).
+- Build Status: Passing 100% (tsc --noEmit & vite build 0 errors in 289ms).
 - Validation Suite: 5/5 Automated checks passed (validate_book.py).
 
 ## Work Completed in Session
@@ -25,9 +25,15 @@ Latest Commit: ecb3539 ([AG] docs: sync commit SHA in RESUME.md)
    - **Pencegahan Stale State**: Memastikan `pagePicker.close()` terpanggil saat `ReaderScreen.hide()`.
    - **Refactoring CSS Semantik**: Menghilangkan inline `!important` dari `style.css` menjadi kelas CSS terstruktur dengan proteksi viewport pendek.
    - **Navigasi Dinamis Epilog**: Mengganti target hardcoded menjadi lookup dinamis `PAGES[PAGES.length - 1]`.
+5. **Perbaikan Tombol 'Lihat gambar' & Keselarasan 'Baca naskah' (`src/screens/reader/reader.ts`, `src/style.css`)**:
+   - Mengonversi pill "Lihat gambar" dan "Baca naskah" menjadi `<button type="button">` semantik ber-`aria-label`.
+   - Memasang explicit event listener ber-`e.stopPropagation()` di `bindMobileEvents()`, sehingga ketukan pada tombol pill "Lihat gambar" langsung memicu transisi flip kembali ke Side A visual secara presisi.
+   - Menyelaraskan teks pill Side A menjadi "Baca naskah" ↔ "Lihat gambar" secara estetis dan simetris.
+   - Memvalidasi interaksi bolak-balik dengan Playwright headless (Side A ↔ Side B 100% lulus).
 
 ## Current State
-- Arsitektur bersih (*Clean Architecture*), komponen modular, bundle produksi lebih ramping (263.62 kB), zero dead code.
+- Arsitektur bersih (*Clean Architecture*), komponen modular, bundle produksi lebih ramping (264.23 kB), zero dead code.
+- Tombol flip cue dua sisi berfungsi 100% lancar dan responsif.
 - Clean working tree, production bundle built and live on port 4173.
 
 ## Immediate Next Actions
