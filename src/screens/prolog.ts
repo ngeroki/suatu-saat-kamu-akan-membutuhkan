@@ -32,15 +32,15 @@ export class PrologScreen {
         <div class="pe-artwork-box">
           <img class="pe-artwork-img" src="/assets/prolog_warkop.jpg" alt="Warkop Malam" loading="eager">
           <div class="pe-artwork-mask"></div>
-
-          <!-- Floating Navigation Chevrons -->
-          <button class="pe-chevron pe-chevron-prev" id="prolog-btn-prev" aria-label="Ke Sampul">
-            <span>‹</span>
-          </button>
-          <button class="pe-chevron pe-chevron-next" id="prolog-btn-next" aria-label="Mulai Bab 1">
-            <span>›</span>
-          </button>
         </div>
+
+        <!-- Floating Navigation Chevrons (Vertically Centered in Screen) -->
+        <button class="pe-chevron pe-chevron-prev" id="prolog-btn-prev" aria-label="Ke Sampul">
+          <span>‹</span>
+        </button>
+        <button class="pe-chevron pe-chevron-next" id="prolog-btn-next" aria-label="Mulai Bab 1">
+          <span>›</span>
+        </button>
 
         <!-- Bottom Editorial Content Box (55% Height) -->
         <div class="pe-content-box">

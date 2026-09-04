@@ -1353,10 +1353,10 @@ body {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(20, 20, 18, 0.7);
+  background: rgba(20, 20, 18, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.22);
   color: #EDE4D8;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -1364,17 +1364,17 @@ body {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
-  z-index: 20;
-  transition: transform 0.15s, background 0.2s;
+  z-index: 30;
+  transition: transform 0.15s, background 0.2s, opacity 0.2s;
 }
 .pe-chevron:active {
   transform: translateY(-50%) scale(0.92);
 }
 .pe-chevron-prev {
-  left: 10px;
+  left: 6px;
 }
 .pe-chevron-next {
-  right: 10px;
+  right: 6px;
 }
 
 /* Content Box (Bottom 55%) */
@@ -1527,4 +1527,61 @@ body {
   transform: translateY(3px) !important;
 }
 
+/* =========================================================================
+   PAGE PICKER POPOVER (Direct Top-Right Instant Jumper — No Box Outline)
+   ========================================================================= */
+@keyframes pickerPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 
+.page-picker-overlay {
+  transition: opacity 0.16s ease;
+}
+
+.page-picker-overlay.closing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.m-hdr-page:hover {
+  opacity: 1 !important;
+  color: #C5A059 !important;
+}
+
+.m-hdr-page:active {
+  transform: scale(0.95);
+}
+
+.picker-tabs-row::-webkit-scrollbar {
+  display: none;
+}
+
+.picker-page-btn:hover {
+  background: #DED4C4 !important;
+}
+
+.picker-page-btn:active {
+  transform: scale(0.92);
+}
+
+.picker-page-btn.current {
+  background: #C5A059 !important;
+  color: #FFFFFF !important;
+}
+
+.picker-chap-tab:hover:not(.active) {
+  background: #DED4C4 !important;
+  color: #1A1714 !important;
+}
+
+.picker-quick-tab:hover {
+  background: #C5A059 !important;
+  color: #FFFFFF !important;
+}

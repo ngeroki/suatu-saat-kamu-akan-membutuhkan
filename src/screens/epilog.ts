@@ -32,15 +32,12 @@ export class EpilogScreen {
         <div class="pe-artwork-box">
           <img class="pe-artwork-img" src="/assets/epilog_keluarga.jpg" alt="Keluarga di Senja" loading="eager">
           <div class="pe-artwork-mask"></div>
-
-          <!-- Floating Navigation Chevrons -->
-          <button class="pe-chevron pe-chevron-prev" id="epilog-btn-prev" aria-label="Kembali ke Bab 5">
-            <span>‹</span>
-          </button>
-          <button class="pe-chevron pe-chevron-next" id="epilog-btn-next" aria-label="Selesai Membaca">
-            <span>›</span>
-          </button>
         </div>
+
+        <!-- Floating Navigation Chevron (Left/Previous only, Vertically Centered in Screen) -->
+        <button class="pe-chevron pe-chevron-prev" id="epilog-btn-prev" aria-label="Kembali ke Bab 5">
+          <span>‹</span>
+        </button>
 
         <!-- Bottom Editorial Content Box (55% Height) -->
         <div class="pe-content-box">
@@ -85,7 +82,6 @@ export class EpilogScreen {
       navigate("cover");
     };
 
-    this.el.querySelector("#epilog-btn-next")?.addEventListener("click", finish);
     this.el.querySelector("#epilog-btn-cta")?.addEventListener("click", finish);
   }
 

@@ -83,8 +83,8 @@ export class BabListScreen {
               <div class="unified-bab-code">${ch.code}</div>
               <div class="unified-bab-title">${ch.title}</div>
               <div class="unified-bab-dropdown-cue">
-                <span class="cue-text">${isOpen ? 'Tutup' : 'Isi bab'}</span>
-                <span class="cue-chevron">${isOpen ? '⌃' : '⌄'}</span>
+                <span class="cue-text">${isOpen ? 'Tutup' : 'Lihat isi'}</span>
+                <span class="cue-chevron"></span>
               </div>
             </div>
 
@@ -98,9 +98,9 @@ export class BabListScreen {
           <!-- Expandable Dropdown TOC Body -->
           <div class="unified-bab-dropdown">
             <div class="dropdown-quick-bar">
-              <span class="dropdown-quick-title">DAFTAR ISI · ${chapPages.length} HALAMAN</span>
+              <span class="dropdown-quick-title">15 halaman di bab ini</span>
               <button class="dropdown-read-all-btn" data-chap="${ch.id}" data-page="1">
-                Mulai Bab ➜
+                Mulai Bab →
               </button>
             </div>
             <div class="dropdown-pages-list">
@@ -120,7 +120,7 @@ export class BabListScreen {
         </div>
         <span class="brand" style="font-family: var(--serif); font-size: 16px; letter-spacing: 2px; color: #EDE4D8; font-weight: 500;">SUATU SAAT</span>
         <div style="font-family: var(--sans); font-size: 11px; color: #C5A059; font-weight: 500; letter-spacing: 1px;">
-          74 HAL
+          74 hal
         </div>
       </header>
 
@@ -140,7 +140,7 @@ export class BabListScreen {
               <div class="unified-bab-code" style="color: #C5A059; font-weight: 700;">PROLOG</div>
               <div class="unified-bab-title">Obrolan di Pinggir Jalan</div>
               <div class="unified-bab-dropdown-cue">
-                <span class="cue-text">Buka Prolog ➜</span>
+                <span class="cue-text">Buka Prolog →</span>
               </div>
             </div>
             <div class="unified-bab-right-artwork">
@@ -159,7 +159,7 @@ export class BabListScreen {
               <div class="unified-bab-code" style="color: #C5A059; font-weight: 700;">EPILOG</div>
               <div class="unified-bab-title">Menjadi Manusia Normal</div>
               <div class="unified-bab-dropdown-cue">
-                <span class="cue-text">Buka Epilog ➜</span>
+                <span class="cue-text">Buka Epilog →</span>
               </div>
             </div>
             <div class="unified-bab-right-artwork">
@@ -229,8 +229,8 @@ export class BabListScreen {
 
         const cueText = card.querySelector(".cue-text");
         const cueChevron = card.querySelector(".cue-chevron");
-        if (cueText) cueText.textContent = isOpenNow ? "Tutup" : "Isi bab";
-        if (cueChevron) cueChevron.textContent = isOpenNow ? "⌃" : "⌄";
+        if (cueText) cueText.textContent = isOpenNow ? "Tutup" : "Lihat isi";
+        if (cueChevron) cueChevron.textContent = "";
       });
     });
 

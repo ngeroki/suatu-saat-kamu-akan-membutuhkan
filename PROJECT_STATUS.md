@@ -1,6 +1,6 @@
 # 📊 PROJECT STATUS — SUATU SAAT (Mobile Digital Art Book)
 
-> **Last Updated**: 2026-09-04T05:33:00+07:00  
+> **Last Updated**: 2026-09-04T14:13:00+07:00  
 > **Repository**: R:\flip-book  
 > **Status**: Active / Two-Sided Single Sheet Flipbook Live  
 > **Lead Architect**: Antigravity [AG]  
@@ -45,4 +45,6 @@
 | **Symmetrical Tap-to-Flip & Text Floating Chevrons** | `src/screens/reader/reader.ts`, `src/style.css` | ✅ Done | Tap bolak-balik simetris (ketuk poster -> naskah, ketuk naskah -> poster); panah floating ‹ › ditambahkan ke sisi naskah; stepper bawah & nomor halaman duplikat di bawah naskah dibersihkan |
 | **Dedicated Prolog & Epilog Hybrid Screens** | `src/screens/prolog.ts`, `src/screens/epilog.ts`, `src/style.css` | ✅ Done | Layar editorial 1-screen (45% artwork otentik warkop/keluarga + 55% naskah intisari, pure literary pull-quote, Cinzel headline, hairline divider, drop cap, tombol CTA) dengan audio transition |
 | **Seamless End-to-End Reading Flow** | `src/router.ts`, `src/screens/cover.ts`, `src/screens/reader/reader.ts`, `src/screens/bab-list.ts` | ✅ Done | Cover -> Prolog -> Bab 1..5 (Hal 1..74) -> Epilog -> Cover; Kartu Prolog & Epilog disematkan di Daftar Isi; 7/7 Playwright E2E tests pass |
-| **Production Build** | `dist/` | ✅ Done | TypeScript check lolos & Vite production bundle siap |
+| **Reader Side B Header Redundancy Cleanup** | `src/screens/reader/reader.ts` | ✅ Done | Menghapus label redundant `HALAMAN XX` di bawah header, menyisakan penunjuk halaman di kanan atas navbar (`XX / 74`) |
+| **Direct Instant Page Picker Popover (No Box Outline)** | `src/screens/reader/reader.ts`, `src/style.css` | ✅ Done | Klik `XX / 74` di pojok kanan atas langsung membuka popover lompat halaman: ketik nomor langsung, tab filter bab, grid nomor halaman (sekali klik langsung loncat tanpa scroll), berdesain frameless & soft elevation |
+| **Prolog & Epilog Chevrons Alignment & Epilog Next Removal** | `src/screens/prolog.ts`, `src/screens/epilog.ts`, `src/style.css` | ✅ Done | Posisi panah navigasi Prolog & Epilog dipindahkan ke tengah vertikal layar (`top: 50%`) seragam dengan reader; panah *next* di Epilog dihapus karena merupakan halaman akhir buku |

@@ -3,7 +3,7 @@
  * Mobile (<= 480px, Target: 390px): 9:16 Portrait Hero Poster + Warm Bone Paper Editorial Peek Drawer
  * Desktop (> 480px): Open-Book Two-Page Physical Spread
  */
-import { PAGES, Page } from "../../data/book";
+import { PAGES, Page, CHAPTERS } from "../../data/book";
 import { navigate, Route } from "../../router";
 import { playPageTurn, playPaperSlide } from "../../lib/audio";
 import { attachGestures, attachKeyboardNav } from "../../lib/gestures";
@@ -14,6 +14,8 @@ export class ReaderScreen {
   private activeSide: "A" | "B" = "A";
   private bookmarkedPages: Set<number> = new Set();
   private isFlipping = false;
+  private isPagePickerOpen = false;
+  private pickerActiveChapter = 1;
 
   constructor(container: HTMLElement) {
     this.el = document.createElement("div");
@@ -26,6 +28,13 @@ export class ReaderScreen {
     this.el.style.flexDirection = "column";
 
     container.appendChild(this.el);
+
+    // Escape key closes page picker
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && this.isPagePickerOpen) {
+        this.closePagePicker();
+      }
+    });
 
     // Gestures for swipe navigation (left / right for page turns)
     attachGestures(this.el, {
@@ -67,6 +76,9 @@ export class ReaderScreen {
   }
 
   public goToPage(index: number, direction?: "next" | "prev"): void {
+    if (this.isPagePickerOpen) {
+      this.closePagePicker();
+    }
     if (index < 0 || index >= PAGES.length || index === this.currentGlobalIndex) return;
     if (this.isFlipping) return;
 
@@ -250,8 +262,9 @@ export class ReaderScreen {
               </button>
               <div class="m-hdr-title" id="m-hdr-title" role="button" tabindex="0" title="Kembali ke Beranda">Suatu Saat</div>
               <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-family: var(--sans); font-size: 11px; color: rgba(235, 226, 214, 0.6); font-weight: 500;">
-                  ${curNum} / ${totalNum}
+                <span class="m-hdr-page" id="m-hdr-page-a" role="button" tabindex="0" title="Pilih Halaman" style="cursor: pointer; font-family: var(--sans); font-size: 11px; color: rgba(235, 226, 214, 0.85); font-weight: 500; display: inline-flex; align-items: center; gap: 3px; padding: 4px 6px; border-radius: 6px; transition: color 0.2s, background 0.2s;">
+                  <span>${curNum} / ${totalNum}</span>
+                  <span style="font-size: 9px; opacity: 0.6;">▾</span>
                 </span>
                 <button class="m-hdr-btn ${isBookmarked ? 'bookmarked' : ''}" id="m-btn-bookmark-a" aria-label="Simpan Penanda">
                   <span class="m-icon">${isBookmarked ? '★' : '🔖'}</span>
@@ -281,7 +294,7 @@ export class ReaderScreen {
               <!-- Subtle Flip Cue -->
               <div class="m-flip-hint-pill" id="m-btn-flip-cue">
                 <span class="m-hint-icon">↺</span>
-                <span class="m-hint-text">Ketuk poster untuk membaca naskah</span>
+                <span class="m-hint-text">Baca →</span>
               </div>
             </main>
           </div>
@@ -297,8 +310,9 @@ export class ReaderScreen {
               </button>
               <div class="m-hdr-title" id="m-hdr-title-b" role="button" tabindex="0" title="Kembali ke Beranda" style="cursor: pointer; color: #1E1A16;">Suatu Saat</div>
               <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-family: var(--sans); font-size: 11px; color: #7A6045; font-weight: 600;">
-                  ${curNum} / ${totalNum}
+                <span class="m-hdr-page" id="m-hdr-page-b" role="button" tabindex="0" title="Pilih Halaman" style="cursor: pointer; font-family: var(--sans); font-size: 11px; color: #7A6045; font-weight: 600; display: inline-flex; align-items: center; gap: 3px; padding: 4px 6px; border-radius: 6px; transition: color 0.2s, background 0.2s;">
+                  <span>${curNum} / ${totalNum}</span>
+                  <span style="font-size: 9px; opacity: 0.6;">▾</span>
                 </span>
                 <button class="m-hdr-btn ${isBookmarked ? 'bookmarked' : ''}" id="m-btn-bookmark-b" aria-label="Simpan Penanda" style="color: #7A6045;">
                   <span class="m-icon">${isBookmarked ? '★' : '🔖'}</span>
@@ -319,9 +333,8 @@ export class ReaderScreen {
               <div class="m-reading-container">
                 <!-- Article Header -->
                 <header class="m-article-header">
-                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <div style="margin-bottom: 8px;">
                     <span class="m-hdr-b-chip">${page.chapter_code}</span>
-                    <span style="font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 1px; color: #7A6045;">HALAMAN ${curNum}</span>
                   </div>
                   <h1 class="m-article-title">${page.title}</h1>
                   ${page.subtitle ? `<div class="m-article-subtitle">${page.subtitle}</div>` : ''}
@@ -343,7 +356,7 @@ export class ReaderScreen {
             <!-- Subtle Flip Cue Pill -->
             <div class="m-flip-hint-pill m-flip-hint-pill-b" id="m-btn-flip-cue-b">
               <span class="m-hint-icon">↺</span>
-              <span class="m-hint-text">Ketuk naskah untuk kembali ke visual</span>
+              <span class="m-hint-text">Lihat gambar</span>
             </div>
           </div>
         </div>
@@ -383,6 +396,16 @@ export class ReaderScreen {
     this.el.querySelector("#m-btn-bookmark-b")?.addEventListener("click", (e) => {
       e.stopPropagation();
       this.toggleBookmark();
+    });
+
+    // Page Number Click -> Toggle Instant Page Picker Popover
+    this.el.querySelector("#m-hdr-page-a")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.togglePagePicker();
+    });
+    this.el.querySelector("#m-hdr-page-b")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.togglePagePicker();
     });
 
     // Side A Chevrons (Previous / Next page)
@@ -461,9 +484,9 @@ export class ReaderScreen {
         if (dElements.length === 0 && p.length > 20) {
           const firstLetter = p.charAt(0);
           const rest = p.slice(1);
-          dElements.push(`<p style="margin-bottom: 8px; font-family: var(--serif); font-size: 13px; line-height: 1.6; color: #1D1A16; text-align: justify;"><span style="float: left; font-family: var(--display); font-size: 32px; line-height: 0.82; font-weight: 700; color: #7A6045; margin-right: 6px; padding-top: 2px;">${firstLetter}</span>${rest}</p>`);
+          dElements.push(`<p style="margin-bottom: 8px; font-family: var(--serif); font-size: 13px; line-height: 1.6; color: #1D1A16; text-align: left;"><span style="float: left; font-family: var(--display); font-size: 32px; line-height: 0.82; font-weight: 700; color: #7A6045; margin-right: 6px; padding-top: 2px;">${firstLetter}</span>${rest}</p>`);
         } else {
-          dElements.push(`<p style="margin-bottom: 8px; font-family: var(--serif); font-size: 13px; line-height: 1.6; color: #1D1A16; text-align: justify;">${p}</p>`);
+          dElements.push(`<p style="margin-bottom: 8px; font-family: var(--serif); font-size: 13px; line-height: 1.6; color: #1D1A16; text-align: left;">${p}</p>`);
         }
       }
       dIdx++;
@@ -486,8 +509,9 @@ export class ReaderScreen {
           <div style="font-family: var(--sans); font-size: 13.5px; letter-spacing: 1.5px; color: #EDE4D8; font-weight: 500; text-transform: uppercase;">
             ${page.chapter_code}
           </div>
-          <div style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.7); letter-spacing: 0.5px;">
-            ${curNum} / ${totalNum}
+          <div class="m-hdr-page" id="d-hdr-page" role="button" tabindex="0" title="Pilih Halaman" style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.7); letter-spacing: 0.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 6px; transition: color 0.2s, background 0.2s;">
+            <span>${curNum} / ${totalNum}</span>
+            <span style="font-size: 10px; opacity: 0.6;">▾</span>
           </div>
         </div>
 
@@ -571,12 +595,203 @@ export class ReaderScreen {
       }
     });
 
+    // Desktop Page Number Click -> Toggle Page Picker
+    this.el.querySelector("#d-hdr-page")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.togglePagePicker();
+    });
+
     const dTrack = this.el.querySelector("#d-nav-track") as HTMLElement;
     dTrack?.addEventListener("click", (e: MouseEvent) => {
       const rect = dTrack.getBoundingClientRect();
       const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
       const targetIndex = Math.round(clickRatio * (PAGES.length - 1));
       this.goToPage(targetIndex);
+    });
+  }
+
+  // =========================================================================
+  // INSTANT PAGE PICKER POPOVER (Frameless / No Box Outline)
+  // =========================================================================
+  public togglePagePicker(): void {
+    if (this.isPagePickerOpen) {
+      this.closePagePicker();
+    } else {
+      this.openPagePicker();
+    }
+  }
+
+  public openPagePicker(): void {
+    const curPage = PAGES[this.currentGlobalIndex];
+    this.pickerActiveChapter = curPage ? curPage.chapter_id : 1;
+    this.isPagePickerOpen = true;
+
+    // Remove any existing picker container
+    const existing = this.el.querySelector("#page-picker-overlay");
+    if (existing) existing.remove();
+
+    const overlay = document.createElement("div");
+    overlay.id = "page-picker-overlay";
+    overlay.className = "page-picker-overlay";
+
+    this.el.appendChild(overlay);
+    this.updatePickerContent();
+  }
+
+  public closePagePicker(): void {
+    this.isPagePickerOpen = false;
+    const overlay = this.el.querySelector("#page-picker-overlay");
+    if (overlay) {
+      overlay.classList.add("closing");
+      setTimeout(() => overlay.remove(), 160);
+    }
+  }
+
+  private updatePickerContent(): void {
+    const overlay = this.el.querySelector("#page-picker-overlay");
+    if (!overlay) return;
+
+    const curNum = this.currentGlobalIndex + 1;
+    const totalNum = PAGES.length;
+    const isMobile = window.innerWidth <= 480;
+
+    // Current Chapter metadata and its pages
+    const chapter = CHAPTERS.find(c => c.id === this.pickerActiveChapter) || CHAPTERS[0];
+    const chapPages = PAGES.filter(p => p.chapter_id === this.pickerActiveChapter);
+
+    // Build Chapter Tabs HTML (Clean soft pills, no box outlines)
+    const chapTabsHTML = [
+      `<button class="picker-quick-tab" data-nav="prolog" style="border: none; outline: none; border-radius: 999px; padding: 4px 10px; font-family: var(--sans); font-size: 10.5px; font-weight: 600; cursor: pointer; background: #E8E0D2; color: #554737; transition: all 0.15s ease; white-space: nowrap;">Prolog</button>`,
+      ...CHAPTERS.map(ch => {
+        const isActive = ch.id === this.pickerActiveChapter;
+        return `
+          <button class="picker-chap-tab ${isActive ? 'active' : ''}" data-chap="${ch.id}" style="border: none; outline: none; border-radius: 999px; padding: 4px 10px; font-family: var(--sans); font-size: 10.5px; font-weight: 600; cursor: pointer; transition: all 0.15s ease; white-space: nowrap; ${
+            isActive
+              ? 'background: #7A6045; color: #F4EFE6;'
+              : 'background: #E8E0D2; color: #554737;'
+          }">
+            ${ch.code.replace('BAB 0', 'Bab ').replace('BAB ', 'Bab ')}
+          </button>
+        `;
+      }),
+      `<button class="picker-quick-tab" data-nav="epilog" style="border: none; outline: none; border-radius: 999px; padding: 4px 10px; font-family: var(--sans); font-size: 10.5px; font-weight: 600; cursor: pointer; background: #E8E0D2; color: #554737; transition: all 0.15s ease; white-space: nowrap;">Epilog</button>`
+    ].join("");
+
+    // Build Page Buttons HTML (5 columns, soft pills, no harsh outline box)
+    const pagesHTML = chapPages.map(p => {
+      const pNum = p.page_number;
+      const isCur = pNum === curNum;
+      return `
+        <button class="picker-page-btn ${isCur ? 'current' : ''}" data-idx="${pNum - 1}" style="border: none; outline: none; height: 36px; border-radius: 10px; font-family: var(--sans); font-size: 12px; font-weight: 700; cursor: pointer; transition: transform 0.1s ease, background 0.15s ease; ${
+          isCur
+            ? 'background: #C5A059; color: #FFFFFF; font-weight: 800; box-shadow: 0 2px 8px rgba(197, 160, 89, 0.4);'
+            : 'background: #E8E0D2; color: #1A1714;'
+        }">
+          ${pNum}
+        </button>
+      `;
+    }).join("");
+
+    overlay.innerHTML = `
+      <!-- Soft Backdrop -->
+      <div class="picker-backdrop" id="picker-backdrop" style="position: fixed; inset: 0; z-index: 9998; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(2px);"></div>
+      
+      <!-- Popover Card (PURE ELEVATION, NO BOX OUTLINE BORDER) -->
+      <div class="picker-popover-card" style="position: fixed; top: ${isMobile ? '52px' : '58px'}; right: ${isMobile ? '12px' : 'max(16px, calc((100vw - 900px) / 2 + 16px))'}; width: ${isMobile ? 'min(330px, calc(100vw - 24px))' : '330px'}; background: #F4EFE6; color: #1A1714; border: none; outline: none; border-radius: 18px; box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.6); padding: 14px; z-index: 9999; animation: pickerPopIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);">
+        
+        <!-- Header: Clean Title & Close Button -->
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; margin-bottom: 10px; border-bottom: 1px solid rgba(122, 96, 69, 0.15);">
+          <span style="font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #7A6045;">
+            Lompat ke Halaman
+          </span>
+          <button id="picker-close-btn" style="border: none; outline: none; background: transparent; color: #7A6045; font-size: 13px; font-weight: bold; cursor: pointer; padding: 2px 6px;">✕</button>
+        </div>
+
+        <!-- Direct Number Input (Clean tint, no outline border) -->
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <div style="flex: 1; display: flex; align-items: center; background: #E8E0D2; border-radius: 10px; padding: 6px 12px;">
+            <span style="font-family: var(--sans); font-size: 11px; font-weight: 600; color: #7A6045; margin-right: 6px;">Hal</span>
+            <input id="picker-input-page" type="number" min="1" max="74" value="${curNum}" style="width: 100%; border: none; outline: none; background: transparent; font-family: var(--sans); font-size: 13.5px; font-weight: 700; color: #1A1714;" placeholder="1-74" />
+            <span style="font-family: var(--sans); font-size: 10.5px; color: rgba(122, 96, 69, 0.6); font-weight: 500;">/ ${totalNum}</span>
+          </div>
+          <button id="picker-btn-go" style="border: none; outline: none; background: #7A6045; color: #F4EFE6; font-family: var(--sans); font-size: 12px; font-weight: 600; padding: 8px 14px; border-radius: 10px; cursor: pointer; box-shadow: 0 2px 6px rgba(122,96,69,0.3); transition: transform 0.1s ease;">
+            Loncat
+          </button>
+        </div>
+
+        <!-- Chapter Filter Tabs (Soft Pills, No Box Border) -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #7A6045;">
+            Pilih Langsung
+          </span>
+          <span style="font-family: var(--sans); font-size: 10px; font-weight: 600; color: #C5A059;">
+            ${chapter.code} (Hal ${chapter.pageStart} - ${chapter.pageStart + chapter.pageCount - 1})
+          </span>
+        </div>
+        <div class="picker-tabs-row" style="display: flex; gap: 4px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 10px; scrollbar-width: none;">
+          ${chapTabsHTML}
+        </div>
+
+        <!-- Direct Page Numbers Grid (5 Columns, Click to Jump Immediately, No Scroll!) -->
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;">
+          ${pagesHTML}
+        </div>
+      </div>
+    `;
+
+    // Bind Popover Events
+    overlay.querySelector("#picker-backdrop")?.addEventListener("click", () => this.closePagePicker());
+    overlay.querySelector("#picker-close-btn")?.addEventListener("click", () => this.closePagePicker());
+
+    // Enter or Go button for input
+    const inputEl = overlay.querySelector("#picker-input-page") as HTMLInputElement;
+    const btnGo = overlay.querySelector("#picker-btn-go");
+
+    const handleJumpInput = () => {
+      if (!inputEl) return;
+      const target = parseInt(inputEl.value);
+      if (!isNaN(target) && target >= 1 && target <= PAGES.length) {
+        this.closePagePicker();
+        this.goToPage(target - 1);
+      }
+    };
+
+    btnGo?.addEventListener("click", handleJumpInput);
+    inputEl?.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        handleJumpInput();
+      }
+    });
+
+    // Chapter tabs click
+    overlay.querySelectorAll(".picker-chap-tab").forEach(tab => {
+      tab.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const cid = parseInt((tab as HTMLElement).dataset.chap || "1");
+        this.pickerActiveChapter = cid;
+        this.updatePickerContent();
+      });
+    });
+
+    // Quick Prolog/Epilog tabs
+    overlay.querySelectorAll(".picker-quick-tab").forEach(tab => {
+      tab.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const nav = (tab as HTMLElement).dataset.nav;
+        this.closePagePicker();
+        if (nav === "prolog") navigate("prolog");
+        if (nav === "epilog") navigate("epilog");
+      });
+    });
+
+    // Direct Page buttons click -> INSTANT JUMP!
+    overlay.querySelectorAll(".picker-page-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const targetIdx = parseInt((btn as HTMLElement).dataset.idx || "0");
+        this.closePagePicker();
+        this.goToPage(targetIdx);
+      });
     });
   }
 }
