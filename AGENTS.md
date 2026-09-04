@@ -1,6 +1,21 @@
-﻿# 🤖 AGENTS.MD — TATA KELOLA & KOORDINASI AI WORKSPACE
+# 🤖 AGENTS.MD — TATA KELOLA & KOORDINASI AI WORKSPACE
 
 Selamat datang di workspace **SUATU SAAT** (`R:\flip-book`).
+
+---
+
+## 🏛️ Arsitektur Dual-Workspace (Pemisahan Dapur vs Galeri)
+Untuk menjaga kebersihan kode dan menghindari *context pollution* pada agen AI, proyek ini dibagi menjadi dua direktori terpisah dengan tanggung jawab tegas:
+
+1. **`R:\flip-book` (Galeri / Aplikasi Web Produksi)**:
+   - **Fungsi**: Webapp digital flipbook SPA utama (Vite + TypeScript + 3D page flip engine).
+   - **Isi**: Naskah kurasi 74 halaman (`naskah-buku/`), aset visual potret 9:16, data flipbook (`src/data/book-pages.json`), dan layar baca mobile-first.
+   - **GitHub Remote**: `https://github.com/ngeroki/suatu-saat-kamu-akan-membutuhkan` (branch `master`).
+   - **Aturan**: Seluruh pengembangan UI, tipografi, dan navigasi pembaca **WAJIB** dikerjakan di direktori ini.
+2. **`R:\suatu-saat-kamu-akan-membutuhkan` (Dapur Riset & Arsip Bahan Mentah)**:
+   - **Fungsi**: Gudang penyimpanan bahan mentah, riset, dan eksperimen data.
+   - **Isi**: 42 transkrip mentah (TikTok & offline audio), file rekaman audio, pipeline RAG, dan skrip scraping.
+   - **Aturan**: Dilarang mengembangkan aplikasi web di folder ini. Naskah hasil olahan yang sudah matang di sana disalin ke `R:\flip-book\naskah-buku\`.
 
 ---
 
