@@ -5,10 +5,12 @@
 import { CHAPTERS, PAGES, Page, ChapterMeta } from "../data/book";
 import { navigate } from "../router";
 import { playPaperRustle } from "../lib/audio";
+import { PagePicker } from "../components/page-picker";
 
 export class BabListScreen {
   private el: HTMLElement;
   private openChapterIds: Set<number> = new Set(); // All chapters closed by default
+  private pagePicker: PagePicker;
 
   constructor(container: HTMLElement) {
     this.el = document.createElement("div");
@@ -22,16 +24,31 @@ export class BabListScreen {
     this.el.style.flexDirection = "column";
 
     container.appendChild(this.el);
+
+    this.pagePicker = new PagePicker({
+      container: this.el,
+      onSelectPage: (globalIndex: number) => {
+        const page = PAGES[globalIndex];
+        if (page) {
+          playPaperRustle();
+          navigate("read", { chap: page.chapter_id, page: page.page_in_chap });
+        }
+      },
+      onNavigate: (route) => navigate(route),
+    });
+
     this.render();
   }
 
   public show(): void {
+    this.pagePicker.close();
     this.el.classList.add("active");
     this.openChapterIds.clear(); // Ensure all chapters are closed so user sees all chapters
     this.render();
   }
 
   public hide(): void {
+    this.pagePicker.close();
     this.el.classList.remove("active");
   }
 
@@ -118,10 +135,13 @@ export class BabListScreen {
           <span>←</span>
           <span>Sampul</span>
         </div>
-        <span class="brand" style="font-family: var(--serif); font-size: 16px; letter-spacing: 2px; color: #EDE4D8; font-weight: 500;">SUATU SAAT</span>
-        <div style="font-family: var(--sans); font-size: 11px; color: #C5A059; font-weight: 500; letter-spacing: 1px;">
-          74 hal
+        <div class="brand" id="unified-btn-home" role="button" tabindex="0" title="Kembali ke Beranda" style="cursor: pointer; font-family: var(--serif); font-size: 16px; letter-spacing: 2px; color: #EDE4D8; font-weight: 500; transition: opacity 0.2s ease;">
+          SUATU SAAT
         </div>
+        <span class="m-hdr-page" id="unified-hdr-page" role="button" tabindex="0" title="Pilih Halaman" style="cursor: pointer; font-family: var(--sans); font-size: 11px; color: #C5A059; font-weight: 500; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 3px; padding: 4px 6px; border-radius: 6px; transition: color 0.2s, background 0.2s;">
+          <span>74 hal</span>
+          <span style="font-size: 9px; opacity: 0.7;">▾</span>
+        </span>
       </header>
 
       <!-- Sub Header Title Row -->
@@ -189,7 +209,22 @@ export class BabListScreen {
 
   private bindEvents(): void {
     // Back to Cover
-    this.el.querySelector("#unified-btn-back")?.addEventListener("click", () => navigate("cover"));
+    this.el.querySelector("#unified-btn-back")?.addEventListener("click", () => {
+      this.pagePicker.close();
+      navigate("cover");
+    });
+
+    // Brand SUATU SAAT -> Back to Cover
+    this.el.querySelector("#unified-btn-home")?.addEventListener("click", () => {
+      this.pagePicker.close();
+      navigate("cover");
+    });
+
+    // Page Jumper (74 hal ▾) -> Toggle PagePicker Popover
+    this.el.querySelector("#unified-hdr-page")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.pagePicker.toggle(0);
+    });
 
     // Prolog and Epilog Cards
     this.el.querySelector("#card-prolog")?.addEventListener("click", () => {

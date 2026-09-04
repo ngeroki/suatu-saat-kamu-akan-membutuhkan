@@ -1549,6 +1549,10 @@ body {
 }
 
 .page-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
   transition: opacity 0.16s ease;
 }
 
@@ -1564,6 +1568,7 @@ body {
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+  pointer-events: auto;
 }
 
 .picker-popover-card {
@@ -1582,6 +1587,7 @@ body {
   padding: 14px;
   z-index: 9999;
   animation: pickerPopIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
 }
 
 @media (min-width: 481px) {
