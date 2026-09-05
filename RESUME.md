@@ -1,10 +1,10 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-05T22:50:00+07:00 | Branch: master | HEAD: 5081808
+Updated: 2026-09-05T23:20:00+07:00 | Branch: master | HEAD: 0401b34
 
 ## Status
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Release Status: PASS (Adaptive Reading Flow, Prolog/Epilog Restoration, & All Chapter Openers Regenerated with Gemini Pro)
-- Bundle: dist/assets/main-*.js & css (329.87KB, 16 modules transformed)
+- Release Status: PASS (Adaptive Reading Flow, 7 Reader UX Refinements, & All Chapter Openers Regenerated)
+- Bundle: dist/assets/main-*.js & css (337.21KB js, 33.54KB css, 16 modules transformed)
 - Assets: 74/74 portrait slides (Bab 2, 3, 5 regenerated with integrated gold typography matching Bab 1 & Bab 4)
 - GitHub: https://github.com/ngeroki/suatu-saat-kamu-akan-membutuhkan (master)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
@@ -12,19 +12,20 @@ Updated: 2026-09-05T22:50:00+07:00 | Branch: master | HEAD: 5081808
 - Manuscript: 74/74 pages intact, zero nerfing disclaimers, authentic Kejawen spiritual voice restored
 
 ## Done in This Session ([AG] Lead & Parallel Subagents)
-1. **Adaptive Reading Flow (`src/screens/reader/reader.ts`)**:
-   - Pembuka Bab (Hal 1, 16, 31, 46, 60): Default tampil **Side A (Poster Visual)**. Tombol cue: `"Baca Naskah →"`.
-   - Halaman Isi Bab (Hal 2–15, 17–30, 32–45, 47–59, 61–74): Default tampil **Side B (Teks Naskah)** langsung tanpa perlu manual flip! Tombol cue: `"Lihat Ilustrasi ↺"`.
-   - Animasi 3D curl & card flip sinkron pada kedua sisi dengan gesture touch guard protektif.
-2. **Prolog & Epilog Rich Scrollable Restoration**:
-   - **`prolog.ts`**: Diperluas memuat 3 paragraf esensial naskah asli (Konteks warkop Yogya & Bento Kopi, sosok Mas Aldi tanpa panggung motivasi, dan makna sejati judul buku).
-   - **`epilog.ts`**: Diperluas memuat 3 paragraf esensial naskah asli (Puncak spiritualitas menjadi manusia normal, kehadiran utuh bagi keluarga, dan kepulangan batin).
-   - **`style.css`**: Diberi smooth momentum scrolling (`overflow-y: auto`, custom golden scrollbar, padding bawah aman).
-3. **Regenerasi Cover Art Bab 2, 3, 5 (Gemini Pro Pipeline + Parallel Direct)**:
-   - Menghapus 100% format kaku *"Visual Masterclass"*, font metalik, DNA 3D fiktif, dan logo watermark.
-   - Mengintegrasikan tipografi judul emas klasik langsung pada gambar agar 100% konsisten dengan standar Bab 1 dan Bab 4.
-   - **Bab 2**: Siluet meditasi malam mengapung di atas riak air konsentris, gelombang Theta sinusoidal keemasan menembus pineal, siluet Gunungan Wayang Jawa larut dalam kabut emas. Judul: *"MERETAS PIKIRAN BAWAH SADAR & REPROGRAMMING NASIB"*.
-   - **Bab 3**: Litografi sakral anatomi tulang belakang tegak berpendar bio-elektrik emas, 7 stasiun cakra endokrin, berakar ke tanah vulkanik Merapi dan rimpang jahe/temulawak sakral. Judul: *"SISTEM HORMON & BIOHACKING LELUHUR"*.
-   - **Bab 5**: Beranda kayu jati Jawa waktu senja, secangkir teh melati panas mengepul, siluet manusia bersahaja duduk hening bersandar dengan pendar torus emas di rongga dada. Judul: *"MENJADI MANUSIA NORMAL & SENI BERSERAH"*.
-4. **Git Remote Sync**:
-   - Berhasil di-commit dan di-push ke branch `master` (`5081808`). Cloudflare Pages otomatis men-deploy versi terbaru.
+1. **Perbaikan Kontinuitas Bab 1 Hal 2 (*Obrolan Pinggir Jurang*)**:
+   - Paragraf pembuka ditambatkan langsung ke suasana obrolan warung kopi di bibir tebing lereng Merapi tempat Mas Aldi memulai dialog tentang deja vu, menyambung sempurna dengan judul subbab.
+2. **Koreksi Tipografi Drop-Cap (Huruf Besar Awal Paragraf)**:
+   - Font drop-cap diubah dari `Cinzel` (yang ber-tracking lebar dan membuat celah horizontal menganga) menjadi `'Lora', Georgia, serif` dengan metrik vertikal rapat (`line-height: 0.76; margin-right: 4px; margin-top: 4px; margin-bottom: -2px`). Huruf kini duduk sejajar rapi di awal kata tanpa ngambang.
+3. **Tombol Toggle Mute/Unmute Suara (🔊 / 🔇)**:
+   - Ditambahkan tombol toggle suara di header Side A, Side B, dan desktop. Pilihan pengguna dipersistensikan ke `localStorage` (`suatu_saat_sound`), sehingga tidak berbunyi jika pengguna mematikan sound effect.
+4. **Sinkronisasi Perilaku Tombol Header Prolog & Epilog**:
+   - Badge statis Prolog dan Epilog di header diubah menjadi tombol interaktif (`pe-hdr-page`) berpanah `▾` yang membuka popover `PagePicker`, persis seperti perilaku nomor halaman pada pembaca.
+5. **Daftar Penanda / Bookmark Viewer di `PagePicker`**:
+   - Menambahkan tab khusus `★ Penanda` di jendela loncat halaman (`PagePicker`). Pengguna dapat melihat daftar seluruh halaman yang pernah dibookmark dan sekali klik langsung melompat ke halaman tersebut. Disimpan permanen di `localStorage`.
+6. **Resume Halaman Terakhir pada Tombol 'Buka Buku'**:
+   - Tombol *Buka Buku* di beranda kini membaca posisi baca terakhir dari `localStorage` (`suatu_saat_last_page`). Label tombol otomatis menyesuaikan (misal: `Lanjutkan Membaca (Hal X)`), dan langsung membuka halaman terakhir yang ditutup.
+7. **Cover Responsif Sinkron & Proteksi Buku 3D di Layar Mobile**:
+   - Tata letak beranda menggunakan CSS `clamp` terpadu dan media queries ketinggian layar. Artwork buku 3D di atas batu gunung terangkat dan menyusut secara sinkron sehingga judul dan ilustrasi buku tidak lagi tertabrak atau tertutup tombol aksi di smartphone.
+8. **Git Remote Sync**:
+   - Berhasil di-commit dan di-push ke branch `master` (`0401b34`). Cloudflare Pages otomatis men-deploy versi termutakhir.
+
