@@ -1,8 +1,9 @@
 # 📊 PROJECT STATUS — SUATU SAAT (Mobile Digital Art Book)
 
-> **Last Updated**: 2026-09-04T14:48:00+07:00  
+> **Last Updated**: 2026-09-05T10:48:00+07:00  
 > **Repository**: R:\flip-book  
-> **Status**: Active / Two-Sided Single Sheet Flipbook Live  
+> **Production URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)  
+> **Status**: Active / CI-CD Auto Deployment Live via GitHub  
 > **Lead Architect**: Antigravity [AG]  
 > **Heavy Worker**: OpenCode Sisyphus [OMO] (Session: ses_f9de86d2cffeEHvpVqiwq3HP1P)
 
@@ -53,4 +54,5 @@
 | **Daftar Isi Interactive Navbar (SUATU SAAT Home & 74 Hal PagePicker)** | `src/screens/bab-list.ts`, `src/style.css` | ✅ Done | Tombol 'SUATU SAAT' kini interaktif mengarah ke sampul; tombol '74 hal ▾' membuka popover PagePicker instan untuk melompat ke halaman mana saja langsung dari Daftar Isi |
 | **Opsi B: Sequential Section Enrichment & Visual Continuity** | `scripts/enrich_sequential.py`, `src/data/book-pages.json` | ✅ Done | Memadatkan 74 halaman (rata-rata 128.8 w/hal, 95.9% in 120-150 target) sekuensial 1-to-1 dari naskah asli, audit provenance, narrative & micro-arc visual continuity, 7/7 checks passed |
 | **Humanizer Audit & Editorial Screen Refinement** | `src/screens/prolog.ts`, `src/screens/epilog.ts`, `src/data/book-pages.json` | ✅ Done | Audit komprehensif 29 AI writing patterns; Prolog/Epilog disempurnakan dengan vokal autentik Mas Aldi & 0px overflow di 390x844; Perbaikan kritis data-shift keyTakeaway Bab 4 (Hal 47-59) |
+| **Cloudflare Pages Auto-Deployment (CI/CD)** | `https://suatu-saat.pages.dev` | ✅ Done | Proyek Cloudflare Pages `suatu-saat` dikoneksikan langsung ke GitHub `ngeroki/suatu-saat-kamu-akan-membutuhkan` (master -> dist); build otomatis aktif & live 100% |
 
