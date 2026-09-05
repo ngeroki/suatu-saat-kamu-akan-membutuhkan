@@ -4,8 +4,9 @@
  */
 
 export interface RouteParams {
-  chap?: number;
-  page?: number;
+  chap?: number | string;
+  chapter?: number | string;
+  page?: number | string;
 }
 
 export type RouteName = "cover" | "prolog" | "epilog" | "bab" | "toc" | "read" | "spread" | "immersive";
@@ -41,14 +42,17 @@ function parseRoute(hash: string): Route {
 }
 
 export function navigate(name: RouteName, params: RouteParams = {}): void {
+  const chapNum = params.chap ?? params.chapter ?? 1;
+  const pageNum = params.page ?? 1;
+
   let hash = "#/";
   if (name === "prolog") hash = "#/prolog";
   else if (name === "epilog") hash = "#/epilog";
   else if (name === "bab") hash = "#/bab";
   else if (name === "toc") hash = "#/toc";
-  else if (name === "read") hash = `#/read/${params.chap ?? 1}/${params.page ?? 1}`;
-  else if (name === "spread") hash = `#/spread/${params.chap ?? 1}/${params.page ?? 1}`;
-  else if (name === "immersive") hash = `#/immersive/${params.chap ?? 1}/${params.page ?? 1}`;
+  else if (name === "read") hash = `#/read/${chapNum}/${pageNum}`;
+  else if (name === "spread") hash = `#/spread/${chapNum}/${pageNum}`;
+  else if (name === "immersive") hash = `#/immersive/${chapNum}/${pageNum}`;
 
   window.location.hash = hash;
 }

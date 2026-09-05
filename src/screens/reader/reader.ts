@@ -5,7 +5,7 @@
  */
 import { PAGES, Page } from "../../data/book";
 import { navigate, Route } from "../../router";
-import { playPageTurn, playPaperSlide } from "../../lib/audio";
+import { playPageTurn, playPaperSlide, isAudioEnabled, setAudioEnabled } from "../../lib/audio";
 import { attachGestures, attachKeyboardNav } from "../../lib/gestures";
 import { PagePicker } from "../../components/page-picker";
 
@@ -28,6 +28,19 @@ export class ReaderScreen {
     this.el.style.flexDirection = "column";
 
     container.appendChild(this.el);
+
+    // Load persisted bookmarks from localStorage
+    try {
+      const savedBookmarks = localStorage.getItem("suatu_saat_bookmarks");
+      if (savedBookmarks) {
+        const parsed = JSON.parse(savedBookmarks);
+        if (Array.isArray(parsed)) {
+          this.bookmarkedPages = new Set(parsed);
+        }
+      }
+    } catch (e) {
+      console.warn("Failed to load bookmarks:", e);
+    }
 
     // Modular PagePicker component
     this.pagePicker = new PagePicker({
@@ -59,14 +72,17 @@ export class ReaderScreen {
   public show(route?: Route): void {
     this.el.classList.add("active");
 
-    const requestedChap = route?.params.chap ?? 1;
-    const requestedPageInChap = route?.params.page ?? 1;
+    const requestedChap = Number(route?.params.chap ?? route?.params.chapter ?? 1);
+    const requestedPageInChap = Number(route?.params.page ?? 1);
 
     const matchIndex = PAGES.findIndex(
       p => p.chapter_id === requestedChap && p.page_in_chap === requestedPageInChap
     );
 
     this.currentGlobalIndex = matchIndex >= 0 ? matchIndex : 0;
+    try {
+      localStorage.setItem("suatu_saat_last_page", String(this.currentGlobalIndex));
+    } catch (_) {}
     const curPage = PAGES[this.currentGlobalIndex];
     // Chapter opener (page_in_chap === 1) shows Side A cover poster; subsequent content pages show Side B text directly
     this.activeSide = curPage && curPage.page_in_chap === 1 ? "A" : "B";
@@ -104,6 +120,9 @@ export class ReaderScreen {
 
       setTimeout(() => {
         this.currentGlobalIndex = index;
+        try {
+          localStorage.setItem("suatu_saat_last_page", String(this.currentGlobalIndex));
+        } catch (_) {}
         const targetPage = PAGES[index];
         // Adaptive reading flow: opener shows Side A, subsequent content pages show Side B directly
         this.activeSide = targetPage && targetPage.page_in_chap === 1 ? "A" : "B";
@@ -135,6 +154,9 @@ export class ReaderScreen {
 
       setTimeout(() => {
         this.currentGlobalIndex = index;
+        try {
+          localStorage.setItem("suatu_saat_last_page", String(this.currentGlobalIndex));
+        } catch (_) {}
         const targetPage = PAGES[index];
         this.activeSide = targetPage && targetPage.page_in_chap === 1 ? "A" : "B";
         if (targetPage) {
@@ -202,7 +224,31 @@ export class ReaderScreen {
     } else {
       this.bookmarkedPages.add(this.currentGlobalIndex);
     }
+    try {
+      localStorage.setItem(
+        "suatu_saat_bookmarks",
+        JSON.stringify(Array.from(this.bookmarkedPages))
+      );
+    } catch (e) {
+      console.warn("Failed to save bookmarks:", e);
+    }
     this.render();
+  }
+
+  public toggleSound(): void {
+    const nextState = !isAudioEnabled();
+    setAudioEnabled(nextState);
+    if (nextState) {
+      playPaperSlide();
+    }
+    const icon = nextState ? "🔊" : "🔇";
+    const title = nextState ? "Suara Efek: Aktif" : "Suara Efek: Senyap";
+
+    this.el.querySelectorAll("#m-btn-sound-a, #m-btn-sound-b, #d-btn-sound").forEach((btn) => {
+      btn.setAttribute("title", title);
+      const iconSpan = btn.querySelector(".m-icon");
+      if (iconSpan) iconSpan.textContent = icon;
+    });
   }
 
   private render(): void {
@@ -256,11 +302,7 @@ export class ReaderScreen {
         if (elements.length === 0 && p.length > 20) {
           const firstChar = p.charAt(0);
           const rest = p.slice(1);
-          elements.push(`
-            <p class="m-editorial-p">
-              <span class="m-dropcap">${firstChar}</span>${rest}
-            </p>
-          `);
+          elements.push(`<p class="m-editorial-p"><span class="m-dropcap">${firstChar}</span>${rest}</p>`);
         } else {
           elements.push(`<p class="m-editorial-p">${p}</p>`);
         }
@@ -283,6 +325,9 @@ export class ReaderScreen {
               </button>
               <div class="m-hdr-title" id="m-hdr-title" role="button" tabindex="0" title="Kembali ke Beranda">Suatu Saat</div>
               <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
+                <button class="m-hdr-btn" id="m-btn-sound-a" aria-label="Bisukan / Bunyikan Suara" title="${isAudioEnabled() ? 'Suara Efek: Aktif' : 'Suara Efek: Senyap'}">
+                  <span class="m-icon">${isAudioEnabled() ? '🔊' : '🔇'}</span>
+                </button>
                 <span class="m-hdr-page" id="m-hdr-page-a" role="button" tabindex="0" title="Pilih Halaman" style="cursor: pointer; font-family: var(--sans); font-size: 11px; color: rgba(235, 226, 214, 0.85); font-weight: 500; display: inline-flex; align-items: center; gap: 3px; padding: 4px 6px; border-radius: 6px; transition: color 0.2s, background 0.2s;">
                   <span>${curNum} / ${totalNum}</span>
                   <span style="font-size: 9px; opacity: 0.6;">▾</span>
@@ -330,6 +375,9 @@ export class ReaderScreen {
               </button>
               <div class="m-hdr-title" id="m-hdr-title-b" role="button" tabindex="0" title="Kembali ke Beranda" style="cursor: pointer; color: #1E1A16;">Suatu Saat</div>
               <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
+                <button class="m-hdr-btn" id="m-btn-sound-b" aria-label="Bisukan / Bunyikan Suara" title="${isAudioEnabled() ? 'Suara Efek: Aktif' : 'Suara Efek: Senyap'}" style="color: #4A3A2A;">
+                  <span class="m-icon">${isAudioEnabled() ? '🔊' : '🔇'}</span>
+                </button>
                 <span class="m-hdr-page" id="m-hdr-page-b" role="button" tabindex="0" title="Pilih Halaman" style="cursor: pointer; font-family: var(--sans); font-size: 11px; color: #7A6045; font-weight: 600; display: inline-flex; align-items: center; gap: 3px; padding: 4px 6px; border-radius: 6px; transition: color 0.2s, background 0.2s;">
                   <span>${curNum} / ${totalNum}</span>
                   <span style="font-size: 9px; opacity: 0.6;">▾</span>
@@ -417,6 +465,16 @@ export class ReaderScreen {
       this.toggleBookmark();
     });
 
+    // Sound Toggle on Side A and Side B
+    this.el.querySelector("#m-btn-sound-a")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.toggleSound();
+    });
+    this.el.querySelector("#m-btn-sound-b")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.toggleSound();
+    });
+
     // Page Number Click -> Toggle Instant Page Picker Popover
     this.el.querySelector("#m-hdr-page-a")?.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -478,11 +536,11 @@ export class ReaderScreen {
 
   // =========================================================================
   // DESKTOP OPEN-BOOK TWO-PAGE SPREAD RENDERER (> 480px)
-  // =========================================================================
   private renderDesktop(page: Page): void {
     this.el.style.background = "#0A0A08";
     this.el.style.color = "#EDE4D8";
 
+    const isBookmarked = this.bookmarkedPages.has(this.currentGlobalIndex);
     const curNum = this.currentGlobalIndex + 1;
     const totalNum = PAGES.length;
     const pStr = page.page_in_chap < 10 ? `0${page.page_in_chap}` : `${page.page_in_chap}`;
@@ -538,9 +596,17 @@ export class ReaderScreen {
           <div style="font-family: var(--sans); font-size: 13.5px; letter-spacing: 1.5px; color: #EDE4D8; font-weight: 500; text-transform: uppercase;">
             ${page.chapter_code}
           </div>
-          <div class="m-hdr-page" id="d-hdr-page" role="button" tabindex="0" title="Pilih Halaman" style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.7); letter-spacing: 0.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 6px; transition: color 0.2s, background 0.2s;">
-            <span>${curNum} / ${totalNum}</span>
-            <span style="font-size: 10px; opacity: 0.6;">▾</span>
+          <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
+            <button class="m-hdr-btn" id="d-btn-sound" aria-label="Bisukan / Bunyikan Suara" title="${isAudioEnabled() ? 'Suara Efek: Aktif' : 'Suara Efek: Senyap'}" style="color: #EDE4D8;">
+              <span class="m-icon">${isAudioEnabled() ? '🔊' : '🔇'}</span>
+            </button>
+            <div class="m-hdr-page" id="d-hdr-page" role="button" tabindex="0" title="Pilih Halaman" style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.7); letter-spacing: 0.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 6px; transition: color 0.2s, background 0.2s;">
+              <span>${curNum} / ${totalNum}</span>
+              <span style="font-size: 10px; opacity: 0.6;">▾</span>
+            </div>
+            <button class="m-hdr-btn ${isBookmarked ? 'bookmarked' : ''}" id="d-btn-bookmark" aria-label="Simpan Penanda" title="Simpan Penanda" style="color: #EDE4D8;">
+              <span class="m-icon">${isBookmarked ? '★' : '🔖'}</span>
+            </button>
           </div>
         </div>
 
@@ -628,6 +694,16 @@ export class ReaderScreen {
     this.el.querySelector("#d-hdr-page")?.addEventListener("click", (e) => {
       e.stopPropagation();
       this.togglePagePicker();
+    });
+
+    // Desktop Sound & Bookmark Buttons
+    this.el.querySelector("#d-btn-sound")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.toggleSound();
+    });
+    this.el.querySelector("#d-btn-bookmark")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.toggleBookmark();
     });
 
     const dTrack = this.el.querySelector("#d-nav-track") as HTMLElement;

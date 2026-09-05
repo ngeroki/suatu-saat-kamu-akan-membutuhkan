@@ -20,6 +20,7 @@ export class PagePicker {
   private activeChapterId = 1;
   private currentGlobalIndex = 0;
   private isOpen = false;
+  private viewingBookmarks = false;
 
   constructor(options: PagePickerOptions) {
     this.container = options.container;
@@ -50,6 +51,7 @@ export class PagePicker {
     this.currentGlobalIndex = currentGlobalIndex;
     const curPage: Page | undefined = PAGES[currentGlobalIndex];
     this.activeChapterId = curPage ? curPage.chapter_id : 1;
+    this.viewingBookmarks = false;
     this.isOpen = true;
 
     this.closeDomImmediate();
@@ -130,12 +132,12 @@ export class PagePicker {
 
         <!-- Chapter Filter Tabs Row -->
         <div class="picker-meta-row">
-          <span class="picker-meta-label">Pilih Langsung</span>
+          <span class="picker-meta-label" id="picker-meta-label">Pilih Langsung</span>
           <span class="picker-meta-chapter" id="picker-chapter-info"></span>
         </div>
         <div class="picker-tabs-row" id="picker-tabs-container"></div>
 
-        <!-- Direct 5-Column Page Numbers Grid -->
+        <!-- Direct 5-Column Page Numbers Grid or Bookmarks List -->
         <div class="picker-grid" id="picker-grid-container"></div>
       </div>
     `;
@@ -175,30 +177,27 @@ export class PagePicker {
   }
 
   /**
-   * Smoothly updates chapter tabs and page grid WITHOUT re-rendering the outer card.
+   * Smoothly updates chapter tabs, page grid, or bookmarks WITHOUT re-rendering the outer card.
    * This prevents animation flickering and preserves user input field values.
    */
   private updateChapterContent(): void {
     if (!this.overlayEl) return;
 
+    const metaLabel = this.overlayEl.querySelector("#picker-meta-label");
     const chapterInfo = this.overlayEl.querySelector("#picker-chapter-info");
     const tabsContainer = this.overlayEl.querySelector("#picker-tabs-container");
-    const gridContainer = this.overlayEl.querySelector("#picker-grid-container");
+    const contentContainer = this.overlayEl.querySelector("#picker-grid-container");
 
     const chapter = CHAPTERS.find(c => c.id === this.activeChapterId) || CHAPTERS[0];
     const chapPages = PAGES.filter(p => p.chapter_id === this.activeChapterId);
     const curNum = this.currentGlobalIndex + 1;
 
-    if (chapterInfo) {
-      chapterInfo.textContent = `${chapter.code} (Hal ${chapter.pageStart} - ${chapter.pageStart + chapter.pageCount - 1})`;
-    }
-
-    // Render Chapter Pills
+    // Render Chapter & Quick Tabs Pills
     if (tabsContainer) {
       tabsContainer.innerHTML = [
         `<button class="picker-quick-tab" data-nav="prolog">Prolog</button>`,
         ...CHAPTERS.map(ch => {
-          const isActive = ch.id === this.activeChapterId;
+          const isActive = !this.viewingBookmarks && ch.id === this.activeChapterId;
           const label = ch.code.replace("BAB 0", "Bab ").replace("BAB ", "Bab ");
           return `
             <button class="picker-chap-tab ${isActive ? 'active' : ''}" data-chap="${ch.id}">
@@ -206,52 +205,134 @@ export class PagePicker {
             </button>
           `;
         }),
-        `<button class="picker-quick-tab" data-nav="epilog">Epilog</button>`
+        `<button class="picker-quick-tab" data-nav="epilog">Epilog</button>`,
+        `<button class="picker-quick-tab picker-bookmark-tab ${this.viewingBookmarks ? 'active' : ''}" data-nav="bookmarks">★ Penanda</button>`
       ].join("");
 
-      // Bind Tab Click Handlers
+      // Bind Chapter Tab Handlers
       tabsContainer.querySelectorAll(".picker-chap-tab").forEach(tab => {
         tab.addEventListener("click", (e) => {
           e.stopPropagation();
           const cid = parseInt((tab as HTMLElement).dataset.chap || "1", 10);
+          this.viewingBookmarks = false;
           if (this.activeChapterId !== cid) {
             this.activeChapterId = cid;
-            this.updateChapterContent();
           }
+          this.updateChapterContent();
         });
       });
 
+      // Bind Quick Tab Handlers (including bookmarks)
       tabsContainer.querySelectorAll(".picker-quick-tab").forEach(tab => {
         tab.addEventListener("click", (e) => {
           e.stopPropagation();
-          const nav = (tab as HTMLElement).dataset.nav as RouteName;
+          const nav = (tab as HTMLElement).dataset.nav;
+          if (nav === "bookmarks") {
+            this.viewingBookmarks = true;
+            this.updateChapterContent();
+            return;
+          }
           this.close();
-          this.onNavigate(nav);
+          this.onNavigate(nav as RouteName);
         });
       });
     }
 
-    // Render 5-Column Page Numbers Grid
-    if (gridContainer) {
-      gridContainer.innerHTML = chapPages.map(p => {
-        const pNum = p.page_number;
-        const isCur = pNum === curNum;
-        return `
-          <button class="picker-page-btn ${isCur ? 'current' : ''}" data-idx="${pNum - 1}">
-            ${pNum}
-          </button>
-        `;
-      }).join("");
+    if (this.viewingBookmarks) {
+      if (metaLabel) {
+        metaLabel.textContent = "Halaman Ditandai";
+      }
 
-      // Bind Page Click Handlers -> 1-Tap Instant Jump!
-      gridContainer.querySelectorAll(".picker-page-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const targetIdx = parseInt((btn as HTMLElement).dataset.idx || "0", 10);
-          this.close();
-          this.onSelectPage(targetIdx);
+      let bookmarkedIndices: number[] = [];
+      try {
+        const saved = localStorage.getItem("suatu_saat_bookmarks");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            bookmarkedIndices = parsed
+              .filter((n): n is number => typeof n === "number" && n >= 0 && n < PAGES.length)
+              .sort((a, b) => a - b);
+          }
+        }
+      } catch (e) {
+        console.warn("Failed to load bookmarks in PagePicker:", e);
+      }
+
+      if (chapterInfo) {
+        chapterInfo.textContent = bookmarkedIndices.length > 0 ? `${bookmarkedIndices.length} Ditandai` : "";
+      }
+
+      if (contentContainer) {
+        contentContainer.className = "picker-bookmarks-container";
+        if (bookmarkedIndices.length === 0) {
+          contentContainer.innerHTML = `
+            <div class="picker-bookmarks-empty">
+              <div class="picker-bookmarks-empty-icon">🔖</div>
+              <p class="picker-bookmarks-empty-text">Belum ada halaman yang ditandai. Ketuk ikon 🔖 saat membaca untuk menyimpan halaman.</p>
+            </div>
+          `;
+        } else {
+          contentContainer.innerHTML = `
+            <div class="picker-bookmarks-list">
+              ${bookmarkedIndices.map(idx => {
+                const p = PAGES[idx];
+                const isCur = idx === this.currentGlobalIndex;
+                return `
+                  <button class="picker-bookmark-item ${isCur ? 'current' : ''}" data-idx="${idx}">
+                    <span class="picker-bm-star">★</span>
+                    <div class="picker-bm-content">
+                      <div class="picker-bm-title">Hal ${p.page_number} · [${p.chapter_code}] ${p.title}</div>
+                      ${p.subtitle ? `<div class="picker-bm-subtitle">${p.subtitle}</div>` : ''}
+                    </div>
+                  </button>
+                `;
+              }).join("")}
+            </div>
+          `;
+
+          contentContainer.querySelectorAll(".picker-bookmark-item").forEach(item => {
+            item.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const targetIdx = parseInt((item as HTMLElement).dataset.idx || "0", 10);
+              this.close();
+              this.onSelectPage(targetIdx);
+            });
+          });
+        }
+      }
+    } else {
+      // Standard Chapter Grid View
+      if (metaLabel) {
+        metaLabel.textContent = "Pilih Langsung";
+      }
+
+      if (chapterInfo) {
+        chapterInfo.textContent = `${chapter.code} (Hal ${chapter.pageStart} - ${chapter.pageStart + chapter.pageCount - 1})`;
+      }
+
+      // Render 5-Column Page Numbers Grid
+      if (contentContainer) {
+        contentContainer.className = "picker-grid";
+        contentContainer.innerHTML = chapPages.map(p => {
+          const pNum = p.page_number;
+          const isCur = pNum === curNum;
+          return `
+            <button class="picker-page-btn ${isCur ? 'current' : ''}" data-idx="${pNum - 1}">
+              ${pNum}
+            </button>
+          `;
+        }).join("");
+
+        // Bind Page Click Handlers -> 1-Tap Instant Jump!
+        contentContainer.querySelectorAll(".picker-page-btn").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const targetIdx = parseInt((btn as HTMLElement).dataset.idx || "0", 10);
+            this.close();
+            this.onSelectPage(targetIdx);
+          });
         });
-      });
+      }
     }
   }
 }

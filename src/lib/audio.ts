@@ -13,7 +13,10 @@
  */
 
 let audioCtx: AudioContext | null = null;
-let audioEnabled = true;
+let audioEnabled =
+  typeof window !== "undefined"
+    ? localStorage.getItem("suatu_saat_sound") !== "0"
+    : true;
 
 const SFX_PAGE_TURNS = [
   "/audio/page-flip-1.mp3",
@@ -94,7 +97,11 @@ export function unlockAudio(): void {
     if (ctx.state === "suspended") {
       ctx.resume();
     }
-    audioEnabled = true;
+    if (typeof window !== "undefined" && localStorage.getItem("suatu_saat_sound") === "0") {
+      audioEnabled = false;
+    } else {
+      audioEnabled = true;
+    }
     preloadAudio();
   } catch (e) {
     console.warn("Audio unlock failed:", e);
@@ -103,6 +110,13 @@ export function unlockAudio(): void {
 
 export function setAudioEnabled(enabled: boolean): void {
   audioEnabled = enabled;
+  try {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("suatu_saat_sound", enabled ? "1" : "0");
+    }
+  } catch (e) {
+    console.warn("Failed to persist audio setting:", e);
+  }
 }
 
 export function isAudioEnabled(): boolean {

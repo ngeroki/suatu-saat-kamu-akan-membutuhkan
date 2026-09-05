@@ -345,6 +345,64 @@ body {
   background: linear-gradient(180deg, rgba(8,8,8,0.1) 0%, rgba(8,8,8,0.4) 40%, rgba(8,8,8,0.85) 75%, rgba(8,8,8,0.98) 100%);
 }
 
+/* === COVER SCREEN RESPONSIVE (3D Book Elevation & Layout) === */
+#screen-cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#screen-cover .full-bleed-bg {
+  background-position: center 36%;
+  transition: background-position 0.3s ease;
+}
+
+@media (max-height: 720px) {
+  #screen-cover .full-bleed-bg {
+    background-position: center 32% !important;
+  }
+}
+
+@media (max-height: 640px) {
+  #screen-cover .full-bleed-bg {
+    background-position: center 28% !important;
+  }
+}
+
+#screen-cover .cover-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 9, 0.55) 0%,
+    rgba(10, 10, 9, 0.12) 24%,
+    rgba(10, 10, 9, 0) 45%,
+    rgba(10, 10, 9, 0.2) 70%,
+    rgba(10, 10, 9, 0.92) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+#screen-cover #btn-buka-buku:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+  background: #dbcaa9;
+}
+
+#screen-cover #btn-buka-buku:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+#screen-cover #link-daftar-isi:hover {
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
 /* ============================================================
    DUAL-MODE MOBILE FLIPBOOK READER (<= 480px, Target 390px)
    ============================================================ */
@@ -920,13 +978,15 @@ body {
 
 .m-dropcap {
   float: left;
-  font-family: var(--display);
+  font-family: 'Lora', Georgia, serif;
   font-size: 44px;
-  line-height: 0.82;
+  line-height: 0.76;
   font-weight: 700;
   color: #7A6045;
-  margin-right: 8px;
-  padding-top: 2px;
+  margin-right: 4px;
+  margin-top: 4px;
+  margin-bottom: -2px;
+  padding: 0;
 }
 
 .m-editorial-quote {
@@ -1326,6 +1386,45 @@ body {
   border-radius: 12px;
 }
 
+.pe-hdr-page {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #C5A059;
+  background: rgba(197, 160, 89, 0.16);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  padding: 4px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  outline: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+.pe-hdr-page:hover {
+  background: rgba(197, 160, 89, 0.28);
+  border-color: rgba(197, 160, 89, 0.6);
+  color: #EDE4D8;
+}
+
+.pe-hdr-page:active {
+  transform: scale(0.95);
+}
+
+.pe-hdr-page-text {
+  line-height: 1;
+}
+
+.pe-hdr-page-arrow {
+  font-size: 9px;
+  opacity: 0.75;
+  line-height: 1;
+}
+
 /* Artwork Box (Top 45%) */
 .pe-artwork-box {
   width: 100%;
@@ -1505,13 +1604,15 @@ body {
 
 .pe-dropcap {
   float: left;
-  font-family: var(--display);
-  font-size: 38px;
-  line-height: 0.8;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 44px;
+  line-height: 0.76;
   font-weight: 700;
   color: #C5A059;
-  margin-right: 8px;
-  padding-top: 3px;
+  margin-right: 4px;
+  margin-top: 4px;
+  margin-bottom: -2px;
+  padding: 0;
 }
 
 .pe-footer-row {
@@ -1862,5 +1963,132 @@ body {
 
 .m-hdr-page:active {
   transform: scale(0.95);
+}
+
+/* ============================================================
+   PAGE PICKER BOOKMARK TAB & VIEWER LIST
+   ============================================================ */
+
+.picker-quick-tab.picker-bookmark-tab {
+  background: rgba(197, 160, 89, 0.15);
+  color: #8B6E32;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.picker-quick-tab.picker-bookmark-tab:hover {
+  background: #C5A059;
+  color: #FFFFFF;
+}
+
+.picker-quick-tab.picker-bookmark-tab.active {
+  background: #C5A059;
+  color: #FFFFFF;
+  border-color: #C5A059;
+  font-weight: 700;
+}
+
+.picker-bookmarks-container {
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 2px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(197, 160, 89, 0.5) rgba(122, 96, 69, 0.1);
+}
+
+.picker-bookmarks-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.picker-bookmarks-container::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.5);
+  border-radius: 4px;
+}
+
+.picker-bookmarks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.picker-bookmarks-empty {
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.picker-bookmarks-empty-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  opacity: 0.75;
+}
+
+.picker-bookmarks-empty-text {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: #7A6045;
+  margin: 0;
+}
+
+.picker-bookmark-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #E8E0D2;
+  border: 1px solid rgba(122, 96, 69, 0.18);
+  border-radius: 10px;
+  padding: 8px 10px;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.picker-bookmark-item:hover {
+  background: #DED4C4;
+  border-color: #C5A059;
+}
+
+.picker-bookmark-item:active {
+  transform: scale(0.98);
+}
+
+.picker-bookmark-item.current {
+  background: rgba(197, 160, 89, 0.22);
+  border-color: #C5A059;
+}
+
+.picker-bm-star {
+  color: #C5A059;
+  font-size: 13px;
+  line-height: 1.2;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.picker-bm-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.picker-bm-title {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1A1714;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.picker-bm-subtitle {
+  font-family: var(--serif);
+  font-size: 10.5px;
+  font-style: italic;
+  color: #7A6045;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
 }
 

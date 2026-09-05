@@ -4,14 +4,27 @@
 import { navigate } from "../router";
 import { playPageTurn } from "../lib/audio";
 import { PAGES } from "../data/book";
+import { PagePicker } from "../components/page-picker";
 
 export class EpilogScreen {
   private el: HTMLElement;
+  private pagePicker: PagePicker;
 
   constructor(container: HTMLElement) {
     this.el = document.createElement("div");
     this.el.className = "screen screen-epilog";
     this.el.id = "screen-epilog";
+
+    this.pagePicker = new PagePicker({
+      container: this.el,
+      onSelectPage: (idx) => {
+        const targetPage = PAGES[idx];
+        if (targetPage) {
+          navigate("read", { chap: targetPage.chapter_id, page: targetPage.page_in_chap });
+        }
+      },
+      onNavigate: (route) => navigate(route),
+    });
 
     this.render();
     container.appendChild(this.el);
@@ -26,7 +39,10 @@ export class EpilogScreen {
             <span style="font-size: 18px;">☰</span>
           </button>
           <div class="pe-brand" id="epilog-btn-home" role="button" tabindex="0" title="Kembali ke Beranda">SUATU SAAT</div>
-          <span class="pe-badge">EPILOG</span>
+          <button class="pe-hdr-page" id="pe-btn-page" role="button" tabindex="0" title="Pilih Halaman">
+            <span class="pe-hdr-page-text">EPILOG</span>
+            <span class="pe-hdr-page-arrow">▾</span>
+          </button>
         </header>
 
         <!-- Top Artwork Stage (45% Height) -->
@@ -81,6 +97,11 @@ export class EpilogScreen {
     this.el.querySelector("#epilog-btn-menu")?.addEventListener("click", () => navigate("bab"));
     this.el.querySelector("#epilog-btn-home")?.addEventListener("click", () => navigate("cover"));
 
+    this.el.querySelector("#pe-btn-page")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.pagePicker.toggle(PAGES.length - 1);
+    });
+
     this.el.querySelector("#epilog-btn-prev")?.addEventListener("click", () => {
       playPageTurn();
       const lastPage = PAGES[PAGES.length - 1];
@@ -100,6 +121,9 @@ export class EpilogScreen {
   }
 
   public hide(): void {
+    if (this.pagePicker.opened) {
+      this.pagePicker.close();
+    }
     this.el.classList.remove("active");
   }
 }
