@@ -1,9 +1,9 @@
 # 📊 PROJECT STATUS — SUATU SAAT (Mobile Digital Art Book)
 
-> **Last Updated**: 2026-09-05T10:56:00+07:00  
+> **Last Updated**: 2026-09-05T17:38:00+07:00  
 > **Repository**: R:\flip-book  
 > **Production URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)  
-> **Status**: Active / CI-CD Auto Deployment Live via GitHub  
+> **Status**: Release PASS (PR #1 Epistemic Cleanup Live & 74 Portrait Assets Deployed)  
 > **Lead Architect**: Antigravity [AG]  
 > **Heavy Worker**: OpenCode Sisyphus [OMO] (Session: ses_f9de86d2cffeEHvpVqiwq3HP1P)
 
@@ -55,4 +55,5 @@
 | **Opsi B: Sequential Section Enrichment & Visual Continuity** | `scripts/enrich_sequential.py`, `src/data/book-pages.json` | ✅ Done | Memadatkan 74 halaman (rata-rata 128.8 w/hal, 95.9% in 120-150 target) sekuensial 1-to-1 dari naskah asli, audit provenance, narrative & micro-arc visual continuity, 7/7 checks passed |
 | **Humanizer Audit & Editorial Screen Refinement** | `src/screens/prolog.ts`, `src/screens/epilog.ts`, `src/data/book-pages.json` | ✅ Done | Audit komprehensif 29 AI writing patterns; Prolog/Epilog disempurnakan dengan vokal autentik Mas Aldi & 0px overflow di 390x844; Perbaikan kritis data-shift keyTakeaway Bab 4 (Hal 47-59) |
 | **Cloudflare Pages Auto-Deployment (CI/CD)** | `https://suatu-saat.pages.dev` | ✅ Done | Proyek Cloudflare Pages `suatu-saat` dikoneksikan langsung ke GitHub `ngeroki/suatu-saat-kamu-akan-membutuhkan` (master -> dist); build otomatis aktif & live 100% |
+| **Editorial Epistemic Cleanup & Portrait Assets Release** | PR #1, `vite.config.ts`, `src/data/book-pages.json` | ✅ Done | PR #1 merged (52ae337), fix commit a8204d2 deployed ke Cloudflare Pages; naskah epistemic cleanup live di reader; 74 slide portrait aktif melayani binary image/jpeg (HTTP 200); Playwright QA 100% PASS |
 
