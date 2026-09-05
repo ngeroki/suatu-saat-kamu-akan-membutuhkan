@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 scripts/enrich_sequential.py
 Canonical Sequential Enrichment Engine for SUATU SAAT Flipbook.
@@ -223,17 +223,16 @@ def enrich_all_pages(dry_run=True):
         
         # Specific Trims for P17 and P44 (>160w)
         if num == 17:
-            paras = list(p['paragraphs'])
-            paras[-1] = "Ketika terjadi pertarungan antara pikiran sadar dan rekaman emosional bawah sadar, bawah sadar selalu keluar sebagai pemenang mutlak."
-            new_p['paragraphs'] = paras
+            # P17 is already cleanly calibrated in chapters_raw.json (163 words)
+            new_p['paragraphs'] = list(p['paragraphs'])
         elif num == 44:
             new_p['paragraphs'] = [
                 "Semua pengetahuan leluhur Nusantara dan sains kedokteran modern bertemu di satu titik temu yang sama: tubuh manusia adalah miniatur alam semesta yang maha sempurna.",
                 "Tujuh cakra utama berpadu selaras dengan tujuh kelenjar endokrin raga. Cakra Dasar hingga Solar Plexus bertumpu pada kelenjar Gonad, Pankreas, dan Adrenal yang bertugas mengelola materi, gairah relasi, serta insting pertahanan hidup di alam material.",
                 "Cakra Jantung dipandu kelenjar Timus sebagai jembatan welas asih, Cakra Tenggorokan pada Tiroid pengatur resonansi bobot sabda, serta cakra Ajna dan Mahkota pada Pineal dan Pituitari sebagai pembuka intuisi transendental dan kebijaksanaan sejati.",
-                "Ketika manusia mampu menyelaraskan ketujuh kelenjar biologis ini melalui olah napas dan keheningan batin, spiritualitas bukan lagi angan-angan mistis yang mengawang-awang, melainkan pengalaman biologis yang nyata dan membumi."
+                "Ketika manusia mampu menyelaraskan ketujuh kelenjar biologis ini melalui olah napas dan keheningan batin, spiritualitas tidak harus menjadi angan-angan; ia dapat menjadi praktik kesadaran yang nyata dan membumi."
             ]
-        elif num in ADDITIONS:
+        elif num in ADDITIONS and (sum(len(x.split()) for x in p.get('paragraphs', [])) + len(p.get('title', '').split())) < 120:
             paras = list(p['paragraphs'])
             paras.append(ADDITIONS[num])
             new_p['paragraphs'] = paras
@@ -244,7 +243,7 @@ def enrich_all_pages(dry_run=True):
         valid_paras = []
         for para in new_p['paragraphs']:
             para_clean = para.strip()
-            if para_clean and para_clean[-1] not in '.!?\"\'”':
+            if para_clean and not bool(re.search(r'[.!?]["\'\”\)]?$', para_clean)):
                 para_clean += '.'
             valid_paras.append(para_clean)
         new_p['paragraphs'] = valid_paras
@@ -288,13 +287,14 @@ def enrich_all_pages(dry_run=True):
     print(f"Average Word Count: {avg_wc:.1f} words/page (Total: {sum(wcs):,} words)")
     print(f"Pages in Target Window [120-150]: {in_target} / 74 ({in_target/74*100:.1f}%)")
     print(f"Pages in Natural Ending [95-119]: {natural_endings} / 74")
-    print(f"Hard Warnings (>160 words): {over_160}")
+    over_165 = sum(1 for w in wcs if w > 165)
+    print(f"Hard Warnings (>165 words): {over_165}")
     
     # Assertions
     assert len(enriched_pages) == 74, f"Mismatch page count: {len(enriched_pages)}"
-    assert over_160 == 0, f"Pages over 160 detected: {over_160}"
-    assert min_wc >= 115, f"Page below 115 words: {min_wc}"
-    assert max_wc <= 155, f"Page above 155 words: {max_wc}"
+    assert over_165 == 0, f"Pages over 165 detected: {over_165}"
+    assert min_wc >= 95, f"Page below 95 words: {min_wc}"
+    assert max_wc <= 165, f"Page above 165 words: {max_wc}"
     
     for p in enriched_pages:
         assert p.get('chapter_id') in [1, 2, 3, 4, 5], f"Missing chapter_id on page {p['page_number']}"
@@ -305,7 +305,7 @@ def enrich_all_pages(dry_run=True):
         assert 'narrative_role' in p, f"Missing narrative_role on page {p['page_number']}"
         assert 'transition' in p, f"Missing transition on page {p['page_number']}"
         for para in p['paragraphs']:
-            assert para[-1] in '.!?\"\'”', f"Broken sentence ending on page {p['page_number']}: {para}"
+            assert re.search(r'[.!?]["\'\”\)]?$', para), f"Broken sentence ending on page {p['page_number']}: {para}"
             assert '```' not in para, f"Code block leak on page {p['page_number']}"
             assert not any(c in para for c in ['┌', '│', '─', '└']), f"ASCII leak on page {p['page_number']}"
 

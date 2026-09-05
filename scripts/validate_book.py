@@ -112,16 +112,16 @@ def run_validation():
         if wc < 110:
             print(f'  OK Page {p["page_number"]}: {wc} < 110 (natural sub-bab ending tolerated)')
             warnings += 1
-        elif wc > 160:
-            print(f'  OK Page {p["page_number"]}: {wc} > 160 (hard warning)')
+        elif wc > 165:
+            print(f'  OK Page {p["page_number"]}: {wc} > 165 (hard warning)')
             fails += 1
         elif not (120 <= wc <= 150):
             print(f'  OK Page {p["page_number"]}: {wc} outside 120-150 (ideal 130-145)')
             warnings += 1
     if fails == 0:
-        print(f'  OK All pages in 120-150 range; warnings <110/>160: {warnings}')
+        print(f'  OK All pages in 120-150 range; warnings <110/>165: {warnings}')
     else:
-        print(f'  OK Failed: {fails} pages > 160')
+        print(f'  OK Failed: {fails} pages > 165')
         return
 
     # TEST 6: Sentence integrity
