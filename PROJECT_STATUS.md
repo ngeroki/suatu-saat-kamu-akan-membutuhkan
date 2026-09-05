@@ -1,6 +1,6 @@
 # 📊 PROJECT STATUS — SUATU SAAT (Mobile Digital Art Book)
 
-> **Last Updated**: 2026-09-05T22:25:00+07:00  
+> **Last Updated**: 2026-09-05T23:50:00+07:00  
 > **Repository**: R:\flip-book  
 > **Production URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)  
 > **Status**: Release PASS (Adaptive Reading Flow, Prolog/Epilog Restoration & New Chapter Covers)  
@@ -59,4 +59,6 @@
 | **74-Page Editorial & Visual Restoration** | `src/data/book-pages.json`, `docs/EDITORIAL_AUDIT_REPORT_74_PAGES.md` | ✅ Done | P0 Bab 3 shift repaired, 0 disclaimers, authentic voice restored, 74 pages assembled, typecheck & build PASS |
 | **Adaptive Reading Flow & Cover Art Regeneration** | `src/screens/reader/reader.ts`, `src/screens/prolog.ts`, `src/screens/epilog.ts`, `public/slides-portrait/` | ✅ Done | Opener = poster Side A; Content = direct text Side B; Prolog/Epilog 3 rich paragraphs + smooth scroll; Bab 2,3,5 cover regenerated in fine art aesthetic |
 | **Post-Restoration Forensic QA & P64 Source-Fidelity** | `src/data/book-pages.json`, `scripts/patches/bab-5.json` | ✅ Done | Omni-Scraper Camoufox visual render audit (390px, 360px, 430px: 0px overflow); eliminasi fabrikasi cord cutting P64; restorasi naskah otentik Bab 5 baris 115; typecheck & build PASS |
+| **Reader UX Refinements (7 Polish Points)** | `src/screens/reader/reader.ts`, `src/style.css`, `src/lib/audio.ts`, `src/screens/cover.ts`, `src/components/page-picker.ts` | ✅ Done | Kontinuitas warkop P2; Drop-cap Lora rapat; sound toggle 🔊/🔇 localStorage; Prolog/Epilog header sinkron page picker; bookmark viewer tab ★ Penanda; cover resume last page; responsif 3D cover scale mobile |
+| **Humanizer Pass Bab 1 & Em-Dash Elimination** | `scripts/patches/bab-1.json`, `src/data/book-pages.json`, `src/screens/reader/reader.ts` | ✅ Done | Penerapan blader/humanizer Bab 1: de-bulleting seluruh listicle (Hal 6, 8, 11-15), penghapusan 100% em-dash (—) & en-dash (–), pulihkan suara otentik Mas Aldi, engine reader citation clean |
 
