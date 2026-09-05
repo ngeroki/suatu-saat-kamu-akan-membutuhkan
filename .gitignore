@@ -20,4 +20,5 @@ scratch/
 .codegraph/
 audit_screenshots/
 editorial_analysis.json
+storage/
 
