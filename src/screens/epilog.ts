@@ -66,8 +66,8 @@ export class EpilogScreen {
             </div>
 
             <div class="pe-pullquote">
-              <p class="pe-quote-text">“Kamu nggak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir—yang beneran dengerin anaknya cerita, nemenin istrinya ngobrol, ngerjain kerjaannya dengan jujur. Itu aja sudah spiritualitas tertinggi.”</p>
-              <span class="pe-quote-cite">— Mas Aldi</span>
+              <p class="pe-quote-text">“Kamu nggak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir: yang beneran dengerin anaknya cerita, nemenin istrinya ngobrol, ngerjain kerjaannya dengan jujur. Itu aja sudah spiritualitas tertinggi.”</p>
+              <span class="pe-quote-cite">Mas Aldi</span>
             </div>
 
             <p class="pe-body-p">
@@ -79,7 +79,7 @@ export class EpilogScreen {
             </p>
 
             <p class="pe-body-p">
-              Buku ini selesai, tetapi laku hidupmu baru saja dimulai. Jadilah manusia biasa yang berusaha lebih baik sedikit demi sedikit—napas demi napas. Letakkan tanganmu di dada, tersenyumlah, dan pulanglah ke dalam rumah batinmu yang damai. Selamat jalan, kawan. Semoga selamat sampai tujuan.
+              Buku ini selesai, tetapi laku hidupmu baru saja dimulai. Jadilah manusia biasa yang berusaha lebih baik sedikit demi sedikit, napas demi napas. Letakkan tanganmu di dada, tersenyumlah, dan pulanglah ke dalam rumah batinmu yang damai. Selamat jalan, kawan. Semoga selamat sampai tujuan.
             </p>
           </div>
 

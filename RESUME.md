@@ -1,33 +1,31 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-05T23:50:00+07:00 | Branch: master | HEAD: a01b717
+Updated: 2026-09-06T02:20:00+07:00 | Branch: master | HEAD: pending_commit
 
 ## Status
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Release Status: PASS (Humanizer Pass Bab 1 Complete & Verified, 0 Em-Dashes, 7 UX Refinements Live)
-- Bundle: dist/assets/main-*.js & css (341.34KB js, 33.54KB css, 16 modules transformed)
-- Assets: 74/74 portrait slides (Bab 2, 3, 5 regenerated with integrated gold typography matching Bab 1 & Bab 4)
+- Local Server: http://localhost:4173 (🟢 LIVE - Vite Preview)
+- Release Status: PASS (Full 74-Page Cak Nun Stage Monologue & Maiyah Persona Electrification)
+- Bundle: dist/assets/main-Cboc5kTZ.js (312.22KB js, 33.54KB css, 16 modules transformed)
+- Assets: 74/74 portrait slides intact
 - GitHub: https://github.com/ngeroki/suatu-saat-kamu-akan-membutuhkan (master)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
-- Build: PASS (`vite build` exit code 0)
-- QA Assembler: 74/74 pages intact, 0 forbidden disclaimers, 0 em-dashes in Bab 1
+- Build: PASS (`npm run build` exit code 0 in 1m 15s)
+- QA Assembler: 74/74 pages intact, 0 forbidden disclaimers, 0 em-dashes / en-dashes across full manuscript and bundle
 
-## Done in This Session ([AG] Lead & Parallel Subagents)
-1. **Penerapan Humanizer Pass Bab 1 (Hal 1–15)**:
-   - Menghapus total seluruh format listicle, bullet points, dan penomoran 1-2-3 pada Hal 6 (Infinity Loop Karma), Hal 8 (Pati Geni), Hal 11 (Tiga Sanepo), Hal 12 (Protokol 4-7-8), Hal 13 (Detoks Cahaya), Hal 14 (Retas Respon), dan Hal 15 (Pilar Kesadaran). Semua dilebur menjadi prosa sastra naratif mengalir.
-   - Menghapus formulaic chatbot takeaway dan menggantinya dengan aforisme mendalam dan penutup kontemplatif.
-2. **Pembersihan Total Tanda Em-Dash (`—`) & Karakter AI**:
-   - Menghapus 100% kemunculan tanda em-dash (`—`) dan en-dash (`–`) di Bab 1. Kalimat diselaraskan menggunakan koma alami, anak kalimat, atau struktur bahasa Indonesia murni.
-   - Engine pembaca (`reader.ts`) diperbarui agar mendukung atribusi tanpa tanda strip (`Aldi`) dan ornamen diubah dari strip menjadi `✧ ✦ ✧`.
-3. **7 Penyempurnaan UX Pembaca Live**:
-   - Scene setting pembuka Bab 1 Hal 2 (*Obrolan Pinggir Jurang*) ditambatkan ke warkop tebing Merapi.
-   - Drop-cap diperbaiki menggunakan font `Lora` rapat dan proporsional.
-   - Tombol toggle mute/unmute suara (🔊/🔇) dengan persistensi `localStorage`.
-   - Tombol header Prolog & Epilog disinkronkan membuka `PagePicker`.
-   - Tab `★ Penanda` di `PagePicker` untuk melihat dan melompat ke halaman ter-bookmark.
-   - Tombol *Buka Buku* di cover beranda me-resume halaman bacaan terakhir.
-   - Cover 3D buku di smartphone kini responsif dan menyusut sinkron tanpa tertutup tombol.
+## Done in This Session ([AG] Lead Editorial Director)
+1. **Penyelarasan Total Gaya Tutur Panggung Cak Nun (Maiyah) ke Seluruh 74 Halaman**:
+   - Seluruh 74 halaman dirombak total dari gaya eksposisi orang ketiga / artikel sains menjadi monolog panggung langsung Maiyah yang menatap mata pembaca.
+   - Pancingan indrawi, dialektika membenturkan logika awam, analogi membumi, 100% Bahasa Indonesia Nasional, 0 em-dash.
+2. **Deterministic Assembly & QA Gate 100% PASS**:
+   - Total kata: 11.333 kata (rata-rata 153,1 kata/halaman, 74 halaman).
+   - 0 em-dash (`—`) dan 0 en-dash (`–`), 0 disclaimers.
+3. **Eksplorasi Konsep Visual Wayang Kulit**:
+   - Uji coba render perdana siluet wayang kulit berlubang tatah sungging & kelir temaram via Gemini Pro direct pipeline berhasil dengan resolusi 1536x2752 (9:16).
+   - Teridentifikasi kebutuhan untuk recreate seluruh visual agar nyambung 1-to-1 dengan naskah dan membuang infografis teks lama.
 
 ## Immediate Next Actions (Next Session)
-1. Jalankan humanizer pass untuk **Bab 2 (Hal 16–30: Meretas Pikiran Bawah Sadar & Reprogramming Nasib)**:
-   - Lebur listicle, hilangkan tanda em-dash `—`, pertahankan ketajaman keyakinan Mas Aldi (alam bawah sadar 100%, fenomena resonansi cairan raga).
-2. Jalankan assembler QA gate `node scripts/assemble-book.js` dan verifikasi build.
+1. **Recreate Visual 74 Halaman (Tema Siluet Wayang & Mistis Nusantara)**:
+   - Buat visual murni seni (tanpa teks infografis) yang selaras dengan narasi tiap halaman.
+   - Mulai dari batch Bab 1 (Hal 3: tangan mengetuk meja warkop & medan torus emas) atau Bab 2 (Hal 20: wayang & dalang).
+2. **Sinkronisasi Aset & Deploy**:
+   - Masukkan hasil render ke `public/slides-portrait/`, build, dan deploy ke Cloudflare Pages.

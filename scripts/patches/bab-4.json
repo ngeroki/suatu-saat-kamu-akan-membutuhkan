@@ -9,15 +9,15 @@
     "total_in_chap": 14,
     "previous_page": 45,
     "next_page": 47,
-    "badge": "Sampul & Pembuka",
+    "badge": "SAMPUL & PEMBUKA",
     "title": "Fisika Kuantum, Relativitas & Keterhubungan Semesta",
-    "subtitle": "Membedah Quantum Entanglement, Waktu Elastis, dan Falsafah Suwung",
+    "subtitle": "Kedai Kopi Malam, Partikel yang Saling Terikat, dan Kidung Jiwa Nusantara",
     "paragraphs": [
-      "\"Konsep manunggaling kawula gusti, konsep tauhid itu adalah terbebas dari sekat ilusi keterpisahan. Di ranah fisika modern, ini persis fenomena Quantum Entanglement: dua partikel yang pernah terhubung, sejauh apa pun jaraknya di ujung semesta, tetap saling memengaruhi seketika tanpa jeda waktu.\"",
-      "— Aldi (@rahwanaconsciousnessroom).",
-      "Fisika kuantum dan spiritualitas Nusantara bertemu pada satu muara: tiada sesuatu pun di jagat raya ini yang benar-benar terpisah. Kita semua terhubung dalam jaring-jaring kesadaran tunggal yang maha luas. Melalui pemahaman fisika kuantum dan relativitas ini, kita belajar melepaskan ilusi keterpisahan ego dan kembali pulang ke pelukan keheningan sejati."
+      "\"Kamu kira kamu hidup terpisah sendirian di dunia ini? Fisika kuantum yang paling canggih membuktikan bahwa di tingkat partikel paling dasar, seluruh atom di tubuhmu pernah menyatu dalam satu titik mula kosmos! Keterpisahan itu cuma ilusi optik matamu. Waktu kamu menyakiti sesama, kamu sesungguhnya sedang melukai dirimu sendiri.\"",
+      "Aldi (@rahwanaconsciousnessroom)",
+      "Bab ini mengajakmu duduk di bawah temaram kedai kopi malam hari. Kita bedah mengapa firasat bisa tepat sasaran, misteri debu bintang di urat nadimu, bagaimana waktu cuma ilusi jam dinding, hingga rahasia sebelas tembang macapat sebagai kidung perjalanan jiwa."
     ],
-    "keyTakeaway": "Tiada keterpisahan di semesta; seluruh zarah tubuhmu terjalin abadi dalam samudra kesadaran tunggal.",
+    "keyTakeaway": "Keterpisahan adalah ilusi biologis; di tingkat kuantum, kamu terikat abadi dengan seluruh isi semesta.",
     "image_path": "/slides-portrait/bab-04/slide-1.jpg",
     "illustration_prompt": "",
     "illustration_description": "Visual Masterclass Bab 4: Mengungkap Tenunan Kosmik di Balik Ilusi Keterpisahan",
@@ -37,7 +37,7 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 3
     },
-    "text": "> **Sampul & Pembuka**\n\n# Fisika Kuantum, Relativitas & Keterhubungan Semesta\n\n*Membedah Quantum Entanglement, Waktu Elastis, dan Falsafah Suwung*\n\n\"Konsep manunggaling kawula gusti, konsep tauhid itu adalah terbebas dari sekat ilusi keterpisahan. Di ranah fisika modern, ini persis fenomena Quantum Entanglement: dua partikel yang pernah terhubung, sejauh apa pun jaraknya di ujung semesta, tetap saling memengaruhi seketika tanpa jeda waktu.\"\n\n— Aldi (@rahwanaconsciousnessroom).\n\nFisika kuantum dan spiritualitas Nusantara bertemu pada satu muara: tiada sesuatu pun di jagat raya ini yang benar-benar terpisah. Kita semua terhubung dalam jaring-jaring kesadaran tunggal yang maha luas. Melalui pemahaman fisika kuantum dan relativitas ini, kita belajar melepaskan ilusi keterpisahan ego dan kembali pulang ke pelukan keheningan sejati.\n\n> **Intisari Kesadaran:** Tiada keterpisahan di semesta; seluruh zarah tubuhmu terjalin abadi dalam samudra kesadaran tunggal.",
+    "text": "> **SAMPUL & PEMBUKA**\n\n# Fisika Kuantum, Relativitas & Keterhubungan Semesta\n\n*Kedai Kopi Malam, Partikel yang Saling Terikat, dan Kidung Jiwa Nusantara*\n\n\"Kamu kira kamu hidup terpisah sendirian di dunia ini? Fisika kuantum yang paling canggih membuktikan bahwa di tingkat partikel paling dasar, seluruh atom di tubuhmu pernah menyatu dalam satu titik mula kosmos! Keterpisahan itu cuma ilusi optik matamu. Waktu kamu menyakiti sesama, kamu sesungguhnya sedang melukai dirimu sendiri.\"\n\nAldi (@rahwanaconsciousnessroom)\n\nBab ini mengajakmu duduk di bawah temaram kedai kopi malam hari. Kita bedah mengapa firasat bisa tepat sasaran, misteri debu bintang di urat nadimu, bagaimana waktu cuma ilusi jam dinding, hingga rahasia sebelas tembang macapat sebagai kidung perjalanan jiwa.\n\n> **Intisari Kesadaran:** Keterpisahan adalah ilusi biologis; di tingkat kuantum, kamu terikat abadi dengan seluruh isi semesta.",
     "word_count": 128
   },
   {
@@ -50,16 +50,15 @@
     "total_in_chap": 14,
     "previous_page": 46,
     "next_page": 48,
-    "badge": "1. Dialog Pemantik",
-    "title": "Di Bawah Remang Kedai Kopi: Mengapa Kita Merasa Sendiri?",
-    "subtitle": "Kegalauan eksistensial manusia modern di tengah ledakan populasi bumi",
+    "badge": "KEDAI REMANG",
+    "title": "Kenapa Kita Sering Merasa Sendirian?",
+    "subtitle": "Temaram lampu gantung, cangkir mendingin, dan kawan lama yang mendadak muncul di layar.",
     "paragraphs": [
-      "Di bawah temaram lampu kedai kopi, seorang kawan merenung menatap cangkirnya: 'Mas Aldi, internet menghubungkan miliaran orang dalam hitungan detik... tapi kenapa manusia modern justru makin kesepian dan terasing satu sama lain?'",
-      "Aldi Rahwana menarik napas dalam: 'Karena manusia modern terjebak ilusi Newtonian—menganggap diri seperti bola biliar padat yang terpisah dan bertubrukan acak. Kita mengira kulit tubuh adalah batas akhir dari diri kita.'",
-      "Padahal mekanika kuantum membuktikan bahwa di level subatomik terdalam, tiada batas tegas antara tubuhmu, udara yang kamu hirup, dan semesta raya.",
-      "Keterpisahan hanyalah ilusi ego yang dibangun oleh keterbatasan panca indra lahiriah."
+      "Duduklah di kedai kopi malam-malam begini. Cangkir kopimu sudah dingin, jalanan mulai lengang. Pernah nggak kamu mengalami hal yang ganjil: tiba-tiba kepalamu teringat kawan lama yang bertahun-tahun hilang kontak, lalu lima menit kemudian namanya muncul menelepon di ponselmu?",
+      "Atau saat kamu melangkah masuk ke ruangan asing penuh orang baru, dadamu mendadak bergetar akrab dengan seseorang yang belum pernah kamu kenal sebelumnya? Kebanyakan orang langsung nyeletuk: 'Wah, kebetulan banget!' Kebetulan dari mana?",
+      "Di alam semesta ini nggak ada dadu yang dilempar secara acak! Ada jala-jala getaran tak kasatmata yang menghubungkan setiap kesadaran. Rasa sepi dan keterasingan yang menyiksa manusia modern cuma ilusi sempit karena kita mengira diri kita berhenti di batas kulit luar tubuh kita!"
     ],
-    "keyTakeaway": "Kulit raga bukanlah batas akhir dirimu; di tingkat subatomik, kamu terjalin utuh dengan semesta.",
+    "keyTakeaway": "Tidak ada kebetulan di alam semesta; firasat dan keakraban batin adalah sinyal jala-jala energi yang saling terhubung.",
     "image_path": "/slides-portrait/bab-04/slide-2.jpg",
     "illustration_prompt": "",
     "illustration_description": "Dialog Pemantik: Perasaan Terhubung Mendadak Bukanlah Kebetulan Statistik",
@@ -79,8 +78,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 5
     },
-    "text": "> **1. Dialog Pemantik**\n\n# Di Bawah Remang Kedai Kopi: Mengapa Kita Merasa Sendiri?\n\n*Kegalauan eksistensial manusia modern di tengah ledakan populasi bumi*\n\nDi bawah temaram lampu kedai kopi, seorang kawan merenung menatap cangkirnya: 'Mas Aldi, internet menghubungkan miliaran orang dalam hitungan detik... tapi kenapa manusia modern justru makin kesepian dan terasing satu sama lain?'\n\nAldi Rahwana menarik napas dalam: 'Karena manusia modern terjebak ilusi Newtonian—menganggap diri seperti bola biliar padat yang terpisah dan bertubrukan acak. Kita mengira kulit tubuh adalah batas akhir dari diri kita.'\n\nPadahal mekanika kuantum membuktikan bahwa di level subatomik terdalam, tiada batas tegas antara tubuhmu, udara yang kamu hirup, dan semesta raya.\n\nKeterpisahan hanyalah ilusi ego yang dibangun oleh keterbatasan panca indra lahiriah.\n\n> **Intisari Kesadaran:** Kulit raga bukanlah batas akhir dirimu; di tingkat subatomik, kamu terjalin utuh dengan semesta.",
-    "word_count": 135
+    "text": "> **KEDAI REMANG**\n\n# Kenapa Kita Sering Merasa Sendirian?\n\n*Temaram lampu gantung, cangkir mendingin, dan kawan lama yang mendadak muncul di layar.*\n\nDuduklah di kedai kopi malam-malam begini. Cangkir kopimu sudah dingin, jalanan mulai lengang. Pernah nggak kamu mengalami hal yang ganjil: tiba-tiba kepalamu teringat kawan lama yang bertahun-tahun hilang kontak, lalu lima menit kemudian namanya muncul menelepon di ponselmu?\n\nAtau saat kamu melangkah masuk ke ruangan asing penuh orang baru, dadamu mendadak bergetar akrab dengan seseorang yang belum pernah kamu kenal sebelumnya? Kebanyakan orang langsung nyeletuk: 'Wah, kebetulan banget!' Kebetulan dari mana?\n\nDi alam semesta ini nggak ada dadu yang dilempar secara acak! Ada jala-jala getaran tak kasatmata yang menghubungkan setiap kesadaran. Rasa sepi dan keterasingan yang menyiksa manusia modern cuma ilusi sempit karena kita mengira diri kita berhenti di batas kulit luar tubuh kita!\n\n> **Intisari Kesadaran:** Tidak ada kebetulan di alam semesta; firasat dan keakraban batin adalah sinyal jala-jala energi yang saling terhubung.",
+    "word_count": 156
   },
   {
     "page_number": 48,
@@ -92,16 +91,15 @@
     "total_in_chap": 14,
     "previous_page": 47,
     "next_page": 49,
-    "badge": "2. Quantum Entanglement",
-    "title": "Quantum Entanglement: Jalinan Abadi Lintas Ruang",
-    "subtitle": "Fenomena partikel terikat yang disebut Einstein 'Spooky Action at a Distance'",
+    "badge": "IKATAN KUANTUM",
+    "title": "Dua Partikel yang Tak Pernah Berpisah",
+    "subtitle": "Einstein menyebutnya aksi hantu jarak jauh; semesta menyebutnya jalinan cinta abadi.",
     "paragraphs": [
-      "Dalam mekanika kuantum, dua partikel yang pernah berinteraksi akan terikat ke dalam satu sistem gelombang tunggal. Ketika dipisahkan jutaan tahun cahaya, perubahan putaran (*spin*) pada satu partikel seketika direspons partikel pasangannya tanpa jeda waktu.",
-      "Albert Einstein menjulukinya *spooky action at a distance* karena melampaui batas kecepatan cahaya. Pada dimensi dasarnya, kedua partikel tak pernah terpisah; jarak hanyalah ilusi persepsi material.",
-      "Keterikatan kuantum inilah fondasi di balik koherensi medan jantung dan ikatan batin ibu-anak. Saat anak di perantauan tertimpa bahaya, dada sang ibu bergetar seketika—terpaut oleh jalinan batin yang tak terhalang bentangan samudra.",
-      "Dua jiwa yang pernah bertaut mendalam meninggalkan cetak biru energi abadi yang melampaui sekat ruang dan waktu."
+      "Fisikawan sehebat Albert Einstein saja pernah dibuat pusing tujuh keliling sama fenomena fisika kuantum yang dia juluki aksi hantu jarak jauh, atau quantum entanglement!",
+      "Bayangkan ada dua partikel kecil pernah saling berinteraksi, lalu yang satu ditaruh di bumi dan satunya lagi dibuang ke ujung galaksi sejauh miliaran tahun cahaya. Begitu partikel di bumi kamu putar ke kanan, detik itu juga partikel di ujung langit merespons berputar ke kiri tanpa jeda waktu sedikit pun, melampaui batas kecepatan cahaya!",
+      "Bagaimana mungkin dua partikel yang terpisah jarak kosmik begitu jauh bisa saling tahu tanpa kabel penghubung? Logikanya cuma satu: karena di dimensi yang lebih dalam, kedua partikel itu sesungguhnya nggak pernah terpisah sama sekali! Apa yang pernah terikat di tingkat batin bakal terhubung selamanya."
     ],
-    "keyTakeaway": "Keterikatan kuantum membuktikan bahwa jiwa yang pernah bertaut tak pernah terpisahkan oleh jarak fisik.",
+    "keyTakeaway": "Jalinan kuantum melampaui sekat ruang dan jarak; apa yang pernah bersatu di tingkat batin akan terikat selamanya.",
     "image_path": "/slides-portrait/bab-04/slide-3.jpg",
     "illustration_prompt": "",
     "illustration_description": "Sains Kuantum: Jarak Fisik Hanyalah Ilusi dari Struktur Persepsi Material (Quantum Entanglement)",
@@ -121,8 +119,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 5
     },
-    "text": "> **2. Quantum Entanglement**\n\n# Quantum Entanglement: Jalinan Abadi Lintas Ruang\n\n*Fenomena partikel terikat yang disebut Einstein 'Spooky Action at a Distance'*\n\nDalam mekanika kuantum, dua partikel yang pernah berinteraksi akan terikat ke dalam satu sistem gelombang tunggal. Ketika dipisahkan jutaan tahun cahaya, perubahan putaran (*spin*) pada satu partikel seketika direspons partikel pasangannya tanpa jeda waktu.\n\nAlbert Einstein menjulukinya *spooky action at a distance* karena melampaui batas kecepatan cahaya. Pada dimensi dasarnya, kedua partikel tak pernah terpisah; jarak hanyalah ilusi persepsi material.\n\nKeterikatan kuantum inilah fondasi di balik koherensi medan jantung dan ikatan batin ibu-anak. Saat anak di perantauan tertimpa bahaya, dada sang ibu bergetar seketika—terpaut oleh jalinan batin yang tak terhalang bentangan samudra.\n\nDua jiwa yang pernah bertaut mendalam meninggalkan cetak biru energi abadi yang melampaui sekat ruang dan waktu.\n\n> **Intisari Kesadaran:** Keterikatan kuantum membuktikan bahwa jiwa yang pernah bertaut tak pernah terpisahkan oleh jarak fisik.",
-    "word_count": 148
+    "text": "> **IKATAN KUANTUM**\n\n# Dua Partikel yang Tak Pernah Berpisah\n\n*Einstein menyebutnya aksi hantu jarak jauh; semesta menyebutnya jalinan cinta abadi.*\n\nFisikawan sehebat Albert Einstein saja pernah dibuat pusing tujuh keliling sama fenomena fisika kuantum yang dia juluki aksi hantu jarak jauh, atau quantum entanglement!\n\nBayangkan ada dua partikel kecil pernah saling berinteraksi, lalu yang satu ditaruh di bumi dan satunya lagi dibuang ke ujung galaksi sejauh miliaran tahun cahaya. Begitu partikel di bumi kamu putar ke kanan, detik itu juga partikel di ujung langit merespons berputar ke kiri tanpa jeda waktu sedikit pun, melampaui batas kecepatan cahaya!\n\nBagaimana mungkin dua partikel yang terpisah jarak kosmik begitu jauh bisa saling tahu tanpa kabel penghubung? Logikanya cuma satu: karena di dimensi yang lebih dalam, kedua partikel itu sesungguhnya nggak pernah terpisah sama sekali! Apa yang pernah terikat di tingkat batin bakal terhubung selamanya.\n\n> **Intisari Kesadaran:** Jalinan kuantum melampaui sekat ruang dan jarak; apa yang pernah bersatu di tingkat batin akan terikat selamanya.",
+    "word_count": 162
   },
   {
     "page_number": 49,
@@ -134,16 +132,15 @@
     "total_in_chap": 14,
     "previous_page": 48,
     "next_page": 50,
-    "badge": "2. Debu Bintang",
-    "title": "Dari Debu Bintang Menuju Anatomi Sel Tubuh",
-    "subtitle": "Keluarga kosmik: Seluruh unsur tubuhmu dimasak di tungku supernova purba",
+    "badge": "DEBU BINTANG",
+    "title": "Darahmu Mengalir dari Tungku Bintang Purba",
+    "subtitle": "Atom besi di nadimu dan kalsium di tulangmu dimasak dalam fusi kosmos miliaran tahun lalu.",
     "paragraphs": [
-      "Setiap atom yang menyusun tubuh jasmanimu tidak diciptakan kemarin sore di dapur rumah sakit tempatmu lahir.",
-      "Zat besi di hemoglobin darah merahmu, kalsium di tulang punggungmu, karbon di rantai DNA-mu, serta nitrogen di jaringan ototmu—seluruhnya dimasak di dalam tungku fusi nuklir bintang-bintang raksasa miliaran tahun silam sebelum meledak menjadi supernova.",
-      "Pada awal mula penciptaan alam semesta (*Big Bang*), seluruh materi dan energi kosmos mampat dalam satu titik singularitas tunggal yang tak terhingga.",
-      "Artinya, setiap atom di tubuhmu pernah berada di rahim yang sama dengan atom pohon beringin di alun-alun, air samudra, dan bintang kejora di langit malam. Kita bukan orang asing di bumi; kita adalah semesta yang sedang mengamati dirinya sendiri."
+      "Kita ini sering merasa seperti orang asing di bumi, seolah-olah manusia adalah makhluk telantar yang tiba-tiba jatuh dari langit. Padahal secara sains murni, setiap butir atom di tubuhmu itu debu bintang purba!",
+      "Atom besi yang mengalirkan warna merah di darahmu, kalsium yang menegakkan tulang punggungmu, sampai fosfor di untaian DNA-mu, semuanya dimasak di dalam tungku fusi nuklir bintang-bintang raksasa miliaran tahun silam sebelum meledak jadi supernova! Waktu Dentuman Besar bermula, seluruh materi kosmos terhimpun dalam satu titik yang sama.",
+      "Tubuhmu tidak cuma hidup menumpang di semesta; seluruh semesta raya ini sedang hidup dan bernapas di dalam dirimu! Kenapa kamu masih merasa kerdil dan sendirian?"
     ],
-    "keyTakeaway": "Kamu bukan sekadar penghuni bumi; kamu adalah anak kandung dari debu bintang semesta raya.",
+    "keyTakeaway": "Kamu adalah debu bintang yang berkesadaran; seluruh sejarah kosmos terpatri nyata di dalam setiap sel darahmu.",
     "image_path": "/slides-portrait/bab-04/slide-4.jpg",
     "illustration_prompt": "",
     "illustration_description": "Asal-Usul Seluler: Setiap Sel di Dalam Tubuh Jasmani Lahir dari Rahim Singularitas Debu Bintang",
@@ -163,8 +160,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 4
     },
-    "text": "> **2. Debu Bintang**\n\n# Dari Debu Bintang Menuju Anatomi Sel Tubuh\n\n*Keluarga kosmik: Seluruh unsur tubuhmu dimasak di tungku supernova purba*\n\nSetiap atom yang menyusun tubuh jasmanimu tidak diciptakan kemarin sore di dapur rumah sakit tempatmu lahir.\n\nZat besi di hemoglobin darah merahmu, kalsium di tulang punggungmu, karbon di rantai DNA-mu, serta nitrogen di jaringan ototmu—seluruhnya dimasak di dalam tungku fusi nuklir bintang-bintang raksasa miliaran tahun silam sebelum meledak menjadi supernova.\n\nPada awal mula penciptaan alam semesta (*Big Bang*), seluruh materi dan energi kosmos mampat dalam satu titik singularitas tunggal yang tak terhingga.\n\nArtinya, setiap atom di tubuhmu pernah berada di rahim yang sama dengan atom pohon beringin di alun-alun, air samudra, dan bintang kejora di langit malam. Kita bukan orang asing di bumi; kita adalah semesta yang sedang mengamati dirinya sendiri.\n\n> **Intisari Kesadaran:** Kamu bukan sekadar penghuni bumi; kamu adalah anak kandung dari debu bintang semesta raya.",
-    "word_count": 150
+    "text": "> **DEBU BINTANG**\n\n# Darahmu Mengalir dari Tungku Bintang Purba\n\n*Atom besi di nadimu dan kalsium di tulangmu dimasak dalam fusi kosmos miliaran tahun lalu.*\n\nKita ini sering merasa seperti orang asing di bumi, seolah-olah manusia adalah makhluk telantar yang tiba-tiba jatuh dari langit. Padahal secara sains murni, setiap butir atom di tubuhmu itu debu bintang purba!\n\nAtom besi yang mengalirkan warna merah di darahmu, kalsium yang menegakkan tulang punggungmu, sampai fosfor di untaian DNA-mu, semuanya dimasak di dalam tungku fusi nuklir bintang-bintang raksasa miliaran tahun silam sebelum meledak jadi supernova! Waktu Dentuman Besar bermula, seluruh materi kosmos terhimpun dalam satu titik yang sama.\n\nTubuhmu tidak cuma hidup menumpang di semesta; seluruh semesta raya ini sedang hidup dan bernapas di dalam dirimu! Kenapa kamu masih merasa kerdil dan sendirian?\n\n> **Intisari Kesadaran:** Kamu adalah debu bintang yang berkesadaran; seluruh sejarah kosmos terpatri nyata di dalam setiap sel darahmu.",
+    "word_count": 148
   },
   {
     "page_number": 50,
@@ -176,16 +173,15 @@
     "total_in_chap": 14,
     "previous_page": 49,
     "next_page": 51,
-    "badge": "2. Relativitas Waktu",
-    "title": "Relativitas Waktu & Jebakan Waktu Sosial",
-    "subtitle": "Waktu bukan garis lurus yang kaku; masa lalu dan masa depan hanyalah ilusi psikologis",
+    "badge": "TITIK SAIKI",
+    "title": "Waktu Sebenarnya Cuma Kesepakatan Sosial",
+    "subtitle": "Kemarin cuma rekaman di saraf, besok cuma proyeksi ego, dan pintu gerbangnya ada di detik ini.",
     "paragraphs": [
-      "Fisika relativitas Einstein membuktikan waktu bersifat lentur. Jam dinding sosial hanyalah kesepakatan rotasi bumi, bukan realitas mutlak kosmos.",
-      "Masa lalu hanyalah rekaman sinaptik memori di otak. Masa depan hanyalah proyeksi ketakutan (*phantom future*) ego. Keduanya tidak eksis secara fisik di alam semesta.",
-      "Tragedi manusia modern: raganya duduk di warkop, tetapi pikirannya terbelah 50% meratapi masa lalu dan 50% mencemaskan masa depan. Akibatnya, energi vital bocor 100% ke dimensi ilusi hingga raga kekeringan daya kuantum.",
-      "Medan kuantum hanya eksis di titik saiki—detik niki juga. Saat kesadaranmu hadir wutuh di detik ini, waktu psikologis runtuh dan daya semesta bekerja sepenuhnya."
+      "Coba tatap jam dinding di depanmu. Detik demi detik berputar teratur. Tapi kamu sadar nggak, waktu berjalan lurus itu sesungguhnya cuma kesepakatan sosial manusia buat mencatat putaran bumi menghadap matahari!",
+      "Di alam kuantum, waktu itu elastis dan nisbi. Yang nyata-nyata ada cuma detik ini: titik saiki! Masa lalu itu cuma rekaman neurokimia di saraf dan memori tulang ekormu. Masa depan cuma angan-angan dan ketakutan egomu yang belum tentu kejadian.",
+      "Tragedi manusia modern adalah energi hidupnya bocor karena perhatiannya terbelah: separuh terjebak menyesali masa lalu, separuh cemas menatap esok. Akibatnya, nol persen hadir di saat ini! Pintu gerbang medan kuantum cuma terbuka buat orang yang berani hadir utuh di detik sekarang."
     ],
-    "keyTakeaway": "Tarik seluruh energimu ke titik saiki; medan kuantum hanya bekerja saat batin hadir wutuh di detik niki.",
+    "keyTakeaway": "Hadirlah utuh di titik saiki; masa lalu cuma arsip saraf dan masa depan cuma angan, medan kuantum hanya terbuka di detik ini.",
     "image_path": "/slides-portrait/bab-04/slide-5.jpg",
     "illustration_prompt": "",
     "illustration_description": "Relativitas Waktu: Waktu Linear Adalah Kesepakatan Sosial, Bukan Realitas Mutlak Semesta",
@@ -205,8 +201,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 5
     },
-    "text": "> **2. Relativitas Waktu**\n\n# Relativitas Waktu & Jebakan Waktu Sosial\n\n*Waktu bukan garis lurus yang kaku; masa lalu dan masa depan hanyalah ilusi psikologis*\n\nFisika relativitas Einstein membuktikan waktu bersifat lentur. Jam dinding sosial hanyalah kesepakatan rotasi bumi, bukan realitas mutlak kosmos.\n\nMasa lalu hanyalah rekaman sinaptik memori di otak. Masa depan hanyalah proyeksi ketakutan (*phantom future*) ego. Keduanya tidak eksis secara fisik di alam semesta.\n\nTragedi manusia modern: raganya duduk di warkop, tetapi pikirannya terbelah 50% meratapi masa lalu dan 50% mencemaskan masa depan. Akibatnya, energi vital bocor 100% ke dimensi ilusi hingga raga kekeringan daya kuantum.\n\nMedan kuantum hanya eksis di titik saiki—detik niki juga. Saat kesadaranmu hadir wutuh di detik ini, waktu psikologis runtuh dan daya semesta bekerja sepenuhnya.\n\n> **Intisari Kesadaran:** Tarik seluruh energimu ke titik saiki; medan kuantum hanya bekerja saat batin hadir wutuh di detik niki.",
-    "word_count": 143
+    "text": "> **TITIK SAIKI**\n\n# Waktu Sebenarnya Cuma Kesepakatan Sosial\n\n*Kemarin cuma rekaman di saraf, besok cuma proyeksi ego, dan pintu gerbangnya ada di detik ini.*\n\nCoba tatap jam dinding di depanmu. Detik demi detik berputar teratur. Tapi kamu sadar nggak, waktu berjalan lurus itu sesungguhnya cuma kesepakatan sosial manusia buat mencatat putaran bumi menghadap matahari!\n\nDi alam kuantum, waktu itu elastis dan nisbi. Yang nyata-nyata ada cuma detik ini: titik saiki! Masa lalu itu cuma rekaman neurokimia di saraf dan memori tulang ekormu. Masa depan cuma angan-angan dan ketakutan egomu yang belum tentu kejadian.\n\nTragedi manusia modern adalah energi hidupnya bocor karena perhatiannya terbelah: separuh terjebak menyesali masa lalu, separuh cemas menatap esok. Akibatnya, nol persen hadir di saat ini! Pintu gerbang medan kuantum cuma terbuka buat orang yang berani hadir utuh di detik sekarang.\n\n> **Intisari Kesadaran:** Hadirlah utuh di titik saiki; masa lalu cuma arsip saraf dan masa depan cuma angan, medan kuantum hanya terbuka di detik ini.",
+    "word_count": 160
   },
   {
     "page_number": 51,
@@ -218,17 +214,15 @@
     "total_in_chap": 14,
     "previous_page": 50,
     "next_page": 52,
-    "badge": "2. Kausalitas Kuantum",
-    "title": "Kausalitas Kuantum: Akibat Mendahului Sebab",
-    "subtitle": "Di medan kuantum, getaran batin hari ini menarik peristiwa yang selaras",
+    "badge": "SEBAB DI BELAKANG",
+    "title": "Ketika Akibat Mendahului Sebab",
+    "subtitle": "Hiduplah dalam rasa cukup dan syukur hari ini, maka semesta akan menata materinya menyusul.",
     "paragraphs": [
-      "Fisika klasik Newtonian memprogram manusia dalam pola sebab-akibat: tunggu materi datang di luar (sebab), barulah hati merasa damai (akibat). Manusia pun menjadi tawanan keadaan lahiriah.",
-      "Di medan kuantum, kausalitas berbalik 180 derajat: Akibat mendahului Sebab (*Retrocausality*). Resonansi batin di titik saiki adalah akibat yang mendahului runtuhnya materi fisik.",
-      "Semesta tidak merespons mantra bibir, melainkan frekuensi di dadamu. Bila memohon rezeki dengan getaran panik (*scarcity*), semesta meruntuhkan probabilitas yang mempertegas kekuranganmu.",
-      "Ketika kamu menghadirkan rasa syukur dan cukup di detik niki, getaran kelimpahan itu meruntuhkan potensi semesta menjadi peristiwa nyata.",
-      "\"Di medan kuantum itu akibat-sebab! Yang kamu pancarkan di batinmu detik ini adalah cetak biru penata materi,\" tegas Aldi."
+      "Di bangku sekolah, kita dijejali hukum sebab-akibat yang kaku: kamu harus punya harta melimpah dulu di luar, baru batinmu merasa makmur dan tenang di dalam. Kamu menunggu dunia luar berubah baru mengizinkan hatimu bahagia.",
+      "Di medan kuantum, hukum ini diputar balik seratus delapan puluh derajat: akibat mendahului sebab! Kamu hidupi dulu rasa ayem, tentrem, bersyukur, dan kecukupan di dalam dadamu saat ini juga, seolah-olah berkah itu sudah nyata hadir di depan matamu.",
+      "Semesta itu proyektor yang membaca getaran rasamu. Waktu batinmu memancarkan frekuensi kecukupan tanpa sebutir pun keraguan, medan kuantum bakal menata susunan materi di dunia nyata buat menyesuaikan diri dengan cetak biru rasa yang kamu pancarkan!"
     ],
-    "keyTakeaway": "Hadirkan rasa cukup dan syukur saat ini; resonansi batinmu adalah akibat yang mendahului terwujudnya kenyataan fisik.",
+    "keyTakeaway": "Kausalitas kuantum berakar di dada; hidupi getaran rasa cukup sekarang, maka semesta akan mewujudkan bentuk materinya.",
     "image_path": "/slides-portrait/bab-04/slide-6.jpg",
     "illustration_prompt": "",
     "illustration_description": "Kausalitas Kuantum: Medan Semesta Merespons Frekuensi Elektromagnetik Batin, Bukan Kronologi",
@@ -248,8 +242,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 6
     },
-    "text": "> **2. Kausalitas Kuantum**\n\n# Kausalitas Kuantum: Akibat Mendahului Sebab\n\n*Di medan kuantum, getaran batin hari ini menarik peristiwa yang selaras*\n\nFisika klasik Newtonian memprogram manusia dalam pola sebab-akibat: tunggu materi datang di luar (sebab), barulah hati merasa damai (akibat). Manusia pun menjadi tawanan keadaan lahiriah.\n\nDi medan kuantum, kausalitas berbalik 180 derajat: Akibat mendahului Sebab (*Retrocausality*). Resonansi batin di titik saiki adalah akibat yang mendahului runtuhnya materi fisik.\n\nSemesta tidak merespons mantra bibir, melainkan frekuensi di dadamu. Bila memohon rezeki dengan getaran panik (*scarcity*), semesta meruntuhkan probabilitas yang mempertegas kekuranganmu.\n\nKetika kamu menghadirkan rasa syukur dan cukup di detik niki, getaran kelimpahan itu meruntuhkan potensi semesta menjadi peristiwa nyata.\n\n\"Di medan kuantum itu akibat-sebab! Yang kamu pancarkan di batinmu detik ini adalah cetak biru penata materi,\" tegas Aldi.\n\n> **Intisari Kesadaran:** Hadirkan rasa cukup dan syukur saat ini; resonansi batinmu adalah akibat yang mendahului terwujudnya kenyataan fisik.",
-    "word_count": 148
+    "text": "> **SEBAB DI BELAKANG**\n\n# Ketika Akibat Mendahului Sebab\n\n*Hiduplah dalam rasa cukup dan syukur hari ini, maka semesta akan menata materinya menyusul.*\n\nDi bangku sekolah, kita dijejali hukum sebab-akibat yang kaku: kamu harus punya harta melimpah dulu di luar, baru batinmu merasa makmur dan tenang di dalam. Kamu menunggu dunia luar berubah baru mengizinkan hatimu bahagia.\n\nDi medan kuantum, hukum ini diputar balik seratus delapan puluh derajat: akibat mendahului sebab! Kamu hidupi dulu rasa ayem, tentrem, bersyukur, dan kecukupan di dalam dadamu saat ini juga, seolah-olah berkah itu sudah nyata hadir di depan matamu.\n\nSemesta itu proyektor yang membaca getaran rasamu. Waktu batinmu memancarkan frekuensi kecukupan tanpa sebutir pun keraguan, medan kuantum bakal menata susunan materi di dunia nyata buat menyesuaikan diri dengan cetak biru rasa yang kamu pancarkan!\n\n> **Intisari Kesadaran:** Kausalitas kuantum berakar di dada; hidupi getaran rasa cukup sekarang, maka semesta akan mewujudkan bentuk materinya.",
+    "word_count": 149
   },
   {
     "page_number": 52,
@@ -261,17 +255,15 @@
     "total_in_chap": 14,
     "previous_page": 51,
     "next_page": 53,
-    "badge": "2. Observer Effect",
-    "title": "Observer Effect & Runtuhnya Gelombang Potensi",
-    "subtitle": "Eksperimen Celah Ganda: Kesadaran pengamat menentukan wujud realitas fisik",
+    "badge": "MATA PENGAMAT",
+    "title": "Realitas Tergantung ke Mana Matamu Menatap",
+    "subtitle": "Gelombang kemungkinan runtuh menjadi kepastian begitu kesadaranmu mulai mengamatinya.",
     "paragraphs": [
-      "Eksperimen Celah Ganda (*Double-Slit Experiment*) adalah bukti paling revolusioner dalam fisika modern tentang kuasa kesadaran.",
-      "Ketika elektron ditembakkan tanpa diawasi, ia bertindak sebagai gelombang probabilitas tak terbatas (*superposisi*). Namun begitu hadir instrumen pengamat yang memperhatikan, fungsi gelombang seketika runtuh (*wave function collapses*) memadat menjadi partikel fisik terukur di satu titik.",
-      "Kesadaran bukanlah produk sampingan materi otak, melainkan daya fundamental yang meruntuhkan potensi menjadi realitas konkret.",
-      "Dalam samudra kuantum kehidupan, jutaan skenario takdir paralelmu eksis bersamaan: skenario terpuruk oleh luka, atau skenario berkecukupan dan penuh welas asih. Skenario mana yang memadat besok pagi?",
-      "Jawabannya: skenario yang paling sering kamu tatap dengan lensa perhatian batinmu, dan kamu beri makan dengan getaran emosimu setiap detik."
+      "Pernah dengar eksperimen celah ganda yang bikin para ilmuwan dunia garuk-garuk kepala? Partikel subatomik itu perilakunya seperti gelombang kemungkinan yang ada di mana-mana secara serentak, sampai ada pengamat yang memperhatikannya!",
+      "Begitu ada mata pengamat yang hadir, gelombang kemungkinan itu langsung runtuh seketika jadi satu titik partikel materi padat. Inilah Efek Pengamat! Hidupmu saban hari dipenuhi jutaan gelombang kemungkinan: kemungkinan sial, kemungkinan mujur, kemungkinan sakit, kemungkinan sehat.",
+      "Ke mana fokus perhatian dan getaran rasamu kamu arahkan setiap jam, ke sanalah gelombang potensi itu bakal memadat jadi kenyataan hidupmu! Kalau matamu cuma sibuk memelototi kekurangan dan ketakutan, ya ketakutan itulah yang memadat jadi nasibmu."
     ],
-    "keyTakeaway": "Perhatian dan emosimu adalah pengamat kuantum yang meruntuhkan samudra probabilitas menjadi takdir nyata.",
+    "keyTakeaway": "Atensimu adalah pencipta realitas; ke mana fokus perhatianmu tertuju, ke sanalah gelombang potensi semesta akan memadat.",
     "image_path": "/slides-portrait/bab-04/slide-7.jpg",
     "illustration_prompt": "",
     "illustration_description": "Observer Effect: Kesadaran Pengamat Bertindak sebagai Daya Cipta yang Meruntuhkan Gelombang Potensi",
@@ -291,8 +283,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 5
     },
-    "text": "> **2. Observer Effect**\n\n# Observer Effect & Runtuhnya Gelombang Potensi\n\n*Eksperimen Celah Ganda: Kesadaran pengamat menentukan wujud realitas fisik*\n\nEksperimen Celah Ganda (*Double-Slit Experiment*) adalah bukti paling revolusioner dalam fisika modern tentang kuasa kesadaran.\n\nKetika elektron ditembakkan tanpa diawasi, ia bertindak sebagai gelombang probabilitas tak terbatas (*superposisi*). Namun begitu hadir instrumen pengamat yang memperhatikan, fungsi gelombang seketika runtuh (*wave function collapses*) memadat menjadi partikel fisik terukur di satu titik.\n\nKesadaran bukanlah produk sampingan materi otak, melainkan daya fundamental yang meruntuhkan potensi menjadi realitas konkret.\n\nDalam samudra kuantum kehidupan, jutaan skenario takdir paralelmu eksis bersamaan: skenario terpuruk oleh luka, atau skenario berkecukupan dan penuh welas asih. Skenario mana yang memadat besok pagi?\n\nJawabannya: skenario yang paling sering kamu tatap dengan lensa perhatian batinmu, dan kamu beri makan dengan getaran emosimu setiap detik.\n\n> **Intisari Kesadaran:** Perhatian dan emosimu adalah pengamat kuantum yang meruntuhkan samudra probabilitas menjadi takdir nyata.",
-    "word_count": 148
+    "text": "> **MATA PENGAMAT**\n\n# Realitas Tergantung ke Mana Matamu Menatap\n\n*Gelombang kemungkinan runtuh menjadi kepastian begitu kesadaranmu mulai mengamatinya.*\n\nPernah dengar eksperimen celah ganda yang bikin para ilmuwan dunia garuk-garuk kepala? Partikel subatomik itu perilakunya seperti gelombang kemungkinan yang ada di mana-mana secara serentak, sampai ada pengamat yang memperhatikannya!\n\nBegitu ada mata pengamat yang hadir, gelombang kemungkinan itu langsung runtuh seketika jadi satu titik partikel materi padat. Inilah Efek Pengamat! Hidupmu saban hari dipenuhi jutaan gelombang kemungkinan: kemungkinan sial, kemungkinan mujur, kemungkinan sakit, kemungkinan sehat.\n\nKe mana fokus perhatian dan getaran rasamu kamu arahkan setiap jam, ke sanalah gelombang potensi itu bakal memadat jadi kenyataan hidupmu! Kalau matamu cuma sibuk memelototi kekurangan dan ketakutan, ya ketakutan itulah yang memadat jadi nasibmu.\n\n> **Intisari Kesadaran:** Atensimu adalah pencipta realitas; ke mana fokus perhatianmu tertuju, ke sanalah gelombang potensi semesta akan memadat.",
+    "word_count": 140
   },
   {
     "page_number": 53,
@@ -304,17 +296,15 @@
     "total_in_chap": 14,
     "previous_page": 52,
     "next_page": 54,
-    "badge": "3. Manunggaling Kawula",
-    "title": "Manunggaling Kawula Gusti & Tauhid Murni",
-    "subtitle": "Runtuhnya ilusi dualitas antara Sang Pencipta dan ciptaan-Nya",
+    "badge": "SUWUNG MANUNGGAL",
+    "title": "Meleburnya Sekat Antara Dirimu dan Sang Maha Ada",
+    "subtitle": "Bukan menyatu secara jasmani, melainkan lenyapnya ilusi bahwa kamu pernah terpisah dari-Nya.",
     "paragraphs": [
-      "Ajaran luhur *Manunggaling Kawula Gusti* sering disalahpahami secara serampangan sebagai kesombongan manusia mengaku raga fisiknya menjadi Tuhan.",
-      "Padahal esensi sejatinya setara dengan kemurnian Tauhid Hakiki (*Lā ilāha illallāh*): tiada wujud mandiri yang mutlak berdiri sendiri selain Sang Sumber Wujud Tunggal (*Wihdatul Wujud*).",
-      "Manusia bukanlah entitas terpisah yang terlempar jauh dari Sang Pencipta; manusia adalah manifestasi daya hidup Ilahi yang ditiupkan ke dalam wadah jasmani.",
-      "Ketika tirai ego palsu luruh (*fana'*), yang tersisa hanyalah Keheningan Mutlak (*Suwung*). Di titik nol inilah manusia menyadari denyut jantung dan tarikan napasnya sepenuhnya digerakkan oleh Daya Sang Hyang Sejati.",
-      "Tiada lagi jurang pemisah antara yang mengamati dan yang diamati; segala keangkuhan aku lebur dalam samudra ketunggalan wujud."
+      "Banyak orang gagal paham mendengar kalimat Manunggaling Kawula Gusti, lalu menuduhnya sesat seolah-olah manusia mengaku jadi Tuhan secara fisik. Itu pemikiran dangkal dari akal yang masih terkurung kulit luar!",
+      "Manunggal sejati itu puncak tauhid murni yang meruntuhkan dinding keakuan egomu. Ia adalah momen waktu kesadaranmu terbangun dan menyadari bahwa keterpisahan antara dirimu dan Sang Pencipta hanyalah ilusi yang diciptakan oleh rasa sombongmu sendiri.",
+      "Mirip sebutir tetes embun pagi yang jatuh kembali ke dalam samudra luas: embun itu tidak musnah, tapi sekat pembatasnya lebur menyatu dengan air samudra. Waktu kamu suwung dari keangkuhan diri, yang tersisa hanyalah keagungan Sang Maha Ada yang meliputi segalanya!"
     ],
-    "keyTakeaway": "Tauhid sejati dan Manunggaling Kawula Gusti melenyapkan sekat keterpisahan ego di hadapan Sang Sumber Tunggal.",
+    "keyTakeaway": "Manunggal adalah puncak tauhid murni; luruhkan dinding keakuan egomu agar kesadaran sejati menyatu dengan samudra ilahi.",
     "image_path": "/slides-portrait/bab-04/slide-8.jpg",
     "illustration_prompt": "",
     "illustration_description": "Tauhid Murni & Manunggaling Kawula Gusti: Pembebasan Jiwa dari Ilusi Keterpisahan Eksistensial",
@@ -334,8 +324,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 5
     },
-    "text": "> **3. Manunggaling Kawula**\n\n# Manunggaling Kawula Gusti & Tauhid Murni\n\n*Runtuhnya ilusi dualitas antara Sang Pencipta dan ciptaan-Nya*\n\nAjaran luhur *Manunggaling Kawula Gusti* sering disalahpahami secara serampangan sebagai kesombongan manusia mengaku raga fisiknya menjadi Tuhan.\n\nPadahal esensi sejatinya setara dengan kemurnian Tauhid Hakiki (*Lā ilāha illallāh*): tiada wujud mandiri yang mutlak berdiri sendiri selain Sang Sumber Wujud Tunggal (*Wihdatul Wujud*).\n\nManusia bukanlah entitas terpisah yang terlempar jauh dari Sang Pencipta; manusia adalah manifestasi daya hidup Ilahi yang ditiupkan ke dalam wadah jasmani.\n\nKetika tirai ego palsu luruh (*fana'*), yang tersisa hanyalah Keheningan Mutlak (*Suwung*). Di titik nol inilah manusia menyadari denyut jantung dan tarikan napasnya sepenuhnya digerakkan oleh Daya Sang Hyang Sejati.\n\nTiada lagi jurang pemisah antara yang mengamati dan yang diamati; segala keangkuhan aku lebur dalam samudra ketunggalan wujud.\n\n> **Intisari Kesadaran:** Tauhid sejati dan Manunggaling Kawula Gusti melenyapkan sekat keterpisahan ego di hadapan Sang Sumber Tunggal.",
-    "word_count": 149
+    "text": "> **SUWUNG MANUNGGAL**\n\n# Meleburnya Sekat Antara Dirimu dan Sang Maha Ada\n\n*Bukan menyatu secara jasmani, melainkan lenyapnya ilusi bahwa kamu pernah terpisah dari-Nya.*\n\nBanyak orang gagal paham mendengar kalimat Manunggaling Kawula Gusti, lalu menuduhnya sesat seolah-olah manusia mengaku jadi Tuhan secara fisik. Itu pemikiran dangkal dari akal yang masih terkurung kulit luar!\n\nManunggal sejati itu puncak tauhid murni yang meruntuhkan dinding keakuan egomu. Ia adalah momen waktu kesadaranmu terbangun dan menyadari bahwa keterpisahan antara dirimu dan Sang Pencipta hanyalah ilusi yang diciptakan oleh rasa sombongmu sendiri.\n\nMirip sebutir tetes embun pagi yang jatuh kembali ke dalam samudra luas: embun itu tidak musnah, tapi sekat pembatasnya lebur menyatu dengan air samudra. Waktu kamu suwung dari keangkuhan diri, yang tersisa hanyalah keagungan Sang Maha Ada yang meliputi segalanya!\n\n> **Intisari Kesadaran:** Manunggal adalah puncak tauhid murni; luruhkan dinding keakuan egomu agar kesadaran sejati menyatu dengan samudra ilahi.",
+    "word_count": 146
   },
   {
     "page_number": 54,
@@ -347,20 +337,15 @@
     "total_in_chap": 14,
     "previous_page": 53,
     "next_page": 55,
-    "badge": "3. Arketipe Nabi",
-    "title": "114 Surat & 25 Nabi sebagai Peta Arketipe Kesadaran",
-    "subtitle": "Dari Adam sang pembelajar nama hingga Muhammad sang kesadaran paripurna",
+    "badge": "PETA NABI",
+    "title": "Perjalanan Jiwa Menuju Manusia Utuh",
+    "subtitle": "Dari Adam hingga Muhammad, dari Al-Fatihah hingga An-Nas: puncaknya adalah kembali ke masyarakat.",
     "paragraphs": [
-      "Al-Qur'an menyimpan lapisan makna mendalam sebagai peta evolusi kesadaran manusia.",
-      "Urutan 25 Nabi bukanlah sekadar kronologi sejarah padang pasir, melainkan tahapan arketipe psikospiritual:",
-      "• Adam: Titik awal fitrah kesadaran material dan mengenal nama-nama duniawi.",
-      "• Ibrahim: Fase dekonstruksi berhala logika demi menemukan Sang Sumber Sejati.",
-      "• Musa: Fase membelah lautan ilusi dan menaklukkan Fir'aun ego di dalam diri.",
-      "• Isa: Kebangkitan cinta kasih tanpa syarat dan penghidupan sel-sel ruhani.",
-      "• Muhammad: Puncak integrasi kesadaran kosmik paripurna (*Insan Kamil*).",
-      "Kitab suci dibuka dengan Al-Fatihah dan dipungkasi oleh An-Nas (Manusia)—menegaskan bahwa puncak laku spiritual adalah kembali menjadi manusia seutuhnya."
+      "Kisah para nabi di kitab suci itu jangan cuma dibaca seperti dongeng pengantar tidur masa lalu. Itu peta evolusi kesadaran manusia yang sangat rapi!",
+      "Perjalanan jiwa bermula dari Nabi Adam lambang kesadaran raga jasmani awal, mendaki melintasi ujian api Ibrahim lambang pemurnian tauhid, ketabahan Ayyub lambang keruntuhan ego raga, sampai berpuncak pada Nabi Muhammad lambang kesadaran paripurna yang menjadi rahmat bagi semesta alam.",
+      "Dan perhatikan rahasia puncaknya: beliau tidak berhenti menetap di langit mikraj yang hening, melainkan turun kembali ke bumi buat berdagang, mendidik anak istri, dan merawat masyarakat! Dari Al-Fatihah pembuka keagungan langit, kitab suci ditutup dengan surat An-Nas: kembali membumi di tengah sesama manusia."
     ],
-    "keyTakeaway": "Kisah kenabian adalah peta jalan psikospiritual untuk mendewasakan jiwa dari ego menuju pencerahan.",
+    "keyTakeaway": "Puncak perjalanan spiritual bukanlah menjadi makhluk langit; melainkan kembali membumi sebagai rahmat bagi sesama manusia.",
     "image_path": "/slides-portrait/bab-04/slide-9.jpg",
     "illustration_prompt": "",
     "illustration_description": "Peta Navigasi Psikospiritual: Sejarah 25 Nabi & 114 Surat Menuju Insan Kamil",
@@ -380,8 +365,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 8
     },
-    "text": "> **3. Arketipe Nabi**\n\n# 114 Surat & 25 Nabi sebagai Peta Arketipe Kesadaran\n\n*Dari Adam sang pembelajar nama hingga Muhammad sang kesadaran paripurna*\n\nAl-Qur'an menyimpan lapisan makna mendalam sebagai peta evolusi kesadaran manusia.\n\nUrutan 25 Nabi bukanlah sekadar kronologi sejarah padang pasir, melainkan tahapan arketipe psikospiritual:\n\n• Adam: Titik awal fitrah kesadaran material dan mengenal nama-nama duniawi.\n\n• Ibrahim: Fase dekonstruksi berhala logika demi menemukan Sang Sumber Sejati.\n\n• Musa: Fase membelah lautan ilusi dan menaklukkan Fir'aun ego di dalam diri.\n\n• Isa: Kebangkitan cinta kasih tanpa syarat dan penghidupan sel-sel ruhani.\n\n• Muhammad: Puncak integrasi kesadaran kosmik paripurna (*Insan Kamil*).\n\nKitab suci dibuka dengan Al-Fatihah dan dipungkasi oleh An-Nas (Manusia)—menegaskan bahwa puncak laku spiritual adalah kembali menjadi manusia seutuhnya.\n\n> **Intisari Kesadaran:** Kisah kenabian adalah peta jalan psikospiritual untuk mendewasakan jiwa dari ego menuju pencerahan.",
-    "word_count": 137
+    "text": "> **PETA NABI**\n\n# Perjalanan Jiwa Menuju Manusia Utuh\n\n*Dari Adam hingga Muhammad, dari Al-Fatihah hingga An-Nas: puncaknya adalah kembali ke masyarakat.*\n\nKisah para nabi di kitab suci itu jangan cuma dibaca seperti dongeng pengantar tidur masa lalu. Itu peta evolusi kesadaran manusia yang sangat rapi!\n\nPerjalanan jiwa bermula dari Nabi Adam lambang kesadaran raga jasmani awal, mendaki melintasi ujian api Ibrahim lambang pemurnian tauhid, ketabahan Ayyub lambang keruntuhan ego raga, sampai berpuncak pada Nabi Muhammad lambang kesadaran paripurna yang menjadi rahmat bagi semesta alam.\n\nDan perhatikan rahasia puncaknya: beliau tidak berhenti menetap di langit mikraj yang hening, melainkan turun kembali ke bumi buat berdagang, mendidik anak istri, dan merawat masyarakat! Dari Al-Fatihah pembuka keagungan langit, kitab suci ditutup dengan surat An-Nas: kembali membumi di tengah sesama manusia.\n\n> **Intisari Kesadaran:** Puncak perjalanan spiritual bukanlah menjadi makhluk langit; melainkan kembali membumi sebagai rahmat bagi sesama manusia.",
+    "word_count": 146
   },
   {
     "page_number": 55,
@@ -393,25 +378,15 @@
     "total_in_chap": 14,
     "previous_page": 54,
     "next_page": 56,
-    "badge": "3. Kidung Jiwa",
-    "title": "11 Tembang Macapat: Kidung Siklus Perjalanan Jiwa",
-    "subtitle": "Filosofi Jawa memetakan perjalanan hidup dari kandungan hingga kembali ke Suwung",
+    "badge": "KIDUNG MACAPAT",
+    "title": "Sebelas Tembang Siklus Perjalanan Jiwa",
+    "subtitle": "Dari Maskumambang di rahim ibu hingga Pocung saat kafan membungkus jasad bersahaja.",
     "paragraphs": [
-      "Leluhur Jawa merangkai 11 Tembang Macapat sebagai panduan metamorfosis jiwa manusia:",
-      "1. Maskumambang: Ruh mengapung di alam rahim ibu.",
-      "2. Mijil: Lahirnya raga ke alam duniawi.",
-      "3. Sinom: Masa muda penuh gelora belajar (*ngangsu kawruh*).",
-      "4. Kinanthi: Dituntun menemukan jati diri.",
-      "5. Asmaradana: Berkobarnya api asmara dan cinta.",
-      "6. Gambuh: Mengikat komitmen pernikahan.",
-      "7. Dhandhanggula: Manisnya kematangan hidup dan karya.",
-      "8. Durma: Tergugah berderma bagi sesama.",
-      "9. Pangkur: Menyingkirkan hawa nafsu dan pamrih.",
-      "10. Megatruh: Terlepasnya ruh dari ikatan jasad.",
-      "11. Pocung: Dibungkus kain kafan, pulang ke titik Suwung.",
-      "Sebelas tembang Macapat adalah tarian spiral kesadaran: dari alam hening kandungan, meniti panggung dunia, lalu pulang ke Keheningan Sejati (*Sangkan Paraning Dumadi*)."
+      "Orang tua di tanah Jawa menyandikan seluruh lakon perjalanan jiwa manusia ke dalam sebelas tembang Macapat. Indah dan menyentuh hati sekali!",
+      "Dimulai dari Maskumambang waktu ruh terapung di air rahim ibu, lalu Mijil waktu bayi lahir menangis ke dunia. Tumbuh remaja dalam Sinom, mendapat tuntunan budi dalam Kinanthi, lalu mabuk asmara dalam Asmaradana. Mengikat janji pernikahan dalam Gambuh, mengecap manisnya rezeki hidup dalam Dhandhanggula, hingga diuji amarah dalam Durma.",
+      "Masuk usia senja melantunkan Pangkur buat menyingkirkan nafsu duniawi, menyambut lepasnya sukma dalam Megatruh, dan berakhir bersahaja dalam Pocung waktu kain kafan putih membungkus jasad di liang lahat. Hidup ini tembang yang berganti bait; jangan salah menyanyikannya!"
     ],
-    "keyTakeaway": "Hidup bukanlah garis lurus mengejar materi, melainkan tarian spiral jiwa pulang ke Keheningan Sejati.",
+    "keyTakeaway": "Hidup adalah tembang yang terus berganti bait; kenali fasemu hari ini agar jiwamu melangkah dengan anggun menuju kepulangan.",
     "image_path": "/slides-portrait/bab-04/slide-10.jpg",
     "illustration_prompt": "",
     "illustration_description": "Kidung Jiwa Nusantara: Leluhur Merekam Tarian Spiral Siklus Kesadaran dalam 11 Tembang Macapat",
@@ -431,8 +406,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 13
     },
-    "text": "> **3. Kidung Jiwa**\n\n# 11 Tembang Macapat: Kidung Siklus Perjalanan Jiwa\n\n*Filosofi Jawa memetakan perjalanan hidup dari kandungan hingga kembali ke Suwung*\n\nLeluhur Jawa merangkai 11 Tembang Macapat sebagai panduan metamorfosis jiwa manusia:\n\n1. Maskumambang: Ruh mengapung di alam rahim ibu.\n\n2. Mijil: Lahirnya raga ke alam duniawi.\n\n3. Sinom: Masa muda penuh gelora belajar (*ngangsu kawruh*).\n\n4. Kinanthi: Dituntun menemukan jati diri.\n\n5. Asmaradana: Berkobarnya api asmara dan cinta.\n\n6. Gambuh: Mengikat komitmen pernikahan.\n\n7. Dhandhanggula: Manisnya kematangan hidup dan karya.\n\n8. Durma: Tergugah berderma bagi sesama.\n\n9. Pangkur: Menyingkirkan hawa nafsu dan pamrih.\n\n10. Megatruh: Terlepasnya ruh dari ikatan jasad.\n\n11. Pocung: Dibungkus kain kafan, pulang ke titik Suwung.\n\nSebelas tembang Macapat adalah tarian spiral kesadaran: dari alam hening kandungan, meniti panggung dunia, lalu pulang ke Keheningan Sejati (*Sangkan Paraning Dumadi*).\n\n> **Intisari Kesadaran:** Hidup bukanlah garis lurus mengejar materi, melainkan tarian spiral jiwa pulang ke Keheningan Sejati.",
-    "word_count": 151
+    "text": "> **KIDUNG MACAPAT**\n\n# Sebelas Tembang Siklus Perjalanan Jiwa\n\n*Dari Maskumambang di rahim ibu hingga Pocung saat kafan membungkus jasad bersahaja.*\n\nOrang tua di tanah Jawa menyandikan seluruh lakon perjalanan jiwa manusia ke dalam sebelas tembang Macapat. Indah dan menyentuh hati sekali!\n\nDimulai dari Maskumambang waktu ruh terapung di air rahim ibu, lalu Mijil waktu bayi lahir menangis ke dunia. Tumbuh remaja dalam Sinom, mendapat tuntunan budi dalam Kinanthi, lalu mabuk asmara dalam Asmaradana. Mengikat janji pernikahan dalam Gambuh, mengecap manisnya rezeki hidup dalam Dhandhanggula, hingga diuji amarah dalam Durma.\n\nMasuk usia senja melantunkan Pangkur buat menyingkirkan nafsu duniawi, menyambut lepasnya sukma dalam Megatruh, dan berakhir bersahaja dalam Pocung waktu kain kafan putih membungkus jasad di liang lahat. Hidup ini tembang yang berganti bait; jangan salah menyanyikannya!\n\n> **Intisari Kesadaran:** Hidup adalah tembang yang terus berganti bait; kenali fasemu hari ini agar jiwamu melangkah dengan anggun menuju kepulangan.",
+    "word_count": 148
   },
   {
     "page_number": 56,
@@ -444,17 +419,15 @@
     "total_in_chap": 14,
     "previous_page": 55,
     "next_page": 57,
-    "badge": "4. Laku Hidup Nyata",
-    "title": "Living in the Quantum Now & Non-Attachment",
-    "subtitle": "Praktik hadir utuh di titik saiki dan melepaskan jeratan kemelekatan hasil",
+    "badge": "HADIR UTUH",
+    "title": "Menikmati Secangkir Kopi Tanpa Menjajah Masa Depan",
+    "subtitle": "Energi batinmu bocor bukan karena beban hidup, tapi karena pikiranmu bertamasya ke mana-mana.",
     "paragraphs": [
-      "Bagaimana membumikan kesadaran kuantum ke dalam tindakan nyata sehari-hari?",
-      "1. Hadir Wutuh ing Sak Iki: Saat makan, nikmatilah sepenuhnya—cecap rasa dan kunyah perlahan. Saat menyapa anak atau pasangan, tatap matanya tanpa memegang ponsel. Kehadiran wutuhmu mengalirkan energi penyembuhan.",
-      "2. Melepas Kemelekatan (*Non-Attachment*): Lakukan ikhtiar terbaik, lalu lepaskan obsesi hasil. Kemelekatan berlebihan justru memancarkan vibrasi takut gagal yang menyumbat aliran semesta.",
-      "3. Berserah pada Kecerdasan Semesta: Sadarilah bahwa semesta kuantum memiliki jalan jutaan kali lebih cerdas daripada skenario sempit di kepalamu.",
-      "Jalani peranmu di detik niki, lalu biarkan semesta merajut apa yang tak kasatmata. Ketenangan batin sejati bersumber dari kepasrahanmu pada Sang Sumber Hidup."
+      "Coba sesekali minum kopi dengan kesadaran yang utuh seratus persen. Dekatkan cangkir ke hidungmu, hirup aroma sangrai kopinya yang wangi, rasakan kehangatan keramik cangkir di jemarimu, dan sesap airnya perlahan menyentuh lidah. Rasakan pahit dan manisnya tanpa terburu-buru.",
+      "Kebanyakan orang hari ini menyeruput kopi sambil matanya menatap liar layar gawai, mulutnya mengunyah camilan, dan otaknya panik memikirkan target kerjaan esok lusa! Kopinya habis tanpa pernah benar-benar dirasakan nikmatnya.",
+      "Itulah potret manusia modern: raganya duduk di warkop, jiwanya tercecer di kantor dan masa depan! Tarik kembali seluruh kepingan jiwamu yang berserakan. Hadirlah utuh di tempat kakimu sedang berpijak hari ini."
     ],
-    "keyTakeaway": "Hadir wutuh di titik saiki dan lepaskan kemelekatan hasil agar daya semesta leluasa bekerja.",
+    "keyTakeaway": "Hadirlah utuh di setiap tarikan napas; nikmati apa yang ada di depan matamu tanpa membiarkan pikiranmu mencuri kedamaian hari ini.",
     "image_path": "/slides-portrait/bab-04/slide-11.jpg",
     "illustration_prompt": "",
     "illustration_description": "Integrasi Hidup: Spiritualitas Sejati Teruji oleh Kesadaran yang Berpijak Kokoh di Atas Bumi",
@@ -474,8 +447,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 5
     },
-    "text": "> **4. Laku Hidup Nyata**\n\n# Living in the Quantum Now & Non-Attachment\n\n*Praktik hadir utuh di titik saiki dan melepaskan jeratan kemelekatan hasil*\n\nBagaimana membumikan kesadaran kuantum ke dalam tindakan nyata sehari-hari?\n\n1. Hadir Wutuh ing Sak Iki: Saat makan, nikmatilah sepenuhnya—cecap rasa dan kunyah perlahan. Saat menyapa anak atau pasangan, tatap matanya tanpa memegang ponsel. Kehadiran wutuhmu mengalirkan energi penyembuhan.\n\n2. Melepas Kemelekatan (*Non-Attachment*): Lakukan ikhtiar terbaik, lalu lepaskan obsesi hasil. Kemelekatan berlebihan justru memancarkan vibrasi takut gagal yang menyumbat aliran semesta.\n\n3. Berserah pada Kecerdasan Semesta: Sadarilah bahwa semesta kuantum memiliki jalan jutaan kali lebih cerdas daripada skenario sempit di kepalamu.\n\nJalani peranmu di detik niki, lalu biarkan semesta merajut apa yang tak kasatmata. Ketenangan batin sejati bersumber dari kepasrahanmu pada Sang Sumber Hidup.\n\n> **Intisari Kesadaran:** Hadir wutuh di titik saiki dan lepaskan kemelekatan hasil agar daya semesta leluasa bekerja.",
-    "word_count": 144
+    "text": "> **HADIR UTUH**\n\n# Menikmati Secangkir Kopi Tanpa Menjajah Masa Depan\n\n*Energi batinmu bocor bukan karena beban hidup, tapi karena pikiranmu bertamasya ke mana-mana.*\n\nCoba sesekali minum kopi dengan kesadaran yang utuh seratus persen. Dekatkan cangkir ke hidungmu, hirup aroma sangrai kopinya yang wangi, rasakan kehangatan keramik cangkir di jemarimu, dan sesap airnya perlahan menyentuh lidah. Rasakan pahit dan manisnya tanpa terburu-buru.\n\nKebanyakan orang hari ini menyeruput kopi sambil matanya menatap liar layar gawai, mulutnya mengunyah camilan, dan otaknya panik memikirkan target kerjaan esok lusa! Kopinya habis tanpa pernah benar-benar dirasakan nikmatnya.\n\nItulah potret manusia modern: raganya duduk di warkop, jiwanya tercecer di kantor dan masa depan! Tarik kembali seluruh kepingan jiwamu yang berserakan. Hadirlah utuh di tempat kakimu sedang berpijak hari ini.\n\n> **Intisari Kesadaran:** Hadirlah utuh di setiap tarikan napas; nikmati apa yang ada di depan matamu tanpa membiarkan pikiranmu mencuri kedamaian hari ini.",
+    "word_count": 146
   },
   {
     "page_number": 57,
@@ -487,17 +460,15 @@
     "total_in_chap": 14,
     "previous_page": 56,
     "next_page": 58,
-    "badge": "4. Kerentek Hati",
-    "title": "Hukum Kerentek Hati & Menemukan Cermin Diri",
-    "subtitle": "Kearifan menolong sesama tanpa intervensi ego dan mengikis ilusi keterpisahan",
+    "badge": "KERENTEK MURNI",
+    "title": "Bisikan Halus di Dasar Hati Tanpa Pamrih",
+    "subtitle": "Menolong bukan karena haus dipuji pahlawan, melainkan karena panggilan hening dari dalam.",
     "paragraphs": [
-      "Dalam menolong sesama, leluhur Nusantara mewariskan kaidah *Kerentek Hati*—gerakan intuisi nurani yang hening, damai, dan plong.",
-      "Kerap kali kita menolong karena jebakan ego penyelamat (*savior complex*): takut dicap pelit, haus pujian, atau rasa tidak enakan. Menolong orang malas justru menghambat kurikulum pendewasaan jiwanya.",
-      "Menolonglah hanya saat batinmu memberi sinyal kerentek tulus tanpa pamrih (*sepi ing pamrih, rame ing gawe*). Ulurkan bantuan seketika, lalu lupakan sama sekali.",
-      "Pahamilah prinsip Cermin Semesta: perilaku orang lain yang memicu amarahmu sejatinya adalah pantulan luka di batinmu sendiri. Memaafkan sesama adalah jalan menyembuhkan dirimu.",
-      "Kerentek hati yang hening adalah kompas kosmik paling presisi untuk memandu setiap langkahmu."
+      "Di dalam pergaulan hidup, kita ini sering terjebak dalam perangkap menolong yang keliru. Kita tergesa-gesa mencampuri urusan orang lain bukan karena cinta murni, tapi karena ego pahlawan yang gila pengakuan: ingin dianggap berjasa, ingin dipuji orang baik!",
+      "Campur tangan yang didorong oleh ego semacam itu justru sering merusak proses pendewasaan orang lain dan menyerap beban karma yang bukan hakmu. Leluhur kita mengajarkan kompas batin yang sangat luhur: ikutilah kerentek hati!",
+      "Kerentek itu bisikan batin pertama yang sangat lembut, hening, dan bersih dari kalkulasi untung rugi. Kalau dorongan itu hening dan murni, ulurkan tanganmu tanpa banyak cakap, lalu lupakan jasamu seketika layaknya air mengalir ke samudra!"
     ],
-    "keyTakeaway": "Menolonglah berlandaskan kerentek hati yang hening; biarkan semesta mendidik setiap jiwa melewati kurikulumnya.",
+    "keyTakeaway": "Dengarkan kerentek hati yang hening sebelum menolong; ulurkan tangan tanpa pamrih keakuan dan biarkan kebaikan bekerja dalam senyap.",
     "image_path": "/slides-portrait/bab-04/slide-12.jpg",
     "illustration_prompt": "",
     "illustration_description": "Navigasi Batin: Menolong Sesama Membutuhkan Keheningan Intuisi, Bukan Dorongan Ego Penyelamat",
@@ -517,8 +488,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 5
     },
-    "text": "> **4. Kerentek Hati**\n\n# Hukum Kerentek Hati & Menemukan Cermin Diri\n\n*Kearifan menolong sesama tanpa intervensi ego dan mengikis ilusi keterpisahan*\n\nDalam menolong sesama, leluhur Nusantara mewariskan kaidah *Kerentek Hati*—gerakan intuisi nurani yang hening, damai, dan plong.\n\nKerap kali kita menolong karena jebakan ego penyelamat (*savior complex*): takut dicap pelit, haus pujian, atau rasa tidak enakan. Menolong orang malas justru menghambat kurikulum pendewasaan jiwanya.\n\nMenolonglah hanya saat batinmu memberi sinyal kerentek tulus tanpa pamrih (*sepi ing pamrih, rame ing gawe*). Ulurkan bantuan seketika, lalu lupakan sama sekali.\n\nPahamilah prinsip Cermin Semesta: perilaku orang lain yang memicu amarahmu sejatinya adalah pantulan luka di batinmu sendiri. Memaafkan sesama adalah jalan menyembuhkan dirimu.\n\nKerentek hati yang hening adalah kompas kosmik paling presisi untuk memandu setiap langkahmu.\n\n> **Intisari Kesadaran:** Menolonglah berlandaskan kerentek hati yang hening; biarkan semesta mendidik setiap jiwa melewati kurikulumnya.",
-    "word_count": 140
+    "text": "> **KERENTEK MURNI**\n\n# Bisikan Halus di Dasar Hati Tanpa Pamrih\n\n*Menolong bukan karena haus dipuji pahlawan, melainkan karena panggilan hening dari dalam.*\n\nDi dalam pergaulan hidup, kita ini sering terjebak dalam perangkap menolong yang keliru. Kita tergesa-gesa mencampuri urusan orang lain bukan karena cinta murni, tapi karena ego pahlawan yang gila pengakuan: ingin dianggap berjasa, ingin dipuji orang baik!\n\nCampur tangan yang didorong oleh ego semacam itu justru sering merusak proses pendewasaan orang lain dan menyerap beban karma yang bukan hakmu. Leluhur kita mengajarkan kompas batin yang sangat luhur: ikutilah kerentek hati!\n\nKerentek itu bisikan batin pertama yang sangat lembut, hening, dan bersih dari kalkulasi untung rugi. Kalau dorongan itu hening dan murni, ulurkan tanganmu tanpa banyak cakap, lalu lupakan jasamu seketika layaknya air mengalir ke samudra!\n\n> **Intisari Kesadaran:** Dengarkan kerentek hati yang hening sebelum menolong; ulurkan tangan tanpa pamrih keakuan dan biarkan kebaikan bekerja dalam senyap.",
+    "word_count": 149
   },
   {
     "page_number": 58,
@@ -530,17 +501,15 @@
     "total_in_chap": 14,
     "previous_page": 57,
     "next_page": 59,
-    "badge": "4. Cermin Realitas",
-    "title": "Dunia Luar Adalah Cermin Proyektor Realitas",
-    "subtitle": "Korelasi sains fisika dan kebatinan: Realitas fisik memantulkan frekuensi batin",
+    "badge": "PROYEKTOR BATIN",
+    "title": "Dunia Luar Cuma Layar Bioskop Pikiranmu",
+    "subtitle": "Jangan marah pada pantulan cermin; bersihkan proyektor getaran yang ada di dalam dadamu.",
     "paragraphs": [
-      "Semesta adalah proyektor dari apa yang terpancang di batinmu. Realitas fisik yang kamu saksikan sehari-hari bekerja layaknya layar bioskop raksasa.",
-      "Bila adegan di layar penuh penderitaan, sia-sia kamu mencabik-cabik kain layarnya. Yang harus diganti bukanlah layarnya, melainkan rol film yang berputar di ruang proyektor batinmu!",
-      "Bila dadamu dipenuhi dendam dan rasa kekurangan (*scarcity*), semesta memproyeksikan orang manipulatif dan konflik ke panggung hidupmu.",
-      "Saat kamu menata keheningan dan syukur di dalam, proyektor semesta mengganti adegan hidupmu tanpa perlu pemaksaan fisik.",
-      "Berhentilah bertengkar dengan bayangan di cermin. Bersihkan lensa di dadamu, maka dunia luar memancarkan kedamaian yang sama."
+      "Bayangkan kamu sedang menonton film horor di gedung bioskop. Waktu monster di layar muncul dan menakutimu, kamu berlari ke depan panggung lalu merobek kain layar bioskop pakai pisau biar monsternya mati! Bukankah kelakuan itu konyol luar biasa?",
+      "Tapi begitulah tingkah kebanyakan orang dalam menghadapi kesulitan hidup! Mereka memaki pasangan, menyalahkan bos, atau memusuhi teman waktu hidupnya berantakan. Mereka sibuk merusak layar di luar tanpa pernah menoleh ke bilik proyektor di belakang.",
+      "Dunia luar hanyalah layar bioskop pantulan; proyektornya adalah getaran rasa dan rekaman bawah sadarmu sendiri! Kalau kamu ingin adegan di layar berganti jadi indah dan damai, bersihkan pita getaran di proyektor dadamu."
     ],
-    "keyTakeaway": "Semesta adalah proyektor batinmu; ubah rol film di dalam dadamu, maka gambar di layar dunia akan berganti dengan sendirinya.",
+    "keyTakeaway": "Dunia luar hanyalah pantulan layar bioskop batinmu; ubah pita getaran di proyektor dadamu, maka tayangan realitasmu akan berganti.",
     "image_path": "/slides-portrait/bab-04/slide-13.jpg",
     "illustration_prompt": "",
     "illustration_description": "Cermin Kosmik: Dunia Luar Hanyalah Cermin Proyektor dari Lanskap Frekuensi Batin Kita Sendiri",
@@ -560,8 +529,8 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 5
     },
-    "text": "> **4. Cermin Realitas**\n\n# Dunia Luar Adalah Cermin Proyektor Realitas\n\n*Korelasi sains fisika dan kebatinan: Realitas fisik memantulkan frekuensi batin*\n\nSemesta adalah proyektor dari apa yang terpancang di batinmu. Realitas fisik yang kamu saksikan sehari-hari bekerja layaknya layar bioskop raksasa.\n\nBila adegan di layar penuh penderitaan, sia-sia kamu mencabik-cabik kain layarnya. Yang harus diganti bukanlah layarnya, melainkan rol film yang berputar di ruang proyektor batinmu!\n\nBila dadamu dipenuhi dendam dan rasa kekurangan (*scarcity*), semesta memproyeksikan orang manipulatif dan konflik ke panggung hidupmu.\n\nSaat kamu menata keheningan dan syukur di dalam, proyektor semesta mengganti adegan hidupmu tanpa perlu pemaksaan fisik.\n\nBerhentilah bertengkar dengan bayangan di cermin. Bersihkan lensa di dadamu, maka dunia luar memancarkan kedamaian yang sama.\n\n> **Intisari Kesadaran:** Semesta adalah proyektor batinmu; ubah rol film di dalam dadamu, maka gambar di layar dunia akan berganti dengan sendirinya.",
-    "word_count": 139
+    "text": "> **PROYEKTOR BATIN**\n\n# Dunia Luar Cuma Layar Bioskop Pikiranmu\n\n*Jangan marah pada pantulan cermin; bersihkan proyektor getaran yang ada di dalam dadamu.*\n\nBayangkan kamu sedang menonton film horor di gedung bioskop. Waktu monster di layar muncul dan menakutimu, kamu berlari ke depan panggung lalu merobek kain layar bioskop pakai pisau biar monsternya mati! Bukankah kelakuan itu konyol luar biasa?\n\nTapi begitulah tingkah kebanyakan orang dalam menghadapi kesulitan hidup! Mereka memaki pasangan, menyalahkan bos, atau memusuhi teman waktu hidupnya berantakan. Mereka sibuk merusak layar di luar tanpa pernah menoleh ke bilik proyektor di belakang.\n\nDunia luar hanyalah layar bioskop pantulan; proyektornya adalah getaran rasa dan rekaman bawah sadarmu sendiri! Kalau kamu ingin adegan di layar berganti jadi indah dan damai, bersihkan pita getaran di proyektor dadamu.\n\n> **Intisari Kesadaran:** Dunia luar hanyalah pantulan layar bioskop batinmu; ubah pita getaran di proyektor dadamu, maka tayangan realitasmu akan berganti.",
+    "word_count": 147
   },
   {
     "page_number": 59,
@@ -573,24 +542,19 @@
     "total_in_chap": 14,
     "previous_page": 58,
     "next_page": 60,
-    "badge": "5. Rangkuman Intisari",
-    "title": "Rangkuman Intisari Bab 4: Kembali ke Titik Suwung",
-    "subtitle": "Keterhubungan kuantum menuntun kita kembali ke keheningan sejati",
+    "badge": "TITIK SUWUNG",
+    "title": "Menatap Seluruh Semesta di Dalam Cangkir Kopi",
+    "subtitle": "Semua jalinan kuantum berpulang pada keheningan: suwung kang isi, isi kang suwung.",
     "paragraphs": [
-      "Intisari Pokok Bab 4:",
-      "• Entanglement Abadi: Berasal dari singularitas yang sama; sekat keterpisahan hanyalah ilusi panca indra.",
-      "• Waktu Elastis: Masa lalu adalah memori, masa depan proyeksi pikiran; medan kuantum hanya eksis di titik saiki.",
-      "• Akibat-Sebab: Semesta merespons getaran rasa di dada untuk meruntuhkan gelombang probabilitas.",
-      "• Observer Effect: Ke mana pun perhatian dan emosimu menetap, ke sanalah partikel takdir memadat.",
-      "• Kearifan Nusantara: Tangga kenabian dan 11 Macapat adalah kompas spiral jiwa meniti raga menuju Suwung.",
-      "\"Ketika kamu berhenti merasa terpisah dari semesta, ketakutanmu akan luruh. Kamu adalah ombak sekaligus samudra itu sendiri.\"",
-      "Di titik Suwung, segala tanya pudar dan cemas larut. Kamu adalah bagian tak terpisahkan dari denyut napas semesta."
+      "Kita sudah berjalan jauh melintasi jalinan partikel kuantum, relativitas waktu, debu bintang di urat nadi, sampai kidung sebelas tembang macapat. Sekarang, seluruh kerumitan ilmu itu luruh kembali ke dalam secangkir kopi di depanmu.",
+      "Tataplah permukaan hitam kopi itu dalam hening. Di sana berpadu mineral bumi, sari tanaman lereng gunung, panasnya api, dan sejuknya udara malam. Semuanya bersumber dari satu titik keheningan purba yang oleh leluhur disebut suwung.",
+      "Suwung itu bukan kekosongan mati yang hampa, melainkan samudra hening tempat seluruh kemungkinan semesta tercipta dan berpulang. Masuklah ke dalam keheningan itu. Di sanalah rumah sejatimu bersemayam: damai, abadi, dan tak pernah terjamah oleh riuh rendahnya dunia."
     ],
-    "keyTakeaway": "Di titik Suwung, ilusi keterpisahan luruh; kamu adalah ombak sekaligus samudra kesadaran semesta itu sendiri.",
+    "keyTakeaway": "Di dalam keheningan suwung, seluruh rahasia semesta berpulang; jadilah saksi yang tenang bagi indahnya sandiwara kosmos.",
     "image_path": "/slides-portrait/bab-04/slide-14.jpg",
     "illustration_prompt": "",
-    "illustration_description": "Rangkuman Epilog Bab 4: Kembali ke Titik Suwung — Melarutkan Ego ke Dalam Keheningan Semesta",
-    "imageCaption": "Rangkuman Epilog Bab 4: Kembali ke Titik Suwung — Melarutkan Ego ke Dalam Keheningan Semesta",
+    "illustration_description": "Rangkuman Epilog Bab 4: Kembali ke Titik Suwung: Melarutkan Ego ke Dalam Keheningan Semesta",
+    "imageCaption": "Rangkuman Epilog Bab 4: Kembali ke Titik Suwung: Melarutkan Ego ke Dalam Keheningan Semesta",
     "thumbnail": "/thumbnails/bab-04/thumb-14.jpg",
     "visual_continuity_context": {
       "prev_visual": "Spiral partikel kuantum yang bersinar",
@@ -606,7 +570,7 @@
       "source_paragraph_start": 1,
       "source_paragraph_end": 8
     },
-    "text": "> **5. Rangkuman Intisari**\n\n# Rangkuman Intisari Bab 4: Kembali ke Titik Suwung\n\n*Keterhubungan kuantum menuntun kita kembali ke keheningan sejati*\n\nIntisari Pokok Bab 4:\n\n• Entanglement Abadi: Berasal dari singularitas yang sama; sekat keterpisahan hanyalah ilusi panca indra.\n\n• Waktu Elastis: Masa lalu adalah memori, masa depan proyeksi pikiran; medan kuantum hanya eksis di titik saiki.\n\n• Akibat-Sebab: Semesta merespons getaran rasa di dada untuk meruntuhkan gelombang probabilitas.\n\n• Observer Effect: Ke mana pun perhatian dan emosimu menetap, ke sanalah partikel takdir memadat.\n\n• Kearifan Nusantara: Tangga kenabian dan 11 Macapat adalah kompas spiral jiwa meniti raga menuju Suwung.\n\n\"Ketika kamu berhenti merasa terpisah dari semesta, ketakutanmu akan luruh. Kamu adalah ombak sekaligus samudra itu sendiri.\"\n\nDi titik Suwung, segala tanya pudar dan cemas larut. Kamu adalah bagian tak terpisahkan dari denyut napas semesta.\n\n> **Intisari Kesadaran:** Di titik Suwung, ilusi keterpisahan luruh; kamu adalah ombak sekaligus samudra kesadaran semesta itu sendiri.",
-    "word_count": 153
+    "text": "> **TITIK SUWUNG**\n\n# Menatap Seluruh Semesta di Dalam Cangkir Kopi\n\n*Semua jalinan kuantum berpulang pada keheningan: suwung kang isi, isi kang suwung.*\n\nKita sudah berjalan jauh melintasi jalinan partikel kuantum, relativitas waktu, debu bintang di urat nadi, sampai kidung sebelas tembang macapat. Sekarang, seluruh kerumitan ilmu itu luruh kembali ke dalam secangkir kopi di depanmu.\n\nTataplah permukaan hitam kopi itu dalam hening. Di sana berpadu mineral bumi, sari tanaman lereng gunung, panasnya api, dan sejuknya udara malam. Semuanya bersumber dari satu titik keheningan purba yang oleh leluhur disebut suwung.\n\nSuwung itu bukan kekosongan mati yang hampa, melainkan samudra hening tempat seluruh kemungkinan semesta tercipta dan berpulang. Masuklah ke dalam keheningan itu. Di sanalah rumah sejatimu bersemayam: damai, abadi, dan tak pernah terjamah oleh riuh rendahnya dunia.\n\n> **Intisari Kesadaran:** Di dalam keheningan suwung, seluruh rahasia semesta berpulang; jadilah saksi yang tenang bagi indahnya sandiwara kosmos.",
+    "word_count": 146
   }
 ]
