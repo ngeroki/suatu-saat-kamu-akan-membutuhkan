@@ -18,4 +18,6 @@ server.pid
 scratch/
 .omo/
 .codegraph/
+audit_screenshots/
+editorial_analysis.json
 
