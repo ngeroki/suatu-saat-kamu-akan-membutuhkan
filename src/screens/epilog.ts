@@ -42,7 +42,7 @@ export class EpilogScreen {
 
         <!-- Bottom Editorial Content Box (55% Height) -->
         <div class="pe-content-box">
-          <div>
+          <div class="pe-inner-content">
             <div class="pe-meta-header">
               <div class="pe-kicker">CATATAN PENUTUP</div>
               <h1 class="pe-title">Menjadi Manusia Normal</h1>
@@ -55,7 +55,15 @@ export class EpilogScreen {
             </div>
 
             <p class="pe-body-p">
-              <span class="pe-dropcap">B</span>uku ini selesai, tapi hidup nyata baru dimulai. Semua sains tubuh dan teori kuantum tak ada artinya kalau kita gagal hadir untuk orang-orang di rumah. Anakmu tak butuh ceramah energi saat ia takut di malam hari. Yang mereka butuhkan hanya kamu. Duduk di samping mereka apa adanya, dan hadapi hidup bersama.
+              <span class="pe-dropcap">S</span>etelah melewati lima bab perjalanan dari anatomi raga hingga keterikatan kuantum, puncak spiritualitas sejati ternyata bukanlah kemampuan melayang, membaca masa depan, atau memamerkan sensasi batin di media sosial. Puncak pencapaian tertinggi adalah kemampuan untuk kembali menjadi manusia normal yang hadir seutuhnya di tengah kehidupan nyata.
+            </p>
+
+            <p class="pe-body-p">
+              Sains tubuh dan teori kuantum tak ada artinya jika kita gagal hadir bagi orang-orang terkasih di rumah. Anak-anakmu tidak butuh ceramah medan torus saat mereka takut di malam hari, dan pasanganmu tidak butuh analisis gelombang otak saat letih bekerja. Yang mereka butuhkan hanyalah kehadiranmu: duduk bersahaja di samping mereka tanpa filter, mendengarkan dengan tulus, dan menghadapi hidup bersama.
+            </p>
+
+            <p class="pe-body-p">
+              Buku ini selesai, tetapi laku hidupmu baru saja dimulai. Jadilah manusia biasa yang berusaha lebih baik sedikit demi sedikit—napas demi napas. Letakkan tanganmu di dada, tersenyumlah, dan pulanglah ke dalam rumah batinmu yang damai. Selamat jalan, kawan. Semoga selamat sampai tujuan.
             </p>
           </div>
 

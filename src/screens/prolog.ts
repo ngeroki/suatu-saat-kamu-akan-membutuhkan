@@ -44,7 +44,7 @@ export class PrologScreen {
 
         <!-- Bottom Editorial Content Box (55% Height) -->
         <div class="pe-content-box">
-          <div>
+          <div class="pe-inner-content">
             <div class="pe-meta-header">
               <div class="pe-kicker">KATA PENGANTAR</div>
               <h1 class="pe-title">Obrolan di Pinggir Jalan</h1>
@@ -57,7 +57,15 @@ export class PrologScreen {
             </div>
 
             <p class="pe-body-p">
-              <span class="pe-dropcap">B</span>uku ini lahir dari obrolan larut malam di warung kopi Yogya, di bawah jembatan layang yang catnya mengelupas, di antara cangkir kopi tubruk yang mendingin. Tak ada panggung atau pretensi menggurui. Hanya obrolan jujur tentang bagaimana tubuh dan pikiran kita bekerja. Buka pikiranmu sedikit, simpan dulu di sudut ingatan. Suatu saat nanti, kamu akan membutuhkannya.
+              <span class="pe-dropcap">B</span>uku ini tidak lahir dari ruang kuliah ber-AC, perpustakaan sunyi yang berdebu, atau seminar motivasi berbayar dengan jaminan instan. Buku ini lahir dari obrolan-obrolan larut malam di warung kopi pinggir jalan Yogya, di bawah jembatan layang yang catnya mengelupas, dan di sudut Bento Kopi—di antara cangkir kopi tubruk yang mulai dingin, asap rokok tipis, dan hembusan angin malam yang menembus celana jeans.
+            </p>
+
+            <p class="pe-body-p">
+              Mas Aldi berbicara tentang kompleksitas tubuh manusia, sains hormonal adrenal, neurologi, fisika kuantum, hingga falsafah wayang Jawa tanpa sedikit pun pretensi menggurui. Bukan sebagai kitab suci dengan semua jawaban, melainkan sebagai risalah obrolan jujur: rekaman percakapan santai yang menyentuh fondasi terdalam tentang bagaimana raga dan pikiran bawah sadar kita bekerja.
+            </p>
+
+            <p class="pe-body-p">
+              Judul buku ini adalah pernyataan tentang waktu yang tak terduga. Hari ini mungkin hidupmu sedang lancar dan tenang. Namun kelak, ketika duniamu mendadak goyang dan kamu berdiri di persimpangan gelap tanpa arah, semua yang tersimpan di sudut memori dari lembaran-lembaran ini—tentang napas, hormon, gelombang otak, dan seni berserah—akan tiba-tiba kamu butuhkan.
             </p>
           </div>
 

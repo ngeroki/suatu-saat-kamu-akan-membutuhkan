@@ -565,16 +565,20 @@ body {
 }
 
 /* === FLIPBOOK 3D PAGE-TO-PAGE CURL TRANSITIONS === */
-.m-poster-box.m-flip-out-next {
+.m-poster-box.m-flip-out-next,
+.m-reading-stage.m-flip-out-next {
   animation: mPageCurlOutNext 170ms cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
 }
-.m-poster-box.m-flip-in-next {
+.m-poster-box.m-flip-in-next,
+.m-reading-stage.m-flip-in-next {
   animation: mPageCurlInNext 280ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
-.m-poster-box.m-flip-out-prev {
+.m-poster-box.m-flip-out-prev,
+.m-reading-stage.m-flip-out-prev {
   animation: mPageCurlOutPrev 170ms cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
 }
-.m-poster-box.m-flip-in-prev {
+.m-poster-box.m-flip-in-prev,
+.m-reading-stage.m-flip-in-prev {
   animation: mPageCurlInPrev 280ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
 
@@ -1382,13 +1386,36 @@ body {
 .pe-content-box {
   flex: 1;
   min-height: 0;
-  padding: 0 24px 20px;
+  padding: 0 24px 36px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   position: relative;
   z-index: 10;
   background: #0A0A08;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #c5a05966 #c5a05933;
+}
+
+.pe-content-box::-webkit-scrollbar {
+  width: 4px;
+}
+.pe-content-box::-webkit-scrollbar-track {
+  background: #c5a05933;
+  border-radius: 4px;
+}
+.pe-content-box::-webkit-scrollbar-thumb {
+  background: #c5a05966;
+  border-radius: 4px;
+}
+.pe-content-box::-webkit-scrollbar-thumb:hover {
+  background: #c5a05999;
+}
+
+.pe-inner-content {
+  flex-shrink: 0;
 }
 
 .pe-meta-header {
@@ -1437,7 +1464,7 @@ body {
 
 /* Pure Literary Pull Quote */
 .pe-pullquote {
-  margin: 12px 0 14px;
+  margin: 12px 0 16px;
   padding: 0 8px;
   text-align: center;
   position: relative;
@@ -1466,9 +1493,14 @@ body {
 .pe-body-p {
   font-family: var(--serif);
   font-size: 13.5px;
-  line-height: 1.72;
-  color: rgba(237, 228, 216, 0.85);
+  line-height: 1.75;
+  color: rgba(237, 228, 216, 0.88);
   text-align: left;
+  margin-bottom: 1rem;
+}
+
+.pe-body-p:last-of-type {
+  margin-bottom: 1.25rem;
 }
 
 .pe-dropcap {
@@ -1486,8 +1518,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 14px;
+  padding-top: 16px;
+  padding-bottom: 8px;
+  margin-top: auto;
   border-top: 1px solid rgba(235, 226, 214, 0.1);
+  flex-shrink: 0;
 }
 
 .pe-footer-brand {

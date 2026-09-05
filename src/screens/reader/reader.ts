@@ -67,7 +67,9 @@ export class ReaderScreen {
     );
 
     this.currentGlobalIndex = matchIndex >= 0 ? matchIndex : 0;
-    this.activeSide = "A"; // Reset to Side A (Visual reveal)
+    const curPage = PAGES[this.currentGlobalIndex];
+    // Chapter opener (page_in_chap === 1) shows Side A cover poster; subsequent content pages show Side B text directly
+    this.activeSide = curPage && curPage.page_in_chap === 1 ? "A" : "B";
     this.render();
   }
 
@@ -92,25 +94,32 @@ export class ReaderScreen {
     const isMobile = window.innerWidth <= 480;
 
     if (isMobile) {
-      const posterBox = this.el.querySelector(".m-poster-box") as HTMLElement;
-      if (posterBox) {
-        posterBox.classList.add(dir === "next" ? "m-flip-out-next" : "m-flip-out-prev");
+      const activeContent = (this.activeSide === "B"
+        ? this.el.querySelector(".m-reading-stage")
+        : this.el.querySelector(".m-poster-box")) as HTMLElement | null;
+
+      if (activeContent) {
+        activeContent.classList.add(dir === "next" ? "m-flip-out-next" : "m-flip-out-prev");
       }
 
       setTimeout(() => {
         this.currentGlobalIndex = index;
-        this.activeSide = "A"; // Page navigation resets to Side A visual
-        const curPage = PAGES[index];
-        if (curPage) {
-          history.replaceState(null, "", `#/read/${curPage.chapter_id}/${curPage.page_in_chap}`);
+        const targetPage = PAGES[index];
+        // Adaptive reading flow: opener shows Side A, subsequent content pages show Side B directly
+        this.activeSide = targetPage && targetPage.page_in_chap === 1 ? "A" : "B";
+        if (targetPage) {
+          history.replaceState(null, "", `#/read/${targetPage.chapter_id}/${targetPage.page_in_chap}`);
         }
         this.render();
 
-        const newPosterBox = this.el.querySelector(".m-poster-box") as HTMLElement;
-        if (newPosterBox) {
-          newPosterBox.classList.add(dir === "next" ? "m-flip-in-next" : "m-flip-in-prev");
+        const newActiveContent = (this.activeSide === "B"
+          ? this.el.querySelector(".m-reading-stage")
+          : this.el.querySelector(".m-poster-box")) as HTMLElement | null;
+
+        if (newActiveContent) {
+          newActiveContent.classList.add(dir === "next" ? "m-flip-in-next" : "m-flip-in-prev");
           setTimeout(() => {
-            newPosterBox.classList.remove("m-flip-in-next", "m-flip-in-prev");
+            newActiveContent.classList.remove("m-flip-in-next", "m-flip-in-prev");
             this.isFlipping = false;
           }, 300);
         } else {
@@ -126,9 +135,10 @@ export class ReaderScreen {
 
       setTimeout(() => {
         this.currentGlobalIndex = index;
-        const curPage = PAGES[index];
-        if (curPage) {
-          history.replaceState(null, "", `#/read/${curPage.chapter_id}/${curPage.page_in_chap}`);
+        const targetPage = PAGES[index];
+        this.activeSide = targetPage && targetPage.page_in_chap === 1 ? "A" : "B";
+        if (targetPage) {
+          history.replaceState(null, "", `#/read/${targetPage.chapter_id}/${targetPage.page_in_chap}`);
         }
         this.render();
 
@@ -303,9 +313,8 @@ export class ReaderScreen {
               </div>
 
               <!-- Subtle Flip Cue -->
-              <button type="button" class="m-flip-hint-pill" id="m-btn-flip-cue" aria-label="Baca naskah bab ini" title="Balik ke naskah editorial">
-                <span class="m-hint-icon">↺</span>
-                <span class="m-hint-text">Baca naskah</span>
+              <button type="button" class="m-flip-hint-pill" id="m-btn-flip-cue" aria-label="Baca Naskah" title="Balik ke naskah editorial">
+                <span class="m-hint-text">Baca Naskah →</span>
               </button>
             </main>
           </div>
@@ -365,9 +374,8 @@ export class ReaderScreen {
             </main>
 
             <!-- Subtle Flip Cue Pill -->
-            <button type="button" class="m-flip-hint-pill m-flip-hint-pill-b" id="m-btn-flip-cue-b" aria-label="Lihat gambar karya visual" title="Balik ke karya visual">
-              <span class="m-hint-icon">↺</span>
-              <span class="m-hint-text">Lihat gambar</span>
+            <button type="button" class="m-flip-hint-pill m-flip-hint-pill-b" id="m-btn-flip-cue-b" aria-label="Lihat Ilustrasi" title="Balik ke karya visual">
+              <span class="m-hint-text">Lihat Ilustrasi ↺</span>
             </button>
           </div>
         </div>
