@@ -6,8 +6,8 @@ const patchData = JSON.parse(fs.readFileSync(patch1Path, 'utf8'));
 const humanizedBab1 = {
   1: {
     paragraphs: [
-      "\"Proses deja vu itu begini: data karma yang kita bawa dari perjalanan panjang tersimpan di tulang ekor. Kita ini makhluk energi yang memadat menjadi materi jasmani. Ketika medan elektromagnetik raga kita—medan torus kita—bersinggungan dengan frekuensi suatu tempat, itu akan menekan data karma di tulang ekor untuk naik dan terbaca sebagai ingatan akrab yang asing.\"",
-      "— Aldi (@rahwanaconsciousnessroom).",
+      "\"Proses deja vu itu begini: data karma yang kita bawa dari perjalanan panjang tersimpan di tulang ekor. Kita ini makhluk energi yang memadat menjadi materi jasmani. Ketika medan elektromagnetik raga kita, medan torus kita, bersinggungan dengan frekuensi suatu tempat, itu akan menekan data karma di tulang ekor untuk naik dan terbaca sebagai ingatan akrab yang asing.\"",
+      "Aldi (@rahwanaconsciousnessroom)",
       "Buku ini tidak dimulai dari teori yang muluk. Kita memulainya dari raga sendiri, dari rasa aneh di ulu hati saat melangkah ke sebuah tempat asing, hingga dengung hening di tulang belakang saat larut malam. Tubuh ini bukan sekadar tumpukan daging dan tulang. Ia adalah kuil hidup yang menyimpan seluruh rekaman perjalanan sukmamu, jauh sebelum pikiranmu sempat mengingatnya."
     ],
     keyTakeaway: "Raga adalah kuil tempat kosmos bersemayam; kenali anatomi sukmamu sebelum menata nasib."
@@ -23,7 +23,7 @@ const humanizedBab1 = {
   },
   3: {
     paragraphs: [
-      "Kalau kita membedah materi sampai ke partikel terkecil, tidak ada benda yang benar-benar padat di alam semesta ini. Fisika kuantum sudah membuktikannya. Jika inti atom diperbesar seukuran bola sepak, elektronnya berputar mengitari inti itu sejauh beberapa kilometer dalam ruang yang 99,9999999% kosong—sebuah medan energi murni.",
+      "Kalau kita membedah materi sampai ke partikel terkecil, tidak ada benda yang benar-benar padat di alam semesta ini. Fisika kuantum sudah membuktikannya. Jika inti atom diperbesar seukuran bola sepak, elektronnya berputar mengitari inti itu sejauh beberapa kilometer dalam ruang yang 99,9999999% kosong, yaitu sebuah medan energi murni.",
       "Tubuh jasmani yang saban hari kita raba ini sebenarnya adalah energi yang memadat, memperlambat getarannya agar sanggup saling menyentuh dan berinteraksi di dunia fisik tiga dimensi.",
       "Pusat getaran raga berada di dada. Denyut listrik jantung manusia ribuan kali lebih kuat daripada aktivitas otak. Denyutan ini memancarkan radiasi elektromagnetik melingkar seperti donat raksasa yang disebut Medan Torus. Pancaran ini tidak berhenti di batas kulit; ia melingkupi raga hingga radius beberapa meter ke udara terbuka."
     ],
@@ -76,7 +76,7 @@ const humanizedBab1 = {
   },
   9: {
     paragraphs: [
-      "Saat seseorang melatih olah napas mendalam—menarik napas panjang, menahannya dalam hening, dan mengencangkan otot dasar panggul bawah—tulang ekor tertarik sedikit ke belakang. Ruas-ruas tulang belakang merenggang dan tekanan intratekal meningkat.",
+      "Saat seseorang melatih olah napas mendalam dengan menarik napas panjang, menahannya dalam hening, lalu mengencangkan otot dasar panggul bawah, tulang ekor akan tertarik sedikit ke belakang. Ruas-ruas tulang belakang merenggang dan tekanan intratekal meningkat.",
       "Tekanan ini memompa cairan serebrospinal yang sarat muatan bioelektrik untuk melesat naik menembus simpul-simpul kelenjar endokrin, menuju kelenjar kecil di episentrum kepala: kelenjar pineal.",
       "Hantaman cairan saraf ini menekan mikrokristal kalsit pada pineal, membangkitkan getaran listrik biologis atau fenomena piezoelektrik. Pineal terelektrifikasi seketika dan melepaskan molekul transendental murni: DMT alami bawaan tubuh manusia.",
       "Inilah peristiwa Isro' Mikrokosmos. Sekat ruang dan waktu material runtuh seketika. Pandangan batin terbuka lebar melampaui pancaindra jasmani, menyaksikan langsung bahwa raga yang kecil ini manunggal utuh dengan luasnya semesta raya."
@@ -88,7 +88,7 @@ const humanizedBab1 = {
       "Banyak orang menghabiskan separuh hidupnya mencari rahasia Tuhan dan alam semesta dengan mengarahkan pandangannya jauh ke luar: mengamati bintang di galaksi seberang atau berkhayal menembus langit ketujuh di angkasa luar.",
       "Orang Jawa kuno tersenyum melihat pencarian itu. Mereka sudah merumuskannya sejak ribuan tahun silam: Jagat Gedhe sama dengan Jagat Alit. Alam semesta raya tercermin utuh di dalam diri manusia.",
       "\"Untuk melihat makrokosmos, kita tidak harus keluar angkasa. Cukup melihat mikrokosmosnya di dalam diri. Dalam budaya Jawa ada Jagat Gedhe dan Jagat Alit. Jagat Alit itulah yang disaksikan saat mengalami Isro’ Mikrokosmos.\"",
-      "— Aldi (@rahwanaconsciousnessroom).",
+      "Aldi (@rahwanaconsciousnessroom)",
       "Perjalanan suci bukanlah terbang ke awan dengan tunggangan fisik, melainkan meniti tujuh lapis kesadaran di sepanjang saraf tulang belakangmu sendiri. Dimulai dari Mandolo Kasungko di dasar panggul, naik melintasi Mandolo Hening di rongga dada, hingga mekar di Mandolo Wangi pada puncak kepala.",
       "Ketika kamu berani menyelami seluruh lipatan di dalam dirimu, rahasia semesta raya pun terbuka dengan sendirinya."
     ],
@@ -99,7 +99,7 @@ const humanizedBab1 = {
       "Peta batin ini diwariskan oleh para tetua lewat tiga teka-teki sanepo yang tampak mustahil dipecahkan oleh logika akal biasa.",
       "Pertama, nggoleki galehing kangkung, mencari hati batang kangkung. Jika kamu membelah batangnya, apa yang kamu temukan di dalamnya? Hanya rongga kosong. Itulah suwung, titik nol di dalam kesadaran tempat ego dan rasa kepemilikan runtuh tak bersisa.",
       "Kedua, nggoleki susuhing angin, mencari sarang tempat angin beristirahat. Ke mana pun kamu mencarinya di luar, angin tak pernah punya sarang. Sarang angin bersemayam tepat di dalam rongga dadamu sendiri: napas yang keluar masuk dengan hening di detik niki.",
-      "Ketiga, nggoleki tapaking kuntul nglayang, mencari jejak kaki burung bangau yang sedang terbang di udara. Burung yang melayang tidak meninggalkan bekas apa pun di angkasa. Itulah hakikat ikhlas murni, tanpo tondho—berbuat baik dan memberi tanpa pernah meninggalkan jejak keangkuhan.",
+      "Ketiga, nggoleki tapaking kuntul nglayang, mencari jejak kaki burung bangau yang sedang terbang di udara. Burung yang melayang tidak meninggalkan bekas apa pun di angkasa. Itulah hakikat ikhlas murni, tanpo tondho, yaitu berbuat baik dan memberi tanpa pernah meninggalkan jejak keangkuhan.",
       "Ketiganya bukan sekadar petuah moral hampa, melainkan kunci biologis para leluhur untuk menjaga energi raga tetap murni dan hening."
     ],
     keyTakeaway: "Suwung di hati, hening di napas, dan ikhlas tanpa jejak adalah tiga kunci para leluhur menjaga kemurnian sukma."
@@ -156,4 +156,4 @@ for (const page of patchData) {
 }
 
 fs.writeFileSync(patch1Path, JSON.stringify(patchData, null, 2), 'utf8');
-console.log('✅ Updated scripts/patches/bab-1.json with humanized text successfully!');
+console.log('✅ Updated scripts/patches/bab-1.json with zero em-dashes successfully!');

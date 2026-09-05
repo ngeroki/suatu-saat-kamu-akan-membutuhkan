@@ -284,12 +284,13 @@ export class ReaderScreen {
       const p = page.paragraphs[i];
       const isQuote = p.startsWith('"') || p.startsWith('“') || p.startsWith("'");
       const nextP = i + 1 < page.paragraphs.length ? page.paragraphs[i + 1] : "";
-      const nextIsCitation = nextP.startsWith("—") || nextP.startsWith("~") || nextP.startsWith("-");
+      const nextIsCitation = nextP.startsWith("—") || nextP.startsWith("~") || nextP.startsWith("-") || nextP.startsWith("Aldi") || nextP.startsWith("Mas Aldi");
 
       if (isQuote) {
         let citationHTML = "";
         if (nextIsCitation) {
-          citationHTML = `<cite class="m-quote-citation">${nextP}</cite>`;
+          const cleanCitation = nextP.replace(/^[—~–-]\s*/, "");
+          citationHTML = `<cite class="m-quote-citation">${cleanCitation}</cite>`;
           i++; // Consume citation paragraph
         }
         elements.push(`
@@ -406,7 +407,7 @@ export class ReaderScreen {
                   </div>
                   <h1 class="m-article-title">${page.title}</h1>
                   ${page.subtitle ? `<div class="m-article-subtitle">${page.subtitle}</div>` : ''}
-                  <div class="m-article-ornament">✧ ─── ✧</div>
+                  <div class="m-article-ornament">✧ ✦ ✧</div>
                 </header>
 
                 <!-- Full Paragraphs & Quotes (text-align: left, generous measure) -->
@@ -553,12 +554,13 @@ export class ReaderScreen {
       const p = page.paragraphs[dIdx];
       const isQuote = p.startsWith('"') || p.startsWith('“') || p.startsWith("'");
       const nextP = dIdx + 1 < page.paragraphs.length ? page.paragraphs[dIdx + 1] : "";
-      const nextIsCitation = nextP.startsWith("—") || nextP.startsWith("~") || nextP.startsWith("-");
+      const nextIsCitation = nextP.startsWith("—") || nextP.startsWith("~") || nextP.startsWith("-") || nextP.startsWith("Aldi") || nextP.startsWith("Mas Aldi");
 
       if (isQuote) {
         let citationHTML = "";
         if (nextIsCitation) {
-          citationHTML = `<div style="margin-top: 6px; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 0.8px; color: #7A6045; text-transform: uppercase;">${nextP}</div>`;
+          const cleanCitation = nextP.replace(/^[—~–-]\s*/, "");
+          citationHTML = `<div style="margin-top: 6px; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 0.8px; color: #7A6045; text-transform: uppercase;">${cleanCitation}</div>`;
           dIdx++;
         }
         dElements.push(`
