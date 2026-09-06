@@ -1,17 +1,23 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-06T19:16:00+07:00 | Branch: master | HEAD: 1cce49e
+Updated: 2026-09-06T20:35:00+07:00 | Branch: master | Tone: Cak Nun Maiyah On-Stage Monologue
 
 ## Status
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Release Status: PASS (Homepage 3D Book Elevation translateY(-105px) + 3K High-Res Typography Upscale Deployed)
-- Bundle: dist/assets/main-C6N2cEb2.js (323.05KB js, 36.45KB css, 16 modules transformed)
-- Assets: 74/74 portrait slides generated & verified (>2.5MB per master slide), 74/74 thumbnails (512x910 lanczos), 1419x3072 master cover hero
-- GitHub: https://github.com/ngeroki/suatu-saat-kamu-akan-membutuhkan (master commit 1cce49e)
+- Tone Overhaul: PASS (74/74 Halaman Sukses Diresap Gaya Tutur Panggung Maiyah Cak Nun)
+- Bundle: dist/assets/main-CAayGyr2.js (357.82KB js, 36.45KB css, 16 modules transformed)
+- Assets: 74/74 portrait slides, 74/74 thumbnails, 74/74 side_a_text intact
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
 - Build: PASS (`npm run build` exit code 0)
-- QA Assembler: 74/74 pages intact, 0 missing slides, 0 small slides (<1MB), 0 missing thumbnails
+- Word Count: Average 217 kata/halaman (min 186, max 254 kata)
 
-## Done in This Session ([AG] Lead Editorial Director & Visual Architect)
+## Done in This Session ([AG] Lead Editorial Director)
+1. **Full 74-Page Cak Nun Maiyah On-Stage Tone Overhaul**:
+   - Menghapus total gaya artikel sains kaku / flat di Bab 2-5 dan memperkaya Bab 1.
+   - Mengadopsi gaya tutur lisan panggung Maiyah Cak Nun: dialogis, bertanya langsung, analogi membumi (warung kopi, asbak, dapur, jalanan, ranjang), humor getir reflektif, dan mendarat telak di ulu hati.
+   - Fakta & data sains batin Mas Aldi (@rahwanaconsciousnessroom) 100% terjaga utuh.
+2. **Technical Build Verification**:
+   - `tsc --noEmit && vite build` 100% PASS dalam 3.26s.
+   - Integritas `src/data/book-pages.json` terjaga tanpa kehilangan metadata maupun Side A.
 1. **Master Narrative Visual Dossier V2 (Restrained Ordinary Reality)**:
    - 74 halaman prompt visual dan Side A kurasi naskah otentik (0 outliers, 48 kata pembuka unik).
    - Menghilangkan supernatural AI slop dan overclaim doktrin di Side A; membumikan One Meaningful Detail ke situasi nyata Nusantara.
