@@ -1,12 +1,12 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-06T15:01:00+07:00 | Branch: master | HEAD: pending_push
+Updated: 2026-09-06T19:16:00+07:00 | Branch: master | HEAD: 1cce49e
 
 ## Status
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Release Status: PASS (Homepage 3D Book Elevation + Side A Centered Editorial Title & Artistic Reflection Flourish Deployed)
-- Bundle: dist/assets/main-DbfrbCQo.js (323.05KB js, 36.45KB css, 16 modules transformed)
-- Assets: 74/74 portrait slides generated & verified (>2.5MB per master slide), 74/74 thumbnails (512x910 lanczos)
-- GitHub: https://github.com/ngeroki/suatu-saat-kamu-akan-membutuhkan (master)
+- Release Status: PASS (Homepage 3D Book Elevation translateY(-105px) + 3K High-Res Typography Upscale Deployed)
+- Bundle: dist/assets/main-C6N2cEb2.js (323.05KB js, 36.45KB css, 16 modules transformed)
+- Assets: 74/74 portrait slides generated & verified (>2.5MB per master slide), 74/74 thumbnails (512x910 lanczos), 1419x3072 master cover hero
+- GitHub: https://github.com/ngeroki/suatu-saat-kamu-akan-membutuhkan (master commit 1cce49e)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
 - Build: PASS (`npm run build` exit code 0)
 - QA Assembler: 74/74 pages intact, 0 missing slides, 0 small slides (<1MB), 0 missing thumbnails
