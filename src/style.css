@@ -459,14 +459,16 @@ body {
 }
 
 .m-hdr-title {
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 500;
-  letter-spacing: 0.8px;
+  font-family: var(--display);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
   color: inherit;
   cursor: pointer;
   user-select: none;
   transition: opacity 0.2s ease, transform 0.15s ease;
+  padding-left: 0.28em; /* optical balance for wide letter spacing */
 }
 
 .m-hdr-title:hover {

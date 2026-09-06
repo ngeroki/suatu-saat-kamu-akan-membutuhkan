@@ -324,7 +324,7 @@ export class ReaderScreen {
               <button class="m-hdr-btn" id="m-btn-menu-a" aria-label="Daftar Bab & Isi">
                 <span class="m-icon">☰</span>
               </button>
-              <div class="m-hdr-title" id="m-hdr-title" role="button" tabindex="0" title="Kembali ke Beranda">Suatu Saat</div>
+              <div class="m-hdr-title" id="m-hdr-title" role="button" tabindex="0" title="Kembali ke Beranda">SUATU SAAT</div>
               <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
                 <button class="m-hdr-btn" id="m-btn-sound-a" aria-label="Bisukan / Bunyikan Suara" title="${isAudioEnabled() ? 'Suara Efek: Aktif' : 'Suara Efek: Senyap'}">
                   <span class="m-icon">${isAudioEnabled() ? '🔊' : '🔇'}</span>
@@ -374,7 +374,7 @@ export class ReaderScreen {
               <button class="m-hdr-btn" id="m-btn-menu-b" aria-label="Daftar Bab & Isi" style="color: #4A3A2A;">
                 <span class="m-icon">☰</span>
               </button>
-              <div class="m-hdr-title" id="m-hdr-title-b" role="button" tabindex="0" title="Kembali ke Beranda" style="cursor: pointer; color: #1E1A16;">Suatu Saat</div>
+              <div class="m-hdr-title" id="m-hdr-title-b" role="button" tabindex="0" title="Kembali ke Beranda" style="cursor: pointer; color: #1E1A16;">SUATU SAAT</div>
               <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
                 <button class="m-hdr-btn" id="m-btn-sound-b" aria-label="Bisukan / Bunyikan Suara" title="${isAudioEnabled() ? 'Suara Efek: Aktif' : 'Suara Efek: Senyap'}" style="color: #4A3A2A;">
                   <span class="m-icon">${isAudioEnabled() ? '🔊' : '🔇'}</span>
