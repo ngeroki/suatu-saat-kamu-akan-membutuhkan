@@ -1,10 +1,12 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-07T04:54:00+07:00 | Branch: master | Hero Brush Logo & Cover Metadata: 100% PASS
+Updated: 2026-09-07T05:16:00+07:00 | Branch: master | Chapter Openings Overhaul (Texts & Images): 100% PASS
 
 ## Status & Environment
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Build: PASS (`npm run build` in 609ms, 16 modules, bundle 374.36KB js / 36.45KB css)
+- Build: PASS (`npm run build`, tsc pass, vite build in 47s)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
+- Chapter Openings: 5 Chapter Gates (Hal 1, 16, 31, 46, 60) updated with authentic Mas Aldi quotes + stage-teaser narratives (no AI em-dashes, no meta-blurbs)
+- Chapter Visuals: 5 Chapter opening illustrations regenerated via Gemini Pro (`gemini-image-gen`) at 1536x2752 in authentic Indonesian 35mm slow-cinema realism
 - Hero Header: White Bone Paper brush logotype (`/assets/suatu_saat_brush_bone.png`) with organic anti-aliasing & terracotta underline
 - Cover Metadata: Updated in `src/data/book-pages.json` (Title: "SUATU SAAT", Subtitle: "Tubuh, Pikiran, Leluhur, dan Seni Berserah", Tagline: "Kamu akan membutuhkan cara lain untuk melihat dirimu sendiri.")
 - Assets: 74/74 portrait slides (9:16 master), 74/74 thumbnails, 74/74 Side A reflections active
@@ -12,13 +14,21 @@ Updated: 2026-09-07T04:54:00+07:00 | Branch: master | Hero Brush Logo & Cover Me
 - OpenCode Session: ses_f9de86d2cffeEHvpVqiwq3HP1P (idle/coordinated)
 
 ## Work Completed in This Session ([AG] Lead Architect)
-1. **White Bone Paper Brush Logotype on Hero Homepage**:
+1. **Chapter Openings Text & Narrative Overhaul (Pages 1, 16, 31, 46, 60)**:
+   - Menghapus 100% kalimat promosi/meta-blurb AI ("Buku ini mengajakmu...", "Bab ini akan membedah...").
+   - Memasang cuplikan verbatim kutipan filosofis Mas Aldi (`@rahwanaconsciousnessroom`) di tiap pembuka bab.
+   - Menulis naskah teaser panggung gaya Maiyah/Cak Nun yang menantang, merangkum poin unik tiap bab, dan bebas dari tanda strip panjang (`—`).
+2. **Chapter Openings Visual Master Regeneration (Pages 1, 16, 31, 46, 60)**:
+   - Meregenerasi 5 ilustrasi pembuka bab via Gemini Pro (`gemini-image-gen`) dengan orientasi 9:16 resolusi master (1536x2752).
+   - Menyelaraskan 100% dengan estetika Indonesian slow-cinema & 35mm analog film grain dari 69 halaman lainnya (warkop lereng Merapi, Bento Kopi Kaliurang, kolong flyover Yogya, kedai malam remang, ambang pintu rumah kampung).
+   - Meregenerasi 5 thumbnail resolusi tinggi dengan filter Lanczos.
+3. **White Bone Paper Brush Logotype on Hero Homepage**:
    - Mengekstrak kaligrafi kuas otentik "SUATU SAAT" dan aksen garis kuas terracotta dari sampel visual pengguna.
    - Mengeliminasi artefak langit dan lampu di sudut, melakukan upscale 4x antialiased murni tanpa blur/pecah.
    - Memasang varian Putih Gading (Bone Paper `#F7F2EC`) dengan bayangan halus di `src/screens/cover.ts` dan menyediakan aset Retina di `public/assets/`.
-2. **Cover Metadata Update (`src/data/book-pages.json`)**:
+4. **Cover Metadata Update (`src/data/book-pages.json`)**:
    - Memutakhirkan `title`, `subtitle`, dan `tagline` pada Halaman 1 tanpa menyentuh paragraf naskah maupun struktur 74 halaman.
-3. **Title + Teaser Audit Update (All 74 Pages)**:
+5. **Title + Teaser Humanized Audit (74 Pages)**:
 
    - Memperbarui `title` dan `subtitle`/`teaser` di seluruh 74 halaman pada `src/data/book-pages.json`.
    - Menyelaraskan teks markdown heading (`# Title` dan `*Teaser*`) di `page.text`.
