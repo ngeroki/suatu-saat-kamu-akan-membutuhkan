@@ -48,3 +48,7 @@ tsconfig.tsbuildinfo
 
 # Legacy timestamp-prefixed assets in assets/
 assets/2026*
+
+# Archives & ephemeral scripts progress
+*.zip
+scripts/*_progress.json

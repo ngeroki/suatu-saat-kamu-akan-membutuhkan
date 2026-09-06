@@ -1,9 +1,9 @@
 # 📊 PROJECT STATUS — SUATU SAAT (Mobile Digital Art Book)
 
-> **Last Updated**: 2026-09-07T00:30:00+07:00  
+> **Last Updated**: 2026-09-07T01:32:00+07:00  
 > **Repository**: R:\flip-book  
 > **Production URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)  
-> **Status**: Release PASS (11 Critical Visuals Regenerated, 74/74 100% Aligned with Cak Nun Monologue)  
+> **Status**: Release PASS (25 Narrative-Event Pages Regenerated, 74/74 100% Aligned with Cak Nun Monologue)  
 > **Lead Architect**: Antigravity [AG]  
 > **Heavy Worker**: Antigravity [AG] Direct Execution
 
@@ -29,6 +29,7 @@
 ## 🚀 Status Milestone & Komponen
 | Komponen | File | Status | Keterangan |
 |---|---|---|---|
+| **Targeted 25-Page Narrative Regeneration** | `public/slides-portrait/`, `public/thumbnails/`, `scripts/regenerate_25_pages.py` | ✅ Done | 25 halaman (4, 6, 7, 9, 24, 32, 33, 34, 35, 36, 38, 39, 41, 42, 43, 44, 54, 61, 63, 64, 65, 66, 67, 69, 70) diregenerasi dengan fokus peristiwa manusiawi konkret; 2, 3, 10, 14, 17 utuh; 1536x2752 master JPEG; build PASS |
 | **Two-Sided Single Sheet Mobile** | `src/screens/reader/reader.ts` & `src/style.css` | ✅ Done | 1 Lembar (Side A Visual ↔ Side B Reading), proteksi sentuhan Side B, auto visual reveal reset |
 | **Lightweight Perceived Flip (280ms)** | `src/style.css` | ✅ Done | Transisi subtle (scale 0.98, rotateY 6deg, crossfade) dengan audio paper rustle |
 | **Clean Pure Editorial (No Clutter)** | `src/screens/reader/reader.ts` | ✅ Done | Naskah rata kiri (Lora 15.5px, line-height 1.75), drop cap, kutipan akurat |
