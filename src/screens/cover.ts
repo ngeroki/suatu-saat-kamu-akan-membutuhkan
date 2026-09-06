@@ -35,12 +35,8 @@ export class CoverScreen {
         </div>
 
 
-        <div style="font-family: var(--serif); font-style: italic; font-size: clamp(12px, 3.2vw, 14px); line-height: 1.4; color: rgba(235,226,214,0.9); max-width: 270px; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.95);">
+        <div style="font-family: var(--serif); font-style: italic; font-size: clamp(12px, 3.2vw, 14px); line-height: 1.4; color: rgba(235,226,214,0.9); max-width: 270px; text-shadow: 0 2px 10px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.95);">
           “Kamu akan membutuhkan cara lain untuk melihat dirimu sendiri.”
-        </div>
-
-        <div style="font-family: var(--sans); font-size: clamp(8.5px, 2.2vw, 9.5px); letter-spacing: clamp(1.5px, 0.5vw, 2px); color: rgba(235,226,214,0.65); text-transform: uppercase; text-shadow: 0 2px 8px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.9);">
-          5 BAB · 74 HALAMAN · NUSANTARA
         </div>
       </div>
 
