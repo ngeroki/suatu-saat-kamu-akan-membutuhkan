@@ -1,15 +1,14 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-06T13:10:00+07:00 | Branch: master | HEAD: pending_deploy
+Updated: 2026-09-06T13:54:00+07:00 | Branch: master | HEAD: c962f97
 
 ## Status
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Local Server: http://localhost:4173 (🟢 LIVE - Vite Preview)
-- Release Status: PASS (Full 74-Page Master Fine-Art Visual Regeneration Complete)
-- Bundle: dist/assets/main-DITbxMnW.js (312.22KB js, 33.59KB css, 16 modules transformed)
+- Release Status: PASS (Full 74-Page Master Fine-Art Visual Regeneration + Side A Editorial Typography Overlay & Cinematic Vignette Deployed)
+- Bundle: dist/assets/main-DB3daQ6O.js (323.01KB js, 35.58KB css, 16 modules transformed)
 - Assets: 74/74 portrait slides generated & verified (>2.5MB per master slide), 74/74 thumbnails (512x910 lanczos)
-- GitHub: https://github.com/ngeroki/suatu-saat-kamu-akan-membutuhkan (master)
+- GitHub: https://github.com/ngeroki/suatu-saat-kamu-akan-membutuhkan (master commit c962f97)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
-- Build: PASS (`npm run build` exit code 0 in 1m 13s)
+- Build: PASS (`npm run build` exit code 0)
 - QA Assembler: 74/74 pages intact, 0 missing slides, 0 small slides (<1MB), 0 missing thumbnails
 
 ## Done in This Session ([AG] Lead Editorial Director & Visual Architect)
@@ -23,12 +22,14 @@ Updated: 2026-09-06T13:10:00+07:00 | Branch: master | HEAD: pending_deploy
 3. **Eksekusi 74 Halaman Regenerasi Visual 100% Tuntas**:
    - Seluruh 74 master slide potret (9:16) dihasilkan via Gemini Imagen (rata-rata 2.8–3.7 MB per gambar).
    - Seluruh 74 thumbnail (`512x910`) dioptimasi otomatis via Pillow LANCZOS.
-4. **Build Verification & Deployment**:
-   - `npm run build` exit code 0 tanpa error.
-   - Siap push ke GitHub `origin master` untuk memicu auto-deploy Cloudflare Pages.
-
-## Immediate Next Actions (Next Session)
-1. **Integrasi Side A Dynamic Reader Overlay**:
-   - Render teks `side_a_text` dari `src/data/visual-narrative-74.json` di atas visual Side A dengan tipografi restrained editorial & pelindung kontras halus.
-2. **Review Tampilan Live di Cloudflare Pages Mobile Preview**.
-
+4. **Integrasi Side A Dynamic Reader Overlay & Cinematic Vignette**:
+   - Menambahkan `side_a_text` ke seluruh 74 halaman di `src/data/book-pages.json` & memperbarui interface `Page` di `src/data/book.ts`.
+   - Menambahkan efek vignette cinematic (multi-stop radial gradient + linear vertical scrim) untuk kontras visual dan kedalaman filmic.
+   - Menambahkan tipografi editorial Side A:
+     - Top metadata: Chapter badge emas (`#CDB397`), judul halaman (`m-poster-title`), dan subjudul (`m-poster-subtitle`).
+     - Focal self-reflection box di area sepertiga bawah: Hairline gold divider dan kutipan refleksi diri (`side_a_text`) dengan font Lora serif miring dan drop-shadow berlapis.
+   - Mendukung baik tampilan Mobile (`.m-poster-frame`) maupun Desktop physical spread (`.spread-page-right`).
+   - Mengatur `pointer-events: none` pada layer teks & vignette agar interaksi tap-to-flip (`#m-stage-a`) dan floating chevrons tetap responsif.
+5. **Build & Live Deployment**:
+   - `tsc --noEmit && vite build` 100% PASS.
+   - Pushed ke GitHub `origin/master` (commit `c962f97`) dan ter-deploy live di Cloudflare Pages.
