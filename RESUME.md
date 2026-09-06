@@ -1,18 +1,24 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-07T02:39:00+07:00 | Branch: master | Self-Reflection Audit: 100% Applied (69 Patched, 5 Preserved)
+Updated: 2026-09-07T03:21:00+07:00 | Branch: master | Stage Storytelling Pass: 100% Applied (74/74 Pages)
 
 ## Status
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
 - Visual-to-Script Alignment: PASS (74/74 Halaman 100% Selaras dengan Naskah & Monolog Cak Nun)
-- Bundle: dist/assets/main-D1OHhgTz.js (360.46KB js, 36.45KB css, 16 modules transformed)
+- Bundle: dist/assets/main-ZUcIkBP8.js (363.55KB js, 36.45KB css, 16 modules transformed)
 - Assets: 74/74 portrait slides (>2.6MB high-res master), 74/74 thumbnails, 74/74 side_a_text verified
-- Public Cleanliness: Pruned 300MB unreferenced legacy assets (archived to storage/); Build time: 536ms
-- Self-Reflection Checks: 100% synchronized with self-reflection-audit-final.md
+- Public Cleanliness: Pruned 300MB unreferenced legacy assets (archived to storage/)
+- Self-Reflection Stage Storytelling: 100% synchronized across all 74 pages (Side A bottom card)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
 - Build: PASS (`npm run build` exit code 0)
 
 ## Done in This Session ([AG] Lead Architect & Visual Director)
-1. **Self-Reflection Audit Final Applied (69 Pages Patched, 5 Preserved)**:
+1. **Stage Storytelling Pass Applied Across All 74 Pages (`side_a_text` Card)**:
+   - Menerapkan naskah panggung *Stage Storytelling Pass* ke teks refleksi Side A bawah gambar (`side_a_text`) untuk seluruh 74 halaman di `src/data/book-pages.json`.
+   - Mengadopsi nada tutur akrab, asosiatif, membumi, dan dialogis ("Pernah nggak kamu...", "Mau tidur tangan masih cari HP...", "Tiga detik itu kelihatannya sebentar...", "Bisa nggak kali ini kamu nggak sok tahu dulu?").
+   - Menyelaraskan seluruh dossier `docs/visual-narratives/bab-0*.json`, `src/data/visual-narrative-74.json`, serta `docs/visual-narrative-prompts-74.md`.
+   - Menyimpan naskah sumber di `docs/self-reflection-stage-storytelling.md`.
+   - Mempertahankan utuh naskah badan (Side B) dan seluruh aset visual.
+2. **Self-Reflection Audit Final Applied (69 Pages Patched, 5 Preserved)**:
    - Menerapkan seluruh arahan pemutakhiran `self_reflection_check` dari `self-reflection-audit-final.md` ke `docs/visual-narratives/bab-01.json` s/d `bab-05.json`.
    - Mengubah 69 entri menjadi pertanyaan reflektif orang kedua ("Pernahkah kamu...", "Ingat kembali...") yang selaras 100% dengan ilustrasi dan naskah aktual.
    - Mempertahankan utuh (*preserved*) 5 halaman emas: Halaman 2, 3, 10, 14, dan 17.
