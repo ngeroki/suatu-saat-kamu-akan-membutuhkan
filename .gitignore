@@ -22,3 +22,27 @@ audit_screenshots/
 editorial_analysis.json
 storage/
 
+
+# Dev artifacts - screenshots & test images (root-level)
+audit_*.png
+gap_*.png
+panel1_crop.png
+screenshot_*.png
+test_centered_book.jpg
+test_flip_init.png
+test_pos_*.png
+test_stretched_center.jpg
+v2_*.png
+v3_*.png
+v4_*.png
+v5_*.png
+verify_*.png
+
+# Legacy data & build cache
+build_index.py
+chapters_raw.json
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# Legacy timestamp-prefixed assets in assets/
+assets/2026*
