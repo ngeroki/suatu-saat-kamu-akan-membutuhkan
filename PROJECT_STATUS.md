@@ -1,11 +1,11 @@
 # 📊 PROJECT STATUS — SUATU SAAT (Mobile Digital Art Book)
 
-> **Last Updated**: 2026-09-06T23:30:00+07:00  
+> **Last Updated**: 2026-09-07T00:30:00+07:00  
 > **Repository**: R:\flip-book  
 > **Production URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)  
-> **Status**: Release PASS (74-Page Cak Nun Maiyah On-Stage Tone Overhaul & Enrichment Complete)  
+> **Status**: Release PASS (11 Critical Visuals Regenerated, 74/74 100% Aligned with Cak Nun Monologue)  
 > **Lead Architect**: Antigravity [AG]  
-> **Heavy Worker**: Antigravity [AG] Direct Execution (Sisyphus offline fallback)
+> **Heavy Worker**: Antigravity [AG] Direct Execution
 
 ---
 
@@ -65,5 +65,6 @@
 | **74-Page Master Narrative Visual Dossier V2 (Restrained Ordinary Reality)** | `docs/visual-narrative-prompts-74.md`, `src/data/visual-narrative-74.json`, `scripts/build-visual-narratives-v2.cjs` | ✅ Done | Perombakan total 74 halaman: One Meaningful Detail (zero-anomaly default), eliminasi doktrin/mengunci kesimpulan di Side A, eliminasi klaim fisiologi literal & kata menghakimi, sinkronisasi absolut metadata Bab 4 (14 hal: 46..59) & Bab 5 (15 hal: 60..74: Menjadi Manusia Normal & Seni Berserah), diversitas 48 pembuka kalimat berbeda, 100% PASS 8-18 kata |
 | **Full 74-Page Master Fine-Art Visual Regeneration & Cloudflare Deployment** | `public/slides-portrait/`, `public/thumbnails/`, `scripts/batch_generate_74.py` | ✅ Done | Eksekusi paralel 2-worker dual-egress (Direct ngempetbuko + Tecno Camon Mobile Node SOCKS5 proxy embobotbnbb), seluruh 74 master slide potret 9:16 tersimpan (>2.5MB per file) & thumbnail 512x910 lanczos lengkap, build PASS, deployed live ke Cloudflare Pages |
 | **Side A Editorial Typography Overlay & Cinematic Vignette** | `src/data/book-pages.json`, `src/data/book.ts`, `src/screens/reader/reader.ts`, `src/style.css` | ✅ Done | Multi-stop radial vignette & linear scrim untuk kontras sinematik; integrasi tipografi editorial (badge bab, judul, subjudul, dan kutipan refleksi diri `side_a_text` Lora italic) di atas visual Side A (Mobile & Desktop Spread); pointer-events passthrough aman untuk interaksi flip; build & deploy 100% PASS |
+| **Visual-to-Script Alignment Overhaul (11 Critical Pages)** | `scripts/curation/`, `public/slides-portrait/`, `src/data/book-pages.json` | ✅ Done | Audit mendalam pasca-overhaul naskah Cak Nun; eliminasi diskoneksi visual di 11 halaman (Bab 1 Hal 8, Bab 3 Hal 37–44 cakra/endokrin/Bharatayuddha/Ganesha/selapanan/garam/napas, Bab 4 Hal 48 tenun kuantum & Hal 54 mikraj turun ke bumi); regenerasi 11 master slide 9:16 (>2.4MB–3.6MB) & thumbnail lanczos; Playwright verify PASS; build & deploy live ke Cloudflare Pages |
 
 
