@@ -353,21 +353,25 @@ export class ReaderScreen {
                   <!-- Cinematic Vignette & Readability Scrim Overlay -->
                   <div class="m-poster-vignette"></div>
 
-                  <!-- Editorial Typography Overlay (Side A Text & Metadata) -->
+                  <!-- Editorial Typography Overlay (Side A Text & Artistic Reflection) -->
                   <div class="m-poster-overlay">
-                    <!-- Top Metadata -->
+                    <!-- Top Title & Subtitle (Centered, Clean without Bab/Halaman) -->
                     <div class="m-poster-meta-top">
-                      <div class="m-poster-badge">${page.chapter_code} · HALAMAN ${page.page_in_chap}</div>
                       <h2 class="m-poster-title">${page.title}</h2>
                       ${page.subtitle ? `<div class="m-poster-subtitle">${page.subtitle}</div>` : ""}
+                      <div class="m-poster-title-divider"></div>
                     </div>
 
-                    <!-- Lower/Middle Focal Self-Reflection Statement -->
+                    <!-- Lower Artistic Self-Reflection Statement -->
                     ${
                       page.side_a_text
                         ? `
                     <div class="m-poster-reflection-box">
-                      <div class="m-poster-reflection-divider"></div>
+                      <div class="m-art-flourish">
+                        <span class="m-art-flourish-line"></span>
+                        <span class="m-art-flourish-icon">✧</span>
+                        <span class="m-art-flourish-line"></span>
+                      </div>
                       <p class="m-poster-reflection-text">“${page.side_a_text}”</p>
                     </div>`
                         : ""
@@ -679,18 +683,22 @@ export class ReaderScreen {
                   style="width: 100%; height: 100%; object-fit: cover;"
                 />
                 <div class="m-poster-vignette"></div>
-                <div class="m-poster-overlay" style="padding: 20px 18px 24px;">
+                <div class="m-poster-overlay" style="padding: 24px 20px 28px;">
                   <div class="m-poster-meta-top">
-                    <div class="m-poster-badge" style="font-size: 8.5px; letter-spacing: 1.8px;">${page.chapter_code} · HALAMAN ${page.page_in_chap}</div>
-                    <h2 class="m-poster-title" style="font-size: 15px; line-height: 1.25;">${page.title}</h2>
-                    ${page.subtitle ? `<div class="m-poster-subtitle" style="font-size: 10.5px;">${page.subtitle}</div>` : ""}
+                    <h2 class="m-poster-title" style="font-size: 15.5px; line-height: 1.25;">${page.title}</h2>
+                    ${page.subtitle ? `<div class="m-poster-subtitle" style="font-size: 11px;">${page.subtitle}</div>` : ""}
+                    <div class="m-poster-title-divider"></div>
                   </div>
                   ${
                     page.side_a_text
                       ? `
-                  <div class="m-poster-reflection-box">
-                    <div class="m-poster-reflection-divider"></div>
-                    <p class="m-poster-reflection-text" style="font-size: 12.5px; line-height: 1.45;">“${page.side_a_text}”</p>
+                  <div class="m-poster-reflection-box" style="padding: 10px 14px;">
+                    <div class="m-art-flourish">
+                      <span class="m-art-flourish-line"></span>
+                      <span class="m-art-flourish-icon">✧</span>
+                      <span class="m-art-flourish-line"></span>
+                    </div>
+                    <p class="m-poster-reflection-text" style="font-size: 12.5px; line-height: 1.48;">“${page.side_a_text}”</p>
                   </div>`
                       : ""
                   }

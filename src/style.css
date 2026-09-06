@@ -680,39 +680,40 @@ body {
 .m-poster-meta-top {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.m-poster-badge {
-  font-family: var(--sans);
-  font-size: clamp(8px, 2.2vw, 9.5px);
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: #CDB397;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 2px;
 }
 
 .m-poster-title {
   font-family: var(--serif);
   font-weight: 700;
-  font-size: clamp(15px, 3.8vw, 19px);
+  font-size: clamp(16px, 4.2vw, 21px);
   line-height: 1.25;
   color: #F7F2EC;
-  margin: 0 0 4px 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+  margin: 0 0 5px 0;
+  letter-spacing: 0.4px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.98), 0 1px 4px rgba(0, 0, 0, 0.95);
+  max-width: 94%;
 }
 
 .m-poster-subtitle {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(10.5px, 2.6vw, 12px);
+  font-size: clamp(11px, 2.7vw, 13px);
   line-height: 1.35;
-  color: rgba(235, 226, 214, 0.85);
+  color: rgba(235, 226, 214, 0.88);
   margin: 0;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  max-width: 90%;
+}
+
+.m-poster-title-divider {
+  width: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(205, 179, 151, 0.65), transparent);
+  margin: 8px auto 0;
 }
 
 .m-poster-reflection-box {
@@ -721,25 +722,50 @@ body {
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  max-width: 92%;
+  max-width: 88%;
+  position: relative;
+  padding: 14px 18px 12px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(14, 13, 11, 0.72) 0%, rgba(14, 13, 11, 0.35) 75%, transparent 100%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 12px;
+  border-top: 1px solid rgba(205, 179, 151, 0.22);
+  border-bottom: 1px solid rgba(205, 179, 151, 0.22);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-.m-poster-reflection-divider {
-  width: 28px;
-  height: 1px;
-  background: rgba(205, 179, 151, 0.65);
+.m-art-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
   margin-bottom: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.m-art-flourish-line {
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(205, 179, 151, 0.75), transparent);
+}
+
+.m-art-flourish-icon {
+  font-size: 11px;
+  color: #CDB397;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(205, 179, 151, 0.6);
+  letter-spacing: 0;
 }
 
 .m-poster-reflection-text {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(13px, 3.4vw, 15.5px);
-  line-height: 1.5;
-  color: #F8F4EE;
+  font-size: clamp(13px, 3.5vw, 15.5px);
+  line-height: 1.55;
+  letter-spacing: 0.2px;
+  color: #FAF6EE;
   margin: 0;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.98), 0 1px 4px rgba(0, 0, 0, 0.95);
 }
 
 /* === FLIPBOOK 3D PAGE-TO-PAGE CURL TRANSITIONS === */
