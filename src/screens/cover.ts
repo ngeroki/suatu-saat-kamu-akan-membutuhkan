@@ -25,11 +25,15 @@ export class CoverScreen {
           Yogyakarta · 2026
         </div>
 
-        <div style="font-family: var(--display); font-weight: 500; font-size: clamp(26px, 6.5vw, 36px); line-height: 1.05; letter-spacing: 4px; margin-bottom: 8px; color: #F7F2EC; text-shadow: 0 3px 18px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.95); text-transform: uppercase;">
-          SUATU SAAT
+        <div class="cover-hero-logotype-wrap" style="width: 100%; max-width: clamp(185px, 48vw, 235px); margin: 2px auto 10px; display: flex; justify-content: center; align-items: center;">
+          <img 
+            src="/assets/suatu_saat_brush_bone.png" 
+            alt="SUATU SAAT" 
+            class="cover-hero-brush-logo" 
+            style="width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 4px 18px rgba(0,0,0,0.92)) drop-shadow(0 2px 6px rgba(0,0,0,0.95));"
+          />
         </div>
 
-        <div style="width: 32px; height: 1px; background: rgba(205,179,151,0.5); margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.8);"></div>
 
         <div style="font-family: var(--serif); font-style: italic; font-size: clamp(12px, 3.2vw, 14px); line-height: 1.4; color: rgba(235,226,214,0.9); max-width: 270px; margin-bottom: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.95);">
           “Kamu akan membutuhkan cara lain untuk melihat dirimu sendiri.”
