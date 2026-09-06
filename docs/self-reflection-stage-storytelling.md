@@ -28,7 +28,7 @@ Kita sering bilang, “nggak apa-apa,” supaya urusan cepat selesai. Tapi kalau
 
 ## PAGE 7
 
-Habis mandi kadang badan terasa lebih enteng. Coba perhatikan: yang berubah cuma badanmu, atau pikiranmu juga ikut agak longgar?
+Habis mandi kadang badan terasa lebih enteng. Coba perhatikan, yang berubah cuma badanmu, atau pikiranmu juga ikut agak longgar?
 
 ## PAGE 8
 
@@ -56,7 +56,7 @@ Lampu sudah mati, tapi tangan masih meraba HP. Kita ini kadang sudah tahu harus 
 
 ## PAGE 14
 
-Besok kalau ada orang nyebelin di jalan, tanganmu biasanya lebih cepat mana: pencet klakson atau ngerem dulu? Tiga detik itu kelihatannya sebentar.
+Besok kalau ada orang nyebelin di jalan, tanganmu biasanya lebih cepat mana, pencet klakson atau ngerem dulu? Tiga detik itu kelihatannya sebentar.
 
 ## PAGE 15
 

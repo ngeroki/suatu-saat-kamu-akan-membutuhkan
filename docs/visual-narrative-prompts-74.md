@@ -139,7 +139,7 @@ Kita sering bilang, “nggak apa-apa,” supaya urusan cepat selesai. Tapi kalau
 ### PAGE 07: Serat Optik di Punggung Manusia
 
 **SIDE A TEXT:**
-> "Habis mandi kadang badan terasa lebih enteng. Coba perhatikan: yang berubah cuma badanmu, atau pikiranmu juga ikut agak longgar?"
+> "Habis mandi kadang badan terasa lebih enteng. Coba perhatikan, yang berubah cuma badanmu, atau pikiranmu juga ikut agak longgar?"
 
 **VISUAL CONCEPT:**
 Real World: Pria membasuh diri di pancuran umbul mata air alami kuno berbatu andesit di Klaten saat subuh. Human Experience: Guyuran air dingin membasahi tengkuk dan mengalir lurus di lekuk tulang punggung, menghantarkan sengatan kesegaran bioelektrik yang menjernihkan kepala. One Strange Detail: Aliran air yang meluncur persis di garis cekungan tulang belakang tampak berkilau sangat jernih seperti serat kaca cair yang memantulkan semburat fajar.
@@ -153,7 +153,7 @@ Real World: Pria membasuh diri di pancuran umbul mata air alami kuno berbatu and
 > "Cairan serebrospinal (CSF) kaya elektrolit sebagai serat optik biologis, perjalanannya melintasi stasiun kelenjar, dan ritme pematangan selapanan 35 hari weton (Halaman 7, paragraf 1-3)."
 
 **SELF-REFLECTION CHECK:**
-Habis mandi kadang badan terasa lebih enteng. Coba perhatikan: yang berubah cuma badanmu, atau pikiranmu juga ikut agak longgar?
+Habis mandi kadang badan terasa lebih enteng. Coba perhatikan, yang berubah cuma badanmu, atau pikiranmu juga ikut agak longgar?
 
 ---
 
@@ -286,7 +286,7 @@ Lampu sudah mati, tapi tangan masih meraba HP. Kita ini kadang sudah tahu harus 
 ### PAGE 14: Mengubah Jawaban di Saat Pemicu Datang
 
 **SIDE A TEXT:**
-> "Besok kalau ada orang nyebelin di jalan, tanganmu biasanya lebih cepat mana: pencet klakson atau ngerem dulu? Tiga detik itu kelihatannya sebentar."
+> "Besok kalau ada orang nyebelin di jalan, tanganmu biasanya lebih cepat mana, pencet klakson atau ngerem dulu? Tiga detik itu kelihatannya sebentar."
 
 **VISUAL CONCEPT:**
 Real World: Pria duduk di warung pinggir jalan kota Solo saat senja, di tengah lalu-lintas sore yang riuh. Human Experience: Baru saja membaca pesan atau mendengar kabar menyengat; rahangnya sempat mengeras, namun ia memilih meletakkan tangannya di meja, menarik rem darurat batin dengan diam tiga detik. One Strange Detail: Riak gelombang kopi tubruk di gelas kaca di hadapannya yang sempat bergetar oleh denyut tegang tangannya, mendadak tenang kembali sehalus permukaan cermin saat ia menarik napas hening.
@@ -300,7 +300,7 @@ Real World: Pria duduk di warung pinggir jalan kota Solo saat senja, di tengah l
 > "Praktik meretas respons batin dan memutus mata rantai karma dengan jeda 3 detik saat pemicu amarah datang (Halaman 14, paragraf 1-3)."
 
 **SELF-REFLECTION CHECK:**
-Besok kalau ada orang nyebelin di jalan, tanganmu biasanya lebih cepat mana: pencet klakson atau ngerem dulu? Tiga detik itu kelihatannya sebentar.
+Besok kalau ada orang nyebelin di jalan, tanganmu biasanya lebih cepat mana, pencet klakson atau ngerem dulu? Tiga detik itu kelihatannya sebentar.
 
 ---
 

@@ -1,18 +1,24 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-07T03:21:00+07:00 | Branch: master | Stage Storytelling Pass: 100% Applied (74/74 Pages)
+Updated: 2026-09-07T03:40:00+07:00 | Branch: master | Punctuation Audit: 100% Humanized (0 Semicolons, 70% Colon Reduction)
 
 ## Status
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
 - Visual-to-Script Alignment: PASS (74/74 Halaman 100% Selaras dengan Naskah & Monolog Cak Nun)
-- Bundle: dist/assets/main-ZUcIkBP8.js (363.55KB js, 36.45KB css, 16 modules transformed)
+- Bundle: dist/assets/main-CryCJ3rl.js (363.65KB js, 36.45KB css, 16 modules transformed)
 - Assets: 74/74 portrait slides (>2.6MB high-res master), 74/74 thumbnails, 74/74 side_a_text verified
 - Public Cleanliness: Pruned 300MB unreferenced legacy assets (archived to storage/)
-- Self-Reflection Stage Storytelling: 100% synchronized across all 74 pages (Side A bottom card)
+- Punctuation & Tone Cleanliness: 0 titik-koma (`;`), titik-dua (`:`) dipangkas dari 91 menjadi 28 (hanya dialog kutipan & rumus ajaran otentik)
+- Self-Reflection Stage Storytelling: 100% synchronized across all 74 pages (0 colons/semicolons)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
 - Build: PASS (`npm run build` exit code 0)
 
 ## Done in This Session ([AG] Lead Architect & Visual Director)
-1. **Stage Storytelling Pass Applied Across All 74 Pages (`side_a_text` Card)**:
+1. **Punctuation Humanizer Audit (Eliminate AI Punctuation Habits)**:
+   - Menghapus 100% titik-koma (`;`) dari seluruh naskah buku (14 -> 0), menggantikannya dengan ritme alami tutur lisan Indonesia (`.`, `,`, atau `—`).
+   - Memangkas lebih dari 70% titik-dua (`:`) dramatisasi AI dari paragraf (91 -> 28), hanya menyisakan titik-dua otentik untuk dialog kutipan langsung (`"Lho, aku pernah di sini..."`), pepatah leluhur (`Jer Basuki Mawa Beya`), dan enumerasi klasik.
+   - Memangkas titik-dua di kartu refleksi Side A (Halaman 7 & 14) sehingga kartu Side A kini **0 titik-dua dan 0 titik-koma**.
+   - Menyinkronkan seluruh dossier (`bab-01.json`, `visual-narrative-74.json`, `visual-narrative-prompts-74.md`, `self-reflection-stage-storytelling.md`).
+2. **Stage Storytelling Pass Applied Across All 74 Pages (`side_a_text` Card)**:
    - Menerapkan naskah panggung *Stage Storytelling Pass* ke teks refleksi Side A bawah gambar (`side_a_text`) untuk seluruh 74 halaman di `src/data/book-pages.json`.
    - Mengadopsi nada tutur akrab, asosiatif, membumi, dan dialogis ("Pernah nggak kamu...", "Mau tidur tangan masih cari HP...", "Tiga detik itu kelihatannya sebentar...", "Bisa nggak kali ini kamu nggak sok tahu dulu?").
    - Menyelaraskan seluruh dossier `docs/visual-narratives/bab-0*.json`, `src/data/visual-narrative-74.json`, serta `docs/visual-narrative-prompts-74.md`.
