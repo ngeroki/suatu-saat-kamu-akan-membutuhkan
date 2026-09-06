@@ -87,13 +87,13 @@ module.exports = [
     page_number: 8,
     chapter_code: "BAB 01",
     chapter_name: "Anatomi Tubuh Energi & Memori Karma",
-    title: "Tiga Simpul Utama Kesadaran",
-    subtitle: "Pusar yang membumi, dada yang merasa, kepala yang menyaksikan.",
-    side_a_text: "Ada hari ketika kepala ingin terus berlari, tapi dada dan perutmu menolak melangkah.",
-    visual_concept: "Seseorang berdiri mematung di teras rumah kayu memandang pekarangan yang basah oleh hujan lebat, tangan kanan menyentuh perut dan dada.",
-    image_prompt: "[SUBJECT] An Indonesian man seen in three-quarter profile standing on a covered terrace * [ORDINARY INDONESIAN ENVIRONMENT] rural Javanese house porch during a heavy tropical downpour * [HUMAN ACTION / EMOTION] standing still, one hand resting gently over his lower belly and the other against his lower chest, watching the wall of rain * [ONE MEANINGFUL DETAIL] heavy rainwater cascading off the terracotta roof tiles into a stone drain, framing his quiet body * [LIGHTING] silvery overcast rain light illuminating the figure against the darker interior * [MATERIAL / TEXTURE] weathered dark timber posts, wet terracotta tiles, raw rainwater texture * [COMPOSITION] vertical 9:16 layout, vertical figure standing firmly, calm empty space in the dark porch ceiling area * [STYLE] evocative contemporary Indonesian cinema, subdued green and charcoal grading, tactile film grain * [NEGATIVE CONSTRAINTS] no three glowing energy balls, no colorful chakra dots, no new-age diagrams, no text, no watermark",
-    source_anchor: "Dalam anatomi batin Nusantara, ada tiga simpul pokok yang harus selaras: simpul perut (daya hidup), simpul dada (rasa sejati), dan simpul kepala (kesadaran saksi).",
-    reflection_target: "Pengalaman merasakan perang batin antara apa yang diinginkan oleh ambisi pikiran dengan apa yang sebenarnya dirasakan oleh tubuh dan naluri."
+    title: "Rahim Gelap Pembersih Racun Saraf",
+    subtitle: "Ketika kegelapan mutlak menjadi ruang bagi raga untuk mencuci karat otaknya.",
+    side_a_text: "Kelenjar pinealmu hanya mau mencuci racun otak dalam kegelapan mutlak tanpa setitik pun cahaya.",
+    visual_concept: "Interior bilik sentong tengah rumah limasan kayu jati kuno dalam kegelapan pekat yang tenang, siluet samar seseorang duduk bersila hening di atas tikar pandan dalam keheningan mutlak tanpa cahaya buatan.",
+    image_prompt: "[SUBJECT] Faint silhouette of an Indonesian person seated calmly in cross-legged meditation * [ORDINARY INDONESIAN ENVIRONMENT] traditional windowless inner chamber (sentong tengah) of an ancient Javanese wooden limasan house immersed in deep, pure darkness * [HUMAN ACTION / EMOTION] sitting in profound sensory deprivation, eyes gently closed, experiencing deep somatic rest and cellular restoration * [ONE MEANINGFUL DETAIL] barely perceptible ambient moonlight rim-lighting the edge of a heavy teak wall panel, framing the darkness * [LIGHTING] extreme low-key natural darkness, rich deep charcoal and velvet black shadows * [MATERIAL / TEXTURE] weathered ancient teak grain, woven pandanus mat, darkness as a physical calming medium * [COMPOSITION] vertical 9:16 framing, seated figure centered low in frame, vast quiet darkness overhead * [STYLE] minimalist fine art analog photography, subdued chiaroscuro, organic film grain * [NEGATIVE CONSTRAINTS] no glowing third eye, no purple cosmic energy, no neon light, no digital flare, no text, no watermark",
+    source_anchor: "Kelenjar pineal hanya mau membanjiri tubuh dengan melatonin kalau matamu berada dalam kegelapan mutlak... Kegelapan itu rahim pemulihanmu.",
+    reflection_target: "Pengalaman merasakan kelegaan mendalam saat berada di ruangan yang benar-benar gelap gulita tanpa gangguan lampu gawai."
   },
   {
     page_number: 9,

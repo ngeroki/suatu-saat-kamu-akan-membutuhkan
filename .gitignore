@@ -8,6 +8,8 @@ out/
 .next/
 *.log
 *.tmp
+__pycache__/
+audit/
 
 # Environment & OS
 .env
