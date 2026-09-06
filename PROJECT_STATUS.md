@@ -1,9 +1,9 @@
 # 📊 PROJECT STATUS — SUATU SAAT (Mobile Digital Art Book)
 
-> **Last Updated**: 2026-09-07T04:02:00+07:00  
+> **Last Updated**: 2026-09-07T04:54:00+07:00  
 > **Repository**: R:\flip-book  
 > **Production URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)  
-> **Status**: Release PASS (Title + Teaser Audit 74/74 PASS, Build PASS)  
+> **Status**: Release PASS (White Brush Logo & Cover Metadata Live, Build PASS)  
 > **Lead Architect**: Antigravity [AG]  
 > **Heavy Worker**: Antigravity [AG] Direct Execution
 
@@ -29,6 +29,8 @@
 ## 🚀 Status Milestone & Komponen
 | Komponen | File | Status | Keterangan |
 |---|---|---|---|
+| **White Bone Paper Brush Hero Logotype** | `src/screens/cover.ts`, `public/assets/suatu_saat_brush_*` | ✅ Done | Ekstraksi presisi kaligrafi kuas "SUATU SAAT" + underline terracotta; upscale 4x antialiased murni; varian Putih Gading `#F7F2EC` aktif di hero homepage; build PASS |
+| **Cover Metadata Update** | `src/data/book-pages.json` | ✅ Done | Update metadata Halaman 1 (Title: "SUATU SAAT", Subtitle: "Tubuh, Pikiran, Leluhur, dan Seni Berserah", Tagline: "Kamu akan membutuhkan cara lain untuk melihat dirimu sendiri."); build PASS |
 | **Title + Teaser Humanized Audit (74 Pages)** | `src/data/book-pages.json`, `src/data/book.ts`, `src/data/visual-narrative-74.json`, `docs/visual-narratives/`, `docs/visual-narrative-prompts-74.md` | ✅ Done | 74 halaman dimutakhirkan 100% dengan judul inti penangkap esensi dan teaser lisan bernada manusiawi; properti `teaser` terpasang; heading markdown diselaraskan; test asersi lolos 100%; build PASS |
 | **Punctuation Humanizer Audit** | `src/data/book-pages.json`, `docs/visual-narratives/`, `src/data/visual-narrative-74.json`, `docs/visual-narrative-prompts-74.md` | ✅ Done | Menghapus 100% titik-koma (14 -> 0); memangkas 70% titik-dua dramatisasi AI (91 -> 28), hanya menyisakan dialog kutipan & ajaran otentik; kartu Side A kini 0 titik-dua; build PASS |
 | **Stage Storytelling Pass (74 Pages)** | `src/data/book-pages.json`, `docs/visual-narratives/`, `src/data/visual-narrative-74.json`, `docs/visual-narrative-prompts-74.md`, `docs/self-reflection-stage-storytelling.md` | ✅ Done | 74 halaman dimutakhirkan dengan gaya tutur panggung Maiyah lisan dialogis & akrab pada kartu Side A refleksi gambar; naskah badan (Side B) & aset 100% utuh; build PASS |
