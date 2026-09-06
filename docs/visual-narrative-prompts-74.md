@@ -10,7 +10,7 @@ Disusun berdasarkan Master Prompt dengan pemisahan tegas antara tipografi UI dan
 
 ---
 
-### PAGE 01: Anatomi Tubuh Energi & Memori Karma
+### PAGE 01: Tubuh yang Mengingat Lebih Dulu
 
 **SIDE A TEXT:**
 > "Pernah nggak kamu masuk ke sebuah tempat yang baru pertama kali didatangi, tapi dada malah bilang, “Lho, kok kayak pernah di sini?”"
@@ -31,7 +31,7 @@ Pernah nggak kamu masuk ke sebuah tempat yang baru pertama kali didatangi, tapi 
 
 ---
 
-### PAGE 02: Ketika Tubuhmu Tahu Duluan
+### PAGE 02: Ketika Tubuh Tahu Duluan
 
 **SIDE A TEXT:**
 > "Ada kalanya kaki belum pernah sampai ke sebuah tempat, tapi rasanya jalan di depannya sudah dikenal. Pernah mengalami begitu?"
@@ -94,7 +94,7 @@ Pernah nggak baru ketemu seseorang, belum banyak ngomong, tapi kamu sudah tahu s
 
 ---
 
-### PAGE 05: Tulang Kecil Penjaga Rekaman Abadi
+### PAGE 05: Tulang Kecil di Dasar Tubuh
 
 **SIDE A TEXT:**
 > "Coba rasakan bagian paling bawah tulang belakangmu. Selama ini bagian itu cuma kamu ingat kalau sakit, atau pernah kamu sadari ketika baik-baik saja?"
@@ -136,7 +136,7 @@ Kita sering bilang, “nggak apa-apa,” supaya urusan cepat selesai. Tapi kalau
 
 ---
 
-### PAGE 07: Serat Optik di Punggung Manusia
+### PAGE 07: Arus yang Mengalir di Punggung
 
 **SIDE A TEXT:**
 > "Habis mandi kadang badan terasa lebih enteng. Coba perhatikan, yang berubah cuma badanmu, atau pikiranmu juga ikut agak longgar?"
@@ -157,7 +157,7 @@ Habis mandi kadang badan terasa lebih enteng. Coba perhatikan, yang berubah cuma
 
 ---
 
-### PAGE 08: Rahim Gelap Pembersih Racun Saraf
+### PAGE 08: Malam, Layar, dan Pintu yang Terbuka
 
 **SIDE A TEXT:**
 > "Mau tidur, tangan masih cari HP. Sudah tahu besok harus bangun pagi, tapi layar tetap dibuka lagi. Sebenarnya yang susah dilepas itu HP-nya, atau isi kepala kita?"
@@ -178,7 +178,7 @@ Mau tidur, tangan masih cari HP. Sudah tahu besok harus bangun pagi, tapi layar 
 
 ---
 
-### PAGE 09: Ketika Langit Runtuh ke Dalam Diri
+### PAGE 09: Ketika Napas Membuka Pintu
 
 **SIDE A TEXT:**
 > "Tarik napas. Buang pelan. Nggak usah percaya siapa-siapa dulu. Rasakan sendiri apa yang berubah."
@@ -220,7 +220,7 @@ Langit bisa masuk ke dalam tempayan kecil. Kita saja sering sibuk melihat yang j
 
 ---
 
-### PAGE 11: Tiga Sanepô Rahasia Leluhur
+### PAGE 11: Tiga Sanepô yang Tidak Selesai diucapkan
 
 **SIDE A TEXT:**
 > "Pernah menolong orang lalu nggak cerita ke siapa-siapa? Kalau nggak ada yang memuji, masih terasa sebagai kebaikan?"
@@ -262,7 +262,7 @@ Duduk sebentar seperti orang yang sedang berdoa. Nggak perlu minta apa-apa dulu.
 
 ---
 
-### PAGE 13: Memadamkan Api Palsu di Matamu
+### PAGE 13: Memadamkan Api di Matamu
 
 **SIDE A TEXT:**
 > "Lampu sudah mati, tapi tangan masih meraba HP. Kita ini kadang sudah tahu harus berhenti, tapi tetap saja mencari satu hal lagi."
@@ -283,7 +283,7 @@ Lampu sudah mati, tapi tangan masih meraba HP. Kita ini kadang sudah tahu harus 
 
 ---
 
-### PAGE 14: Mengubah Jawaban di Saat Pemicu Datang
+### PAGE 14: Tiga Detik Sebelum Menjawab
 
 **SIDE A TEXT:**
 > "Besok kalau ada orang nyebelin di jalan, tanganmu biasanya lebih cepat mana, pencet klakson atau ngerem dulu? Tiga detik itu kelihatannya sebentar."
@@ -304,7 +304,7 @@ Besok kalau ada orang nyebelin di jalan, tanganmu biasanya lebih cepat mana, pen
 
 ---
 
-### PAGE 15: Tak Ada yang Perlu Dicari ke Luar
+### PAGE 15: Tak Perlu Mencari Terlalu Jauh
 
 **SIDE A TEXT:**
 > "Jantungmu tetap bekerja meskipun kamu sedang nggak mengerjakan apa-apa. Kapan terakhir kali kamu benar-benar ingat bahwa tubuhmu bekerja terus tanpa disuruh?"
@@ -329,7 +329,7 @@ Jantungmu tetap bekerja meskipun kamu sedang nggak mengerjakan apa-apa. Kapan te
 
 ---
 
-### PAGE 16: Meretas Pikiran Bawah Sadar & Reprogramming Nasib
+### PAGE 16: Bawah Sadar yang Sering Membantah
 
 **SIDE A TEXT:**
 > "Pernah nggak kamu sangat ingin sesuatu, tapi begitu membayangkan benar-benar mendapatkannya malah muncul takut? Yang mana yang sebenarnya kamu percaya?"
@@ -371,7 +371,7 @@ Buku sudah dibaca. Seminar sudah didatangi. Video sudah ditonton. Tapi kok pas p
 
 ---
 
-### PAGE 18: Pintu Kesadaran Dimulai Saat Semuanya Runtuh
+### PAGE 18: Ketika Semuanya Runtuh
 
 **SIDE A TEXT:**
 > "Waktu sedang jatuh, kadang kita nggak butuh orang yang paling pintar. Kita cuma butuh satu orang yang mau duduk dan nggak buru-buru ngomong."
@@ -434,7 +434,7 @@ Kalau hidupmu sendiri ada di tanganmu, bagian mana yang masih kamu pegang tapi s
 
 ---
 
-### PAGE 21: Lima Belas Menit Menjelang Lelap dan Bangun
+### PAGE 21: Lima Belas Menit Sebelum Tidur
 
 **SIDE A TEXT:**
 > "Lima belas menit sebelum tidur, biasanya yang kamu bawa ke kasur apa? Badanmu sudah rebah, tapi urusan seharian masih ramai."
@@ -455,7 +455,7 @@ Lima belas menit sebelum tidur, biasanya yang kamu bawa ke kasur apa? Badanmu su
 
 ---
 
-### PAGE 22: Keheningan yang Hilang di Balik Pintu Kamar Mandi
+### PAGE 22: Keheningan di Balik Pintu Kamar Mandi
 
 **SIDE A TEXT:**
 > "Masuk kamar mandi cuma sebentar, HP tetap ikut. Kalau sunyi dua menit saja sudah bikin gelisah, sebenarnya kita takut sunyi atau takut ketemu isi kepala sendiri?"
@@ -476,7 +476,7 @@ Masuk kamar mandi cuma sebentar, HP tetap ikut. Kalau sunyi dua menit saja sudah
 
 ---
 
-### PAGE 23: Kutukan Ibu yang Menembus Langit
+### PAGE 23: Amarah yang Bisa Berubah Menjadi Doa
 
 **SIDE A TEXT:**
 > "Pernah marah, ngomong keras, lalu setelahnya berharap kalimat tadi bisa dimasukkan lagi ke mulut? Kadang satu detik diam memang lebih murah daripada penyesalan."
@@ -497,7 +497,7 @@ Pernah marah, ngomong keras, lalu setelahnya berharap kalimat tadi bisa dimasukk
 
 ---
 
-### PAGE 24: Tujuh Puluh Dua Persen Wadah Cairan
+### PAGE 24: Tubuhmu Tujuh Puluh Dua Persen Cairan
 
 **SIDE A TEXT:**
 > "Coba lihat wajahmu sendiri di cermin. Kalau sedang gagal atau sial, yang paling sering ngomong kasar ke kamu itu siapa? Orang lain, atau malah kamu sendiri?"
@@ -518,7 +518,7 @@ Coba lihat wajahmu sendiri di cermin. Kalau sedang gagal atau sial, yang paling 
 
 ---
 
-### PAGE 25: Ritual Bersahaja Penembus Keraguan
+### PAGE 25: Ritual Sederhana untuk Menembus Ragu
 
 **SIDE A TEXT:**
 > "Waktu kecil sedikit-sedikit percaya. Sekarang sedikit-sedikit kita bilang, “Ah, masa?” Kapan sebenarnya kita mulai begitu?"
@@ -539,7 +539,7 @@ Waktu kecil sedikit-sedikit percaya. Sekarang sedikit-sedikit kita bilang, “Ah
 
 ---
 
-### PAGE 26: Zikir yang Menggetarkan Ulu Hati
+### PAGE 26: Zikir yang Sampai ke Ulu Hati
 
 **SIDE A TEXT:**
 > "Mulut sedang menghitung zikir, pikiran malah sudah jalan-jalan ke mana-mana. Pernah begitu? Yang menghitung siapa, yang mendengar siapa?"
@@ -560,7 +560,7 @@ Mulut sedang menghitung zikir, pikiran malah sudah jalan-jalan ke mana-mana. Per
 
 ---
 
-### PAGE 27: Perang Sengkuni Melawan Semar di Dadamu
+### PAGE 27: Sengkuni dan Semar di Dalam Dada
 
 **SIDE A TEXT:**
 > "Dapat kabar baik saja kadang malah curiga. “Jangan-jangan ada maunya.” Kok kita lebih gampang percaya pada kabar buruk daripada kabar baik?"
@@ -581,7 +581,7 @@ Dapat kabar baik saja kadang malah curiga. “Jangan-jangan ada maunya.” Kok k
 
 ---
 
-### PAGE 28: Menyambut Fajar Tanpa Racun Medsos
+### PAGE 28: Lima Belas Menit Pertama Setelah Bangun
 
 **SIDE A TEXT:**
 > "Begitu bangun tidur, tanganmu mencari apa? HP? Jam? Atau langsung mencari alasan untuk bangun nanti saja?"
@@ -602,7 +602,7 @@ Begitu bangun tidur, tanganmu mencari apa? HP? Jam? Atau langsung mencari alasan
 
 ---
 
-### PAGE 29: Memutus Rantai Otomatis di Otak Depan
+### PAGE 29: Tiga Detik Memutus Reaksi
 
 **SIDE A TEXT:**
 > "Besok kalau ada orang motong jalanmu, jangan langsung balas. Tahan tiga detik. Cuma tiga detik. Bisa?"
@@ -623,7 +623,7 @@ Besok kalau ada orang motong jalanmu, jangan langsung balas. Tahan tiga detik. C
 
 ---
 
-### PAGE 30: Memegang Sendiri Kendali Layar Batin
+### PAGE 30: Kendali Ada di Layar Batin
 
 **SIDE A TEXT:**
 > "Kalau layar di depanmu bikin kesal, yang kita marahi biasanya layarnya. Padahal sebelum tangan bergerak, ada sesuatu di dalam diri yang sudah lebih dulu panas."
@@ -648,7 +648,7 @@ Kalau layar di depanmu bikin kesal, yang kita marahi biasanya layarnya. Padahal 
 
 ---
 
-### PAGE 31: Sistem Hormon, Biohacking Leluhur & Energi Fisik
+### PAGE 31: Tubuh, Hormon, dan Warisan Leluhur
 
 **SIDE A TEXT:**
 > "Kalau belakangan gampang marah, coba jangan cuma menyalahkan orang. Tidurmu beberapa malam terakhir berapa jam?"
@@ -669,7 +669,7 @@ Kalau belakangan gampang marah, coba jangan cuma menyalahkan orang. Tidurmu bebe
 
 ---
 
-### PAGE 32: Dua Reaksi Berbeda di Depan Lantai Dapur
+### PAGE 32: Saat Piring Pecah, Apa yang Sebenarnya Pecah?
 
 **SIDE A TEXT:**
 > "Pernah capek seharian, lalu hal kecil di dapur saja sudah cukup bikin meledak? Kadang yang pecah bukan cuma piring."
@@ -690,7 +690,7 @@ Pernah capek seharian, lalu hal kecil di dapur saja sudah cukup bikin meledak? K
 
 ---
 
-### PAGE 33: Otak Tidak Mengenal Beda Sakit Fisik dan Patah Hati
+### PAGE 33: Sakit di Tubuh, Sakit di Hati
 
 **SIDE A TEXT:**
 > "Seharian hampir nggak ke mana-mana, tapi malamnya badan seperti habis dipakai lari. Kalau kaki nggak ke mana-mana, yang lari seharian apa?"
@@ -711,7 +711,7 @@ Seharian hampir nggak ke mana-mana, tapi malamnya badan seperti habis dipakai la
 
 ---
 
-### PAGE 34: Pertarungan Pasukan Bertahan Hidup Lawan Pemulih Raga
+### PAGE 34: Tubuh yang Menyalakan Alarm
 
 **SIDE A TEXT:**
 > "Ada pesan masuk, bahu langsung naik. Belum dibaca saja badan sudah bereaksi. Pernah sadar sampai situ?"
@@ -732,7 +732,7 @@ Ada pesan masuk, bahu langsung naik. Belum dibaca saja badan sudah bereaksi. Per
 
 ---
 
-### PAGE 35: Ketika Sel Raga Mulai Berkarat dari Dalam
+### PAGE 35: Ketika Tubuh Mulai Berkarat
 
 **SIDE A TEXT:**
 > "Pernah badan terasa berat padahal pekerjaan hari itu biasa saja? Jangan-jangan ada sesuatu yang terus kamu bawa di kepala sampai badan ikut kebagian."
@@ -753,7 +753,7 @@ Pernah badan terasa berat padahal pekerjaan hari itu biasa saja? Jangan-jangan a
 
 ---
 
-### PAGE 36: Jebakan Kesenangan Instan yang Mengeringkan Jiwa
+### PAGE 36: Kesenangan Instan, Rasa Hampa
 
 **SIDE A TEXT:**
 > "Dua jam scrolling bisa bikin capek, tapi selesai mengerjakan satu hal kecil malah terasa lega. Capeknya sama-sama capek. Kok rasanya beda?"
@@ -774,7 +774,7 @@ Dua jam scrolling bisa bikin capek, tapi selesai mengerjakan satu hal kecil mala
 
 ---
 
-### PAGE 37: Mencicipi Pahit Sebelum Ditagih Semesta
+### PAGE 37: Belajar Menahan Pahit
 
 **SIDE A TEXT:**
 > "Kita sering bilang ingin bebas, tapi sedikit tidak nyaman saja buru-buru cari hiburan. Kenyamanan apa yang paling susah kamu tinggalkan?"
@@ -795,7 +795,7 @@ Kita sering bilang ingin bebas, tapi sedikit tidak nyaman saja buru-buru cari hi
 
 ---
 
-### PAGE 38: Tiga Benteng Pertahanan Purba Manusia
+### PAGE 38: Tiga Benteng Naluri Bertahan Hidup
 
 **SIDE A TEXT:**
 > "Kalau uangmu berkurang, makananmu terganggu, atau rasa amanmu terusik, mana yang paling cepat bikin pikiranmu berubah? Di situ biasanya kelihatan apa yang paling kamu jaga."
@@ -816,7 +816,7 @@ Kalau uangmu berkurang, makananmu terganggu, atau rasa amanmu terusik, mana yang
 
 ---
 
-### PAGE 39: Empat Menara Cahaya Menuju Langit Batin
+### PAGE 39: Empat Menara Menuju Langit Batin
 
 **SIDE A TEXT:**
 > "Pernah ada satu kalimat yang sebenarnya ingin kamu sampaikan kepada orang dekat, tapi kamu tahan karena takut hubungan berubah? Sampai sekarang masih ada?"
@@ -837,7 +837,7 @@ Pernah ada satu kalimat yang sebenarnya ingin kamu sampaikan kepada orang dekat,
 
 ---
 
-### PAGE 40: Bharatayuddha yang Berkecamuk di Balik Batok Kepala
+### PAGE 40: Bharatayuddha di Dalam Kepala
 
 **SIDE A TEXT:**
 > "Pernah curiga duluan, padahal buktinya belum ada? Waktu itu benar-benar intuisi, atau pikiranmu sedang bikin film sendiri?"
@@ -858,7 +858,7 @@ Pernah curiga duluan, padahal buktinya belum ada? Waktu itu benar-benar intuisi,
 
 ---
 
-### PAGE 41: Ganesha di Balik Leher dan Kera Liar Sun Go Kong
+### PAGE 41: Ganesha, Kera Liar, dan Pikiranmu
 
 **SIDE A TEXT:**
 > "Pikiranmu baru diajak mikir satu hal, lima detik kemudian sudah jalan-jalan ke mana-mana. Yang lucu, siapa yang sadar kalau pikiranmu sedang ke mana-mana?"
@@ -879,7 +879,7 @@ Pikiranmu baru diajak mikir satu hal, lima detik kemudian sudah jalan-jalan ke m
 
 ---
 
-### PAGE 42: Ritme Tiga Puluh Lima Hari Pembaruan Diri
+### PAGE 42: Ritme Tiga Puluh Lima Hari
 
 **SIDE A TEXT:**
 > "Kapan terakhir kali kamu benar-benar diam tanpa layar, tanpa suara, tanpa mencari sesuatu untuk mengisi waktu? Baru di situ biasanya kita tahu kepala kita seramai apa."
@@ -900,7 +900,7 @@ Kapan terakhir kali kamu benar-benar diam tanpa layar, tanpa suara, tanpa mencar
 
 ---
 
-### PAGE 43: Sains Pembersih Residu di Sekitarmu
+### PAGE 43: Membersihkan Sisa Hari
 
 **SIDE A TEXT:**
 > "Pulang setelah seharian ketemu banyak orang, tapi rasanya semua kejadian tadi masih menempel di badan. Kamu biasanya benar-benar pulang, atau cuma pindah tempat?"
@@ -921,7 +921,7 @@ Pulang setelah seharian ketemu banyak orang, tapi rasanya semua kejadian tadi ma
 
 ---
 
-### PAGE 44: Menarik Rem Darurat Tubuh Lewat Napas Panjang
+### PAGE 44: Menarik Rem Lewat Napas
 
 **SIDE A TEXT:**
 > "Kalau panik datang, kita sering ikut panik karena ingin paniknya cepat hilang. Coba tarik napas dan buang pelan. Lihat dulu apa tubuhmu bisa diajak turun."
@@ -942,7 +942,7 @@ Kalau panik datang, kita sering ikut panik karena ingin paniknya cepat hilang. C
 
 ---
 
-### PAGE 45: Menjadi Tuan di Rumah Diri Sendiri
+### PAGE 45: Menjadi Tuan di Rumah Sendiri
 
 **SIDE A TEXT:**
 > "Lepas alas kaki sebentar. Rasakan telapak kakimu menyentuh lantai atau tanah. Kita tiap hari tinggal di dalam tubuh ini, tapi jarang benar-benar menyadari sedang berada di sana."
@@ -967,7 +967,7 @@ Lepas alas kaki sebentar. Rasakan telapak kakimu menyentuh lantai atau tanah. Ki
 
 ---
 
-### PAGE 46: Fisika Kuantum, Relativitas & Keterhubungan Semesta
+### PAGE 46: Kenapa Kita Tetap Merasa Sendirian?
 
 **SIDE A TEXT:**
 > "Pernah duduk di tengah ramai orang tapi rasanya sendirian? Aneh juga. Udara yang kamu hirup sama, suara di sekeliling ada, tapi batin tetap merasa jauh."
@@ -988,7 +988,7 @@ Pernah duduk di tengah ramai orang tapi rasanya sendirian? Aneh juga. Udara yang
 
 ---
 
-### PAGE 47: Kenapa Kita Sering Merasa Sendirian?
+### PAGE 47: Kawan Lama yang Tiba-Tiba Muncul
 
 **SIDE A TEXT:**
 > "Sudah bertahun-tahun nggak ingat seseorang, tiba-tiba hari ini kepikiran. Besok dia muncul lewat pesan. Kamu bilang kebetulan?"
@@ -1009,7 +1009,7 @@ Sudah bertahun-tahun nggak ingat seseorang, tiba-tiba hari ini kepikiran. Besok 
 
 ---
 
-### PAGE 48: Dua Partikel yang Tak Pernah Berpisah
+### PAGE 48: Dua Partikel yang Tak Pernah Benar-Benar Jauh
 
 **SIDE A TEXT:**
 > "Pernah kepikiran seseorang yang jauh, lalu ternyata dia sedang mengalami sesuatu? Kalau pernah, pengalaman itu kamu simpan sebagai kebetulan saja atau masih mengganggu rasa penasaranmu?"
@@ -1030,7 +1030,7 @@ Pernah kepikiran seseorang yang jauh, lalu ternyata dia sedang mengalami sesuatu
 
 ---
 
-### PAGE 49: Darahmu Mengalir dari Tungku Bintang Purba
+### PAGE 49: Darahmu Punya Sejarah Bintang
 
 **SIDE A TEXT:**
 > "Pegang tanah atau batu sebentar. Benda yang kelihatannya biasa itu sudah mengalami perjalanan yang jauh lebih panjang daripada umur kita."
@@ -1051,7 +1051,7 @@ Pegang tanah atau batu sebentar. Benda yang kelihatannya biasa itu sudah mengala
 
 ---
 
-### PAGE 50: Waktu Sebenarnya Cuma Kesepakatan Sosial
+### PAGE 50: Waktu yang Kita Kejar-kejar
 
 **SIDE A TEXT:**
 > "Hari ini berapa kali kamu hidup di kemarin atau besok? Coba lihat meja, lantai, suara di sekitar. Yang ini sedang terjadi sekarang."
@@ -1072,7 +1072,7 @@ Hari ini berapa kali kamu hidup di kemarin atau besok? Coba lihat meja, lantai, 
 
 ---
 
-### PAGE 51: Ketika Akibat Mendahului Sebab
+### PAGE 51: Menunggu Hidup Dimulai
 
 **SIDE A TEXT:**
 > "“Nanti kalau sudah begini, baru gue nikmati.” Berapa lama kalimat itu sudah kamu pakai? Jangan-jangan hidup terus berjalan sambil kamu menunggu giliran menikmati."
@@ -1093,7 +1093,7 @@ An Indonesian mother in a modest batik sarong placing a simple plate of steaming
 
 ---
 
-### PAGE 52: Realitas Tergantung ke Mana Matamu Menatap
+### PAGE 52: Dunia Berubah Ketika Cara Melihat Berubah
 
 **SIDE A TEXT:**
 > "Masalahnya sama, tapi saat hati sedang curiga semuanya kelihatan lebih buruk. Pernah lihat masalah yang sama dari kepala yang sedang tenang? Rasanya bisa beda."
@@ -1114,7 +1114,7 @@ Masalahnya sama, tapi saat hati sedang curiga semuanya kelihatan lebih buruk. Pe
 
 ---
 
-### PAGE 53: Meleburnya Sekat Antara Dirimu dan Sang Maha Ada
+### PAGE 53: Ketika Sekat Diri Menipis
 
 **SIDE A TEXT:**
 > "Pernah duduk atau sujud sampai beberapa saat kamu lupa jabatanmu, cerita tentang dirimu, dan pendapat orang? Tinggal kamu saja."
@@ -1135,7 +1135,7 @@ Pernah duduk atau sujud sampai beberapa saat kamu lupa jabatanmu, cerita tentang
 
 ---
 
-### PAGE 54: Perjalanan Jiwa Menuju Manusia Utuh
+### PAGE 54: Menjadi Manusia Utuh
 
 **SIDE A TEXT:**
 > "Kalau semua yang kamu pelajari soal kesadaran benar-benar masuk ke hidupmu, orang rumah mestinya orang pertama yang merasakan. Bukan cuma teman seminar."
@@ -1156,7 +1156,7 @@ Kalau semua yang kamu pelajari soal kesadaran benar-benar masuk ke hidupmu, oran
 
 ---
 
-### PAGE 55: Sebelas Tembang Siklus Perjalanan Jiwa
+### PAGE 55: Sebelas Tembang Perjalanan Hidup
 
 **SIDE A TEXT:**
 > "Kalau hidup memang punya musimnya sendiri, kamu sekarang sedang musim apa? Jangan buru-buru memaksa musim hujan jadi musim kemarau."
@@ -1177,7 +1177,7 @@ Kalau hidup memang punya musimnya sendiri, kamu sekarang sedang musim apa? Janga
 
 ---
 
-### PAGE 56: Menikmati Secangkir Kopi Tanpa Menjajah Masa Depan
+### PAGE 56: Kopi yang Tidak Sempat Diminum
 
 **SIDE A TEXT:**
 > "Coba minum kopi pelan-pelan. Kopinya ada di mulutmu, tapi pikiranmu sedang ada di mana? Jangan sampai kopinya habis, kamu sendiri nggak sempat minum."
@@ -1198,7 +1198,7 @@ Coba minum kopi pelan-pelan. Kopinya ada di mulutmu, tapi pikiranmu sedang ada d
 
 ---
 
-### PAGE 57: Bisikan Halus di Dasar Hati Tanpa Pamrih
+### PAGE 57: Menolong Tanpa Menunggu Tepuk Tangan
 
 **SIDE A TEXT:**
 > "Pernah menolong orang lalu sengaja pergi sebelum dia sempat bilang terima kasih? Kalau nggak ada yang tahu, tanganmu masih mau memberi?"
@@ -1219,7 +1219,7 @@ Pernah menolong orang lalu sengaja pergi sebelum dia sempat bilang terima kasih?
 
 ---
 
-### PAGE 58: Dunia Luar Cuma Layar Bioskop Pikiranmu
+### PAGE 58: Jangan Marah pada Cermin
 
 **SIDE A TEXT:**
 > "Saat keadaan nggak sesuai keinginan, kita gampang menghantam apa saja yang ada di depan. Pernah berhenti sebentar dan melihat siapa sebenarnya yang sedang marah?"
@@ -1240,7 +1240,7 @@ Saat keadaan nggak sesuai keinginan, kita gampang menghantam apa saja yang ada d
 
 ---
 
-### PAGE 59: Menatap Seluruh Semesta di Dalam Cangkir Kopi
+### PAGE 59: Semesta di Dalam Secangkir Kopi
 
 **SIDE A TEXT:**
 > "Coba lihat cangkir kopi itu sebentar. Nggak usah dicari maknanya. Bisa nggak kamu melihat sesuatu yang sederhana tanpa buru-buru menjadikannya pelajaran?"
@@ -1261,7 +1261,7 @@ Coba lihat cangkir kopi itu sebentar. Nggak usah dicari maknanya. Bisa nggak kam
 
 ---
 
-### PAGE 60: Menjadi Manusia Normal & Seni Berserah
+### PAGE 60: Menjadi Manusia Biasa
 
 **SIDE A TEXT:**
 > "Di luar rumah mungkin kita sibuk jadi siapa-siapa. Begitu masuk rumah, masih perlu? Di depan orang yang tiap hari melihatmu, kamu mau jadi siapa?"
@@ -1286,7 +1286,7 @@ Di luar rumah mungkin kita sibuk jadi siapa-siapa. Begitu masuk rumah, masih per
 
 ---
 
-### PAGE 61: Ketika Kesucian Berubah Menjadi Topeng Baru
+### PAGE 61: Ketika Kesucian Jadi Topeng
 
 **SIDE A TEXT:**
 > "Baru belajar spiritual sedikit, tiba-tiba semua orang kelihatan belum sadar. Termasuk orang warung sebelah. Nah, biasanya justru di situ jebakannya."
@@ -1307,7 +1307,7 @@ Baru belajar spiritual sedikit, tiba-tiba semua orang kelihatan belum sadar. Ter
 
 ---
 
-### PAGE 62: Puncak Kesadaran Adalah Menjadi Manusia Biasa
+### PAGE 62: Puncak Kesadaran Itu Biasa Saja
 
 **SIDE A TEXT:**
 > "Coba perhatikan caramu bicara kepada orang yang sedang bekerja untukmu. Tukang sayur, tukang servis, siapa saja. Ilmu itu kelihatan juga dari cara kita memperlakukan orang."
@@ -1328,7 +1328,7 @@ Coba perhatikan caramu bicara kepada orang yang sedang bekerja untukmu. Tukang s
 
 ---
 
-### PAGE 63: Pertukaran Energi dan DNA di Balik Kelambu
+### PAGE 63: Pertukaran yang Terjadi di Balik Kelambu
 
 **SIDE A TEXT:**
 > "Saat bersama pasangan, tubuhmu benar-benar ada di situ atau kepala masih ke mana-mana? Dekat secara fisik belum tentu benar-benar hadir."
@@ -1349,7 +1349,7 @@ Saat bersama pasangan, tubuhmu benar-benar ada di situ atau kepala masih ke mana
 
 ---
 
-### PAGE 64: Bahaya Mengoleksi Residu Karma Orang Lain
+### PAGE 64: Apa yang Kita Bawa dari Hubungan Lama?
 
 **SIDE A TEXT:**
 > "Pernah masuk hubungan baru tapi masih membawa cerita dari yang lama? Yang dibawa pulang kadang bukan barang. Cara percaya, cara menyentuh, cara memperlakukan orang juga bisa ikut terbawa."
@@ -1370,7 +1370,7 @@ Pernah masuk hubungan baru tapi masih membawa cerita dari yang lama? Yang dibawa
 
 ---
 
-### PAGE 65: Titik Remuk Sebelum Sayapmu Tumbuh
+### PAGE 65: Titik Remuk Sebelum Tumbuh
 
 **SIDE A TEXT:**
 > "Pernah sampai pada titik semua pegangan seperti lepas satu-satu? Setelah nggak ada lagi yang bisa kamu pegang, apa yang tersisa?"
@@ -1391,7 +1391,7 @@ Pernah sampai pada titik semua pegangan seperti lepas satu-satu? Setelah nggak a
 
 ---
 
-### PAGE 66: Beda Jurang Antara Menyerah dan Berserah
+### PAGE 66: Menyerah atau Berserah?
 
 **SIDE A TEXT:**
 > "Pernah berusaha habis-habisan lalu sadar hasil akhirnya memang bukan lagi di tanganmu? Berusaha itu satu hal. Memaksa hasil sesuai kemauan kita, itu hal lain."
@@ -1412,7 +1412,7 @@ Pernah berusaha habis-habisan lalu sadar hasil akhirnya memang bukan lagi di tan
 
 ---
 
-### PAGE 67: Jangan Mengambil Alih Ujian Orang Lain
+### PAGE 67: Jangan Mengambil Alih Ujian Orang
 
 **SIDE A TEXT:**
 > "Pernah terlalu sibuk menyelesaikan masalah orang yang kamu sayang sampai lupa bahwa itu sebenarnya bagian dari perjalanan dia? Kadang menolong berarti tidak mengambil alih."
@@ -1433,7 +1433,7 @@ Pernah terlalu sibuk menyelesaikan masalah orang yang kamu sayang sampai lupa ba
 
 ---
 
-### PAGE 68: Hukum Kerentek Hati: Menolong Tanpa Beban
+### PAGE 68: Menolong Tanpa Menghitung Jasa
 
 **SIDE A TEXT:**
 > "Pernah menolong seseorang, lalu diam-diam berharap suatu hari dia ingat jasamu? Kalau dia lupa, hati masih bisa ringan?"
@@ -1454,7 +1454,7 @@ Pernah menolong seseorang, lalu diam-diam berharap suatu hari dia ingat jasamu? 
 
 ---
 
-### PAGE 69: Jer Basuki Mawa Beya Lawan Mental Murahan
+### PAGE 69: Jer Basuki Mawa Beya
 
 **SIDE A TEXT:**
 > "Ada sesuatu yang sangat kamu inginkan, tapi harganya terus kamu tawar. Kalau memang harus dibayar dengan waktu, tenaga, dan kenyamanan, sebenarnya kamu belum siap membayar yang mana?"
@@ -1475,7 +1475,7 @@ Ada sesuatu yang sangat kamu inginkan, tapi harganya terus kamu tawar. Kalau mem
 
 ---
 
-### PAGE 70: Menjaga Kebersihan Energi Saban Hari
+### PAGE 70: Jangan Bawa Pulang Semua yang Terjadi di Jalan
 
 **SIDE A TEXT:**
 > "Pernah pulang kerja membawa masalah kantor sampai orang rumah ikut kena suasananya? Mereka nggak tahu apa-apa, tapi ikut menerima sisa harimu."
@@ -1496,7 +1496,7 @@ Pernah pulang kerja membawa masalah kantor sampai orang rumah ikut kena suasanan
 
 ---
 
-### PAGE 71: Seni Berpegangan Erat di Tengah Badai
+### PAGE 71: Ketika Akal Sudah Buntu
 
 **SIDE A TEXT:**
 > "Pernah sampai nggak tahu harus berbuat apa lagi selain bersujud? Setelah semua cara dicoba, kadang yang tersisa memang bukan usaha lagi, tapi melepaskan."
@@ -1517,7 +1517,7 @@ Pernah sampai nggak tahu harus berbuat apa lagi selain bersujud? Setelah semua c
 
 ---
 
-### PAGE 72: Duduk Mendengarkan Tanpa Menghakimi
+### PAGE 72: Duduk dan Dengarkan
 
 **SIDE A TEXT:**
 > "Orang curhat itu kadang nggak butuh jawaban. Dia cuma butuh selesai ngomong. Bisa nggak kali ini kamu nggak sok tahu dulu?"
@@ -1538,7 +1538,7 @@ Orang curhat itu kadang nggak butuh jawaban. Dia cuma butuh selesai ngomong. Bis
 
 ---
 
-### PAGE 73: Arsitektur Batin yang Kokoh dan Bersahaja
+### PAGE 73: Spiritualitas yang Tidak Bikin Aneh
 
 **SIDE A TEXT:**
 > "Kalau nggak ada seorang pun tahu kamu belajar spiritualitas, apa yang masih kelihatan dari dirimu? Cara kerja? Cara bicara? Cara memperlakukan orang?"
@@ -1559,7 +1559,7 @@ Kalau nggak ada seorang pun tahu kamu belajar spiritualitas, apa yang masih keli
 
 ---
 
-### PAGE 74: Aku Telah Pulang ke Rumah Kesadaran
+### PAGE 74: Pulang ke Rumah
 
 **SIDE A TEXT:**
 > "Setelah sampai di ujung perjalanan ini, coba lihat lagi meja makan, rumah, keluarga, pekerjaan, dan secangkir kopi. Masih sama seperti dulu, atau kamu yang sudah melihatnya dengan cara berbeda?"

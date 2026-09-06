@@ -28,6 +28,7 @@ export interface Page {
   badge: string;
   title: string;
   subtitle?: string;
+  teaser?: string;
   paragraphs: string[];
   illustration_prompt?: string;
   illustration_description?: string;
