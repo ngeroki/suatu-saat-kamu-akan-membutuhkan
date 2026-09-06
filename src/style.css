@@ -353,22 +353,40 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 #screen-cover .full-bleed-bg {
-  background-position: center 36%;
-  transition: background-position 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(100% + 75px);
+  background-position: center top;
+  background-size: cover;
+  transform: translateY(-46px);
+  transition: transform 0.3s ease;
+  z-index: 0;
 }
 
-@media (max-height: 720px) {
+@media (max-height: 740px) {
   #screen-cover .full-bleed-bg {
-    background-position: center 32% !important;
+    transform: translateY(-56px);
   }
 }
 
 @media (max-height: 640px) {
   #screen-cover .full-bleed-bg {
-    background-position: center 28% !important;
+    transform: translateY(-64px);
+  }
+}
+
+@media (min-width: 481px) {
+  #screen-cover .full-bleed-bg {
+    top: 0;
+    height: 100%;
+    transform: none;
+    background-position: center 40%;
   }
 }
 
@@ -380,7 +398,7 @@ body {
     rgba(10, 10, 9, 0.55) 0%,
     rgba(10, 10, 9, 0.12) 24%,
     rgba(10, 10, 9, 0) 45%,
-    rgba(10, 10, 9, 0.2) 70%,
+    rgba(10, 10, 9, 0.15) 72%,
     rgba(10, 10, 9, 0.92) 100%
   );
   pointer-events: none;

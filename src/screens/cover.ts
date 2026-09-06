@@ -15,12 +15,12 @@ export class CoverScreen {
 
     this.el.innerHTML = `
       <!-- Full-bleed Master Background Image -->
-      <div class="full-bleed-bg" style="background-image: url('assets/hero_bg.jpg'); position: absolute; inset: 0; z-index: 0; background-position: center 36%; background-size: cover;"></div>
+      <div class="full-bleed-bg" style="background-image: url('assets/hero_bg.jpg');"></div>
       <!-- Subtle top & bottom readability gradients -->
-      <div class="cover-gradient-overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.12) 24%, rgba(10,10,10,0) 45%, rgba(10,10,10,0.2) 70%, rgba(10,10,10,0.92) 100%); z-index: 1; pointer-events: none;"></div>
+      <div class="cover-gradient-overlay"></div>
 
       <!-- Centered Editorial Typography Block (Navbar removed) -->
-      <div class="cover-header-block" style="position: relative; z-index: 3; padding: clamp(24px, 6vh, 48px) 20px 0; max-width: 480px; width: 100%; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <div class="cover-header-block" style="position: relative; z-index: 3; padding: clamp(20px, 5vh, 40px) 20px 0; max-width: 480px; width: 100%; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
         <div style="font-family: var(--sans); font-size: clamp(9px, 2.4vw, 10.5px); letter-spacing: clamp(2px, 0.8vw, 3px); color: rgba(235,226,214,0.75); text-transform: uppercase; margin-bottom: 8px; font-weight: 600; text-shadow: 0 2px 8px rgba(0,0,0,0.85), 0 1px 2px rgba(0,0,0,0.9);">
           Yogyakarta · 2026
         </div>
