@@ -342,12 +342,38 @@ export class ReaderScreen {
             <!-- Visual Stage (Tap anywhere to flip to Side B) -->
             <main class="m-visual-stage" id="m-stage-a">
               <div class="m-poster-box" id="m-poster-box">
-                <img
-                  src="${page.image_path}"
-                  alt="${page.title}"
-                  class="m-poster-img"
-                  loading="eager"
-                />
+                <div class="m-poster-frame">
+                  <img
+                    src="${page.image_path}"
+                    alt="${page.title}"
+                    class="m-poster-img"
+                    loading="eager"
+                  />
+
+                  <!-- Cinematic Vignette & Readability Scrim Overlay -->
+                  <div class="m-poster-vignette"></div>
+
+                  <!-- Editorial Typography Overlay (Side A Text & Metadata) -->
+                  <div class="m-poster-overlay">
+                    <!-- Top Metadata -->
+                    <div class="m-poster-meta-top">
+                      <div class="m-poster-badge">${page.chapter_code} · HALAMAN ${page.page_in_chap}</div>
+                      <h2 class="m-poster-title">${page.title}</h2>
+                      ${page.subtitle ? `<div class="m-poster-subtitle">${page.subtitle}</div>` : ""}
+                    </div>
+
+                    <!-- Lower/Middle Focal Self-Reflection Statement -->
+                    ${
+                      page.side_a_text
+                        ? `
+                    <div class="m-poster-reflection-box">
+                      <div class="m-poster-reflection-divider"></div>
+                      <p class="m-poster-reflection-text">“${page.side_a_text}”</p>
+                    </div>`
+                        : ""
+                    }
+                  </div>
+                </div>
 
                 <!-- Floating Chevrons: Left (<) and Right (>) -->
                 <button class="m-chevron m-chevron-prev" id="m-btn-prev-a" aria-label="${isFirst ? 'Kembali ke Prolog' : 'Halaman Sebelumnya'}" title="${isFirst ? 'Kembali ke Prolog' : 'Halaman Sebelumnya'}">
@@ -643,13 +669,33 @@ export class ReaderScreen {
             <!-- CENTER GUTTER -->
             <div style="width: 3px; background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1), rgba(0,0,0,0.4)); box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 5; flex-shrink: 0;"></div>
 
-            <!-- RIGHT PAGE: Artwork (Uncropped 9:16 Portrait) -->
+            <!-- RIGHT PAGE: Artwork (Uncropped 9:16 Portrait with Vignette & Typography) -->
             <div class="spread-page-right" style="flex: 1; position: relative; overflow: hidden; background: #0E0D0B; box-shadow: inset 18px 0 25px -10px rgba(0,0,0,0.45); border-top-right-radius: 5px; border-bottom-right-radius: 5px; display: flex; align-items: center; justify-content: center; padding: 12px;">
-              <img
-                src="${page.image_path}"
-                alt="${page.title}"
-                style="max-width: 100%; max-height: 100%; aspect-ratio: 9 / 16; object-fit: contain; border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.75); display: block;"
-              />
+              <div class="m-poster-frame" style="height: 100%; aspect-ratio: 9 / 16;">
+                <img
+                  src="${page.image_path}"
+                  alt="${page.title}"
+                  class="m-poster-img"
+                  style="width: 100%; height: 100%; object-fit: cover;"
+                />
+                <div class="m-poster-vignette"></div>
+                <div class="m-poster-overlay" style="padding: 20px 18px 24px;">
+                  <div class="m-poster-meta-top">
+                    <div class="m-poster-badge" style="font-size: 8.5px; letter-spacing: 1.8px;">${page.chapter_code} · HALAMAN ${page.page_in_chap}</div>
+                    <h2 class="m-poster-title" style="font-size: 15px; line-height: 1.25;">${page.title}</h2>
+                    ${page.subtitle ? `<div class="m-poster-subtitle" style="font-size: 10.5px;">${page.subtitle}</div>` : ""}
+                  </div>
+                  ${
+                    page.side_a_text
+                      ? `
+                  <div class="m-poster-reflection-box">
+                    <div class="m-poster-reflection-divider"></div>
+                    <p class="m-poster-reflection-text" style="font-size: 12.5px; line-height: 1.45;">“${page.side_a_text}”</p>
+                  </div>`
+                      : ""
+                  }
+                </div>
+              </div>
             </div>
           </div>
         </div>

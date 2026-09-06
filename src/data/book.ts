@@ -36,6 +36,7 @@ export interface Page {
   thumbnail?: string;
   visual_continuity_context?: VisualContinuityContext;
   image_path: string;
+  side_a_text?: string;
 }
 
 export interface ChapterMeta {
