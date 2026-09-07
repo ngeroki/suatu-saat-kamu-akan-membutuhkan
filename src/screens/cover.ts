@@ -15,7 +15,7 @@ export class CoverScreen {
 
     this.el.innerHTML = `
       <!-- Full-bleed Master Background Image -->
-      <div class="full-bleed-bg" style="background-image: url('assets/hero_bg.jpg');"></div>
+      <div class="full-bleed-bg" style="background-image: url('/assets/hero_bg.jpg');"></div>
       <!-- Subtle top & bottom readability gradients -->
       <div class="cover-gradient-overlay"></div>
 
