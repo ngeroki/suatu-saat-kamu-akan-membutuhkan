@@ -449,8 +449,8 @@ export class ReaderScreen {
               <span>›</span>
             </button>
 
-            <!-- Reading Body Stage -->
-            <main class="m-reading-stage" id="m-reading-stage" style="position: relative;">
+            <!-- Reading Body Stage (Tap anywhere to flip back to Side A) -->
+            <main class="m-reading-stage" id="m-reading-stage" style="cursor: pointer; position: relative;">
               <div class="m-reading-container">
                 <!-- Article Header -->
                 <header class="m-article-header">
@@ -566,6 +566,16 @@ export class ReaderScreen {
       const target = e.target as HTMLElement;
       if (target.closest(".m-chevron")) return;
       this.flipToSide("B");
+    });
+
+    // Side B Flip Trigger (Tap reading stage to flip back to Side A)
+    const stageB = this.el.querySelector("#m-reading-stage");
+    stageB?.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest(".m-chevron") || target.closest("button") || target.closest("a")) return;
+      const selection = window.getSelection();
+      if (selection && selection.toString().trim().length > 0) return;
+      this.flipToSide("A");
     });
 
     // Explicit Flip Cue Pill Buttons ("Baca naskah" & "Lihat Ilustrasi")
