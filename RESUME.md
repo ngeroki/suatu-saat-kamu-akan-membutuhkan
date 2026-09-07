@@ -1,15 +1,15 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-07T10:04:00+07:00 | Branch: master | Chapter Gate Typography: PASS
+Updated: 2026-09-07T11:48:00+07:00 | Branch: master | Chapter Illustrations Replaced: PASS
 
 ## Status & Environment
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Build: PASS (`npm run build`, tsc pass, vite build in 562ms)
+- Build: PASS (`npm run build`, tsc pass, vite build)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
+- Chapter Illustrations: 5 ilustrasi resmi bab dari `R:\download\New folder (7)` (`bab1.png` s/d `bab5.png`) telah dipasang 100% pada master slides 9:16 (`public/slides-portrait/bab-0*/slide-1.jpg`), thumbnails (`public/thumbnails/bab-0*/thumb-1.jpg`), serta assets chapter card Daftar Isi (`CHAPTERS` in `src/data/book.ts` dan `public/assets/`).
 - Chapter Gate Monumental Typography: Side A pembuka bab (Hal 1, 16, 31, 46, 60) kini menggunakan tipografi monumental minimalis bersih (`BAB X` + garis pembagi + JUDUL BAB all caps + deskripsi singkat puitis italic) tanpa kartu refleksi bawah, persis sesuai referensi pengguna.
 - Mobile Reader Navigation: Option 1 Ghost transparent chevrons active (borderless, transparent, 35% earth tone on Side B, 38% bone on Side A), text safe-margin increased to 32px
 - AI Humanizer Cleanup: 100% Em-Dashes (`—`) & Artificial Colons (`:`) eliminated. Paragraf hanya menyisakan titik dua pada dialog langsung kutipan (59 -> 14). Zero robotic dramatic pauses across all 74 pages.
 - Chapter Openings: 5 Chapter Gates (Hal 1, 16, 31, 46, 60) updated with authentic Mas Aldi quotes + stage-teaser narratives
-- Chapter Visuals: 5 Chapter opening illustrations regenerated via Gemini Pro (`gemini-image-gen`) at 1536x2752 in authentic Indonesian 35mm slow-cinema realism
 - Hero Header: White Bone Paper brush logotype (`/assets/suatu_saat_brush_bone.png`) with organic anti-aliasing & terracotta underline
 - Cover Metadata: Updated in `src/data/book-pages.json` (Title: "SUATU SAAT", Subtitle: "Tubuh, Pikiran, Leluhur, dan Seni Berserah", Tagline: "Kamu akan membutuhkan cara lain untuk melihat dirimu sendiri.")
 - Assets: 74/74 portrait slides (9:16 master), 74/74 thumbnails, 74/74 Side A reflections active
@@ -17,7 +17,17 @@ Updated: 2026-09-07T10:04:00+07:00 | Branch: master | Chapter Gate Typography: P
 - OpenCode Session: ses_f9de86d2cffeEHvpVqiwq3HP1P (idle/coordinated)
 
 ## Work Completed in This Session ([AG] Lead Architect)
-1. **Dedicated Minimalist Chapter Gate Typography (Pages 1, 16, 31, 46, 60)**:
+1. **Replacement of 5 Chapter Illustrations (`R:\download\New folder (7)`)**:
+   - Memproses dan memasang 5 ilustrasi master bab potret 9:16 dari folder unduhan:
+     - **Bab 1** (`bab1.png`): Meditasi pria ber-lurik menghadap Merapi & Borobudur saat fajar dengan cetak biru tubuh energi kosmik, tulang sulbi, buku Serat Centhini.
+     - **Bab 2** (`bab2.png`): Hujan malam di warkop Yogya, pantulan kaca jendela menyibak alam bawah sadar, memori foto masa lalu, pohon neuron batin.
+     - **Bab 3** (`bab3.png`): Biohacking leluhur, sinar mentari pagi menembus pohon beringin ke altar leluhur, cangkir kopi, kretek, dan keselarasan biologis raga.
+     - **Bab 4** (`bab4.jpg`): Fisika kuantum & keterhubungan semesta, dalang wayang kulit digerakkan oleh jemari dalang kosmik raksasa bercahaya.
+     - **Bab 5** (`bab5.png`): Menjadi manusia normal & berserah, menanggalkan jubah dan mahkota kesucian di ambang pintu, menyambut senyum anak, istri, kucing, dan keset "Selamat Datang Manusia Biasa".
+   - Menghasilkan slide master JPEG 1536x2730 berkualitas tinggi (`quality=95, optimize=True`) di `public/slides-portrait/bab-0*/slide-1.jpg`.
+   - Menghasilkan thumbnail resolusi tinggi Lanczos 357x640 di `public/thumbnails/bab-0*/thumb-1.jpg`.
+   - Menyelaraskan kartu bab Daftar Isi (`src/data/book.ts` dan `public/assets/`) sehingga kartu accordion Daftar Isi langsung menampilkan visual baru tersebut.
+2. **Dedicated Minimalist Chapter Gate Typography (Pages 1, 16, 31, 46, 60)**:
    - Mengimplementasikan tata letak tipografi khusus monumental untuk poster pembuka bab pada `src/screens/reader/reader.ts` dan `src/style.css`:
      - Label Bab: `BAB ${page.chapter_id}` dengan letter-spacing proporsional seragam (`0.35em`), font serif elegan.
      - Divider: Garis tipis 44px dengan bayangan lembut.

@@ -29,6 +29,7 @@
 ## 🚀 Status Milestone & Komponen
 | Komponen | File | Status | Keterangan |
 |---|---|---|---|
+| **5 New Master Chapter Illustrations (`New folder (7)`)** | `public/slides-portrait/bab-0*/slide-1.jpg`, `public/thumbnails/`, `CHAPTERS` | ✅ Done | Memasang 5 karya visual resmi bab (`bab1.png` s/d `bab5.png`) ke master slide 9:16, thumbnail Lanczos, dan kartu bab Daftar Isi; visual sangat mendalam & bernyawa; build PASS |
 | **Dedicated Chapter Gate Minimalist Typography** | `src/screens/reader/reader.ts`, `src/style.css`, `src/data/book-pages.json` | ✅ Done | Tipografi monumental bersih khusus Side A pembuka bab (1, 16, 31, 46, 60): `BAB X`, divider, All Caps Chapter Title, italic short description; kotak refleksi bawah dihilangkan khusus opener; visual bernapas lega; build PASS |
 | **Complete 100% AI Colon (`:`) & Em-Dash (`—`) Elimination** | `src/data/book-pages.json`, `docs/` | ✅ Done | Memangkas habis seluruh titik dua artifisial ala AI (59 -> 14 di paragraf, hanya dialog kutipan yang tersisa); nol sisa em-dash (`—`); tata bahasa lisan alami Nusantara; build PASS |
 | **Ghost Transparent Mobile Chevrons (Option 1)** | `src/style.css` | ✅ Done | Menghapus bulatan pekat & border pada panah navigasi `.m-chevron`; diganti ghost chevron transparan tipis (35% opacity warna earth di Side B, 38% bone di Side A); margin samping teks diperlebar 32px; build PASS |
