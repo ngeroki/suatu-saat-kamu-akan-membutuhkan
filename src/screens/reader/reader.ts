@@ -312,6 +312,15 @@ export class ReaderScreen {
     }
     const parasHTML = elements.join("");
 
+    const isChapterGate = page.page_in_chap === 1;
+    const chapterBrief = (page as any).chapter_brief || (
+      page.chapter_id === 1 ? "Mengenal peta halus di dalam diri, tempat tubuh, pikiran, dan masa lalu bertemu." :
+      page.chapter_id === 2 ? "Menembus samudra bawah sadar dan memprogram ulang cetak biru nasib." :
+      page.chapter_id === 3 ? "Menyeimbangkan pabrik hormon biologis dan sains laku tirakat leluhur." :
+      page.chapter_id === 4 ? "Menyingkap tenunan jala kosmik di balik ilusi keterpisahan manusia." :
+      page.chapter_id === 5 ? "Menanggalkan topeng kesucian dan kembali menjadi manusia normal yang berserah." : ""
+    );
+
     this.el.innerHTML = `
       <div class="mobile-reader-shell">
         <div class="m-sheet-container ${this.activeSide === 'B' ? 'side-b-active' : 'side-a-active'}">
@@ -354,6 +363,18 @@ export class ReaderScreen {
                   <div class="m-poster-vignette"></div>
 
                   <!-- Editorial Typography Overlay (Side A Text & Artistic Reflection) -->
+                  ${
+                    isChapterGate
+                      ? `
+                  <div class="m-poster-overlay is-chapter-gate">
+                    <div class="m-chapter-gate-wrap">
+                      <div class="m-chapter-gate-num">BAB ${page.chapter_id}</div>
+                      <div class="m-chapter-gate-divider"></div>
+                      <h2 class="m-chapter-gate-title">${page.chapter_name.toUpperCase()}</h2>
+                      <div class="m-chapter-gate-desc">${chapterBrief}</div>
+                    </div>
+                  </div>`
+                      : `
                   <div class="m-poster-overlay">
                     <!-- Top Title & Subtitle (Centered, Clean without Bab/Halaman) -->
                     <div class="m-poster-meta-top">
@@ -376,7 +397,8 @@ export class ReaderScreen {
                     </div>`
                         : ""
                     }
-                  </div>
+                  </div>`
+                  }
                 </div>
 
                 <!-- Floating Chevrons: Left (<) and Right (>) -->
@@ -612,6 +634,15 @@ export class ReaderScreen {
     }
     const parasHTML = dElements.join("");
 
+    const isChapterGate = page.page_in_chap === 1;
+    const chapterBrief = (page as any).chapter_brief || (
+      page.chapter_id === 1 ? "Mengenal peta halus di dalam diri, tempat tubuh, pikiran, dan masa lalu bertemu." :
+      page.chapter_id === 2 ? "Menembus samudra bawah sadar dan memprogram ulang cetak biru nasib." :
+      page.chapter_id === 3 ? "Menyeimbangkan pabrik hormon biologis dan sains laku tirakat leluhur." :
+      page.chapter_id === 4 ? "Menyingkap tenunan jala kosmik di balik ilusi keterpisahan manusia." :
+      page.chapter_id === 5 ? "Menanggalkan topeng kesucian dan kembali menjadi manusia normal yang berserah." : ""
+    );
+
     this.el.innerHTML = `
       <div class="desktop-reader-shell" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; padding-bottom: 8px;">
         <!-- Top Bar -->
@@ -683,6 +714,18 @@ export class ReaderScreen {
                   style="width: 100%; height: 100%; object-fit: cover;"
                 />
                 <div class="m-poster-vignette"></div>
+                ${
+                  isChapterGate
+                    ? `
+                <div class="m-poster-overlay is-chapter-gate" style="padding: clamp(24px, 5vh, 48px) 20px;">
+                  <div class="m-chapter-gate-wrap">
+                    <div class="m-chapter-gate-num" style="font-size: 11.5px; margin-bottom: 8px;">BAB ${page.chapter_id}</div>
+                    <div class="m-chapter-gate-divider" style="margin-bottom: 14px;"></div>
+                    <h2 class="m-chapter-gate-title" style="font-size: clamp(15px, 2vw, 18px); margin-bottom: 12px;">${page.chapter_name.toUpperCase()}</h2>
+                    <div class="m-chapter-gate-desc" style="font-size: clamp(11.5px, 1.3vw, 13px); max-width: 260px;">${chapterBrief}</div>
+                  </div>
+                </div>`
+                    : `
                 <div class="m-poster-overlay" style="padding: 24px 20px 28px;">
                   <div class="m-poster-meta-top">
                     <h2 class="m-poster-title" style="font-size: 15.5px; line-height: 1.25;">${page.title}</h2>
@@ -702,7 +745,8 @@ export class ReaderScreen {
                   </div>`
                       : ""
                   }
-                </div>
+                </div>`
+                }
               </div>
             </div>
           </div>
