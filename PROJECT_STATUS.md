@@ -29,6 +29,8 @@
 ## 🚀 Status Milestone & Komponen
 | Komponen | File | Status | Keterangan |
 |---|---|---|---|
+| **Mobile Reflection Box Bottom Anchoring** | `src/style.css` | ✅ Done | Menurunkan posisi kotak self-reflection (`.m-poster-reflection-box`) ke tepi bawah poster (`distanceFromBottom: 16px`), memadatkan padding & garis dekoratif; visual tengah lukisan 100% bebas hambatan; build PASS |
+| **Mobile PagePicker & Naskah Flip Stability** | `src/components/page-picker.ts`, `src/screens/reader/reader.ts` | ✅ Done | Menambahkan 350ms cooldown guard pada backdrop dismiss & menonaktifkan auto-select di touch screen; mencabut tap-to-flip pada `#m-reading-stage` sehingga teks naskah aman digulir/disentuh tanpa menutup sendiri; build PASS |
 | **5 New Master Chapter Illustrations (`New folder (7)`)** | `public/slides-portrait/bab-0*/slide-1.jpg`, `public/thumbnails/`, `CHAPTERS` | ✅ Done | Memasang 5 karya visual resmi bab (`bab1.png` s/d `bab5.png`) ke master slide 9:16, thumbnail Lanczos, dan kartu bab Daftar Isi; visual sangat mendalam & bernyawa; build PASS |
 | **Dedicated Chapter Gate Minimalist Typography** | `src/screens/reader/reader.ts`, `src/style.css`, `src/data/book-pages.json` | ✅ Done | Tipografi monumental bersih khusus Side A pembuka bab (1, 16, 31, 46, 60): `BAB X`, divider, All Caps Chapter Title, italic short description; kotak refleksi bawah dihilangkan khusus opener; visual bernapas lega; build PASS |
 | **Complete 100% AI Colon (`:`) & Em-Dash (`—`) Elimination** | `src/data/book-pages.json`, `docs/` | ✅ Done | Memangkas habis seluruh titik dua artifisial ala AI (59 -> 14 di paragraf, hanya dialog kutipan yang tersisa); nol sisa em-dash (`—`); tata bahasa lisan alami Nusantara; build PASS |
