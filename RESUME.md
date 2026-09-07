@@ -1,10 +1,11 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-07T09:52:00+07:00 | Branch: master | Colon & Dash Elimination: 100% PASS
+Updated: 2026-09-07T10:04:00+07:00 | Branch: master | Chapter Gate Typography: PASS
 
 ## Status & Environment
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Build: PASS (`npm run build`, tsc pass, vite build in 607ms)
+- Build: PASS (`npm run build`, tsc pass, vite build in 562ms)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
+- Chapter Gate Monumental Typography: Side A pembuka bab (Hal 1, 16, 31, 46, 60) kini menggunakan tipografi monumental minimalis bersih (`BAB X` + garis pembagi + JUDUL BAB all caps + deskripsi singkat puitis italic) tanpa kartu refleksi bawah, persis sesuai referensi pengguna.
 - Mobile Reader Navigation: Option 1 Ghost transparent chevrons active (borderless, transparent, 35% earth tone on Side B, 38% bone on Side A), text safe-margin increased to 32px
 - AI Humanizer Cleanup: 100% Em-Dashes (`—`) & Artificial Colons (`:`) eliminated. Paragraf hanya menyisakan titik dua pada dialog langsung kutipan (59 -> 14). Zero robotic dramatic pauses across all 74 pages.
 - Chapter Openings: 5 Chapter Gates (Hal 1, 16, 31, 46, 60) updated with authentic Mas Aldi quotes + stage-teaser narratives
@@ -16,7 +17,16 @@ Updated: 2026-09-07T09:52:00+07:00 | Branch: master | Colon & Dash Elimination: 
 - OpenCode Session: ses_f9de86d2cffeEHvpVqiwq3HP1P (idle/coordinated)
 
 ## Work Completed in This Session ([AG] Lead Architect)
-1. **Pembersihan Total Tanda Titik Dua (`:`) & Strip Panjang (`—`) Bawaan AI**:
+1. **Dedicated Minimalist Chapter Gate Typography (Pages 1, 16, 31, 46, 60)**:
+   - Mengimplementasikan tata letak tipografi khusus monumental untuk poster pembuka bab pada `src/screens/reader/reader.ts` dan `src/style.css`:
+     - Label Bab: `BAB ${page.chapter_id}` dengan letter-spacing proporsional seragam (`0.35em`), font serif elegan.
+     - Divider: Garis tipis 44px dengan bayangan lembut.
+     - Judul Bab: All-caps serif monumental `${page.chapter_name.toUpperCase()}` (21-25px, letter-spacing 0.04em, line-height 1.28).
+     - Deskripsi Singkat: Kalimat pengantar puitis 1-2 baris italic serif berbobot emosional tinggi (e.g. *"Mengenal peta halus di dalam diri, tempat tubuh, pikiran, dan masa lalu bertemu."*).
+     - Omit Reflection Box: Menghilangkan kotak refleksi bawah (`.m-poster-reflection-box`) khusus pada halaman pembuka bab agar visual bernapas lega dan kontras jelas terhadap 69 halaman naskah reguler.
+   - Menyimpan field `chapter_brief` resmi di `src/data/book-pages.json` untuk kelima bab.
+   - Mendukung tampilan mobile (390px) maupun simulator desktop spread.
+2. **Pembersihan Total Tanda Titik Dua (`:`) & Strip Panjang (`—`) Bawaan AI**:
    - Memangkas habis 45 titik dua artifisial di paragraf (59 -> 14) dan 80+ titik dua di naskah badan yang sebelumnya bertindak sebagai jeda dramatis ala AI.
    - Titik dua kini hanya tersisa pada ujaran dialog langsung (seperti `menusuk batin: "..."` atau `mendesah: '...'`).
    - Seluruh jeda dramatis diubah menjadi tata bahasa lisan Indonesia yang mengalir luwes (`saat`, `karena`, `yaitu`, koma, atau titik).

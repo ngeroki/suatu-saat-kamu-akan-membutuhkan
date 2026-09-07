@@ -29,6 +29,7 @@
 ## 🚀 Status Milestone & Komponen
 | Komponen | File | Status | Keterangan |
 |---|---|---|---|
+| **Dedicated Chapter Gate Minimalist Typography** | `src/screens/reader/reader.ts`, `src/style.css`, `src/data/book-pages.json` | ✅ Done | Tipografi monumental bersih khusus Side A pembuka bab (1, 16, 31, 46, 60): `BAB X`, divider, All Caps Chapter Title, italic short description; kotak refleksi bawah dihilangkan khusus opener; visual bernapas lega; build PASS |
 | **Complete 100% AI Colon (`:`) & Em-Dash (`—`) Elimination** | `src/data/book-pages.json`, `docs/` | ✅ Done | Memangkas habis seluruh titik dua artifisial ala AI (59 -> 14 di paragraf, hanya dialog kutipan yang tersisa); nol sisa em-dash (`—`); tata bahasa lisan alami Nusantara; build PASS |
 | **Ghost Transparent Mobile Chevrons (Option 1)** | `src/style.css` | ✅ Done | Menghapus bulatan pekat & border pada panah navigasi `.m-chevron`; diganti ghost chevron transparan tipis (35% opacity warna earth di Side B, 38% bone di Side A); margin samping teks diperlebar 32px; build PASS |
 | **Complete 100% AI Em-Dash (`—`) Elimination** | `src/data/book-pages.json`, `src/data/visual-narrative-74.json`, `docs/` | ✅ Done | Memangkas habis 67 tanda strip panjang (`—`) menjadi tanda kurung, titik dua, dan tata bahasa alami Indonesia; nol sisa em-dash di seluruh dataset; build PASS |
