@@ -717,7 +717,7 @@ export class ReaderScreen {
                 ${
                   isChapterGate
                     ? `
-                <div class="m-poster-overlay is-chapter-gate" style="padding: clamp(24px, 5vh, 48px) 20px;">
+                <div class="m-poster-overlay is-chapter-gate" style="justify-content: flex-end; padding: 20px 20px clamp(16px, 4vh, 28px);">
                   <div class="m-chapter-gate-wrap">
                     <div class="m-chapter-gate-num" style="font-size: 11.5px; margin-bottom: 8px;">BAB ${page.chapter_id}</div>
                     <div class="m-chapter-gate-divider" style="margin-bottom: 14px;"></div>

@@ -6,7 +6,7 @@ Updated: 2026-09-07T11:48:00+07:00 | Branch: master | Chapter Illustrations Repl
 - Build: PASS (`npm run build`, tsc pass, vite build)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
 - Chapter Illustrations: 5 ilustrasi resmi bab dari `R:\download\New folder (7)` (`bab1.png` s/d `bab5.png`) telah dipasang 100% pada master slides 9:16 (`public/slides-portrait/bab-0*/slide-1.jpg`), thumbnails (`public/thumbnails/bab-0*/thumb-1.jpg`), serta assets chapter card Daftar Isi (`CHAPTERS` in `src/data/book.ts` dan `public/assets/`).
-- Chapter Gate Monumental Typography: Side A pembuka bab (Hal 1, 16, 31, 46, 60) kini menggunakan tipografi monumental minimalis bersih (`BAB X` + garis pembagi + JUDUL BAB all caps + deskripsi singkat puitis italic) tanpa kartu refleksi bawah, persis sesuai referensi pengguna.
+- Chapter Gate Monumental Typography: Side A pembuka bab (Hal 1, 16, 31, 46, 60) kini menggunakan tipografi monumental minimalis bersih yang diposisikan di bagian bawah (`justify-content: flex-end`) dengan scrim gradien lembut, sehingga 100% karakter utama, wajah, dan detail ilustrasi di bagian atas dan tengah terlihat bebas tanpa tertutup teks.
 - Mobile Reader Navigation: Option 1 Ghost transparent chevrons active (borderless, transparent, 35% earth tone on Side B, 38% bone on Side A), text safe-margin increased to 32px
 - AI Humanizer Cleanup: 100% Em-Dashes (`—`) & Artificial Colons (`:`) eliminated. Paragraf hanya menyisakan titik dua pada dialog langsung kutipan (59 -> 14). Zero robotic dramatic pauses across all 74 pages.
 - Chapter Openings: 5 Chapter Gates (Hal 1, 16, 31, 46, 60) updated with authentic Mas Aldi quotes + stage-teaser narratives

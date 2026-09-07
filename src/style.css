@@ -788,10 +788,18 @@ body {
 
 /* === CHAPTER GATE MONUMENTAL TYPOGRAPHY (OPENING PAGES) === */
 .m-poster-overlay.is-chapter-gate {
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
-  padding-top: clamp(36px, 10vh, 72px);
-  padding-bottom: clamp(30px, 5vh, 48px);
+  padding-top: 20px;
+  padding-bottom: clamp(24px, 5.5vh, 38px);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 42%,
+    rgba(10, 10, 8, 0.25) 60%,
+    rgba(10, 10, 8, 0.75) 80%,
+    rgba(10, 10, 8, 0.95) 100%
+  );
 }
 
 .m-chapter-gate-wrap {
@@ -806,46 +814,46 @@ body {
 
 .m-chapter-gate-num {
   font-family: var(--serif);
-  font-size: clamp(12px, 3.2vw, 13.5px);
+  font-size: clamp(11.5px, 3vw, 13px);
   font-weight: 500;
-  letter-spacing: 0.38em;
-  text-indent: 0.38em;
+  letter-spacing: 0.35em;
+  text-indent: 0.35em;
   text-transform: uppercase;
   color: #EDE7DC;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.92), 0 1px 3px rgba(0, 0, 0, 0.95);
-  margin-bottom: 12px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.98);
+  margin-bottom: 8px;
 }
 
 .m-chapter-gate-divider {
-  width: 44px;
+  width: 40px;
   height: 1px;
   background: rgba(220, 205, 185, 0.6);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .m-chapter-gate-title {
   font-family: var(--serif);
-  font-size: clamp(21px, 5.5vw, 25px);
+  font-size: clamp(19px, 5vw, 23px);
   font-weight: 600;
-  line-height: 1.28;
+  line-height: 1.25;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #FDFBF7;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.96), 0 1px 4px rgba(0, 0, 0, 0.98);
-  margin: 0 0 16px 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.98), 0 1px 4px rgba(0, 0, 0, 0.98);
+  margin: 0 0 12px 0;
   max-width: 95%;
 }
 
 .m-chapter-gate-desc {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(13px, 3.5vw, 14.5px);
-  line-height: 1.58;
+  font-size: clamp(12.5px, 3.2vw, 14px);
+  line-height: 1.52;
   letter-spacing: 0.2px;
   color: rgba(245, 239, 235, 0.92);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.9);
-  max-width: 290px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.98), 0 1px 3px rgba(0, 0, 0, 0.95);
+  max-width: 295px;
   margin: 0 auto;
 }
 
