@@ -25,6 +25,13 @@ Updated: 2026-09-07T18:55:00+07:00 | Branch: master | Status: Visual Audit 100% 
    - Batch 1 (Hal 5, 6, 34, 45, 47): Seluruh master potret 9:16 (>2.5MB) dan thumbnail Lanczos selesai.
    - Batch 2 (Hal 50, 51, 52, 53, 54, 55): Seluruh master potret 9:16 (>2.6MB) selesai.
    - Batch 3 (Hal 66, 67, 68, 73): Seluruh master potret 9:16 (>3.0MB) selesai.
+   - **Youth Rejuvenation Pass (Target Persona Usia 25-35 Tahun)**:
+     * Hal 5: Pemuda Jawa (28-30 tahun) bersimpuh menyadari tulang ekor / biologis raga (2.88 MB).
+     * Hal 63: Pasangan muda (27-29 tahun) berbaring tenang di balik kelambu (3.21 MB).
+     * Hal 66: Pemuda (30-32 tahun) berdiri berserah di tepi pantai Parangtritis senja berbadai (2.75 MB).
+     * Hal 67: Tetap dipertahankan (Ibu sepuh menahan diri dari pintu joglo) sesuai instruksi user.
+     * Hal 73: Pengrajin kayu muda (30-33 tahun) merapatkan pasak soko guru di bengkel (3.30 MB).
+     * Hal 74: Keluarga muda (ayah 30-an, ibu 20-an akhir, balita 4 tahun) makan malam bahagia bersahaja (3.02 MB).
 5. **Fase 5: Automated Visual Audit & Rigorous Verification**:
    - Seluruh 25 halaman audit di-render dan di-capture per halaman (Side A & Side B) menggunakan Playwright browser engine pada viewport iPhone 390x844:
      * `audit/screenshots_25/` (direktori repo).
