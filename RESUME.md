@@ -1,5 +1,5 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-07T16:26:00+07:00 | Branch: master | Commit: 6c412a7 | Status: Audit Verified & Implementation Plan APPROVED
+Updated: 2026-09-07T16:37:00+07:00 | Branch: master | Commit: a8afe3c | Status: Hero BG Updated & Plan APPROVED
 
 ## Status & Environment
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
@@ -8,9 +8,13 @@ Updated: 2026-09-07T16:26:00+07:00 | Branch: master | Commit: 6c412a7 | Status: 
 - OpenCode Session: ses_f9de86d2cffeEHvpVqiwq3HP1P (idle/coordinated)
 - Verified Milestone: Audit manual 25 halaman pengguna + perbaikan narasi Bab 4 (jiwa panggung Cak Nun) & Bab 5 (transisi alur 7 tangga) telah selesai diperiksa dan 100% tervalidasi.
 - Plan Status: `implementation_plan.md` telah disetujui pengguna (termasuk Fast-Path Swap Hal 34->29, Hal 73->74, dan inpainting/recreate cacat tangan Hal 63).
+- Hero Cover: Artwork background cover homepage (`public/assets/hero_bg.jpg`) telah diganti dengan versi visual terbaru bersih (tanpa sub-teks bertumpuk).
 
 ## Work Completed in This Session ([AG] Lead Architect)
-1. **Deep Audit Verification (25 Pages & Macro Narrative)**:
+1. **Hero Cover Background Image Quick Fix**:
+   - Memperbarui `public/assets/hero_bg.jpg` dengan artwork bersih terbaru dari pengguna.
+   - Menyelaraskan URL path di `src/screens/cover.ts` menjadi `/assets/hero_bg.jpg`.
+2. **Deep Audit Verification (25 Pages & Macro Narrative)**:
    - Memeriksa ketidakcocokan visual dan naskah pada 25 halaman (5, 6, 7, 11, 29, 30, 33, 34, 39, 41, 45, 47, 50, 51, 52, 53, 54, 55, 63, 66, 67, 68, 69, 73, 74).
    - Mengidentifikasi fast-path swap: Hal 34 (`slide-4.jpg`: macet lalu lintas) cocok 1:1 untuk Hal 29; Hal 73 (`slide-14.jpg`: makan malam amplop gaji) cocok 1:1 untuk Hal 74.
    - Mengidentifikasi cacat AI jari tangan pasutri di Hal 63 (`bab-05/slide-4.jpg`).
