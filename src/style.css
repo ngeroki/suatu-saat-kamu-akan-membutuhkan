@@ -690,7 +690,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(16px, 4vh, 24px) clamp(16px, 4vw, 22px) clamp(46px, 7vh, 60px);
+  padding: clamp(14px, 3vh, 20px) clamp(14px, 3.5vw, 20px) clamp(10px, 2vh, 16px);
   z-index: 3;
   box-sizing: border-box;
 }
@@ -740,50 +740,50 @@ body {
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  max-width: 88%;
+  max-width: 90%;
   position: relative;
-  padding: 14px 18px 12px;
-  background: radial-gradient(ellipse at 50% 50%, rgba(14, 13, 11, 0.72) 0%, rgba(14, 13, 11, 0.35) 75%, transparent 100%);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 12px;
+  padding: 8px 16px 8px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(14, 13, 11, 0.78) 0%, rgba(14, 13, 11, 0.42) 80%, transparent 100%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
   border-top: 1px solid rgba(205, 179, 151, 0.22);
   border-bottom: 1px solid rgba(205, 179, 151, 0.22);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
 }
 
 .m-art-flourish {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .m-art-flourish-line {
-  width: 32px;
+  width: 24px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(205, 179, 151, 0.75), transparent);
 }
 
 .m-art-flourish-icon {
-  font-size: 11px;
+  font-size: 10px;
   color: #CDB397;
   line-height: 1;
-  text-shadow: 0 0 8px rgba(205, 179, 151, 0.6);
+  text-shadow: 0 0 6px rgba(205, 179, 151, 0.6);
   letter-spacing: 0;
 }
 
 .m-poster-reflection-text {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(13px, 3.5vw, 15.5px);
-  line-height: 1.55;
-  letter-spacing: 0.2px;
+  font-size: clamp(12px, 3.2vw, 14px);
+  line-height: 1.45;
+  letter-spacing: 0.15px;
   color: #FAF6EE;
   margin: 0;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.98), 0 1px 4px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.98), 0 1px 4px rgba(0, 0, 0, 0.95);
 }
 
 /* === CHAPTER GATE MONUMENTAL TYPOGRAPHY (OPENING PAGES) === */

@@ -449,8 +449,8 @@ export class ReaderScreen {
               <span>›</span>
             </button>
 
-            <!-- Reading Body Stage (Tap anywhere to flip back to Side A) -->
-            <main class="m-reading-stage" id="m-reading-stage" style="cursor: pointer; position: relative;">
+            <!-- Reading Body Stage -->
+            <main class="m-reading-stage" id="m-reading-stage" style="position: relative;">
               <div class="m-reading-container">
                 <!-- Article Header -->
                 <header class="m-article-header">
@@ -531,10 +531,12 @@ export class ReaderScreen {
     // Page Number Click -> Toggle Instant Page Picker Popover
     this.el.querySelector("#m-hdr-page-a")?.addEventListener("click", (e) => {
       e.stopPropagation();
+      e.preventDefault();
       this.togglePagePicker();
     });
     this.el.querySelector("#m-hdr-page-b")?.addEventListener("click", (e) => {
       e.stopPropagation();
+      e.preventDefault();
       this.togglePagePicker();
     });
 
@@ -558,7 +560,7 @@ export class ReaderScreen {
       this.nextPage();
     });
 
-    // Side A Flip Trigger (Tap poster stage or hint cue to flip to Side B)
+    // Side A Flip Trigger (Tap poster stage to flip to Side B)
     const stageA = this.el.querySelector("#m-stage-a");
     stageA?.addEventListener("click", (e) => {
       const target = e.target as HTMLElement;
@@ -566,17 +568,7 @@ export class ReaderScreen {
       this.flipToSide("B");
     });
 
-    // Side B Flip Trigger (Tap reading stage to flip back to Side A)
-    const stageB = this.el.querySelector("#m-reading-stage");
-    stageB?.addEventListener("click", (e) => {
-      const target = e.target as HTMLElement;
-      if (target.closest(".m-chevron") || target.closest("button") || target.closest("a")) return;
-      const selection = window.getSelection();
-      if (selection && selection.toString().trim().length > 0) return;
-      this.flipToSide("A");
-    });
-
-    // Explicit Flip Cue Pill Buttons ("Baca naskah" & "Lihat gambar")
+    // Explicit Flip Cue Pill Buttons ("Baca naskah" & "Lihat Ilustrasi")
     this.el.querySelector("#m-btn-flip-cue")?.addEventListener("click", (e) => {
       e.stopPropagation();
       this.flipToSide("B");

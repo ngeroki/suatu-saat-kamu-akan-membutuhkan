@@ -21,6 +21,7 @@ export class PagePicker {
   private currentGlobalIndex = 0;
   private isOpen = false;
   private viewingBookmarks = false;
+  private openTimestamp = 0;
 
   constructor(options: PagePickerOptions) {
     this.container = options.container;
@@ -53,6 +54,7 @@ export class PagePicker {
     this.activeChapterId = curPage ? curPage.chapter_id : 1;
     this.viewingBookmarks = false;
     this.isOpen = true;
+    this.openTimestamp = Date.now();
 
     this.closeDomImmediate();
 
@@ -64,9 +66,10 @@ export class PagePicker {
     this.renderBase();
     this.container.appendChild(overlay);
 
-    // Auto-focus input without forcing zoom on mobile
+    // Auto-focus input on desktop, but do not force keyboard popup / viewport shift on touch devices
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
     const inputEl = overlay.querySelector("#picker-input-page") as HTMLInputElement;
-    if (inputEl) {
+    if (inputEl && !isTouch) {
       inputEl.select();
     }
   }
@@ -143,7 +146,23 @@ export class PagePicker {
     `;
 
     // Bind Base Events
-    this.overlayEl.querySelector("#picker-backdrop")?.addEventListener("click", () => this.close());
+    const backdrop = this.overlayEl.querySelector("#picker-backdrop");
+    const handleBackdropDismiss = (e: Event) => {
+      // Ignore phantom clicks/touch bleeds occurring immediately after opening on mobile
+      if (Date.now() - this.openTimestamp < 350) {
+        e.stopPropagation();
+        e.preventDefault();
+        return;
+      }
+      this.close();
+    };
+    backdrop?.addEventListener("click", handleBackdropDismiss);
+    backdrop?.addEventListener("touchend", handleBackdropDismiss);
+
+    const popoverCard = this.overlayEl.querySelector(".picker-popover-card");
+    popoverCard?.addEventListener("click", (e) => e.stopPropagation());
+    popoverCard?.addEventListener("touchend", (e) => e.stopPropagation());
+
     this.overlayEl.querySelector("#picker-close-btn")?.addEventListener("click", () => this.close());
 
     const inputEl = this.overlayEl.querySelector("#picker-input-page") as HTMLInputElement;
