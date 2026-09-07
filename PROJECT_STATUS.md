@@ -29,6 +29,7 @@
 ## 🚀 Status Milestone & Komponen
 | Komponen | File | Status | Keterangan |
 |---|---|---|---|
+| **Complete 100% AI Colon (`:`) & Em-Dash (`—`) Elimination** | `src/data/book-pages.json`, `docs/` | ✅ Done | Memangkas habis seluruh titik dua artifisial ala AI (59 -> 14 di paragraf, hanya dialog kutipan yang tersisa); nol sisa em-dash (`—`); tata bahasa lisan alami Nusantara; build PASS |
 | **Ghost Transparent Mobile Chevrons (Option 1)** | `src/style.css` | ✅ Done | Menghapus bulatan pekat & border pada panah navigasi `.m-chevron`; diganti ghost chevron transparan tipis (35% opacity warna earth di Side B, 38% bone di Side A); margin samping teks diperlebar 32px; build PASS |
 | **Complete 100% AI Em-Dash (`—`) Elimination** | `src/data/book-pages.json`, `src/data/visual-narrative-74.json`, `docs/` | ✅ Done | Memangkas habis 67 tanda strip panjang (`—`) menjadi tanda kurung, titik dua, dan tata bahasa alami Indonesia; nol sisa em-dash di seluruh dataset; build PASS |
 | **Chapter Openings Text & Narrative Overhaul** | `src/data/book-pages.json` | ✅ Done | Mengganti 100% blurb promosi di 5 pembuka bab (1, 16, 31, 46, 60) dengan cuplikan verbatim Mas Aldi + teaser panggung Maiyah Cak Nun; build PASS |

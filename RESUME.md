@@ -1,12 +1,12 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-07T09:40:00+07:00 | Branch: master | Ghost Chevrons & 100% Em-Dash Elimination: PASS
+Updated: 2026-09-07T09:52:00+07:00 | Branch: master | Colon & Dash Elimination: 100% PASS
 
 ## Status & Environment
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Build: PASS (`npm run build`, tsc pass, vite build in 574ms)
+- Build: PASS (`npm run build`, tsc pass, vite build in 607ms)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
 - Mobile Reader Navigation: Option 1 Ghost transparent chevrons active (borderless, transparent, 35% earth tone on Side B, 38% bone on Side A), text safe-margin increased to 32px
-- AI Humanizer Cleanup: 100% Em-Dashes (`—`) eliminated from the entire dataset (67 -> 0 in `book-pages.json`, all docs & catalogs synchronized)
+- AI Humanizer Cleanup: 100% Em-Dashes (`—`) & Artificial Colons (`:`) eliminated. Paragraf hanya menyisakan titik dua pada dialog langsung kutipan (59 -> 14). Zero robotic dramatic pauses across all 74 pages.
 - Chapter Openings: 5 Chapter Gates (Hal 1, 16, 31, 46, 60) updated with authentic Mas Aldi quotes + stage-teaser narratives
 - Chapter Visuals: 5 Chapter opening illustrations regenerated via Gemini Pro (`gemini-image-gen`) at 1536x2752 in authentic Indonesian 35mm slow-cinema realism
 - Hero Header: White Bone Paper brush logotype (`/assets/suatu_saat_brush_bone.png`) with organic anti-aliasing & terracotta underline
@@ -16,7 +16,11 @@ Updated: 2026-09-07T09:40:00+07:00 | Branch: master | Ghost Chevrons & 100% Em-D
 - OpenCode Session: ses_f9de86d2cffeEHvpVqiwq3HP1P (idle/coordinated)
 
 ## Work Completed in This Session ([AG] Lead Architect)
-1. **Option 1 Minimalist Ghost Transparent Chevrons**:
+1. **Pembersihan Total Tanda Titik Dua (`:`) & Strip Panjang (`—`) Bawaan AI**:
+   - Memangkas habis 45 titik dua artifisial di paragraf (59 -> 14) dan 80+ titik dua di naskah badan yang sebelumnya bertindak sebagai jeda dramatis ala AI.
+   - Titik dua kini hanya tersisa pada ujaran dialog langsung (seperti `menusuk batin: "..."` atau `mendesah: '...'`).
+   - Seluruh jeda dramatis diubah menjadi tata bahasa lisan Indonesia yang mengalir luwes (`saat`, `karena`, `yaitu`, koma, atau titik).
+2. **Option 1 Minimalist Ghost Transparent Chevrons**:
    - Menghapus bulatan latar belakang hitam pekat dan border pada `.m-chevron` di Side A dan Side B.
    - Mengubah tanda panah menjadi *ghost chevron* tipis transparan (35% opacity warna earth `#7A6045` di atas kertas gading Side B, 38% warna bone di atas lukisan Side A).
    - Memperlebar margin samping teks bacaan menjadi 32px dan menambah bottom clearance (64px) sehingga baris naskah 100% bebas hambatan visual.
