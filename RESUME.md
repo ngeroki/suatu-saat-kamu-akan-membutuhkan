@@ -1,11 +1,13 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-07T05:16:00+07:00 | Branch: master | Chapter Openings Overhaul (Texts & Images): 100% PASS
+Updated: 2026-09-07T09:40:00+07:00 | Branch: master | Ghost Chevrons & 100% Em-Dash Elimination: PASS
 
 ## Status & Environment
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
-- Build: PASS (`npm run build`, tsc pass, vite build in 47s)
+- Build: PASS (`npm run build`, tsc pass, vite build in 574ms)
 - Typecheck: PASS (`tsc --noEmit` exit code 0)
-- Chapter Openings: 5 Chapter Gates (Hal 1, 16, 31, 46, 60) updated with authentic Mas Aldi quotes + stage-teaser narratives (no AI em-dashes, no meta-blurbs)
+- Mobile Reader Navigation: Option 1 Ghost transparent chevrons active (borderless, transparent, 35% earth tone on Side B, 38% bone on Side A), text safe-margin increased to 32px
+- AI Humanizer Cleanup: 100% Em-Dashes (`—`) eliminated from the entire dataset (67 -> 0 in `book-pages.json`, all docs & catalogs synchronized)
+- Chapter Openings: 5 Chapter Gates (Hal 1, 16, 31, 46, 60) updated with authentic Mas Aldi quotes + stage-teaser narratives
 - Chapter Visuals: 5 Chapter opening illustrations regenerated via Gemini Pro (`gemini-image-gen`) at 1536x2752 in authentic Indonesian 35mm slow-cinema realism
 - Hero Header: White Bone Paper brush logotype (`/assets/suatu_saat_brush_bone.png`) with organic anti-aliasing & terracotta underline
 - Cover Metadata: Updated in `src/data/book-pages.json` (Title: "SUATU SAAT", Subtitle: "Tubuh, Pikiran, Leluhur, dan Seni Berserah", Tagline: "Kamu akan membutuhkan cara lain untuk melihat dirimu sendiri.")
@@ -14,7 +16,15 @@ Updated: 2026-09-07T05:16:00+07:00 | Branch: master | Chapter Openings Overhaul 
 - OpenCode Session: ses_f9de86d2cffeEHvpVqiwq3HP1P (idle/coordinated)
 
 ## Work Completed in This Session ([AG] Lead Architect)
-1. **Chapter Openings Text & Narrative Overhaul (Pages 1, 16, 31, 46, 60)**:
+1. **Option 1 Minimalist Ghost Transparent Chevrons**:
+   - Menghapus bulatan latar belakang hitam pekat dan border pada `.m-chevron` di Side A dan Side B.
+   - Mengubah tanda panah menjadi *ghost chevron* tipis transparan (35% opacity warna earth `#7A6045` di atas kertas gading Side B, 38% warna bone di atas lukisan Side A).
+   - Memperlebar margin samping teks bacaan menjadi 32px dan menambah bottom clearance (64px) sehingga baris naskah 100% bebas hambatan visual.
+2. **Complete 100% Elimination of AI Em-Dashes (`—`)**:
+   - Memindai dan membersihkan seluruh 67 tanda strip panjang (`—`) di `src/data/book-pages.json`.
+   - Mengonversi padanan istilah asing menjadi tanda kurung alami, klausul penjelas menjadi titik dua (`:`) atau koma (`,`), dan sambungan konjungsi menjadi tata bahasa Indonesia yang wajar.
+   - Menyelaraskan seluruh katalog `src/data/visual-narrative-74.json`, `docs/visual-narratives/`, dan `docs/visual-narrative-prompts-74.md`.
+3. **Chapter Openings Text & Narrative Overhaul (Pages 1, 16, 31, 46, 60)**:
    - Menghapus 100% kalimat promosi/meta-blurb AI ("Buku ini mengajakmu...", "Bab ini akan membedah...").
    - Memasang cuplikan verbatim kutipan filosofis Mas Aldi (`@rahwanaconsciousnessroom`) di tiap pembuka bab.
    - Menulis naskah teaser panggung gaya Maiyah/Cak Nun yang menantang, merangkum poin unik tiap bab, dan bebas dari tanda strip panjang (`—`).

@@ -1,4 +1,4 @@
-# SUATU SAAT — NARRATIVE VISUAL + SELF-REFLECTION DOSSIER (74 HALAMAN)
+# SUATU SAAT: NARRATIVE VISUAL + SELF-REFLECTION DOSSIER (74 HALAMAN)
 
 Dokumen resmi arahan narasi visual, teks Side A, prompt Gemini, dan jangkar naskah untuk 74 halaman buku *Suatu Saat Kamu Akan Membutuhkan*.
 
@@ -6,7 +6,7 @@ Disusun berdasarkan Master Prompt dengan pemisahan tegas antara tipografi UI dan
 
 ---
 
-## BAB 01 — Anatomi Tubuh Energi & Memori Karma
+## BAB 01: Anatomi Tubuh Energi & Memori Karma
 
 ---
 
@@ -325,7 +325,7 @@ Jantungmu tetap bekerja meskipun kamu sedang nggak mengerjakan apa-apa. Kapan te
 
 ---
 
-## BAB 02 — Meretas Pikiran Bawah Sadar & Reprogramming Nasib
+## BAB 02: Meretas Pikiran Bawah Sadar & Reprogramming Nasib
 
 ---
 
@@ -644,7 +644,7 @@ Kalau layar di depanmu bikin kesal, yang kita marahi biasanya layarnya. Padahal 
 
 ---
 
-## BAB 03 — Sistem Hormon, Biohacking Leluhur & Energi Fisik
+## BAB 03: Sistem Hormon, Biohacking Leluhur & Energi Fisik
 
 ---
 
@@ -679,7 +679,7 @@ Lantai dapur semen ekspos sederhana khas rumah Indonesia dengan serakan pecahan 
 
 **IMAGE PROMPT (9:16 Vertical):**
 ```text
-[SUBJECT] Fragments of a shattered vintage floral ceramic plate scattered across an Indonesian kitchen floor, with bare feet of a person standing frozen nearby * [ORDINARY INDONESIAN ENVIRONMENT] Authentic humble Indonesian home kitchen with smooth grey unpolished cement floor (lantai semen plesteran), weathered wooden cabinet edge, traditional broom leaning against the wall * [HUMAN ACTION / EMOTION] The hesitation and visceral pause of a person looking down at the sudden break, emotional tension suspended in stillness * [ONE VISUAL METAPHOR] The glossy split reflection on the ceramic shards subtly fractures into two distinct hues on the floor—a faint stress-induced crimson warmth on one side and a soothing cool dewdrop clear tone on the other * [LIGHTING] Low-angle morning window light slicing across the cement floor, casting elongated soft shadows and catching sharp ceramic edges * [MATERIAL / TEXTURE] Sharp porcelain ceramic glaze, porous raw matte concrete, natural skin texture of bare feet, fine dust particles in air * [COMPOSITION] Vertical 9:16 perspective, top-down angled shot looking at the floor fragments, spacious negative space in upper third * [STYLE] Intimate editorial documentary photography, 35mm film still, Leica M aesthetic, desaturated earth tones with terracotta and bone accents * [NEGATIVE CONSTRAINTS] No melodramatic facial grimace, no 3D computer graphics, no text, no captions, no floating sci-fi icons, no blood, no messy cartoon clutter
+[SUBJECT] Fragments of a shattered vintage floral ceramic plate scattered across an Indonesian kitchen floor, with bare feet of a person standing frozen nearby * [ORDINARY INDONESIAN ENVIRONMENT] Authentic humble Indonesian home kitchen with smooth grey unpolished cement floor (lantai semen plesteran), weathered wooden cabinet edge, traditional broom leaning against the wall * [HUMAN ACTION / EMOTION] The hesitation and visceral pause of a person looking down at the sudden break, emotional tension suspended in stillness * [ONE VISUAL METAPHOR] The glossy split reflection on the ceramic shards subtly fractures into two distinct hues on the floor: a faint stress-induced crimson warmth on one side and a soothing cool dewdrop clear tone on the other * [LIGHTING] Low-angle morning window light slicing across the cement floor, casting elongated soft shadows and catching sharp ceramic edges * [MATERIAL / TEXTURE] Sharp porcelain ceramic glaze, porous raw matte concrete, natural skin texture of bare feet, fine dust particles in air * [COMPOSITION] Vertical 9:16 perspective, top-down angled shot looking at the floor fragments, spacious negative space in upper third * [STYLE] Intimate editorial documentary photography, 35mm film still, Leica M aesthetic, desaturated earth tones with terracotta and bone accents * [NEGATIVE CONSTRAINTS] No melodramatic facial grimace, no 3D computer graphics, no text, no captions, no floating sci-fi icons, no blood, no messy cartoon clutter
 ```
 
 **SOURCE ANCHOR:**
@@ -721,7 +721,7 @@ Kamar tidur sederhana rumah Jawa sebelum fajar; seseorang berbaring diam di kasu
 
 **IMAGE PROMPT (9:16 Vertical):**
 ```text
-[SUBJECT] An Indonesian individual lying still on a traditional cotton-stuffed kapok mattress, hands resting gently on the stomach * [ORDINARY INDONESIAN ENVIRONMENT] Simple traditional Javanese bedroom, woven gedheg bamboo wall on one side, wooden louvered window slightly cracked open to the pre-dawn sky * [HUMAN ACTION / EMOTION] Taking a slow conscious breath in the stillness, relaxing tense elevated shoulders, transitioning from chronic hypervigilance to somatic surrender * [ONE VISUAL METAPHOR] A subtle atmospheric gradient in the air—the faint dry dust haze near a face-down phone dissolving into cool crystalline pre-dawn mountain vapor entering from the window * [LIGHTING] Twilight pre-dawn blue hour (fajar sadik) mixed with faint amber horizon glow through the window slats * [MATERIAL / TEXTURE] Woven handloom lurik fabric blanket, natural kapok mattress folds, rough bamboo weave, cool humid dawn air * [COMPOSITION] Vertical 9:16 high-angle perspective looking down at the resting figure, ample calm negative space in the upper shadows * [STYLE] Editorial meditative photography, cinematic film still, analog grain, earthy charcoal and indigo tones with pale dawn gold * [NEGATIVE CONSTRAINTS] No cartoon comic hormones, no neon glowing forcefields, no sci-fi medical HUD, no text, no digital clock overlays, no exaggerated poses
+[SUBJECT] An Indonesian individual lying still on a traditional cotton-stuffed kapok mattress, hands resting gently on the stomach * [ORDINARY INDONESIAN ENVIRONMENT] Simple traditional Javanese bedroom, woven gedheg bamboo wall on one side, wooden louvered window slightly cracked open to the pre-dawn sky * [HUMAN ACTION / EMOTION] Taking a slow conscious breath in the stillness, relaxing tense elevated shoulders, transitioning from chronic hypervigilance to somatic surrender * [ONE VISUAL METAPHOR] A subtle atmospheric gradient in the air: the faint dry dust haze near a face-down phone dissolving into cool crystalline pre-dawn mountain vapor entering from the window * [LIGHTING] Twilight pre-dawn blue hour (fajar sadik) mixed with faint amber horizon glow through the window slats * [MATERIAL / TEXTURE] Woven handloom lurik fabric blanket, natural kapok mattress folds, rough bamboo weave, cool humid dawn air * [COMPOSITION] Vertical 9:16 high-angle perspective looking down at the resting figure, ample calm negative space in the upper shadows * [STYLE] Editorial meditative photography, cinematic film still, analog grain, earthy charcoal and indigo tones with pale dawn gold * [NEGATIVE CONSTRAINTS] No cartoon comic hormones, no neon glowing forcefields, no sci-fi medical HUD, no text, no digital clock overlays, no exaggerated poses
 ```
 
 **SOURCE ANCHOR:**
@@ -963,7 +963,7 @@ Lepas alas kaki sebentar. Rasakan telapak kakimu menyentuh lantai atau tanah. Ki
 
 ---
 
-## BAB 04 — Fisika Kuantum, Relativitas & Keterhubungan Semesta
+## BAB 04: Fisika Kuantum, Relativitas & Keterhubungan Semesta
 
 ---
 
@@ -1162,7 +1162,7 @@ Kalau semua yang kamu pelajari soal kesadaran benar-benar masuk ke hidupmu, oran
 > "Kalau hidup memang punya musimnya sendiri, kamu sekarang sedang musim apa? Jangan buru-buru memaksa musim hujan jadi musim kemarau."
 
 **VISUAL CONCEPT:**
-Sebuah wayang kulit purwa tua tergeletak bersahaja di atas selembar tikar pandan di teras pendopo joglo. Di sampingnya terdapat gulungan kain mori putih kasar dan secangkir teh tubruk dingin. Satu detail ganjil: bayangan wayang di dinding kayu tampak melintasi peralihan bentuk samar—dari siluet janin kecil hingga sosok bijak bersorban yang merunduk luruh ke tanah.
+Sebuah wayang kulit purwa tua tergeletak bersahaja di atas selembar tikar pandan di teras pendopo joglo. Di sampingnya terdapat gulungan kain mori putih kasar dan secangkir teh tubruk dingin. Satu detail ganjil: bayangan wayang di dinding kayu tampak melintasi peralihan bentuk samar: dari siluet janin kecil hingga sosok bijak bersorban yang merunduk luruh ke tanah.
 
 **IMAGE PROMPT (9:16 Vertical):**
 ```text
@@ -1282,7 +1282,7 @@ Di luar rumah mungkin kita sibuk jadi siapa-siapa. Begitu masuk rumah, masih per
 
 ---
 
-## BAB 05 — Filsafat Jawa, Spiritualitas & Seni Menjalani Hidup
+## BAB 05: Filsafat Jawa, Spiritualitas & Seni Menjalani Hidup
 
 ---
 

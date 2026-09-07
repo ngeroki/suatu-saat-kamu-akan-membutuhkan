@@ -1,9 +1,9 @@
 # 📊 PROJECT STATUS — SUATU SAAT (Mobile Digital Art Book)
 
-> **Last Updated**: 2026-09-07T05:16:00+07:00  
+> **Last Updated**: 2026-09-07T09:40:00+07:00  
 > **Repository**: R:\flip-book  
 > **Production URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)  
-> **Status**: Release PASS (Chapter Openings Overhaul Live, Build PASS)  
+> **Status**: Release PASS (Ghost Chevrons & 100% Em-Dash Elimination Live, Build PASS)  
 > **Lead Architect**: Antigravity [AG]  
 > **Heavy Worker**: Antigravity [AG] Direct Execution
 
@@ -29,7 +29,9 @@
 ## 🚀 Status Milestone & Komponen
 | Komponen | File | Status | Keterangan |
 |---|---|---|---|
-| **Chapter Openings Text & Narrative Overhaul** | `src/data/book-pages.json` | ✅ Done | Mengganti 100% blurb promosi di 5 pembuka bab (1, 16, 31, 46, 60) dengan cuplikan verbatim Mas Aldi + teaser panggung Maiyah Cak Nun; 0 tanda em-dash (`—`); build PASS |
+| **Ghost Transparent Mobile Chevrons (Option 1)** | `src/style.css` | ✅ Done | Menghapus bulatan pekat & border pada panah navigasi `.m-chevron`; diganti ghost chevron transparan tipis (35% opacity warna earth di Side B, 38% bone di Side A); margin samping teks diperlebar 32px; build PASS |
+| **Complete 100% AI Em-Dash (`—`) Elimination** | `src/data/book-pages.json`, `src/data/visual-narrative-74.json`, `docs/` | ✅ Done | Memangkas habis 67 tanda strip panjang (`—`) menjadi tanda kurung, titik dua, dan tata bahasa alami Indonesia; nol sisa em-dash di seluruh dataset; build PASS |
+| **Chapter Openings Text & Narrative Overhaul** | `src/data/book-pages.json` | ✅ Done | Mengganti 100% blurb promosi di 5 pembuka bab (1, 16, 31, 46, 60) dengan cuplikan verbatim Mas Aldi + teaser panggung Maiyah Cak Nun; build PASS |
 | **Chapter Openings Visual Master Regeneration** | `public/slides-portrait/`, `public/thumbnails/` | ✅ Done | 5 pembuka bab diregenerasi via Gemini Pro (`gemini-image-gen`) 9:16 master (1536x2752) selaras dengan estetika Indonesian slow-cinema 35mm dari 69 halaman lainnya; thumbnails di-update |
 | **White Bone Paper Brush Hero Logotype** | `src/screens/cover.ts`, `public/assets/suatu_saat_brush_*` | ✅ Done | Ekstraksi presisi kaligrafi kuas "SUATU SAAT" + underline terracotta; upscale 4x antialiased murni; varian Putih Gading `#F7F2EC` aktif di hero homepage; build PASS |
 | **Cover Metadata Update** | `src/data/book-pages.json` | ✅ Done | Update metadata Halaman 1 (Title: "SUATU SAAT", Subtitle: "Tubuh, Pikiran, Leluhur, dan Seni Berserah", Tagline: "Kamu akan membutuhkan cara lain untuk melihat dirimu sendiri."); build PASS |
