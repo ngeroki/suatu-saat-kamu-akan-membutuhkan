@@ -117,9 +117,7 @@ Ketika sebuah pikiran kamu ulang terus-menerus, baik lewat ucapan lisan maupun l
 
 Kamu tidak bisa berharap nasib burukmu berganti hanya dengan berdoa satu kali di malam hari lalu sisa harimu kamu isi dengan mengeluh. Jalur kecemasan di otakmu sudah setebal jalan tol beton. Untuk meruntuhkannya, kamu harus membangun jalan tol baru melalui pengulangan rasa yang konsisten setiap hari, sampai sirkuit ketenangan baru itu menabrak dan mematikan sirkuit kepanikan lamamu.
 
-Mengapa kata-kata yang kita ulang memiliki dampak biologis yang sedemikian nyata merombak nasib?
-
-Jawabannya sederhana: karena tubuh manusia pada hakikatnya adalah wadah cairan berjalan. Sekitar tujuh puluh hingga tujuh puluh dua persen dari tubuh kasar kita adalah air.
+Dampak pengulangan ini bahkan tidak berhenti di jaringan saraf kepala. Ia merambat ke sekujur tubuh, sebab raga manusia pada hakikatnya adalah wadah cairan berjalan: tujuh puluh hingga tujuh puluh dua persen tubuh kasar kita adalah air.
 
 Molekul air memiliki kepekaan luar biasa dalam merekam getaran frekuensi di sekitarnya. Air yang terpapar oleh getaran rasa syukur, cinta kasih, dan ketenangan batin akan menyusun dirinya membentuk geometri kristal heksagonal yang sangat anggun, simetris, dan kokoh. Sebaliknya, air yang dibombardir oleh getaran kemarahan, caci maki, keluhan terus-menerus, dan rasa takut akan menyusun diri menjadi struktur yang keruh, amorf, dan rusak berantakan.
 
@@ -167,7 +165,7 @@ Pernah ada sebuah kejadian nyata yang sangat ironis. Seseorang mengamalkan zikir
 
 Tahukah kamu apa yang direkam oleh alam bawah sadarnya? Bawah sadarnya tidak menangkap keagungan Maha Lembut, melainkan menangkap bunyi fonetik: *keliru-keliru, ketipu-ketipu*. Batinnya menyerap frekuensi penipuan. Dan apa yang mewujud di dunia nyata? Orang tersebut bukannya mendapatkan kelembutan dan kemudahan hidup, bisnisnya justru berulang kali dihantam penipuan, uangnya dibawa lari orang, dan investasinya bodong. Ini bahaya tersembunyi dari berzikir hanya di bibir tanpa mengakar pada rasa batin!
 
-Ingat prinsip agung ini: rasamu adalah doamu yang sejati.
+Pegang ini baik-baik: rasamu adalah doamu yang sejati.
 
 Doa bukanlah proposal daftar belanjaan formal yang dibacakan kaku di hadapan Tuhan. Doa adalah kondisi batiniah yang kamu hidupi di setiap tarikan dan hembusan napasmu.
 
@@ -236,3 +234,5 @@ Kopi tubruk di cangkir saya kini sudah benar-benar dingin. Ampasnya telah mengen
 Malam di Jalan Kaliurang kian larut, gemerisik dedaunan basah tertiup angin malam menyapa kami dengan keheningan yang menentramkan. Masalah hidupnya tentu belum selesai malam itu juga, hutang-hutangnya belum lunas dalam hitungan detik obrolan kami. Tetapi ada satu hal mendasar yang telah bergeser: ia akhirnya mengerti di mana letak kemudi nasibnya selama ini berada.
 
 Bukan pada seminar-seminar mahal di luar sana, bukan pada benda-benda bertuah, melainkan pada kemampuannya menata rasa di kedalaman dadanya sendiri. Sebab ketika rasa di dalam dada telah ayem dan tentrem, semesta tidak punya pilihan lain selain membukakan pintu-pintu kelimpahan yang selama ini terkunci rapat.
+
+Namun, rasa tidak pernah melayang di ruang hampa. Ia berakar pada wadah biologis yang menjalankannya—dan jika mesin raga kita sendiri masih compang-camping diracuni hormon stres yang membakar darah, bagaimana mungkin ketenangan batin itu sanggup bertahan lama?
