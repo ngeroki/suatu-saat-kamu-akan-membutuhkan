@@ -1,5 +1,5 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-08T13:20:00+07:00 | Branch: master | Status: Feature Complete & 100% Verified
+Updated: 2026-09-08T18:15:00+07:00 | Branch: master | Status: Feature Complete & 100% Verified
 
 ## Status & Environment
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
@@ -7,16 +7,22 @@ Updated: 2026-09-08T13:20:00+07:00 | Branch: master | Status: Feature Complete &
 - Active Port: http://localhost:4173 (preview ready)
 - OpenCode Session: ses_f9de86d2cffeEHvpVqiwq3HP1P (idle/coordinated)
 - Verified Milestone:
-  1. **Sinkronisasi 74 Halaman Flipbook & Layar Baca (Pure Maiyah On-Stage Monologue)**:
+  1. **74 Punchy Twist-Ending "Mak Jleb" Side A Reflections (Status WA Shareable)**:
+     - Merombak total 74 teks refleksi diri `side_a_text` di kartu visual Side A menjadi kalimat berbobot tinggi dengan punchline / twist tak terduga.
+     - Mengeliminasi formula monoton berulang ("Pernah nggak kamu...", "Coba bayangkan...") dan cuplikan ensiklopedis dingin.
+     - Setiap kartu menyajikan dialektika dekonstruktif khas Maiyah: membongkar kemunafikan ego spiritual, ilusi kepemilikan, dan paradoks batin dengan hentakan akhir yang menonjok ("mak jleb").
+     - **0 em-dash (`—`)**, **0 en-dash (`–`)**, **0 spaced-hyphen (` - `)** pada seluruh 74 entri.
+     - Rentang karakter ideal 80–180 karakter untuk keterbacaan tajam pada overlay poster vertikal 9:16 dan ekspor kartu WhatsApp Status / IG Story.
+  2. **Sinkronisasi 74 Halaman Flipbook & Layar Baca (Pure Maiyah On-Stage Monologue)**:
      - Menginjeksi seluruh naskah hasil kurasi panggung Maiyah ke `src/data/book-pages.json`, `src/screens/prolog.ts`, dan `src/screens/epilog.ts`.
-     - **0 em-dash (`—`)**, **0 en-dash (`–`)**, **0 spaced-hyphen (` - `)** pada seluruh konten bacaan dan kartu visual Side A.
-     - **100% Purge Warkop Gimmicks**: Membersihkan tuntas seluruh kiasan artifisial warung kopi (kopi tubruk dingin, asbak seng, Bento Kopi Jakal, kolong jembatan warkop).
-     - **Satu Suara (Direct Spoken Monologue)**: Mengeliminasi atribusi orang ketiga (*kata Mas Aldi*, *menurut Aldi*, `@rahwanaconsciousnessroom`) menjadi suara lisan langsung Mas Aldi di panggung menghadap audiens (*kamu*).
-     - **Kepadatan Bacaan Presisi**: 74 halaman terdistribusi rata-rata 199 kata per halaman (rentang 136–253 kata, ~1.500 karakter) dengan 3–4 paragraf lapang di Side B.
-  2. **Desktop Centered Mobile Column & Mobile-First Notice**: Mengunci antarmuka seluruh webapp di desktop ke kolom mobile ramping terpusat (`max-width: 430px`, `#070706` background hening, ambient shadow), mengeliminasi dua halaman desktop spread yang terdistorsi, serta menyematkan kartu pendamping elegan.
-  3. **Dynamic Chapter Opening Gates (Daftar Isi & Reader)**: Gerbang bab dinamis (`GERBANG RAGA`, `GERBANG BAWAH SADAR`, `GERBANG BIOHACKING`, `GERBANG KUANTUM`, `GERBANG KEPULANGAN`).
-  4. **Penemuan Halaman Ditandai (Bookmark Discovery)**: Tab khusus "★ Ditandai" di Menu Daftar Isi (`#/bab/bookmarks`) + Feedback notifikasi toast.
-  5. **Editorial Share Sheet & WhatsApp Story Card Generator**: Generator canvas 1080x1920 9:16 menghasilkan kartu status WA resolusi tinggi.
+     - 0 em-dash, 0 en-dash, 0 spaced-hyphen pada seluruh konten bacaan.
+     - 100% Purge Warkop Gimmicks: Membersihkan tuntas seluruh kiasan artifisial warung kopi.
+     - Satu Suara (Direct Spoken Monologue): Mengeliminasi atribusi orang ketiga menjadi suara lisan langsung Mas Aldi di panggung menghadap audiens (*kamu*).
+     - Kepadatan Bacaan Presisi: 74 halaman terdistribusi rata-rata 199 kata per halaman (rentang 136–253 kata, ~1.500 karakter) dengan 3–4 paragraf lapang di Side B.
+  3. **Desktop Centered Mobile Column & Mobile-First Notice**: Mengunci antarmuka seluruh webapp di desktop ke kolom mobile ramping terpusat (`max-width: 430px`, `#070706` background hening, ambient shadow), mengeliminasi dua halaman desktop spread yang terdistorsi, serta menyematkan kartu pendamping elegan.
+  4. **Dynamic Chapter Opening Gates (Daftar Isi & Reader)**: Gerbang bab dinamis (`GERBANG RAGA`, `GERBANG BAWAH SADAR`, `GERBANG BIOHACKING`, `GERBANG KUANTUM`, `GERBANG KEPULANGAN`).
+  5. **Penemuan Halaman Ditandai (Bookmark Discovery)**: Tab khusus "★ Ditandai" di Menu Daftar Isi (`#/bab/bookmarks`) + Feedback notifikasi toast.
+  6. **Editorial Share Sheet & WhatsApp Story Card Generator**: Generator canvas 1080x1920 9:16 menghasilkan kartu status WA resolusi tinggi.
 
 ## Implementasi Terkini (Sprint: Desktop Column & Mobile-First Experience)
 1. **Arsitektur Wadah Kolom Terpusat (`#app` & `.device`)**:
