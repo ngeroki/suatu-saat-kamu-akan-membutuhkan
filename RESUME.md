@@ -1,5 +1,5 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-08T18:15:00+07:00 | Branch: master | Status: Feature Complete & 100% Verified
+Updated: 2026-09-08T18:21:00+07:00 | Branch: master | Status: Feature Complete & 100% Verified
 
 ## Status & Environment
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
@@ -7,7 +7,12 @@ Updated: 2026-09-08T18:15:00+07:00 | Branch: master | Status: Feature Complete &
 - Active Port: http://localhost:4173 (preview ready)
 - OpenCode Session: ses_f9de86d2cffeEHvpVqiwq3HP1P (idle/coordinated)
 - Verified Milestone:
-  1. **74 Punchy Twist-Ending "Mak Jleb" Side A Reflections (Status WA Shareable)**:
+  1. **Restorasi 74 Judul & Deskripsi Membumi (Anti-Jargon & 100% Selaras Naskah)**:
+     - Mengembalikan seluruh judul (`title`) dan deskripsi (`subtitle` / `teaser`) 74 halaman ke gaya bahasa Indonesia yang hangat, puitis, dan mudah dipahami semua kalangan pembaca.
+     - Membersihkan habis seluruh istilah nyeleneh, jargon akademis/pseudo-sains, dan judul bergaya sensasional tabloid (*Residu Karma Seks Bebas*, *Protokol Higienitas*, *Laskar Katabolik*, dll).
+     - Menyelaraskan 100% judul dan deskripsi dengan topik naskah monolog panggung Maiyah pada masing-masing halaman.
+     - **0 em-dash (`—`)**, **0 en-dash (`–`)**, **0 spaced-hyphen (` - `)** pada seluruh 74 entri.
+  2. **74 Punchy Twist-Ending "Mak Jleb" Side A Reflections (Status WA Shareable)**:
      - Merombak total 74 teks refleksi diri `side_a_text` di kartu visual Side A menjadi kalimat berbobot tinggi dengan punchline / twist tak terduga.
      - Mengeliminasi formula monoton berulang ("Pernah nggak kamu...", "Coba bayangkan...") dan cuplikan ensiklopedis dingin.
      - Setiap kartu menyajikan dialektika dekonstruktif khas Maiyah: membongkar kemunafikan ego spiritual, ilusi kepemilikan, dan paradoks batin dengan hentakan akhir yang menonjok ("mak jleb").
