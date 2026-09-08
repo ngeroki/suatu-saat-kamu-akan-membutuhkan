@@ -64,25 +64,24 @@ export class PrologScreen {
           <div class="pe-inner-content">
             <div class="pe-meta-header">
               <div class="pe-kicker">KATA PENGANTAR</div>
-              <h1 class="pe-title">Obrolan di Pinggir Jalan</h1>
+              <h1 class="pe-title">Sinau Bareng, Menatap Diri</h1>
               <div class="pe-divider">✧</div>
             </div>
 
             <div class="pe-pullquote">
-              <p class="pe-quote-text">“Kita ngobrol ya, nggak usah serius-serius amat. Yang penting jujur. Nanti juga kalo udah waktunya kamu butuh, semua yang kita obrolin ini bakal nyambung sendiri.”</p>
-              <span class="pe-quote-cite">Mas Aldi</span>
+              <p class="pe-quote-text">“Kita ngobrol ya, nggak usah serius-serius amat. Yang penting jujur. Nanti juga kalau sudah waktunya kamu butuh, semua yang kita omongkan ini bakal nyambung sendiri di dalam dadamu.”</p>
             </div>
 
             <p class="pe-body-p">
-              <span class="pe-dropcap">B</span>uku ini tidak lahir dari ruang kuliah ber-AC, perpustakaan sunyi yang berdebu, atau seminar motivasi berbayar dengan jaminan instan. Buku ini lahir dari obrolan-obrolan larut malam di warung kopi pinggir jalan Yogya, di bawah jembatan layang yang catnya mengelupas, dan di sudut Bento Kopi, di antara cangkir kopi tubruk yang mulai dingin, asap rokok tipis, dan hembusan angin malam yang menembus celana jeans.
+              <span class="pe-dropcap">H</span>eh, kamu ke sini ini sebetulnya lagi nyari apa to? Mau nyari rumus sakti biar nasibmu berubah drastis besok pagi? Di sini tidak ada panggung megah berlampu sorot warna-warni yang bikin silau mata. Tidak ada spanduk seminar motivasi yang teriak-teriak menyuruhmu sukses kaya raya dalam tiga puluh hari. Malam ini, kita lepaskan dulu semua jubah kepalsuan. Kita duduk melingkar beralas tikar, sebagai sesama manusia yang sama-sama pernah tersandung batu, pernah menangis di pojokan karena remuk hatinya, dan sekarang mau diajak berpikir jujur.
             </p>
 
             <p class="pe-body-p">
-              Mas Aldi berbicara tentang kompleksitas tubuh manusia, sains hormonal adrenal, neurologi, fisika kuantum, hingga falsafah wayang Jawa tanpa sedikit pun pretensi menggurui. Bukan sebagai kitab suci dengan semua jawaban, melainkan sebagai risalah obrolan jujur: rekaman percakapan santai yang menyentuh fondasi terdalam tentang bagaimana raga dan pikiran bawah sadar kita bekerja.
+              Buku ini posisinya cuma mau jadi kayu lapuk buat orang yang tenggelam di laut. Saya tidak mau bersikap seperti guru besar yang duduk di atas menara gading sambil menasihati orang-orang di pelataran dengan nada menghakimi. Anggap saja saya ini kawanmu yang kebetulan menemukan sesuatu yang sangat menarik di balik semak belukar, lalu menarik lengan bajumu sambil bilang: ayo sini sebentar, coba kamu tengok sendiri ke dalam.
             </p>
 
             <p class="pe-body-p">
-              Judul buku ini adalah pernyataan tentang waktu yang tak terduga. Hari ini mungkin hidupmu sedang lancar dan tenang. Namun kelak, ketika duniamu mendadak goyang dan kamu berdiri di persimpangan gelap tanpa arah, semua yang tersimpan di sudut memori dari lembaran-lembaran ini, tentang napas, hormon, gelombang otak, dan seni berserah, akan tiba-tiba kamu butuhkan.
+              Suatu saat nanti, pada hari yang tidak pernah tercantum di kalender mana pun, kamu mungkin bakal berdiri di persimpangan jalan yang gelap gulita. Rencana besarmu ambruk dalam semalam, dan kamu merasa terasing dari dirimu sendiri. Di saat kepalamu buntu dan lidahmu kelu untuk berdoa, obrolan kita ini akan mendadak menyala kembali di dalam dadamu. Pada detik itulah, kamu akan mengerti kenapa buku ini diberi judul: Suatu Saat Kamu Akan Membutuhkan.
             </p>
           </div>
 

@@ -1,7 +1,6 @@
 # 📜 PROLOG: Sinau Bareng, Menatap Diri
 
-> *"Kita ngobrol ya. Nggak usah serius-serius amat. Yang penting jujur. Nanti juga kalau sudah waktunya kamu butuh, semua yang kita omongkan ini bakal nyambung sendiri di dalam dadamu."*  
-> **Aldi (`@rahwanaconsciousnessroom`)**
+> *"Kita ngobrol ya. Nggak usah serius-serius amat. Yang penting jujur. Nanti juga kalau sudah waktunya kamu butuh, semua yang kita omongkan ini bakal nyambung sendiri di dalam dadamu."*
 
 ---
 
@@ -50,7 +49,9 @@ Pada detik itulah, kamu akan mengerti kenapa buku ini diberi judul: *Suatu Saat 
 Ayo, luruskan dudukmu, hembuskan napasmu yang panjang, dan mari kita mulai menengok ke dalam raga kita sendiri.
 
 
+
 ---
+
 
 # 🌿 BAB 1: Anatomi Tubuh Energi & Memori Karma
 
@@ -277,7 +278,9 @@ Jawabannya tidak pernah ada di luar sana. Dia selalu setia menunggumu pulang ke 
 Namun, begitu kita mulai berani menengok ke dalam, sebuah teka-teki yang lebih mendesak perlahan terkuak: *jika seluruh rancangan raga ini begitu sempurna, lalu kekuatan apa di kedalaman batin yang selama ini diam-diam memegang kemudi, yang membuat kita berulang kali terperosok ke dalam lubang nasib yang sama tanpa kita sadari?*
 
 
+
 ---
+
 
 # 🧠 BAB 2: Meretas Pikiran Bawah Sadar dan Reprogramming Nasib
 
@@ -544,7 +547,9 @@ Bukan pada seminar mahal di luar sana, bukan pada jimat bertuah, melainkan pada 
 Namun, rasa tidak pernah melayang di ruang hampa. Dia berakar pada wadah biologis yang menjalankannya. Dan jika mesin raga kita sendiri masih compang-camping diracuni hormon stres yang membakar darah, bagaimana mungkin ketenangan batin itu sanggup bertahan lama?
 
 
+
 ---
+
 
 # ⚡ BAB 3: Sistem Hormon, Biohacking Leluhur dan Energi Fisik
 
@@ -800,7 +805,9 @@ Hidup ini sebetulnya sederhana. Kita sendiri yang kerap membuatnya rumit dengan 
 Jaga sistem hormonmu, bersihkan medan energimu, dan belajarlah bernapas panjang seperti para leluhur. Saat kimiawi di dalam darahmu kembali jernih, piring pecah di dapur tidak akan pernah sanggup memecahkan kedamaian di dalam jiwamu. Dan dari wadah biologis yang hening itulah, kamu baru bisa menyadari bahwa jagat alit di dalam dirimu sejatinya tidak pernah terpisah dari getaran semesta raya.
 
 
+
 ---
+
 
 # 🌌 BAB 4: Fisika Kuantum, Relativitas, dan Keterhubungan Semesta
 
@@ -1046,7 +1053,9 @@ Sudahi penyesalanmu atas hari kemarin yang telah menjadi rekaman biologis. Lepas
 Di kedalaman detik inilah, seluruh semesta sedang menari bersamamu. Dan kamu selalu berada di rumah, rumah yang tidak menuntutmu menjadi makhluk suci yang melayang di awang-awang, melainkan memanggilmu untuk menyambut fajar esok pagi dan belajar kembali menjadi manusia biasa yang utuh, membumi, dan berserah.
 
 
+
 ---
+
 
 # 🌸 BAB 5: Menjadi Manusia Normal dan Seni Berserah
 
@@ -1257,12 +1266,13 @@ Bila kamu sanggup berdiri tegak di tengah pasang surut dunia dengan hati yang te
 Kamu sudah tahu ke mana langkahmu harus pulang: kembali menjadi manusia biasa yang menjejak tanah, dan berserah seutuhnya kepada Sang Dalang Kehidupan.
 
 
+
 ---
+
 
 # 🌾 EPILOG: Catatan Penutup
 
-> *"Kamu tidak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir: yang benar-benar mendengarkan anaknya bercerita, yang benar-benar menemani istrinya mengobrol, yang benar-benar mengerjakan pekerjaannya dengan jujur. Itu saja sudah spiritualitas tertinggi."*  
-> **Aldi (`@rahwanaconsciousnessroom`)**
+> *"Kamu tidak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir: yang benar-benar mendengarkan anaknya bercerita, yang benar-benar menemani istrinya mengobrol, yang benar-benar mengerjakan pekerjaannya dengan jujur. Itu saja sudah spiritualitas tertinggi."*
 
 ---
 

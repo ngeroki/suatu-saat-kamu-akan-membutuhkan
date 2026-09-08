@@ -1,7 +1,6 @@
 # 📜 PROLOG: Sinau Bareng, Menatap Diri
 
-> *"Kita ngobrol ya. Nggak usah serius-serius amat. Yang penting jujur. Nanti juga kalau sudah waktunya kamu butuh, semua yang kita omongkan ini bakal nyambung sendiri di dalam dadamu."*  
-> **Aldi (`@rahwanaconsciousnessroom`)**
+> *"Kita ngobrol ya. Nggak usah serius-serius amat. Yang penting jujur. Nanti juga kalau sudah waktunya kamu butuh, semua yang kita omongkan ini bakal nyambung sendiri di dalam dadamu."*
 
 ---
 

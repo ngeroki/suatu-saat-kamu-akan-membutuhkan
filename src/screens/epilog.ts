@@ -66,8 +66,7 @@ export class EpilogScreen {
             </div>
 
             <div class="pe-pullquote">
-              <p class="pe-quote-text">“Kamu nggak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir: yang beneran dengerin anaknya cerita, nemenin istrinya ngobrol, ngerjain kerjaannya dengan jujur. Itu aja sudah spiritualitas tertinggi.”</p>
-              <span class="pe-quote-cite">Mas Aldi</span>
+              <p class="pe-quote-text">“Kamu tidak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir: yang benar-benar mendengarkan anaknya bercerita, yang benar-benar menemani istrinya mengobrol, yang benar-benar mengerjakan pekerjaannya dengan jujur. Itu saja sudah spiritualitas tertinggi.”</p>
             </div>
 
             <p class="pe-body-p">

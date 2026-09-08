@@ -1,7 +1,6 @@
 # 🌾 EPILOG: Catatan Penutup
 
-> *"Kamu tidak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir: yang benar-benar mendengarkan anaknya bercerita, yang benar-benar menemani istrinya mengobrol, yang benar-benar mengerjakan pekerjaannya dengan jujur. Itu saja sudah spiritualitas tertinggi."*  
-> **Aldi (`@rahwanaconsciousnessroom`)**
+> *"Kamu tidak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir: yang benar-benar mendengarkan anaknya bercerita, yang benar-benar menemani istrinya mengobrol, yang benar-benar mengerjakan pekerjaannya dengan jujur. Itu saja sudah spiritualitas tertinggi."*
 
 ---
 
