@@ -1,5 +1,5 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-08T18:21:00+07:00 | Branch: master | Status: Feature Complete & 100% Verified
+Updated: 2026-09-08T18:35:00+07:00 | Branch: master | Status: Feature Complete & 100% Verified
 
 ## Status & Environment
 - Production URL: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
@@ -7,18 +7,20 @@ Updated: 2026-09-08T18:21:00+07:00 | Branch: master | Status: Feature Complete &
 - Active Port: http://localhost:4173 (preview ready)
 - OpenCode Session: ses_f9de86d2cffeEHvpVqiwq3HP1P (idle/coordinated)
 - Verified Milestone:
-  1. **Restorasi 74 Judul & Deskripsi Membumi (Anti-Jargon & 100% Selaras Naskah)**:
+  1. **Eradikasi 100% Titik Dua (:) & Titik Koma (;) (Pure Spoken Natural Rhythm)**:
+     - Membersihkan tuntas 158 titik dua (`:`) dan 4 titik koma (`;`) dari seluruh naskah 74 halaman, kartu refleksi, judul, subtitle, teaser, Prolog, dan Epilog.
+     - Mengubah jeda artifisial ala AI dan format daftar/modul kaku menjadi ritme tutur lisan alami Indonesia (menggunakan tanda titik, koma santai, atau konjungsi alami seperti *yaitu*, *bahwa*, *melainkan*).
+     - **0 colon (`:`)**, **0 semicolon (`;`)**, **0 em-dash (`—`)**, **0 en-dash (`–`)**, **0 spaced-hyphen (` - `)** pada seluruh teks bacaan.
+  2. **Restorasi 74 Judul & Deskripsi Membumi (Anti-Jargon & 100% Selaras Naskah)**:
      - Mengembalikan seluruh judul (`title`) dan deskripsi (`subtitle` / `teaser`) 74 halaman ke gaya bahasa Indonesia yang hangat, puitis, dan mudah dipahami semua kalangan pembaca.
      - Membersihkan habis seluruh istilah nyeleneh, jargon akademis/pseudo-sains, dan judul bergaya sensasional tabloid (*Residu Karma Seks Bebas*, *Protokol Higienitas*, *Laskar Katabolik*, dll).
      - Menyelaraskan 100% judul dan deskripsi dengan topik naskah monolog panggung Maiyah pada masing-masing halaman.
-     - **0 em-dash (`—`)**, **0 en-dash (`–`)**, **0 spaced-hyphen (` - `)** pada seluruh 74 entri.
-  2. **74 Punchy Twist-Ending "Mak Jleb" Side A Reflections (Status WA Shareable)**:
+  3. **74 Punchy Twist-Ending "Mak Jleb" Side A Reflections (Status WA Shareable)**:
      - Merombak total 74 teks refleksi diri `side_a_text` di kartu visual Side A menjadi kalimat berbobot tinggi dengan punchline / twist tak terduga.
      - Mengeliminasi formula monoton berulang ("Pernah nggak kamu...", "Coba bayangkan...") dan cuplikan ensiklopedis dingin.
      - Setiap kartu menyajikan dialektika dekonstruktif khas Maiyah: membongkar kemunafikan ego spiritual, ilusi kepemilikan, dan paradoks batin dengan hentakan akhir yang menonjok ("mak jleb").
-     - **0 em-dash (`—`)**, **0 en-dash (`–`)**, **0 spaced-hyphen (` - `)** pada seluruh 74 entri.
      - Rentang karakter ideal 80–180 karakter untuk keterbacaan tajam pada overlay poster vertikal 9:16 dan ekspor kartu WhatsApp Status / IG Story.
-  2. **Sinkronisasi 74 Halaman Flipbook & Layar Baca (Pure Maiyah On-Stage Monologue)**:
+  4. **Sinkronisasi 74 Halaman Flipbook & Layar Baca (Pure Maiyah On-Stage Monologue)**:
      - Menginjeksi seluruh naskah hasil kurasi panggung Maiyah ke `src/data/book-pages.json`, `src/screens/prolog.ts`, dan `src/screens/epilog.ts`.
      - 0 em-dash, 0 en-dash, 0 spaced-hyphen pada seluruh konten bacaan.
      - 100% Purge Warkop Gimmicks: Membersihkan tuntas seluruh kiasan artifisial warung kopi.
