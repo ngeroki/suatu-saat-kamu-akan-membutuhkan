@@ -13,7 +13,7 @@ Ia duduk di amben bambu, mencuci kakinya yang berdebu dengan seember air sumur y
 
 Di halaman penutup ini, mari kita tanggalkan semua ransel teori yang berat itu. Simpan dulu perdebatan tentang fisika, lupakan dulu istilah neurologi dan gelombang otak, letakkan dulu buku-buku catatanmu. Mari kita duduk bersama sejenak di sini, sebagai sesama manusia biasa. Dua orang manusia yang sama-sama pernah tersandung batu, pernah menangis di pojok kamar karena remuk hatinya, pernah keliru melangkah, dan kini sedang bersama-sama mencari jalan pulang ke dalam diri.
 
-Puncak dari segala pencarian ini sesungguhnya sangat sederhana, bahkan terlampau sederhana bagi pikiran manusia yang gemar akan kerumitan: puncaknya adalah kembali ke tanah, kembali menjadi manusia normal yang hadir seutuhnya!
+Puncak dari segala pencarian ini sebetulnya sederhana sekali, bahkan terlampau sederhana bagi pikiran manusia yang gemar akan kerumitan: puncaknya adalah kembali ke tanah, kembali menjadi manusia normal yang hadir seutuhnya!
 
 Bukan manusia yang berjalan seperti robot tanpa jiwa, bukan pula manusia yang menghanyutkan diri dalam kepura-puraan sosial. Melainkan manusia yang sadar penuh atas setiap embusan napasnya, yang menjejakkan kakinya dengan mantap di atas bumi pertiwi.
 
@@ -21,7 +21,7 @@ Coba bayangkan ritme hidup yang bersahaja ini:
 
 Pada pagi hari, ketika matamu terbuka menyambut fajar, kamu tidak terburu-buru mencari pengakuan dunia atau melarikan diri ke dalam lamunan mistis. Kamu membasuh mukamu, melangkah ke dapur, dan mengecek apakah anak dan istrimu sudah memiliki sarapan untuk memulai hari. Kamu memeriksa apakah pintu dan jendela rumah terkunci dengan baik semalam, menyapa tetangga yang sedang menyapu pekarangan, dan merasakan hangatnya sinar matahari pagi menyentuh kulit lenganmu. Kehadiranmu nyata di situ, menjaga benteng terkecil yang diamanahkan kepadamu.
 
-Pada siang hari, kamu melangkah bekerja dengan ketulusan dan kejujuran penuh. Apa pun peran yang sedang kamu lakoni di atas panggung dunia—entah sebagai buruh, tukang bangunan, pedagang di pasar, staf kantor, guru, atau pimpinan usaha—kamu melakukannya dengan integritas yang tak goyah. Kamu tidak merasa perlu menyelipkan istilah-istilah spiritual langit saat sedang melayani pembeli atau berdiskusi dengan rekan kerja. Kamu tidak perlu membuat orang lain merasa canggung dengan lagak sucimu. Cukup bekerja dengan baik, tidak mengambil hak orang lain, menepati janji, dan menebarkan rasa aman bagi siapa pun yang berurusan denganmu.
+Pada siang hari, kamu melangkah bekerja dengan ketulusan dan kejujuran penuh. Apa pun peran yang sedang kamu lakoni di atas panggung dunia, entah sebagai buruh, tukang bangunan, pedagang di pasar, staf kantor, guru, atau pimpinan usaha, kamu melakukannya dengan integritas yang tak goyah. Kamu tidak merasa perlu menyelipkan istilah-istilah spiritual langit saat sedang melayani pembeli atau berdiskusi dengan rekan kerja. Kamu tidak perlu membuat orang lain merasa canggung dengan lagak sucimu. Cukup bekerja dengan baik, tidak mengambil hak orang lain, menepati janji, dan menebarkan rasa aman bagi siapa pun yang berurusan denganmu.
 
 Lalu ketika malam tiba, kamu pulang ke rumah dan meletakkan seluruh beban pekerjaan di luar pintu. Kamu duduk melingkar bersama keluargamu di meja makan yang sederhana. Kamu singkirkan gawaimu, kamu tatap mata anakmu dengan sungguh-sungguh saat ia bercerita tentang kejadian konyol di sekolahnya, dan kamu dengarkan keluh kesah pasanganmu tanpa buru-buru menghakimi atau menyodorkan solusi. Kehadiranmu yang utuh di ruangan itu, kehangatan pelukanmu, dan senyummu yang menenangkan adalah anugerah terbesar yang tidak akan pernah bisa ditukar dengan amalan meditasi ribuan jam di puncak gunung!
 
@@ -53,7 +53,7 @@ Anak-anakmu tidak akan pernah menanyakan teori medan energi atau fisika kuantum 
 
 Pasanganmu tidak butuh kuliah umum tentang kepasrahan kosmik saat ia sedang menangis kelelahan menghadapi persoalan hidup. Ia hanya butuh genggaman tanganmu yang kokoh, secangkir teh hangat yang kamu buatkan tanpa diminta, dan sebuah kalimat sederhana yang keluar dari lubuk hatimu yang paling jujur: *"Tenanglah, kita hadapi ini bersama-sama."*
 
-Tinggalkan seluruh keangkuhan spiritualmu di luar pagar rumah. Begitu melangkah masuk, jadilah ayah yang lembut, jadilah ibu yang mengayomi, jadilah pasangan yang setia dan siap menjadi tempat bersandar. Rumahmu adalah tempat ujian kesadaran yang sesungguhnya.
+Tinggalkan seluruh keangkuhan spiritualmu di luar pagar rumah. Begitu melangkah masuk, jadilah ayah yang lembut, jadilah ibu yang mengayomi, jadilah pasangan yang setia dan siap menjadi tempat bersandar. Rumahmu adalah tempat ujian kesadaran yang sejati.
 
 ---
 
@@ -73,13 +73,13 @@ Ketika detik-detik berat itu tiba dalam hidupmu, mudah-mudahan ingatanmu kembali
 
 Kamu akan ingat untuk kembali ke tubuhmu, menarik napas panjang, menata detak jantungmu, dan mematikan riuh rendah pikiran yang panik. Kamu akan ingat bahwa kehancuran yang sedang kamu alami bukanlah akhir dari segalanya, melainkan ketukan lembut dari semesta agar kamu meruntuhkan keangkuhan egomu dan belajar berserah secara total. Kamu akan memiliki ketenangan untuk tetap melangkah melakukan apa yang bisa kamu lakukan hari ini, seraya memasrahkan seluruh hasil akhirnya ke tangan Sang Maha Kuasa.
 
-Obrolan kita ini sesungguhnya bukan sekadar pengisi waktu luang. Ia adalah bekal sunyi yang disiapkan jauh-jauh hari, agar saat badai kehidupan menerpamu, kamu tidak tersapu hilang. Kamu punya jangkar untuk tetap bertahan, dan punya keberanian untuk bangkit berdiri kembali.
+Obrolan kita ini bukan sekadar pengisi waktu luang. Ia adalah bekal sunyi yang disiapkan jauh-jauh hari, agar saat badai kehidupan menerpamu, kamu tidak tersapu hilang. Kamu punya jangkar untuk tetap bertahan, dan punya keberanian untuk bangkit berdiri kembali.
 
 ---
 
 ## Pulang ke Bumi
 
-Buku ini telah purna dibaca, namun lakumu yang sesungguhnya baru saja dimulai.
+Buku ini telah purna dibaca, namun lakumu yang sejati baru saja dimulai.
 
 Setelah menutup halaman ini, simpanlah buku ini di sudut rak mejamu. Berdirilah, regangkan kedua lenganmu, basuh wajahmu, dan kembalilah ke tengah keriuhan dunia nyata. Masuklah kembali ke dalam pekerjaanmu, selesaikan urusan-urusan kecil yang tertunda, dan tataplah wajah orang-orang di sekitarmu dengan pandangan yang lebih teduh.
 

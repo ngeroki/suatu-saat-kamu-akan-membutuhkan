@@ -26,7 +26,7 @@ Pagi-pagi di dapur, piring yang sama jatuh dan pecah. *Pyar!* Apa yang terjadi d
 
 Rumah seketika berubah jadi neraka jahanam! Pintu dibanting, caci maki berhamburan ke udara, sumpah serapah terlontar: *"Kamu itu ceroboh banget sih! Dari dulu nggak pernah becus, selalu saja bikin repot orang rumah!"* Gelas lain mungkin ikut melayang!
 
-Kenapa peristiwa fisiknya sama persis—yaitu sebongkah tanah liat jatuh ditarik gravitasi bumi—tapi respons manusianya bisa jungkir balik seratus delapan puluh derajat? 
+Kenapa peristiwa fisiknya sama persis, yaitu sebongkah tanah liat jatuh ditarik gravitasi bumi, tapi respons manusianya bisa jungkir balik seratus delapan puluh derajat? 
 
 Apakah ini soal etika? Apakah ini soal sopan santun, moralitas, atau ajaran tata krama yang diajarkan guru budi pekerti di sekolah? 
 
@@ -46,7 +46,7 @@ Budi pekerti, tata krama, dan kesabaran yang sering kita khotbahkan itu sering k
 
 ## Sirkuit Sakit yang Sama dan Bocornya Wadah Energi
 
-Sains modern baru-baru ini terkaget-kaget menemukan sebuah fakta neurobiologi—fakta yang sebetulnya sudah dihafal di luar kepala oleh para pertapa leluhur kita dulu: *Otak manusia itu tidak punya sirkuit yang berbeda untuk membaca rasa sakit fisik dan luka batin!*
+Sains modern baru-baru ini terkaget-kaget menemukan sebuah fakta neurobiologi, fakta yang sebetulnya sudah dihafal di luar kepala oleh para pertapa leluhur kita dulu: *Otak manusia itu tidak punya sirkuit yang berbeda untuk membaca rasa sakit fisik dan luka batin!*
 
 Waktu kamu berjalan di malam gelap lalu jempol kakimu tersandung ujung meja kayu yang keras sampai kukumu patah, bagian otak yang bernama *anterior cingulate cortex* dan *insula* akan menyala terang mengirimkan sinyal rasa nyeri. 
 
@@ -76,9 +76,9 @@ Waktu manusia overthinking, bejana energinya bocor. Medan elektromagnetik tubuhn
 
 Di dalam pembuluh darah kita, berlangsung perang saudara abadi antara dua kubu hormon:
 
-Kubu pertama adalah laskar survival—prajurit katabolik yang dipimpin oleh kortisol, adrenalin, dan norepinefrin dari kelenjar adrenal di pucuk ginjal. Pasukan ini berguna waktu manusia purba harus lari dari kejaran harimau. Begitu tombol ini aktif, detak jantung dipacu kencang, pembuluh darah menyempit, pencernaan dimatikan seketika, dan sistem regenerasi sel dihentikan sementara. Tubuh memompa seluruh gula darah ke otot lengan dan kaki supaya kita bisa bertarung atau kabur menyelamatkan nyawa.
+Kubu pertama adalah laskar survival, yaitu prajurit katabolik yang dipimpin oleh kortisol, adrenalin, dan norepinefrin dari kelenjar adrenal di pucuk ginjal. Pasukan ini berguna waktu manusia purba harus lari dari kejaran harimau. Begitu tombol ini aktif, detak jantung dipacu kencang, pembuluh darah menyempit, pencernaan dimatikan seketika, dan sistem regenerasi sel dihentikan sementara. Tubuh memompa seluruh gula darah ke otot lengan dan kaki supaya kita bisa bertarung atau kabur menyelamatkan nyawa.
 
-Kubu kedua adalah laskar regenerasi dan ketenangan—prajurit anabolik yang dipimpin oleh melatonin, endorfin, oksitosin, dan serotonin. Pasukan ini baru bisa bekerja waktu sistem saraf parasimpatis mengambil alih kemudi. Saat itulah tubuh memperbaiki susunan DNA yang rusak, memperbarui sel yang mati, meredakan peradangan, dan membuka pintu gerbang kesadaran batin yang melampaui logika sempit.
+Kubu kedua adalah laskar regenerasi dan ketenangan, prajurit anabolik yang dipimpin oleh melatonin, endorfin, oksitosin, dan serotonin. Pasukan ini baru bisa bekerja waktu sistem saraf parasimpatis mengambil alih kemudi. Saat itulah tubuh memperbaiki susunan DNA yang rusak, memperbarui sel yang mati, meredakan peradangan, dan membuka pintu gerbang kesadaran batin yang melampaui logika sempit.
 
 Masalahnya: orang modern itu hidup dalam ancaman harimau imajiner dua puluh empat jam sehari! 
 
@@ -143,7 +143,7 @@ Kelenjar-kelenjar inilah pabrik biokimia sejati manusia. Mereka menumpahkan horm
 2. **Cakra Seks (*Svadhisthana* / Mandolo Sepo)**: Organ biologisnya adalah Kelenjar Pankreas, stasiun metabolisme yang menghasilkan insulin, glukagon, dan somatostatin. Kelenjar ini mengatur bagaimana tubuh mencerna manisnya glukosa dan mengalirkan daya pikat magnetis dalam relasi sosial serta kreativitas berkarya. Kalau pankreas rusak akibat racun emosional dan stres menahun, yang muncul bukan cuma kencing manis, tapi juga hilangnya gairah hidup, rasa hambar terhadap dunia, dan ketidakmampuan membina keintiman.
 3. **Cakra Solar Plexus (*Manipura* / Mandolo Rojo)**: Di ulu hati bertakhta Kelenjar Adrenal di pucuk ginjal, memproduksi kortisol, adrenalin, dan DHEA. Ini stasiun keberanian, daya juang, dan kepemimpinan. Tapi kalau kelenjar ini dibiarkan membakar tubuh dengan api amarah dan ambisi liar, manusia berubah jadi tiran egois yang haus dominasi, memburu dopamin dari konflik, dan akhirnya menghancurkan organ lambungnya sendiri.
 4. **Cakra Jantung (*Anahata* / Mandolo Wening)**: Di tengah dada bersemayam Kelenjar Timus. Timus adalah benteng sistem kekebalan tubuh, tempat mendidik sel darah putih limfosit T mengenali kawan dan lawan. Timus bertindak sebagai jembatan pemisah sekaligus penyatu agung antara tiga cakra hewani di bawah (materi, syahwat, tahta) dengan tiga cakra ilahi di atas (sabda, penglihatan batin, kesadaran murni). Waktu seseorang mampu masuk ke keheningan batin, timus aktif memproduksi kekebalan perkasa, dan medan torus jantungnya memancarkan radiasi yang meneduhkan siapa pun di dekatnya.
-5. **Cakra Tenggorokan (*Vishuddha*)**: Stasiun Kelenjar Tiroid dan Paratiroid penghasil hormon tiroksin T4, T3, dan kalsitonin. Mengendalikan tempo metabolisme dan frekuensi getaran pita suara. Orang yang kelenjar tiroidnya jernih punya *vocal resonance* yang menusuk sanubari—seperti musisi sejati saat membuka suara di panggung; nadanya santai tanpa pamer teknik nada tinggi, tapi getarannya sanggup membuat bulu kuduk puluhan ribu orang merinding serempak. Itu getaran sabda yang memancar dari tiroid yang selaras.
+5. **Cakra Tenggorokan (*Vishuddha*)**: Stasiun Kelenjar Tiroid dan Paratiroid penghasil hormon tiroksin T4, T3, dan kalsitonin. Mengendalikan tempo metabolisme dan frekuensi getaran pita suara. Orang yang kelenjar tiroidnya jernih punya *vocal resonance* yang menusuk sanubari, seperti musisi sejati saat membuka suara di panggung: nadanya santai tanpa pamer teknik nada tinggi, tapi getarannya sanggup membuat bulu kuduk puluhan ribu orang merinding serempak. Itu getaran sabda yang memancar dari tiroid yang selaras.
 6. **Cakra Mata Ketiga (*Ajna* / Trikalajnana)**: Di antara kedua alis menuju tengah ventrikel otak terdapat Kelenjar Pineal, seukuran biji jagung berbentuk kerucut pohon pinus. Memiliki sel fotoreseptor mikro serupa retina mata, bertindak sebagai antena penerima frekuensi halus semesta, pembongkar tabir ruang-waktu, dan pabrik penghasil melatonin, pinolin, serta DMT alami.
 7. **Cakra Mahkota (*Sahasrara*)**: Di puncak ubun-ubun bertakhta Kelenjar Pituitari (hipofisis), sang *master gland* konduktor orkestra biologis tubuh. Kelenjar ini mengarahkan ritme seluruh kelenjar di bawahnya. Waktu cairan serebrospinal yang telah dimasak oleh laku tirakat berhasil menembus mahkota kepala, mekarlah metafora Bunga Teratai Seribu Daun di ubun-ubun: martabat kesadaran Raja Pandita yang memandang seluruh semesta sebagai satu tarian kesadaran yang utuh melampaui sekat benar-salah duniawi.
 
@@ -161,7 +161,7 @@ Perang dahsyat Bharatayuddha di padang Kurukshetra sejatinya bukan sekadar legen
 
 Di pihak Kurawa, ada Patih Sengkuni yang digambarkan berjalan pincang, berlidah tajam, licik, dan selalu menghembuskan bisikan provokasi karena takut kehilangan kekuasaan. Secara neuroanatomi, Sengkuni itu tidak lain adalah personifikasi dari Amigdala di otak reptil kita! Dialah suara batin beracun yang setiap hari membisiki telingamu: *"Awas, kamu bakal bangkrut, pasanganmu pasti selingkuh, serang mereka sebelum kamu diserang!"*
 
-Sebaliknya, di pihak Pandawa, ada Sri Kresna sang kusir kereta perang Arjuna. Kresna tidak pernah memegang senjata tajam di padang Kurukshetra. Ia berdiri tenang, hening, menjadi juru mudi yang mengatur strategi kesadaran tinggi untuk menundukkan nafsu liar Kurawa. Kresna adalah wujud dari Kelenjar Pineal sang pembimbing batin yang jernih. Sementara Arjuna yang memegang busur panah dengan fokus terkunci pada sasaran adalah personifikasi dari *prefrontal cortex*—pusat kehendak sadar manusia.
+Sebaliknya, di pihak Pandawa, ada Sri Kresna sang kusir kereta perang Arjuna. Kresna tidak pernah memegang senjata tajam di padang Kurukshetra. Ia berdiri tenang, hening, menjadi juru mudi yang mengatur strategi kesadaran tinggi untuk menundukkan nafsu liar Kurawa. Kresna adalah wujud dari Kelenjar Pineal sang pembimbing batin yang jernih. Sementara Arjuna yang memegang busur panah dengan fokus terkunci pada sasaran adalah personifikasi dari *prefrontal cortex*, pusat kehendak sadar manusia.
 
 Lalu coba perhatikan tiga benteng raksasa Kurawa yang paling sulit ditaklukkan di medan perang:
 - Raja Karna adalah simbol cakra dasar: keterikatan pada asal-usul darah, harga diri materi, dan dendam masa lalu.
@@ -182,7 +182,7 @@ Kearifan serupa juga diwariskan dalam tradisi Tiongkok kuno lewat kisah *Perjala
 
 ## Rahasia Anatomi Arca: Otak Kecil Ganesha dan Dewa Anubis
 
-Kalau kamu membuka buku anatomi bedah saraf manusia lalu kamu jejerkan gambarnya dengan arca-arca peninggalan leluhur dunia, kamu bakal merinding! Arca-arca itu sesungguhnya adalah peta organ dalam tubuh yang dipahat secara simbolik.
+Kalau kamu membuka buku anatomi bedah saraf manusia lalu kamu jejerkan gambarnya dengan arca-arca peninggalan leluhur dunia, kamu bakal merinding! Arca-arca itu sebetulnya adalah peta organ dalam tubuh yang dipahat secara simbolik.
 
 Contoh paling gamblang adalah sosok Dewa Ganesha: bertubuh manusia berkepala gajah, memiliki dua daun telinga lebar menjuntai, dan belalai panjang di tengahnya.
 
@@ -196,7 +196,7 @@ Simbolisme serupa datang dari Mesir Kuno melalui sosok Dewa Anubis: berkepala se
 
 Kenapa dewa kematian berwujud serigala moncong lancip bertelinga tegak? Buka mulutmu dan tengok ke arah pangkal tenggorokan!
 
-Waktu nyawa manusia dicabut di detik-detik sakratul maut, gerbang penentu kematian fisik itu terletak tepat di pangkal lidah dan katup epiglotis! Struktur pangkal lidah manusia hingga ke dasar faring—dengan dua kelenjar tonsil di kiri-kanannya dan katup epiglotis di belakangnya—membentuk siluet kepala serigala dengan dua telinga tegak runcing! 
+Waktu nyawa manusia dicabut di detik-detik sakratul maut, gerbang penentu kematian fisik itu terletak tepat di pangkal lidah dan katup epiglotis! Struktur pangkal lidah manusia hingga ke dasar faring (dengan dua kelenjar tonsil di kiri-kanannya dan katup epiglotis di belakangnya) membentuk siluet kepala serigala dengan dua telinga tegak runcing! 
 
 Di titik tenggorokan itulah napas terakhir tertahan, dan di sanalah batin manusia dipaksa bersaksi: apakah jantung hatinya seringan bulu keikhlasan, atau sarat beban dosa yang menenggelamkannya ke kegelapan.
 
@@ -210,7 +210,7 @@ Sistem penanggalan Jawa mempertemukan siklus peredaran bumi Saptawara (7 hari) d
 
 Secara biokimiawi, Cairan Serebrospinal (CSF) yang menggenangi dasar tulang ekor hingga rongga otak membutuhkan masa pematangan rantai protein bioelektrik selama kurang lebih tiga puluh lima hari!
 
-Itulah alasan ilmiah mengapa para tetua mewajibkan laku Puasa Apit Weton selama tiga hari berturut-turut: sehari sebelum hari weton kelahiran, tepat pada hari weton kelahiran, dan sehari sesudahnya—mengapit hari kelahiran itu sendiri.
+Itulah alasan ilmiah mengapa para tetua mewajibkan laku Puasa Apit Weton selama tiga hari berturut-turut: sehari sebelum hari weton kelahiran, tepat pada hari weton kelahiran, dan sehari sesudahnya, mengapit hari kelahiran itu sendiri.
 
 Puasa tiga hari ini bertujuan menghentikan pasokan racun glukosa dan lemak jahat tepat pada saat molekul protein cairan serebrospinal sedang mencapai puncak konduktivitas listrik tertingginya. Dengan berpuasa dan menahan diri dari obrolan yang tidak berguna, gelombang otak diturunkan ke frekuensi alfa dan theta. Dalam kondisi hening inilah, cairan serebrospinal yang telah matang dapat terpompa naik melintasi saluran saraf tulang belakang menuju ke kelenjar pineal di ubun-ubun.
 
@@ -224,7 +224,7 @@ Pati Geni itu adalah protokol biohacking tertua untuk merestart total reseptor k
 
 Pernah tidak, kamu pulang sehabis melayat orang meninggal di kuburan tua, atau pulang dari pasar malam yang sangat padat sesak, tiba-tiba badanmu terasa berat sekali? Tengkuk kaku seperti memikul beras, kepala pening melayang, dan suasana hatimu mendadak mendung tanpa alasan yang jelas?
 
-Manusia pada hakikatnya adalah antena elektromagnetik terbuka. Segala macam muatan listrik statis, gelombang frekuensi rendah dari lingkungan, hingga residu emosi kemarahan dan kesedihan orang lain dapat menempel pada medan energi torus tubuh kita.
+Manusia ini pada dasarnya adalah antena elektromagnetik terbuka. Segala macam muatan listrik statis, gelombang frekuensi rendah dari lingkungan, hingga residu emosi kemarahan dan kesedihan orang lain dapat menempel pada medan energi torus tubuh kita.
 
 Sebelum residu frekuensi liar itu meresap ke dalam dan mengacaukan kelenjar organ tubuhmu, leluhur kita punya penangkal yang sangat sederhana dan ilmiah: mandi air garam krosok atau basuhan air daun kelor.
 
@@ -249,4 +249,4 @@ Semua penjelasan sains, mitologi wayang, dan teori biologi ini bakal jadi omong 
 
 Hidup ini sebetulnya sederhana. Kita sendiri yang kerap membuatnya rumit dengan membiarkan amigdala kita berteriak liar dan membiarkan darah kita digenangi racun kecemasan.
 
-Jaga sistem hormonmu, bersihkan medan energimu, dan belajarlah bernapas panjang seperti para leluhur. Saat kimiawi di dalam darahmu kembali jernih, piring pecah di dapur tidak akan pernah sanggup memecahkan kedamaian di dalam jiwamu—dan dari wadah biologis yang hening itulah, kamu baru bisa menyadari bahwa jagat alit di dalam dirimu sejatinya tidak pernah terpisah dari getaran semesta raya.
+Jaga sistem hormonmu, bersihkan medan energimu, dan belajarlah bernapas panjang seperti para leluhur. Saat kimiawi di dalam darahmu kembali jernih, piring pecah di dapur tidak akan pernah sanggup memecahkan kedamaian di dalam jiwamu. Dan dari wadah biologis yang hening itulah, kamu baru bisa menyadari bahwa jagat alit di dalam dirimu sejatinya tidak pernah terpisah dari getaran semesta raya.

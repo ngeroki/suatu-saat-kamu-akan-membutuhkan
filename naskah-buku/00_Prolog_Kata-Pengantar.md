@@ -15,7 +15,7 @@ Buat apa semua topeng itu?
 
 Malam ini, kita lepaskan dulu semua jubah kepalsuan. Kita duduk melingkar beralas tikar, sebagai sesama manusia yang sama-sama pernah tersandung batu, pernah menangis di pojokan karena remuk hatinya, dan sekarang mau diajak berpikir jujur. 
 
-Coba kamu perhatikan: manusia zaman sekarang ini kan makhluk paling lucu sak dunya. Pintarnya setengah mati kalau disuruh bikin rencana bisnis, ngatur portofolio, memetakan karier sepuluh tahun ke depan. Tapi giliran disuruh duduk diam sendirian di kamar—tanpa menyentuh layar ponsel selama sepuluh menit saja—langsung gemetaran, gelisah, bingung mau ngapain. Kayak ada hantu yang mengejar dari dalam dadanya sendiri.
+Coba kamu perhatikan: manusia zaman sekarang ini kan makhluk paling lucu sak dunya. Pintarnya setengah mati kalau disuruh bikin rencana bisnis, ngatur portofolio, memetakan karier sepuluh tahun ke depan. Tapi giliran disuruh duduk diam sendirian di kamar, tanpa menyentuh layar ponsel selama sepuluh menit saja, langsung gemetaran, gelisah, bingung mau ngapain. Kayak ada hantu yang mengejar dari dalam dadanya sendiri.
 
 Lalu kalau batinnya sudah capek dan megap-megap, larinya ke mana?
 
@@ -39,7 +39,7 @@ Nggak apa-apa. Simpan saja dulu di lipatan ingatanmu yang paling sunyi.
 
 Sebab hidup ini selalu punya caranya sendiri untuk menguji daya lentur manusia.
 
-Suatu saat nanti—pada hari yang tidak pernah tercantum di kalender mana pun—kamu mungkin bakal berdiri di persimpangan jalan yang gelap gulita. Rencana besarmu yang kamu susun bertahun-tahun ambruk dalam semalam. Orang yang paling kamu percaya berbalik punggung meninggalkanmu. Atau tiba-tiba kamu merasa terasing dari dirimu sendiri di tengah ramainya pesta dunia.
+Suatu saat nanti, pada hari yang tidak pernah tercantum di kalender mana pun, kamu mungkin bakal berdiri di persimpangan jalan yang gelap gulita. Rencana besarmu yang kamu susun bertahun-tahun ambruk dalam semalam. Orang yang paling kamu percaya berbalik punggung meninggalkanmu. Atau tiba-tiba kamu merasa terasing dari dirimu sendiri di tengah ramainya pesta dunia.
 
 Di saat kepalamu buntu, logikamu kehabisan akal, dan lidahmu kelu untuk berdoa, obrolan kita malam ini akan mendadak menyala kembali di dalam dadamu.
 

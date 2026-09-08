@@ -7,7 +7,7 @@
 
 ## Saat Duniamu Remuk Redam
 
-Coba perhatikan manusia di sekelilingmu—atau tengok dirimu sendiri secara jujur.
+Coba perhatikan manusia di sekelilingmu, atau tengok dirimu sendiri secara jujur.
 
 Kapan sih manusia itu biasanya mulai tertarik mencari Tuhan? Kapan kita mulai getol ikut kajian, belajar meditasi, atau sibuk membaca buku-buku batin?
 
@@ -19,7 +19,7 @@ Pintu kesadaran manusia itu hampir selalu baru diketuk ketika benteng dunianya d
 
 Ada yang dihancurkan di pilar uangnya: usaha yang dirintis belasan tahun tiba-tiba bangkrut, uang miliaran ludes dibawa lari mitra kerja kepercayaan, sampai setiap menit HP-nya berdering diteror penagih utang. Ada yang dihancurkan di urusan rumah tangga: pernikahan yang dibangga-banggakan mendadak hancur berantakan karena perselingkuhan yang menusuk ulu hati. Ada juga yang dihancurkan langsung di raganya: mendadak diserang kepanikan luar biasa tanpa sebab, lambung perih terbakar asam, jantung berdegup liar seperti mau copot, dan dokter spesialis pun bingung karena semua hasil rontgen menyatakan tubuhnya bersih.
 
-Pernah ada seorang kawan datang menemui saya dengan muka yang kuyu, matanya sayu menatap lantai. Setelah terdiam lama, keluhannya tumpah—sebuah jeritan yang mewakili keputusasaan jutaan manusia modern hari ini:
+Pernah ada seorang kawan datang menemui saya dengan muka yang kuyu, matanya sayu menatap lantai. Setelah terdiam lama, keluhannya tumpah, sebuah jeritan yang mewakili keputusasaan jutaan manusia modern hari ini:
 
 *"Mas, aku ini rasanya sudah sampai di jalan buntu. Kurang apa coba ikhtiarku? Seminar motivasi jutaan rupiah sudah tak ikuti sampai sertifikatnya menumpuk di lemari. Buku-buku pengembangan diri terlaris kuborong, kubaca, distabilo halamannya. Afirmasi sukses kuhafal di luar kepala. Sampai urusan ibadah pun kugenjot habis-habisan: tahajud tiap malam, wirid dan istigfar ribuan kali kuputar di tasbih sampai jariku kapalan. Tapi kenapa nasibku tetap begini-begini saja? Utang di bank bukannya susut malah membengkak. Tiap bangun tidur kepalaku migrain, asam lambung kambuh, dan di rumah gampang sekali meledak marah ke anak istri. Sebenarnya doa dan hukum tarik-menarik itu beneran nyata, atau cuma dongeng penenang buat orang-orang yang kalah macam aku?"*
 
@@ -27,7 +27,7 @@ Saya tatap matanya, lalu saya bilang:
 
 *"Kamu mau tahu jawaban jujurnya? Karena selama bertahun-tahun ini, kamu cuma sibuk merombak nasib di permukaan kolam!"*
 
-Kamu baru bermain di level pikiran sadar—wilayah logika di kepala yang kekuatannya paling banter cuma lima sampai sepuluh persen. Bibirmu berbusa berteriak: *aku kaya, aku tenang, aku magnet rezeki.* Tapi di kedalaman sembilan puluh persen sisanya, di alam bawah sadarmu yang mengendalikan detak jantung dan pompa hormonmu, tersimpan rekaman yang sama sekali berkebalikan: ketakutan miskin, trauma masa kecil, rasa bersalah yang mengendap menahun, dan kepanikan yang membakar dada.
+Kamu baru bermain di level pikiran sadar, wilayah logika di kepala yang kekuatannya paling banter cuma lima sampai sepuluh persen. Bibirmu berbusa berteriak: *aku kaya, aku tenang, aku magnet rezeki.* Tapi di kedalaman sembilan puluh persen sisanya, di alam bawah sadarmu yang mengendalikan detak jantung dan pompa hormonmu, tersimpan rekaman yang sama sekali berkebalikan: ketakutan miskin, trauma masa kecil, rasa bersalah yang mengendap menahun, dan kepanikan yang membakar dada.
 
 Pegang ini baik-baik: ketika terjadi duel satu lawan satu antara pikiran sadar di bibir melawan alam bawah sadar yang berakar di dada, alam bawah sadar selalu menang seratus persen tanpa pernah meleset!
 
@@ -65,7 +65,7 @@ Konsep bahwa manusia itu sekadar wayang sebetulnya diciptakan oleh para leluhur 
 
 Tapi jangan berhenti di situ. Kamu harus paham kebenaran lanjutannya: di panggung kehidupan ini, kamu adalah wayang sekaligus dalangnya sendiri!
 
-Realitas fisik yang kamu jumpai hari ini, orang-orang yang datang mengecewakanmu, pintu rezeki yang tertutup, atau musibah yang mampir, sesungguhnya adalah pantulan dari nada gending batin yang kamu mainkan kemarin. Takdir bukanlah lembaran batu kaku yang dipahat mati tanpa bisa ditawar. Takdir adalah percakapan tanpa henti antara medan elektromagnetik di dalam dadamu dengan medan semesta raya. 
+Realitas fisik yang kamu jumpai hari ini, orang-orang yang datang mengecewakanmu, pintu rezeki yang tertutup, atau musibah yang mampir, aslinya adalah pantulan dari nada gending batin yang kamu mainkan kemarin. Takdir bukanlah lembaran batu kaku yang dipahat mati tanpa bisa ditawar. Takdir adalah percakapan tanpa henti antara medan elektromagnetik di dalam dadamu dengan medan semesta raya. 
 
 Begitu cetak biru di alam bawah sadarmu kamu rombak, getaran elektromagnetik tubuhmu bergeser seketika, dan pada detik itu pula seluruh susunan realitas di sekelilingmu akan menata ulang dirinya mengikuti frekuensi barumu!
 
@@ -139,11 +139,11 @@ Kata-kata itu meluncur dengan dorongan roket emosi yang begitu murni, tanpa seti
 
 Otak manusia punya lebih dari delapan puluh enam miliar sel saraf. Di antara sel-sel itu terbentang triliunan celah penghubung tempat sinyal listrik meloncat membawa pesan.
 
-Waktu sebuah pikiran kamu ulang terus-menerus—baik lewat ucapan lisan maupun lintasan batin—jalur penghubung antarsaraf itu akan dibungkus oleh lapisan pelindung bernama mielin. Semakin sering sebuah pikiran diulang, lapisan mielinnya semakin tebal, sinyal listrik bergerak semakin kilat tanpa hambatan, dan pikiran itu akhirnya menjelma menjadi kebiasaan bawah sadar otomatis. Inilah yang kelak membentuk jalan nasibmu.
+Waktu sebuah pikiran kamu ulang terus-menerus, baik lewat ucapan lisan maupun lintasan batin, jalur penghubung antarsaraf itu akan dibungkus oleh lapisan pelindung bernama mielin. Semakin sering sebuah pikiran diulang, lapisan mielinnya semakin tebal, sinyal listrik bergerak semakin kilat tanpa hambatan, dan pikiran itu akhirnya menjelma menjadi kebiasaan bawah sadar otomatis. Inilah yang kelak membentuk jalan nasibmu.
 
 Kamu tidak bisa berharap nasib burukmu berganti hanya dengan berdoa khusyuk satu kali di malam hari, lalu sisa dua puluh tiga jam harimu kamu isi dengan mengeluh dan mencemaskan masa depan! Jalur kecemasan di otakmu itu sudah setebal jalan tol beton. Untuk meruntuhkannya, kamu harus membangun jalan tol baru melalui pengulangan rasa yang konsisten setiap hari, sampai sirkuit ketenangan baru itu menabrak dan mematikan sirkuit kepanikan lamamu.
 
-Dampak pengulangan ini bahkan tidak cuma berhenti di kepala. Dia merambat ke sekujur tubuh, sebab raga manusia pada hakikatnya adalah wadah cairan berjalan: tujuh puluh sampai tujuh puluh dua persen tubuh kita adalah air!
+Dampak pengulangan ini bahkan tidak cuma berhenti di kepala. Dia merambat ke sekujur tubuh, sebab raga manusia ini aslinya adalah wadah cairan berjalan: tujuh puluh sampai tujuh puluh dua persen tubuh kita adalah air!
 
 Molekul air punya kepekaan luar biasa dalam merekam getaran frekuensi di sekitarnya. Air yang terpapar getaran rasa syukur, cinta kasih, dan ketenangan batin akan menyusun dirinya membentuk geometri kristal heksagonal yang sangat anggun dan simetris. Sebaliknya, air yang dibombardir oleh getaran amarah, caci maki, keluhan tiada henti, dan rasa takut akan menyusun diri menjadi struktur yang keruh dan berantakan.
 
@@ -173,7 +173,7 @@ Ibu saya pun dulu sering berpesan: kalau memakai baju terbalik tanpa sengaja, it
 
 Apakah mobil pengantin dan baju terbalik itu punya kekuatan gaib? Tentu saja tidak! Itu cuma benda mati biasa. Tapi figur kedua orang tua saya telah membuka gerbang bawah sadar saya sejak belia, menanamkan keyakinan di sana, dan memasang sebuah pemicu visual. Begitu mata saya melihat pemicu itu, tubuh saya seketika memancarkan frekuensi kelimpahan tanpa ada hambatan keraguan.
 
-Hal ini sekaligus membongkar misteri di balik berbagai jimat pusaka, batu akik, atau ritual keramat di masyarakat kita. Tuah sejatinya tidak pernah bersemayam pada bilah besi atau batu mati itu! Kekuatannya hidup dari pemaknaan dan keyakinan mutlak yang dipasang ke dalam alam bawah sadar si pemilik. Benda-benda itu cuma jangkar psikologis yang menyalakan rasa percaya diri.
+Hal ini sekaligus membongkar misteri di balik berbagai jimat pusaka, batu akik, atau ritual keramat di masyarakat kita. Tuah itu aslinya tidak pernah ada di bilah besi atau batu mati itu! Kekuatannya hidup dari pemaknaan dan keyakinan mutlak yang dipasang ke dalam alam bawah sadar si pemilik. Benda-benda itu cuma jangkar psikologis yang menyalakan rasa percaya diri.
 
 ---
 
@@ -181,9 +181,9 @@ Hal ini sekaligus membongkar misteri di balik berbagai jimat pusaka, batu akik, 
 
 Sekarang mari kita menengok ke dalam bilik spiritualitas kita sendiri secara jujur. Banyak dari kita yang terperangkap dalam ilusi hitungan angka. Kita mengira bahwa semakin banyak jumlah lafalan kalimat suci yang kita putar di lidah, semakin cepat permohonan kita dikabulkan.
 
-Tapi mari kita bedah apa yang sesungguhnya terjadi di sistem saraf saat seseorang melafalkan doa.
+Tapi mari kita bedah apa yang sebenarnya terjadi di sistem saraf saat seseorang melafalkan doa.
 
-Sistem saraf dan otak manusia pertama kali mengenal dunia melalui bahasa ibu—bahasa kandung yang didengar sejak masih berenang di dalam cairan ketuban rahim ibu. Bahasa ibulah yang memahat jalur asosiasi emosi primer di amigdala dan hipokampus otakmu.
+Sistem saraf dan otak manusia pertama kali mengenal dunia melalui bahasa ibu, yaitu bahasa kandung yang didengar sejak masih berenang di dalam cairan ketuban rahim ibu. Bahasa ibulah yang memahat jalur asosiasi emosi primer di amigdala dan hipokampus otakmu.
 
 Waktu seorang anak Jawa mendengar kata *Biyung* atau anak Indonesia mendengar kata *Ibu*, seketika itu juga rongga dadanya berdesir hangat. Muncul getaran rindu, rasa aman, dan kelembutan kasih yang merambat ke seluruh cairan sel tubuhnya. Tapi kalau dia mengucapkan kata *Ummun* dalam bahasa Arab atau *Mother* dalam bahasa Inggris tanpa penghayatan batin yang mendalam, kata-kata itu cuma deretan huruf fonetik di kepala. Otak kirinya sibuk menerjemahkan, tapi getaran rasanya tidak pernah sampai menggetarkan jantung.
 
@@ -218,13 +218,13 @@ Peta perjalanan kesadaran ini oleh para leluhur diabadikan secara indah dalam sa
 
 Duryudana dan seratus Kurawa adalah lambang dari nafsu hewani, keserakahan, dan amarah yang bergolak di cakra-cakra bagian bawah tubuh.
 
-Patih Sengkuni adalah personifikasi sempurna dari kerja amigdala dan otak reptil manusia. Perhatikan watak Sengkuni: licik, selalu curiga, gemar meniupkan prasangka buruk, takut kehilangan kekuasaan, dan selalu berada dalam mode siaga tempur untuk mencelakai orang lain. Itu adalah gambaran akurat dari otak primitif kita saat dibakar oleh hormon stres—selalu cemas dan merasa dunia luar adalah ancaman yang mau memusnahkannya.
+Patih Sengkuni adalah personifikasi sempurna dari kerja amigdala dan otak reptil manusia. Perhatikan watak Sengkuni: licik, selalu curiga, gemar meniupkan prasangka buruk, takut kehilangan kekuasaan, dan selalu berada dalam mode siaga tempur untuk mencelakai orang lain. Itu adalah gambaran akurat dari otak primitif kita saat dibakar oleh hormon stres, selalu cemas dan merasa dunia luar adalah ancaman yang mau memusnahkannya.
 
 Pandawa Lima adalah perlambang dari panca indra manusia yang telah dibersihkan dan diselaraskan oleh budi pekerti luhur.
 
 Dan puncaknya adalah sosok Kyai Lurah Semar Bodronoyo. Semar adalah lambang dari Rasa Sejati. Sosoknya paradoks: ia dewa berderajat tinggi dari kahyangan, Sang Hyang Ismaya, tapi memilih turun ke bumi jadi rakyat jelata yang bertubuh tambun, kentut sembarangan, membumi, dan penuh welas asih. Semar adalah simbol kesadaran murni yang berhasil menyatukan keluhuran langit dengan kerendahan hati berpijak di atas tanah.
 
-Tugas batin kita yang sesungguhnya bukanlah pamer kesaktian atau mengasingkan diri ke gunung. Tugas kita adalah menidurkan si Sengkuni licik di kepala yang selalu mencemaskan masa depan, lalu membangunkan sang Semar di kedalaman rasa batin—sebuah kesadaran yang memandang dunia dengan senyum teduh, ayem, dan tentrem.
+Tugas batin kita sebetulnya bukanlah pamer kesaktian atau mengasingkan diri ke gunung. Tugas kita adalah menidurkan si Sengkuni licik di kepala yang selalu mencemaskan masa depan, lalu membangunkan sang Semar di kedalaman rasa batin, sebuah kesadaran yang memandang dunia dengan senyum teduh, ayem, dan tentrem.
 
 ---
 
@@ -240,13 +240,13 @@ Tepat di detik itulah kamu harus mengambil jeda! Tahan dirimu selama minimal tig
 
 Jangan langsung berbicara, jangan langsung membalas pesan, dan jangan membuat keputusan apa pun. Diamlah. Tarik napas panjang lewat hidung, kembangkan rongga dada, lalu hembuskan perlahan lewat bibir.
 
-Secara ilmu saraf, tarikan napas sadar selama tiga detik ini adalah sebuah interupsi biologis yang revolusioner. Kamu sedang memotong jalur pembajakan amigdala dan mengalirkan oksigen menuju *Prefrontal Cortex*—bagian otak depan yang menjadi rumah bagi kebijaksanaan, kejernihan, dan ketenangan. Kamu sedang menyingkirkan Sengkuni dan memberi ruang bagi Semar untuk memegang kendali.
+Secara ilmu saraf, tarikan napas sadar selama tiga detik ini adalah sebuah interupsi biologis yang revolusioner. Kamu sedang memotong jalur pembajakan amigdala dan mengalirkan oksigen menuju *Prefrontal Cortex*, bagian otak depan yang menjadi rumah bagi kebijaksanaan, kejernihan, dan ketenangan. Kamu sedang menyingkirkan Sengkuni dan memberi ruang bagi Semar untuk memegang kendali.
 
 Dari ruang hening tiga detik itu, pilihlah responsmu dengan sadar:
 
 Kalau kamu baru saja menerima surat tagihan hutang, alih-alih meratap panik, tatap kertas itu dengan napas tenang lalu bicaralah dalam batin: *"Terima kasih, lembaran ini adalah bukti bahwa aku adalah saluran yang dipercaya semesta untuk mengalirkan rezeki. Rezeki yang keluar ini akan kembali kepadaku berlipat ganda dalam kebaikan."*
 
-Kalau ada orang yang meremehkan atau menghinamu di depan umum, berhentilah membalas. Pandang wajahnya dengan rasa iba, sebab kamu paham bahwa hinaan yang keluar dari mulutnya sesungguhnya adalah jeritan luka batin yang sedang membusuk di dalam dadanya sendiri. Tetaplah kokoh berdiri di frekuensi ketenanganmu.
+Kalau ada orang yang meremehkan atau menghinamu di depan umum, berhentilah membalas. Pandang wajahnya dengan rasa iba, sebab kamu paham bahwa hinaan yang keluar dari mulutnya itu sebetulnya jeritan luka batin yang sedang membusuk di dalam dadanya sendiri. Tetaplah kokoh berdiri di frekuensi ketenanganmu.
 
 Lakukan laku hening tiga detik ini secara disiplin selama empat puluh satu hari setiap kali pemicu stres datang. Dalam rentang waktu itu, jalur saraf lamamu yang rapuh akan menyusut, dan sirkuit ketenangan yang baru akan terbentuk kokoh, mengubah caramu merespons semesta selamanya.
 
