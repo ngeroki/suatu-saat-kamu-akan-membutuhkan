@@ -3,13 +3,14 @@
  * Combines Chapter Cards (with Illustrations) and Expandable Dropdown TOC per Chapter.
  */
 import { CHAPTERS, PAGES, Page, ChapterMeta } from "../data/book";
-import { navigate } from "../router";
+import { navigate, Route } from "../router";
 import { playPaperRustle } from "../lib/audio";
 import { PagePicker } from "../components/page-picker";
 
 export class BabListScreen {
   private el: HTMLElement;
   private openChapterIds: Set<number> = new Set(); // All chapters closed by default
+  private activeTab: "chapters" | "bookmarks" = "chapters";
   private pagePicker: PagePicker;
 
   constructor(container: HTMLElement) {
@@ -40,9 +41,14 @@ export class BabListScreen {
     this.render();
   }
 
-  public show(): void {
+  public show(route?: Route): void {
     this.pagePicker.close();
     this.el.classList.add("active");
+    if (route?.params?.tab === "bookmarks") {
+      this.activeTab = "bookmarks";
+    } else {
+      this.activeTab = "chapters";
+    }
     this.openChapterIds.clear(); // Ensure all chapters are closed so user sees all chapters
     this.render();
   }
@@ -62,12 +68,25 @@ export class BabListScreen {
   }
 
   private render(): void {
+    // Load Bookmarks from localStorage
+    let bookmarkedIndices: number[] = [];
+    try {
+      const saved = localStorage.getItem("suatu_saat_bookmarks");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          bookmarkedIndices = parsed
+            .filter(idx => typeof idx === "number" && idx >= 0 && idx < PAGES.length)
+            .sort((a, b) => a - b);
+        }
+      }
+    } catch (_) {}
+
     const chapters = CHAPTERS.filter(ch => ch.id >= 1 && ch.id <= 5);
 
     const cardsHTML = chapters.map(ch => {
       const isOpen = this.openChapterIds.has(ch.id);
       const chapPages = PAGES.filter(p => p.chapter_id === ch.id);
-      const bulletsHTML = ch.tags.map(tag => `<span>• ${tag}</span>`).join(" ");
 
       // Generate rows for every page in this chapter
       const pagesRowsHTML = chapPages.map(page => {
@@ -128,6 +147,54 @@ export class BabListScreen {
       `;
     }).join("");
 
+    // Bookmarks Content HTML
+    let bookmarksContentHTML = "";
+    if (bookmarkedIndices.length === 0) {
+      bookmarksContentHTML = `
+        <div class="toc-bookmarks-empty" style="text-align: center; padding: 44px 20px 32px; display: flex; flex-direction: column; align-items: center;">
+          <div style="font-size: 36px; color: #C5A059; margin-bottom: 12px; opacity: 0.85;">🔖</div>
+          <h3 style="font-family: var(--serif); font-size: 19px; color: #F4EFE6; margin: 0 0 8px; font-weight: 600;">Belum Ada Lembaran Ditandai</h3>
+          <p style="font-family: var(--serif); font-size: 13px; line-height: 1.6; color: #A89886; max-width: 290px; margin: 0 0 22px;">
+            Ketuk ikon <span style="color: #C5A059; font-weight: 600;">🔖</span> di pojok kanan atas saat membaca untuk menyimpan halaman favoritmu di sini.
+          </p>
+          <button type="button" class="btn-primary" id="btn-empty-start" style="background: #C5A059; color: #11110F; max-width: 200px; padding: 12px 20px; font-size: 13px; font-weight: 600; border-radius: 12px;">
+            Mulai Membaca →
+          </button>
+        </div>
+      `;
+    } else {
+      const itemsHTML = bookmarkedIndices.map(idx => {
+        const p = PAGES[idx];
+        if (!p) return "";
+        const pInChap = p.page_in_chap < 10 ? `0${p.page_in_chap}` : `${p.page_in_chap}`;
+        const pGlobal = p.page_number < 10 ? `0${p.page_number}` : `${p.page_number}`;
+        const quote = p.side_a_text ? `"${p.side_a_text}"` : (p.teaser || "");
+
+        return `
+          <div class="toc-bookmark-card" data-chap="${p.chapter_id}" data-page="${p.page_in_chap}" role="button" tabindex="0">
+            <div class="toc-bookmark-thumb-wrap">
+              <img src="${p.thumbnail || p.image_path}" alt="${p.title}" class="toc-bookmark-thumb" loading="lazy" />
+            </div>
+            <div class="toc-bookmark-info">
+              <div class="toc-bookmark-meta">
+                <span class="toc-bookmark-chap-badge">BAB ${p.chapter_id}</span>
+                <span class="toc-bookmark-page-num">Hal ${pGlobal} (${pInChap})</span>
+              </div>
+              <div class="toc-bookmark-title">${p.title}</div>
+              ${quote ? `<p class="toc-bookmark-quote">${quote}</p>` : ''}
+            </div>
+            <div class="toc-bookmark-arrow">›</div>
+          </div>
+        `;
+      }).join("");
+
+      bookmarksContentHTML = `
+        <div class="toc-bookmarks-list">
+          ${itemsHTML}
+        </div>
+      `;
+    }
+
     this.el.innerHTML = `
       <!-- Top Header Navigation -->
       <header class="ph-header" style="padding: 16px 20px 10px; max-width: 480px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
@@ -145,69 +212,94 @@ export class BabListScreen {
       </header>
 
       <!-- Sub Header Title Row -->
-      <div style="max-width: 480px; width: 100%; margin: 0 auto; padding: 6px 20px 14px; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="max-width: 480px; width: 100%; margin: 0 auto; padding: 6px 20px 10px; display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
-          <h1 style="font-family: var(--serif); font-size: 24px; letter-spacing: 1px; color: #EDE4D8; font-weight: 500; line-height: 1.15; margin: 0;">Daftar Isi</h1>
+          <h1 style="font-family: var(--serif); font-size: 24px; letter-spacing: 1px; color: #EDE4D8; font-weight: 500; line-height: 1.15; margin: 0;">
+            ${this.activeTab === 'bookmarks' ? 'Lembaran Ditandai' : 'Daftar Isi'}
+          </h1>
+        </div>
+        <button id="unified-btn-help" style="background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.35); color: #C5A059; border-radius: 999px; padding: 5px 12px; font-family: var(--sans); font-size: 11px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s ease;">
+          <span>Petunjuk</span>
+          <span style="font-weight: 700; font-size: 12px;">?</span>
+        </button>
+      </div>
+
+      <!-- Segmented Tab Bar (Semua Bab vs Lembaran Ditandai) -->
+      <div style="max-width: 480px; width: 100%; margin: 0 auto 12px; padding: 0 16px; box-sizing: border-box;">
+        <div class="toc-tab-bar">
+          <button type="button" class="toc-tab-btn ${this.activeTab === 'chapters' ? 'active' : ''}" id="btn-toc-tab-chapters">
+            <span>Semua Bab (5)</span>
+          </button>
+          <button type="button" class="toc-tab-btn ${this.activeTab === 'bookmarks' ? 'active' : ''}" id="btn-toc-tab-bookmarks">
+            <span>★ Ditandai</span>
+            ${bookmarkedIndices.length > 0 ? `<span class="toc-tab-count">${bookmarkedIndices.length}</span>` : ''}
+          </button>
         </div>
       </div>
 
-      <!-- Scrollable Chapters & TOC List -->
+      <!-- Scrollable Content Area -->
       <main class="unified-bab-scroll" style="flex: 1; min-height: 0; overflow-y: auto; padding: 0 16px 20px; max-width: 480px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 12px;">
-        <!-- Prolog Card (Fixed Top) -->
-        <div class="unified-bab-card" id="card-prolog" style="cursor: pointer;">
-          <div class="unified-bab-header" style="cursor: pointer;">
-            <div class="unified-bab-left">
-              <div class="unified-bab-code" style="color: #C5A059; font-weight: 700;">PROLOG</div>
-              <div class="unified-bab-title">Obrolan di Pinggir Jalan</div>
-              <div class="unified-bab-dropdown-cue">
-                <span class="cue-text">Buka Prolog →</span>
+        ${this.activeTab === 'chapters' ? `
+          <!-- Prolog Card (Fixed Top) -->
+          <div class="unified-bab-card" id="card-prolog" style="cursor: pointer;">
+            <div class="unified-bab-header" style="cursor: pointer;">
+              <div class="unified-bab-left">
+                <div class="unified-bab-code" style="color: #C5A059; font-weight: 700;">PROLOG</div>
+                <div class="unified-bab-title">Obrolan di Pinggir Jalan</div>
+                <div class="unified-bab-dropdown-cue">
+                  <span class="cue-text">Buka Prolog →</span>
+                </div>
+              </div>
+              <div class="unified-bab-right-artwork">
+                <img src="/assets/prolog_warkop.jpg" alt="Prolog" loading="lazy" />
+                <div class="artwork-mask"></div>
               </div>
             </div>
-            <div class="unified-bab-right-artwork">
-              <img src="/assets/prolog_warkop.jpg" alt="Prolog" loading="lazy" />
-              <div class="artwork-mask"></div>
-            </div>
           </div>
-        </div>
 
-        ${cardsHTML}
+          ${cardsHTML}
 
-        <!-- Epilog Card (Fixed Bottom) -->
-        <div class="unified-bab-card" id="card-epilog" style="cursor: pointer;">
-          <div class="unified-bab-header" style="cursor: pointer;">
-            <div class="unified-bab-left">
-              <div class="unified-bab-code" style="color: #C5A059; font-weight: 700;">EPILOG</div>
-              <div class="unified-bab-title">Menjadi Manusia Normal</div>
-              <div class="unified-bab-dropdown-cue">
-                <span class="cue-text">Buka Epilog →</span>
+          <!-- Epilog Card (Fixed Bottom) -->
+          <div class="unified-bab-card" id="card-epilog" style="cursor: pointer;">
+            <div class="unified-bab-header" style="cursor: pointer;">
+              <div class="unified-bab-left">
+                <div class="unified-bab-code" style="color: #C5A059; font-weight: 700;">EPILOG</div>
+                <div class="unified-bab-title">Menjadi Manusia Normal</div>
+                <div class="unified-bab-dropdown-cue">
+                  <span class="cue-text">Buka Epilog →</span>
+                </div>
+              </div>
+              <div class="unified-bab-right-artwork">
+                <img src="/assets/epilog_keluarga.jpg" alt="Epilog" loading="lazy" />
+                <div class="artwork-mask"></div>
               </div>
             </div>
-            <div class="unified-bab-right-artwork">
-              <img src="/assets/epilog_keluarga.jpg" alt="Epilog" loading="lazy" />
-              <div class="artwork-mask"></div>
-            </div>
           </div>
-        </div>
 
-        <!-- Total summary footer -->
-        <div style="text-align: center; font-family: var(--sans); font-size: 10.5px; color: rgba(235, 226, 214, 0.4); padding: 16px 0 8px; letter-spacing: 0.5px;">
-          Prolog · 5 Bab · 74 Halaman · Epilog
-        </div>
+          <!-- Total summary footer -->
+          <div style="text-align: center; font-family: var(--sans); font-size: 10.5px; color: rgba(235, 226, 214, 0.4); padding: 16px 0 8px; letter-spacing: 0.5px;">
+            Prolog · 5 Bab · 74 Halaman · Epilog
+          </div>
+        ` : `
+          ${bookmarksContentHTML}
+        `}
       </main>
 
       <!-- Bottom Sticky CTA -->
       <footer style="padding: 10px 20px 16px; max-width: 480px; width: 100%; margin: 0 auto; background: linear-gradient(180deg, transparent 0%, #0A0A08 40%); z-index: 10;">
         <button class="btn-primary" id="btn-start-reading" style="background: #C5A059; color: #11110F; border: none; padding: 14px 20px; border-radius: 12px; font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.3px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; box-shadow: 0 8px 24px rgba(197, 160, 89, 0.35);">
-          Mulai Membaca dari Prolog →
+          ${this.activeTab === 'bookmarks' && bookmarkedIndices.length > 0 
+            ? 'Buka Lembaran Terakhir Ditandai →' 
+            : 'Mulai Membaca dari Prolog →'}
         </button>
       </footer>
     `;
 
     // Bind DOM Events
-    this.bindEvents();
+    this.bindEvents(bookmarkedIndices);
   }
 
-  private bindEvents(): void {
+  private bindEvents(bookmarkedIndices: number[] = []): void {
     // Back to Cover
     this.el.querySelector("#unified-btn-back")?.addEventListener("click", () => {
       this.pagePicker.close();
@@ -226,6 +318,37 @@ export class BabListScreen {
       this.pagePicker.toggle(0);
     });
 
+    // Tab Switcher Buttons
+    this.el.querySelector("#btn-toc-tab-chapters")?.addEventListener("click", () => {
+      if (this.activeTab !== "chapters") {
+        this.activeTab = "chapters";
+        this.render();
+      }
+    });
+
+    this.el.querySelector("#btn-toc-tab-bookmarks")?.addEventListener("click", () => {
+      if (this.activeTab !== "bookmarks") {
+        this.activeTab = "bookmarks";
+        this.render();
+      }
+    });
+
+    // Empty state start reading button
+    this.el.querySelector("#btn-empty-start")?.addEventListener("click", () => {
+      playPaperRustle();
+      navigate("read", { chap: 1, page: 1 });
+    });
+
+    // Bookmark cards click -> navigate directly to bookmarked page
+    this.el.querySelectorAll(".toc-bookmark-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const chapId = parseInt(card.getAttribute("data-chap") || "1", 10);
+        const pageNum = parseInt(card.getAttribute("data-page") || "1", 10);
+        playPaperRustle();
+        navigate("read", { chap: chapId, page: pageNum });
+      });
+    });
+
     // Prolog and Epilog Cards
     this.el.querySelector("#card-prolog")?.addEventListener("click", () => {
       playPaperRustle();
@@ -237,10 +360,28 @@ export class BabListScreen {
       navigate("epilog");
     });
 
-    // Start Reading from Prolog
+    // Bottom Sticky Start Reading CTA
     this.el.querySelector("#btn-start-reading")?.addEventListener("click", () => {
       playPaperRustle();
+      if (this.activeTab === "bookmarks" && bookmarkedIndices.length > 0) {
+        const lastBookmarkedIdx = bookmarkedIndices[bookmarkedIndices.length - 1];
+        const lastPage = PAGES[lastBookmarkedIdx];
+        if (lastPage) {
+          navigate("read", { chap: lastPage.chapter_id, page: lastPage.page_in_chap });
+          return;
+        }
+      }
       navigate("prolog");
+    });
+
+    // Petunjuk Membaca (?) -> Trigger reader tutorial on demand
+    this.el.querySelector("#unified-btn-help")?.addEventListener("click", () => {
+      try {
+        sessionStorage.removeItem("suatu-saat:reader-tutorial-completed");
+        sessionStorage.setItem("suatu-saat:reader-tutorial-force", "true");
+      } catch (_) {}
+      playPaperRustle();
+      navigate("read", { chap: 1, page: 1 });
     });
 
     // Accordion Toggle on clicking header or toggle chevron

@@ -7,6 +7,7 @@ export interface RouteParams {
   chap?: number | string;
   chapter?: number | string;
   page?: number | string;
+  tab?: string;
 }
 
 export type RouteName = "cover" | "prolog" | "epilog" | "bab" | "toc" | "read" | "spread" | "immersive";
@@ -27,7 +28,9 @@ function parseRoute(hash: string): Route {
   if (!clean || clean === "") return { name: "cover", params: {} };
   if (clean === "prolog") return { name: "prolog", params: {} };
   if (clean === "epilog") return { name: "epilog", params: {} };
-  if (clean === "bab") return { name: "bab", params: {} };
+  if (parts[0] === "bab") {
+    return { name: "bab", params: parts[1] ? { tab: parts[1] } : {} };
+  }
   if (clean === "toc") return { name: "toc", params: {} };
 
   const [name, chapStr, pageStr] = parts;
@@ -48,7 +51,7 @@ export function navigate(name: RouteName, params: RouteParams = {}): void {
   let hash = "#/";
   if (name === "prolog") hash = "#/prolog";
   else if (name === "epilog") hash = "#/epilog";
-  else if (name === "bab") hash = "#/bab";
+  else if (name === "bab") hash = params.tab ? `#/bab/${params.tab}` : "#/bab";
   else if (name === "toc") hash = "#/toc";
   else if (name === "read") hash = `#/read/${chapNum}/${pageNum}`;
   else if (name === "spread") hash = `#/spread/${chapNum}/${pageNum}`;

@@ -54,7 +54,7 @@ onRoute((route) => {
       break;
     case "bab":
     case "toc":
-      babListScreen.show();
+      babListScreen.show(route);
       break;
     case "read":
     case "spread":
@@ -69,3 +69,23 @@ onRoute((route) => {
 
 // 6. Start Hash Router
 initRouter();
+
+// 7. Desktop Mobile-First Notice Controller
+const desktopNotice = document.getElementById("desktop-notice");
+const dnCloseBtn = document.getElementById("dn-close-btn");
+
+if (desktopNotice && dnCloseBtn) {
+  try {
+    if (sessionStorage.getItem("suatu_saat_desktop_notice_dismissed") === "true") {
+      desktopNotice.classList.add("dismissed");
+    }
+  } catch (_) {}
+
+  dnCloseBtn.addEventListener("click", () => {
+    desktopNotice.classList.add("dismissed");
+    try {
+      sessionStorage.setItem("suatu_saat_desktop_notice_dismissed", "true");
+    } catch (_) {}
+  });
+}
+

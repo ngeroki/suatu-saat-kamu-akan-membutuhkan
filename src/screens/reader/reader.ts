@@ -8,6 +8,11 @@ import { navigate, Route } from "../../router";
 import { playPageTurn, playPaperSlide, isAudioEnabled, setAudioEnabled } from "../../lib/audio";
 import { attachGestures, attachKeyboardNav } from "../../lib/gestures";
 import { PagePicker } from "../../components/page-picker";
+import { ShareSheet } from "../../components/share-sheet";
+import { showToast } from "../../lib/toast";
+
+const TUTORIAL_STORAGE_KEY = "suatu-saat:reader-tutorial-completed";
+type TutorialStep = "flip" | "swipe" | "page-picker" | "completed";
 
 export class ReaderScreen {
   private el: HTMLElement;
@@ -16,6 +21,9 @@ export class ReaderScreen {
   private bookmarkedPages: Set<number> = new Set();
   private isFlipping = false;
   private pagePicker: PagePicker;
+  private shareSheet: ShareSheet;
+  private tutorialStep: TutorialStep = "completed";
+  private tutorialSheetDismissed: boolean = false;
 
   constructor(container: HTMLElement) {
     this.el = document.createElement("div");
@@ -28,6 +36,14 @@ export class ReaderScreen {
     this.el.style.flexDirection = "column";
 
     container.appendChild(this.el);
+
+    // Initialize tutorial state from sessionStorage (Per-Session)
+    try {
+      const isDone = sessionStorage.getItem(TUTORIAL_STORAGE_KEY);
+      this.tutorialStep = isDone === "true" ? "completed" : "flip";
+    } catch (_) {
+      this.tutorialStep = "flip";
+    }
 
     // Load persisted bookmarks from localStorage
     try {
@@ -48,6 +64,9 @@ export class ReaderScreen {
       onSelectPage: (idx) => this.goToPage(idx),
       onNavigate: (route) => navigate(route),
     });
+
+    // Editorial Share Sheet & Story Card Generator
+    this.shareSheet = new ShareSheet(this.el);
 
     // Gestures for swipe navigation (left / right for page turns)
     attachGestures(this.el, {
@@ -83,6 +102,31 @@ export class ReaderScreen {
     try {
       localStorage.setItem("suatu_saat_last_page", String(this.currentGlobalIndex));
     } catch (_) {}
+
+    // Check tutorial state on entry (Per-Session Tab: once per session or on-demand forced)
+    try {
+      if (sessionStorage.getItem("suatu-saat:reader-tutorial-force") === "true") {
+        sessionStorage.removeItem("suatu-saat:reader-tutorial-force");
+        this.tutorialSheetDismissed = false;
+        this.tutorialStep = "flip";
+      } else {
+        const isDone = sessionStorage.getItem(TUTORIAL_STORAGE_KEY);
+        if (isDone === "true") {
+          this.tutorialStep = "completed";
+        } else {
+          // First time in this session: only show on opening page (Chapter 1 / Page 1)
+          if (this.currentGlobalIndex === 0) {
+            this.tutorialSheetDismissed = false;
+            this.tutorialStep = "flip";
+          } else {
+            this.tutorialStep = "completed";
+          }
+        }
+      }
+    } catch (_) {
+      this.tutorialStep = "completed";
+    }
+
     const curPage = PAGES[this.currentGlobalIndex];
     // Chapter opener (page_in_chap === 1) shows Side A cover poster; subsequent content pages show Side B text directly
     this.activeSide = curPage && curPage.page_in_chap === 1 ? "A" : "B";
@@ -93,6 +137,8 @@ export class ReaderScreen {
     if (this.pagePicker.opened) {
       this.pagePicker.close();
     }
+    this.shareSheet.close();
+    this.el.querySelector(".m-reader-tutorial-layer")?.remove();
     this.el.classList.remove("active");
   }
 
@@ -100,6 +146,7 @@ export class ReaderScreen {
     if (this.pagePicker.opened) {
       this.pagePicker.close();
     }
+    this.shareSheet.close();
     if (index < 0 || index >= PAGES.length || index === this.currentGlobalIndex) return;
     if (this.isFlipping) return;
 
@@ -107,78 +154,47 @@ export class ReaderScreen {
     this.isFlipping = true;
     playPageTurn();
 
-    const isMobile = window.innerWidth <= 480;
+    const activeContent = (this.activeSide === "B"
+      ? this.el.querySelector(".m-reading-stage")
+      : this.el.querySelector(".m-poster-box")) as HTMLElement | null;
 
-    if (isMobile) {
-      const activeContent = (this.activeSide === "B"
+    if (activeContent) {
+      activeContent.classList.add(dir === "next" ? "m-flip-out-next" : "m-flip-out-prev");
+    }
+
+    setTimeout(() => {
+      this.currentGlobalIndex = index;
+      try {
+        localStorage.setItem("suatu_saat_last_page", String(this.currentGlobalIndex));
+      } catch (_) {}
+      const targetPage = PAGES[index];
+      // Adaptive reading flow: opener shows Side A, subsequent content pages show Side B directly
+      this.activeSide = targetPage && targetPage.page_in_chap === 1 ? "A" : "B";
+      if (targetPage) {
+        history.replaceState(null, "", `#/read/${targetPage.chapter_id}/${targetPage.page_in_chap}`);
+      }
+      this.render();
+
+      const newActiveContent = (this.activeSide === "B"
         ? this.el.querySelector(".m-reading-stage")
         : this.el.querySelector(".m-poster-box")) as HTMLElement | null;
 
-      if (activeContent) {
-        activeContent.classList.add(dir === "next" ? "m-flip-out-next" : "m-flip-out-prev");
-      }
-
-      setTimeout(() => {
-        this.currentGlobalIndex = index;
-        try {
-          localStorage.setItem("suatu_saat_last_page", String(this.currentGlobalIndex));
-        } catch (_) {}
-        const targetPage = PAGES[index];
-        // Adaptive reading flow: opener shows Side A, subsequent content pages show Side B directly
-        this.activeSide = targetPage && targetPage.page_in_chap === 1 ? "A" : "B";
-        if (targetPage) {
-          history.replaceState(null, "", `#/read/${targetPage.chapter_id}/${targetPage.page_in_chap}`);
-        }
-        this.render();
-
-        const newActiveContent = (this.activeSide === "B"
-          ? this.el.querySelector(".m-reading-stage")
-          : this.el.querySelector(".m-poster-box")) as HTMLElement | null;
-
-        if (newActiveContent) {
-          newActiveContent.classList.add(dir === "next" ? "m-flip-in-next" : "m-flip-in-prev");
-          setTimeout(() => {
-            newActiveContent.classList.remove("m-flip-in-next", "m-flip-in-prev");
-            this.isFlipping = false;
-          }, 300);
-        } else {
+      if (newActiveContent) {
+        newActiveContent.classList.add(dir === "next" ? "m-flip-in-next" : "m-flip-in-prev");
+        setTimeout(() => {
+          newActiveContent.classList.remove("m-flip-in-next", "m-flip-in-prev");
           this.isFlipping = false;
-        }
-      }, 160);
-    } else {
-      // Desktop Book Spread 3D Curl
-      const bookSpread = this.el.querySelector(".physical-book-spread") as HTMLElement;
-      if (bookSpread) {
-        bookSpread.classList.add(dir === "next" ? "d-flip-out-next" : "d-flip-out-prev");
+        }, 300);
+      } else {
+        this.isFlipping = false;
       }
-
-      setTimeout(() => {
-        this.currentGlobalIndex = index;
-        try {
-          localStorage.setItem("suatu_saat_last_page", String(this.currentGlobalIndex));
-        } catch (_) {}
-        const targetPage = PAGES[index];
-        this.activeSide = targetPage && targetPage.page_in_chap === 1 ? "A" : "B";
-        if (targetPage) {
-          history.replaceState(null, "", `#/read/${targetPage.chapter_id}/${targetPage.page_in_chap}`);
-        }
-        this.render();
-
-        const newBookSpread = this.el.querySelector(".physical-book-spread") as HTMLElement;
-        if (newBookSpread) {
-          newBookSpread.classList.add(dir === "next" ? "d-flip-in-next" : "d-flip-in-prev");
-          setTimeout(() => {
-            newBookSpread.classList.remove("d-flip-in-next", "d-flip-in-prev");
-            this.isFlipping = false;
-          }, 300);
-        } else {
-          this.isFlipping = false;
-        }
-      }, 160);
-    }
+    }, 160);
   }
 
   public nextPage(): void {
+    if (this.tutorialStep === "swipe") {
+      this.advanceTutorial("swipe");
+    }
     if (this.currentGlobalIndex < PAGES.length - 1) {
       this.goToPage(this.currentGlobalIndex + 1, "next");
     } else {
@@ -188,6 +204,9 @@ export class ReaderScreen {
   }
 
   public prevPage(): void {
+    if (this.tutorialStep === "swipe") {
+      this.advanceTutorial("swipe");
+    }
     if (this.currentGlobalIndex > 0) {
       this.goToPage(this.currentGlobalIndex - 1, "prev");
     } else {
@@ -201,6 +220,10 @@ export class ReaderScreen {
     this.isFlipping = true;
     this.activeSide = side;
     playPaperSlide();
+
+    if (this.tutorialStep === "flip") {
+      this.advanceTutorial("flip");
+    }
 
     const sheetContainer = this.el.querySelector(".m-sheet-container");
     if (sheetContainer) {
@@ -219,10 +242,16 @@ export class ReaderScreen {
   }
 
   public toggleBookmark(): void {
-    if (this.bookmarkedPages.has(this.currentGlobalIndex)) {
+    const wasBookmarked = this.bookmarkedPages.has(this.currentGlobalIndex);
+    if (wasBookmarked) {
       this.bookmarkedPages.delete(this.currentGlobalIndex);
+      showToast("Penanda buku dihapus", 2200);
     } else {
       this.bookmarkedPages.add(this.currentGlobalIndex);
+      showToast("★ Ditandai ke Penanda Buku", 3800, {
+        label: "Buka Penanda",
+        onClick: () => navigate("bab", { tab: "bookmarks" }),
+      });
     }
     try {
       localStorage.setItem(
@@ -244,7 +273,7 @@ export class ReaderScreen {
     const icon = nextState ? "🔊" : "🔇";
     const title = nextState ? "Suara Efek: Aktif" : "Suara Efek: Senyap";
 
-    this.el.querySelectorAll("#m-btn-sound-a, #m-btn-sound-b, #d-btn-sound").forEach((btn) => {
+    this.el.querySelectorAll("#m-btn-sound-a, #m-btn-sound-b").forEach((btn) => {
       btn.setAttribute("title", title);
       const iconSpan = btn.querySelector(".m-icon");
       if (iconSpan) iconSpan.textContent = icon;
@@ -252,15 +281,9 @@ export class ReaderScreen {
   }
 
   private render(): void {
-    const isMobile = window.innerWidth <= 480;
     const page = PAGES[this.currentGlobalIndex];
     if (!page) return;
-
-    if (isMobile) {
-      this.renderMobile(page);
-    } else {
-      this.renderDesktop(page);
-    }
+    this.renderMobile(page);
   }
 
   // =========================================================================
@@ -334,7 +357,10 @@ export class ReaderScreen {
                 <span class="m-icon">☰</span>
               </button>
               <div class="m-hdr-title" id="m-hdr-title" role="button" tabindex="0" title="Kembali ke Beranda">SUATU SAAT</div>
-              <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
+              <div class="m-hdr-right" style="display: flex; align-items: center; gap: 6px;">
+                <button class="m-hdr-btn" id="m-btn-help-a" aria-label="Petunjuk Membaca" title="Petunjuk Membaca" style="font-size: 13px; font-weight: 600; font-family: var(--sans); width: 26px; height: 26px; border-radius: 50%; border: 1px solid rgba(235, 226, 214, 0.28); display: flex; align-items: center; justify-content: center; padding: 0; opacity: 0.85;">
+                  <span class="m-icon" style="line-height: 1;">?</span>
+                </button>
                 <button class="m-hdr-btn" id="m-btn-sound-a" aria-label="Bisukan / Bunyikan Suara" title="${isAudioEnabled() ? 'Suara Efek: Aktif' : 'Suara Efek: Senyap'}">
                   <span class="m-icon">${isAudioEnabled() ? '🔊' : '🔇'}</span>
                 </button>
@@ -410,10 +436,15 @@ export class ReaderScreen {
                 </button>
               </div>
 
-              <!-- Subtle Flip Cue -->
-              <button type="button" class="m-flip-hint-pill" id="m-btn-flip-cue" aria-label="Baca Naskah" title="Balik ke naskah editorial">
-                <span class="m-hint-text">Baca Naskah →</span>
-              </button>
+              <!-- Subtle Flip Cue & Share Pills -->
+              <div class="m-stage-actions">
+                <button type="button" class="m-flip-hint-pill" id="m-btn-flip-cue" aria-label="Baca Naskah" title="Balik ke naskah editorial">
+                  <span class="m-hint-text">Baca Naskah →</span>
+                </button>
+                <button type="button" class="m-share-trigger-pill" id="m-btn-share-a" aria-label="Bagikan Cerita" title="Bagikan kartu cerita & ilustrasi ini">
+                  <span class="m-hint-text">📤 Bagikan</span>
+                </button>
+              </div>
             </main>
           </div>
 
@@ -427,7 +458,10 @@ export class ReaderScreen {
                 <span class="m-icon">☰</span>
               </button>
               <div class="m-hdr-title" id="m-hdr-title-b" role="button" tabindex="0" title="Kembali ke Beranda" style="cursor: pointer; color: #1E1A16;">SUATU SAAT</div>
-              <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
+              <div class="m-hdr-right" style="display: flex; align-items: center; gap: 6px;">
+                <button class="m-hdr-btn" id="m-btn-help-b" aria-label="Petunjuk Membaca" title="Petunjuk Membaca" style="font-size: 13px; font-weight: 600; font-family: var(--sans); color: #7A6045; width: 26px; height: 26px; border-radius: 50%; border: 1px solid rgba(122, 96, 69, 0.35); display: flex; align-items: center; justify-content: center; padding: 0; opacity: 0.85;">
+                  <span class="m-icon" style="line-height: 1;">?</span>
+                </button>
                 <button class="m-hdr-btn" id="m-btn-sound-b" aria-label="Bisukan / Bunyikan Suara" title="${isAudioEnabled() ? 'Suara Efek: Aktif' : 'Suara Efek: Senyap'}" style="color: #4A3A2A;">
                   <span class="m-icon">${isAudioEnabled() ? '🔊' : '🔇'}</span>
                 </button>
@@ -485,6 +519,7 @@ export class ReaderScreen {
 
     // Bind Mobile DOM Events
     this.bindMobileEvents();
+    this.updateTutorialUI();
   }
 
   private bindMobileEvents(): void {
@@ -506,6 +541,16 @@ export class ReaderScreen {
     this.el.querySelector("#m-hdr-title-b")?.addEventListener("click", (e) => {
       e.stopPropagation();
       navigate("cover");
+    });
+
+    // Petunjuk Membaca (?) Button -> Re-trigger tutorial on demand
+    this.el.querySelector("#m-btn-help-a")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.startTutorial();
+    });
+    this.el.querySelector("#m-btn-help-b")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.startTutorial();
     });
 
     // Bookmarks on Side A and Side B
@@ -587,233 +632,14 @@ export class ReaderScreen {
       e.stopPropagation();
       this.flipToSide("A");
     });
-  }
 
-  // =========================================================================
-  // DESKTOP OPEN-BOOK TWO-PAGE SPREAD RENDERER (> 480px)
-  private renderDesktop(page: Page): void {
-    this.el.style.background = "#0A0A08";
-    this.el.style.color = "#EDE4D8";
-
-    const isBookmarked = this.bookmarkedPages.has(this.currentGlobalIndex);
-    const curNum = this.currentGlobalIndex + 1;
-    const totalNum = PAGES.length;
-    const pStr = page.page_in_chap < 10 ? `0${page.page_in_chap}` : `${page.page_in_chap}`;
-    const percent = ((curNum - 1) / Math.max(1, totalNum - 1)) * 100;
-
-    // Group quotes and citations together cleanly for desktop
-    const dElements: string[] = [];
-    let dIdx = 0;
-    while (dIdx < page.paragraphs.length) {
-      const p = page.paragraphs[dIdx];
-      const isQuote = p.startsWith('"') || p.startsWith('“') || p.startsWith("'");
-      const nextP = dIdx + 1 < page.paragraphs.length ? page.paragraphs[dIdx + 1] : "";
-      const nextIsCitation = nextP.startsWith("—") || nextP.startsWith("~") || nextP.startsWith("-") || nextP.startsWith("Aldi") || nextP.startsWith("Mas Aldi");
-
-      if (isQuote) {
-        let citationHTML = "";
-        if (nextIsCitation) {
-          const cleanCitation = nextP.replace(/^[—~–-]\s*/, "");
-          citationHTML = `<div style="margin-top: 6px; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 0.8px; color: #7A6045; text-transform: uppercase;">${cleanCitation}</div>`;
-          dIdx++;
-        }
-        dElements.push(`
-          <blockquote style="border-left: 2.5px solid #8F7645; padding: 8px 12px; margin: 8px 0; font-family: var(--serif); font-style: italic; font-size: 13px; color: #2C251D; line-height: 1.55; background: rgba(122,96,69,0.06); border-radius: 0 4px 4px 0;">
-            <p style="margin: 0;">${p}</p>
-            ${citationHTML}
-          </blockquote>
-        `);
-      } else {
-        if (dElements.length === 0 && p.length > 20) {
-          const firstLetter = p.charAt(0);
-          const rest = p.slice(1);
-          dElements.push(`<p style="margin-bottom: 8px; font-family: var(--serif); font-size: 13px; line-height: 1.6; color: #1D1A16; text-align: left;"><span style="float: left; font-family: var(--display); font-size: 32px; line-height: 0.82; font-weight: 700; color: #7A6045; margin-right: 6px; padding-top: 2px;">${firstLetter}</span>${rest}</p>`);
-        } else {
-          dElements.push(`<p style="margin-bottom: 8px; font-family: var(--serif); font-size: 13px; line-height: 1.6; color: #1D1A16; text-align: left;">${p}</p>`);
-        }
+    // Share Sheet Button on Side A
+    this.el.querySelector("#m-btn-share-a")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const curPage = PAGES[this.currentGlobalIndex];
+      if (curPage) {
+        this.shareSheet.open(curPage);
       }
-      dIdx++;
-    }
-    const parasHTML = dElements.join("");
-
-    const isChapterGate = page.page_in_chap === 1;
-    const chapterBrief = (page as any).chapter_brief || (
-      page.chapter_id === 1 ? "Mengenal peta halus di dalam diri, tempat tubuh, pikiran, dan masa lalu bertemu." :
-      page.chapter_id === 2 ? "Menembus samudra bawah sadar dan memprogram ulang cetak biru nasib." :
-      page.chapter_id === 3 ? "Menyeimbangkan pabrik hormon biologis dan sains laku tirakat leluhur." :
-      page.chapter_id === 4 ? "Menyingkap tenunan jala kosmik di balik ilusi keterpisahan manusia." :
-      page.chapter_id === 5 ? "Menanggalkan topeng kesucian dan kembali menjadi manusia normal yang berserah." : ""
-    );
-
-    this.el.innerHTML = `
-      <div class="desktop-reader-shell" style="display: flex; flex-direction: column; height: 100%; justify-content: space-between; padding-bottom: 8px;">
-        <!-- Top Bar -->
-        <div class="ph-header" style="padding: 16px 24px 8px; max-width: 900px; width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
-          <div style="display: flex; align-items: center; gap: 14px;">
-            <div id="d-hdr-title" role="button" tabindex="0" title="Kembali ke Beranda" style="cursor: pointer; font-family: var(--serif); font-size: 15px; letter-spacing: 1.5px; color: #EDE4D8; font-weight: 500; transition: opacity 0.2s ease;">
-              SUATU SAAT
-            </div>
-            <span style="opacity: 0.25; font-size: 12px; color: #EDE4D8;">|</span>
-            <div class="back-btn" id="d-back-btn" style="cursor: pointer; font-family: var(--sans); font-size: 12.5px; color: rgba(235, 226, 214, 0.7); display: flex; align-items: center; gap: 6px;">
-              <span>← Kembali ke Bab</span>
-            </div>
-          </div>
-          <div style="font-family: var(--sans); font-size: 13.5px; letter-spacing: 1.5px; color: #EDE4D8; font-weight: 500; text-transform: uppercase;">
-            ${page.chapter_code}
-          </div>
-          <div class="m-hdr-right" style="display: flex; align-items: center; gap: 8px;">
-            <button class="m-hdr-btn" id="d-btn-sound" aria-label="Bisukan / Bunyikan Suara" title="${isAudioEnabled() ? 'Suara Efek: Aktif' : 'Suara Efek: Senyap'}" style="color: #EDE4D8;">
-              <span class="m-icon">${isAudioEnabled() ? '🔊' : '🔇'}</span>
-            </button>
-            <div class="m-hdr-page" id="d-hdr-page" role="button" tabindex="0" title="Pilih Halaman" style="font-family: var(--sans); font-size: 13px; color: rgba(235, 226, 214, 0.7); letter-spacing: 0.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 6px; transition: color 0.2s, background 0.2s;">
-              <span>${curNum} / ${totalNum}</span>
-              <span style="font-size: 10px; opacity: 0.6;">▾</span>
-            </div>
-            <button class="m-hdr-btn ${isBookmarked ? 'bookmarked' : ''}" id="d-btn-bookmark" aria-label="Simpan Penanda" title="Simpan Penanda" style="color: #EDE4D8;">
-              <span class="m-icon">${isBookmarked ? '★' : '🔖'}</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 3D Open-Book Physical Spread -->
-        <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 4px 14px 10px; max-width: 900px; width: 100%; margin: 0 auto; position: relative;">
-          <div class="physical-book-spread" style="display: flex; width: 100%; height: 100%; max-height: 560px; border-radius: 6px; overflow: visible; box-shadow: -10px 25px 60px -10px rgba(0,0,0,0.85), 10px 25px 60px -10px rgba(0,0,0,0.85); position: relative;">
-            <!-- LEFT PAGE: Bone Paper Typography -->
-            <div class="spread-page-left" style="flex: 1; background: #F4EFE6; color: #1A1714; padding: 18px 18px 14px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: inset -18px 0 25px -10px rgba(0,0,0,0.2); border-left: 2px solid #C4B9A7; border-top-left-radius: 5px; border-bottom-left-radius: 5px; overflow: hidden;">
-              <div style="flex: 1; overflow-y: auto; padding-right: 4px;">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; border-bottom: 1px solid rgba(122,96,69,0.18); padding-bottom: 4px;">
-                  <span style="font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase;">
-                    ${page.chapter_code}
-                  </span>
-                  <span style="font-family: var(--display); font-size: 20px; font-weight: 600; color: #161513; line-height: 1;">
-                    ${pStr}
-                  </span>
-                </div>
-                <h2 style="font-family: var(--serif); font-size: 15.5px; font-weight: 700; color: #161310; line-height: 1.28; margin: 4px 0 2px 0;">
-                  ${page.title}
-                </h2>
-                ${page.subtitle ? `<div style="font-family: var(--serif); font-size: 12px; font-style: italic; color: #554737; line-height: 1.38; margin-bottom: 6px;">${page.subtitle}</div>` : ''}
-                <div style="font-family: var(--serif); color: #1D1A16; margin-top: 6px;">
-                  ${parasHTML}
-                </div>
-              </div>
-              <div style="font-family: var(--sans); font-size: 8.5px; letter-spacing: 1.5px; color: #7A6045; text-transform: uppercase; font-weight: 600; padding-top: 6px; border-top: 1px solid rgba(122,96,69,0.15); margin-top: 4px; flex-shrink: 0; display: flex; justify-content: space-between;">
-                <span>SUATU SAAT</span>
-                <span style="letter-spacing: 0.5px; opacity: 0.7;">HAL ${curNum} / ${totalNum}</span>
-              </div>
-            </div>
-
-            <!-- CENTER GUTTER -->
-            <div style="width: 3px; background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1), rgba(0,0,0,0.4)); box-shadow: 0 0 10px rgba(0,0,0,0.5); z-index: 5; flex-shrink: 0;"></div>
-
-            <!-- RIGHT PAGE: Artwork (Uncropped 9:16 Portrait with Vignette & Typography) -->
-            <div class="spread-page-right" style="flex: 1; position: relative; overflow: hidden; background: #0E0D0B; box-shadow: inset 18px 0 25px -10px rgba(0,0,0,0.45); border-top-right-radius: 5px; border-bottom-right-radius: 5px; display: flex; align-items: center; justify-content: center; padding: 12px;">
-              <div class="m-poster-frame" style="height: 100%; aspect-ratio: 9 / 16;">
-                <img
-                  src="${page.image_path}"
-                  alt="${page.title}"
-                  class="m-poster-img"
-                  style="width: 100%; height: 100%; object-fit: cover;"
-                />
-                <div class="m-poster-vignette"></div>
-                ${
-                  isChapterGate
-                    ? `
-                <div class="m-poster-overlay is-chapter-gate" style="justify-content: flex-end; padding: 20px 20px clamp(16px, 4vh, 28px);">
-                  <div class="m-chapter-gate-wrap">
-                    <div class="m-chapter-gate-num" style="font-size: 11.5px; margin-bottom: 8px;">BAB ${page.chapter_id}</div>
-                    <div class="m-chapter-gate-divider" style="margin-bottom: 14px;"></div>
-                    <h2 class="m-chapter-gate-title" style="font-size: clamp(15px, 2vw, 18px); margin-bottom: 12px;">${page.chapter_name.toUpperCase()}</h2>
-                    <div class="m-chapter-gate-desc" style="font-size: clamp(11.5px, 1.3vw, 13px); max-width: 260px;">${chapterBrief}</div>
-                  </div>
-                </div>`
-                    : `
-                <div class="m-poster-overlay" style="padding: 24px 20px 28px;">
-                  <div class="m-poster-meta-top">
-                    <h2 class="m-poster-title" style="font-size: 15.5px; line-height: 1.25;">${page.title}</h2>
-                    ${page.subtitle ? `<div class="m-poster-subtitle" style="font-size: 11px;">${page.subtitle}</div>` : ""}
-                    <div class="m-poster-title-divider"></div>
-                  </div>
-                  ${
-                    page.side_a_text
-                      ? `
-                  <div class="m-poster-reflection-box" style="padding: 10px 14px;">
-                    <div class="m-art-flourish">
-                      <span class="m-art-flourish-line"></span>
-                      <span class="m-art-flourish-icon">✧</span>
-                      <span class="m-art-flourish-line"></span>
-                    </div>
-                    <p class="m-poster-reflection-text" style="font-size: 12.5px; line-height: 1.48;">“${page.side_a_text}”</p>
-                  </div>`
-                      : ""
-                  }
-                </div>`
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Desktop Bottom Controls -->
-        <div style="max-width: 600px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; z-index: 10;">
-          <div class="nav-track-bar" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 4px 20px;">
-            <div class="nav-circle" id="d-btn-prev" style="${this.currentGlobalIndex <= 0 ? 'opacity: 0.3; pointer-events: none;' : ''}">←</div>
-            <div class="nav-track" id="d-nav-track" style="flex: 1; height: 2px; background: rgba(235, 226, 214, 0.15); position: relative; border-radius: 1px; cursor: pointer;">
-              <div style="position: absolute; top: 50%; left: ${percent}%; width: 12px; height: 12px; border-radius: 50%; background: #D1B498; transform: translate(-50%, -50%); box-shadow: 0 0 10px rgba(209, 180, 152, 0.6); transition: left 0.2s ease;"></div>
-            </div>
-            <div class="nav-circle" id="d-btn-next" style="${this.currentGlobalIndex >= totalNum - 1 ? 'opacity: 0.3; pointer-events: none;' : ''}">→</div>
-          </div>
-
-          <div class="tab-bar" style="display: flex; justify-content: space-around; align-items: center; padding: 10px 24px 4px; border-top: 1px solid rgba(235, 226, 214, 0.1);">
-            <div class="tab-item" id="d-btn-toc" style="cursor: pointer;">
-              <span style="font-size: 17px; line-height: 1;">☰</span>
-              <span style="font-family: var(--sans); font-size: 10px;">Daftar Isi</span>
-            </div>
-            <div class="tab-item" id="d-btn-fullscreen" style="cursor: pointer;">
-              <span style="font-size: 16px; line-height: 1;">⛶</span>
-              <span style="font-family: var(--sans); font-size: 10px;">Layar Penuh</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-
-    // Bind Desktop DOM Events
-    this.el.querySelector("#d-hdr-title")?.addEventListener("click", () => navigate("cover"));
-    this.el.querySelector("#d-back-btn")?.addEventListener("click", () => navigate("bab"));
-    this.el.querySelector("#d-btn-toc")?.addEventListener("click", () => navigate("bab"));
-    this.el.querySelector("#d-btn-prev")?.addEventListener("click", () => this.prevPage());
-    this.el.querySelector("#d-btn-next")?.addEventListener("click", () => this.nextPage());
-    this.el.querySelector("#d-btn-fullscreen")?.addEventListener("click", () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(() => {});
-      } else {
-        document.exitFullscreen().catch(() => {});
-      }
-    });
-
-    // Desktop Page Number Click -> Toggle Page Picker
-    this.el.querySelector("#d-hdr-page")?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      this.togglePagePicker();
-    });
-
-    // Desktop Sound & Bookmark Buttons
-    this.el.querySelector("#d-btn-sound")?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      this.toggleSound();
-    });
-    this.el.querySelector("#d-btn-bookmark")?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      this.toggleBookmark();
-    });
-
-    const dTrack = this.el.querySelector("#d-nav-track") as HTMLElement;
-    dTrack?.addEventListener("click", (e: MouseEvent) => {
-      const rect = dTrack.getBoundingClientRect();
-      const clickRatio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-      const targetIndex = Math.round(clickRatio * (PAGES.length - 1));
-      this.goToPage(targetIndex);
     });
   }
 
@@ -821,6 +647,206 @@ export class ReaderScreen {
   // PAGE PICKER DELEGATION
   // =========================================================================
   public togglePagePicker(): void {
+    if (this.tutorialStep === "page-picker") {
+      this.advanceTutorial("page-picker");
+    }
     this.pagePicker.toggle(this.currentGlobalIndex);
   }
+
+  // =========================================================================
+  // READER TUTORIAL (Thin, Non-blocking Ink Guidance)
+  // =========================================================================
+  public startTutorial(): void {
+    try {
+      sessionStorage.removeItem(TUTORIAL_STORAGE_KEY);
+    } catch (_) {}
+    this.tutorialSheetDismissed = false;
+    if (this.activeSide === "B") {
+      this.tutorialStep = "completed";
+      this.flipToSide("A");
+    }
+    this.tutorialStep = "flip";
+    this.updateTutorialUI();
+  }
+
+  private advanceTutorial(expectedStep: TutorialStep): void {
+    if (this.tutorialStep !== expectedStep) return;
+
+    if (expectedStep === "flip") {
+      this.tutorialStep = "swipe";
+    } else if (expectedStep === "swipe") {
+      this.tutorialStep = "page-picker";
+    } else if (expectedStep === "page-picker") {
+      this.tutorialStep = "completed";
+      try {
+        sessionStorage.setItem(TUTORIAL_STORAGE_KEY, "true");
+      } catch (_) {}
+    }
+
+    this.updateTutorialUI();
+  }
+
+  public completeTutorial(): void {
+    this.tutorialStep = "completed";
+    try {
+      sessionStorage.setItem(TUTORIAL_STORAGE_KEY, "true");
+    } catch (_) {}
+    this.updateTutorialUI();
+  }
+
+  private updateTutorialUI(): void {
+    const existingLayer = this.el.querySelector(".m-reader-tutorial-layer");
+
+    if (this.tutorialStep === "completed") {
+      existingLayer?.remove();
+      return;
+    }
+
+    let layer = existingLayer as HTMLElement | null;
+    if (!layer) {
+      layer = document.createElement("div");
+      layer.className = "m-reader-tutorial-layer";
+      this.el.appendChild(layer);
+    }
+
+    // Phase 1: The Editorial Bookmark Sheet (Clean Dark Vignette Scrim, ZERO BLUR)
+    if (!this.tutorialSheetDismissed) {
+      layer.className = "m-reader-tutorial-layer";
+      layer.onclick = null;
+      layer.innerHTML = `
+        <div class="m-bookmark-sheet" id="m-bookmark-sheet">
+          <div class="m-bookmark-top-ornament">
+            <span class="m-bookmark-tag">PANDUAN MEMBACA</span>
+            <button type="button" class="m-bookmark-dismiss-btn" id="m-bookmark-close" aria-label="Tutup Panduan">×</button>
+          </div>
+          
+          <div class="m-bookmark-header-wrap">
+            <h3 class="m-bookmark-title">Dua Muka Tiap Lembaran</h3>
+            <p class="m-bookmark-subtitle">Setiap lembar menyimpan visual di muka depan dan naskah di muka belakang.</p>
+          </div>
+
+          <div class="m-bookmark-gestures">
+            <div class="m-bkmk-row">
+              <div class="m-bkmk-badge">↺</div>
+              <div class="m-bkmk-content">
+                <span class="m-bkmk-heading">Ketuk Lembar</span>
+                <p class="m-bkmk-desc">Balik lembar 3D antara Visual (Sisi A) dan Naskah Baca (Sisi B).</p>
+              </div>
+            </div>
+
+            <div class="m-bkmk-row">
+              <div class="m-bkmk-badge">‹ ›</div>
+              <div class="m-bkmk-content">
+                <span class="m-bkmk-heading">Usap Layar</span>
+                <p class="m-bkmk-desc">Geser ke kiri atau kanan untuk berpindah antar halaman naskah.</p>
+              </div>
+            </div>
+
+            <div class="m-bkmk-row">
+              <div class="m-bkmk-badge">✧</div>
+              <div class="m-bkmk-content">
+                <span class="m-bkmk-heading">Lompat Bab</span>
+                <p class="m-bkmk-desc">Ketuk nomor halaman di atas untuk daftar isi & audio pembacaan.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="m-bkmk-mobile-note">
+            <span class="m-bkmk-mobile-icon">📱</span>
+            <span>Buku ini dirancang khusus untuk layar ponsel 9:16. Pengalaman visual, efek audio, dan gestur paling utuh tersaji di smartphone.</span>
+          </div>
+
+          <button type="button" class="m-bookmark-btn-start" id="m-btn-start-reading-guide">
+            <span>Buka Lembaran Buku</span>
+            <span>→</span>
+          </button>
+          <div class="m-bookmark-hint-footer">Ketuk tombol untuk mencoba langsung di atas lembaran</div>
+        </div>
+      `;
+
+      // Close / skip button
+      layer.querySelector("#m-bookmark-close")?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.completeTutorial();
+      });
+
+      // Start reading guide button
+      layer.querySelector("#m-btn-start-reading-guide")?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        this.tutorialSheetDismissed = true;
+        this.updateTutorialUI();
+      });
+
+      // Clicking scrim outside bookmark sheet also enters interactive cue mode
+      layer.onclick = (e) => {
+        const sheet = layer?.querySelector("#m-bookmark-sheet");
+        if (sheet && !sheet.contains(e.target as Node)) {
+          this.tutorialSheetDismissed = true;
+          this.updateTutorialUI();
+        }
+      };
+      return;
+    }
+
+    // Phase 2: Subtle In-Page Interactive Ink Cues (Transparent background, Zero intrusion)
+    layer.className = `m-reader-tutorial-layer is-cue-only m-tut-step-${this.tutorialStep}`;
+    layer.onclick = null;
+
+    if (this.tutorialStep === "flip") {
+      layer.innerHTML = `
+        <div class="m-tut-cue-wrap">
+          <div class="m-tut-cue-pill" id="m-tut-cue-action" role="button" tabindex="0">
+            <span class="m-tut-cue-icon">↺</span>
+            <span class="m-tut-cue-text">Ketuk lembaran untuk membalik ke naskah</span>
+            <span class="m-tut-cue-close" id="m-tut-btn-skip" role="button" aria-label="Lewati panduan" title="Lewati">×</span>
+          </div>
+        </div>
+      `;
+
+      layer.querySelector("#m-tut-cue-action")?.addEventListener("click", (e) => {
+        if ((e.target as HTMLElement).closest("#m-tut-btn-skip")) return;
+        e.stopPropagation();
+        this.flipToSide("B");
+      });
+    } else if (this.tutorialStep === "swipe") {
+      layer.innerHTML = `
+        <div class="m-tut-cue-wrap">
+          <div class="m-tut-cue-pill" id="m-tut-cue-action" role="button" tabindex="0">
+            <span class="m-tut-cue-icon">‹ ›</span>
+            <span class="m-tut-cue-text">Usap layar untuk beralih lembaran</span>
+            <span class="m-tut-cue-close" id="m-tut-btn-skip" role="button" aria-label="Lewati panduan" title="Lewati">×</span>
+          </div>
+        </div>
+      `;
+
+      layer.querySelector("#m-tut-cue-action")?.addEventListener("click", (e) => {
+        if ((e.target as HTMLElement).closest("#m-tut-btn-skip")) return;
+        e.stopPropagation();
+        this.nextPage();
+      });
+    } else if (this.tutorialStep === "page-picker") {
+      layer.innerHTML = `
+        <div class="m-tut-cue-wrap m-tut-picker-wrap">
+          <div class="m-tut-cue-arrow-up"></div>
+          <div class="m-tut-cue-pill" id="m-tut-cue-action" role="button" tabindex="0">
+            <span class="m-tut-cue-icon">✧</span>
+            <span class="m-tut-cue-text">Ketuk nomor halaman untuk daftar bab</span>
+            <span class="m-tut-cue-close" id="m-tut-btn-skip" role="button" aria-label="Lewati panduan" title="Lewati">×</span>
+          </div>
+        </div>
+      `;
+
+      layer.querySelector("#m-tut-cue-action")?.addEventListener("click", (e) => {
+        if ((e.target as HTMLElement).closest("#m-tut-btn-skip")) return;
+        e.stopPropagation();
+        this.togglePagePicker();
+      });
+    }
+
+    layer.querySelector("#m-tut-btn-skip")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      this.completeTutorial();
+    });
+  }
+
 }
