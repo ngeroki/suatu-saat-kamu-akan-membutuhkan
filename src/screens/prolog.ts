@@ -77,11 +77,11 @@ export class PrologScreen {
             </p>
 
             <p class="pe-body-p">
-              Buku ini posisinya cuma mau jadi kayu lapuk buat orang yang tenggelam di laut. Saya tidak mau bersikap seperti guru besar yang duduk di atas menara gading sambil menasihati orang-orang di pelataran dengan nada menghakimi. Anggap saja saya ini kawanmu yang kebetulan menemukan sesuatu yang sangat menarik di balik semak belukar, lalu menarik lengan bajumu sambil bilang: ayo sini sebentar, coba kamu tengok sendiri ke dalam.
+              Buku ini posisinya cuma mau jadi kayu lapuk buat orang yang tenggelam di laut. Saya tidak mau bersikap seperti guru besar yang duduk di atas menara gading sambil menasihati orang-orang di pelataran dengan nada menghakimi. Anggap saja saya ini kawanmu yang kebetulan menemukan sesuatu yang sangat menarik di balik semak belukar, lalu menarik lengan bajumu sambil bilang, "Ayo sini sebentar, coba kamu tengok sendiri ke dalam."
             </p>
 
             <p class="pe-body-p">
-              Suatu saat nanti, pada hari yang tidak pernah tercantum di kalender mana pun, kamu mungkin bakal berdiri di persimpangan jalan yang gelap gulita. Rencana besarmu ambruk dalam semalam, dan kamu merasa terasing dari dirimu sendiri. Di saat kepalamu buntu dan lidahmu kelu untuk berdoa, obrolan kita ini akan mendadak menyala kembali di dalam dadamu. Pada detik itulah, kamu akan mengerti kenapa buku ini diberi judul: Suatu Saat Kamu Akan Membutuhkan.
+              Suatu saat nanti, pada hari yang tidak pernah tercantum di kalender mana pun, kamu mungkin bakal berdiri di persimpangan jalan yang gelap gulita. Rencana besarmu ambruk dalam semalam, dan kamu merasa terasing dari dirimu sendiri. Di saat kepalamu buntu dan lidahmu kelu untuk berdoa, obrolan kita ini akan mendadak menyala kembali di dalam dadamu. Pada detik itulah, kamu akan mengerti kenapa buku ini diberi judul Suatu Saat Kamu Akan Membutuhkan.
             </p>
           </div>
 

@@ -66,7 +66,7 @@ export class EpilogScreen {
             </div>
 
             <div class="pe-pullquote">
-              <p class="pe-quote-text">“Kamu tidak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir: yang benar-benar mendengarkan anaknya bercerita, yang benar-benar menemani istrinya mengobrol, yang benar-benar mengerjakan pekerjaannya dengan jujur. Itu saja sudah spiritualitas tertinggi.”</p>
+              <p class="pe-quote-text">“Kamu tidak perlu jadi orang suci. Kamu cuma perlu jadi manusia biasa yang hadir, yang benar-benar mendengarkan anaknya bercerita, yang benar-benar menemani istrinya mengobrol, yang benar-benar mengerjakan pekerjaannya dengan jujur. Itu saja sudah spiritualitas tertinggi.”</p>
             </div>
 
             <p class="pe-body-p">
@@ -74,7 +74,7 @@ export class EpilogScreen {
             </p>
 
             <p class="pe-body-p">
-              Sains tubuh dan teori kuantum tak ada artinya jika kita gagal hadir bagi orang-orang terkasih di rumah. Anak-anakmu tidak butuh ceramah medan torus saat mereka takut di malam hari, dan pasanganmu tidak butuh analisis gelombang otak saat letih bekerja. Yang mereka butuhkan hanyalah kehadiranmu: duduk bersahaja di samping mereka tanpa filter, mendengarkan dengan tulus, dan menghadapi hidup bersama.
+              Sains tubuh dan teori kuantum tak ada artinya jika kita gagal hadir bagi orang-orang terkasih di rumah. Anak-anakmu tidak butuh ceramah medan torus saat mereka takut di malam hari, dan pasanganmu tidak butuh analisis gelombang otak saat letih bekerja. Yang mereka butuhkan hanyalah kehadiranmu, yaitu duduk bersahaja di samping mereka tanpa filter, mendengarkan dengan tulus, dan menghadapi hidup bersama.
             </p>
 
             <p class="pe-body-p">
