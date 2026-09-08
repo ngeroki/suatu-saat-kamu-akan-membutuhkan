@@ -1,27 +1,26 @@
 # RESUME - SUATU SAAT (Flip-Book SPA)
-Updated: 2026-09-08T18:40:00+07:00 | Branch: master | Latest Commit: e785276 | Status: Feature Complete & 100% Clean
+Updated: 2026-09-08T19:42:00+07:00 | Branch: master | Status: 74 Rumi Plot-Twist Reflections Active
 
 ## Work Completed (This Session)
-1. **Eradikasi 100% Titik Dua (:) & Titik Koma (;)**:
-   - Menghapus 158 titik dua (:) dan 4 titik koma (;) dari seluruh 74 halaman naskah, kartu Side A, Prolog, dan Epilog.
-   - Mengubah jeda artifisial AI menjadi ritme tutur lisan alami Indonesia (titik, koma santai, atau konjungsi alami).
-   - **0 colon, 0 semicolon, 0 em-dash, 0 en-dash, 0 spaced-hyphen** di seluruh dataset teks bacaan.
-2. **Restorasi 74 Judul & Deskripsi Membumi (Anti-Jargon & 100% Selaras Naskah)**:
-   - Mengembalikan judul (`title`) dan deskripsi (`subtitle` / `teaser`) ke gaya hangat, puitis, dan mudah dipahami semua kalangan.
-   - Membersihkan habis seluruh istilah nyeleneh (*Residu Karma Seks Bebas*, *Protokol Higienitas*, dll).
-3. **74 Punchy Twist-Ending "Mak Jleb" Side A Reflections**:
-   - Menginjeksi twist punchline tak terduga khas Maiyah pada seluruh 74 kartu visual Side A untuk sharing status WhatsApp / IG Story.
-4. **Desktop Centered Mobile Column & Feature Complete Closeout**:
-   - Komit seluruh komponen UI (kolom 430px terpusat, kartu pendamping desktop, unifikasi reader, share sheet, bookmark discovery).
+1. **Audit Menyeluruh & Transformasi 74 Self-Reflection Side A ke Gaya Jalaluddin Rumi**:
+   - Menghapus pola repetitif dan menggantinya dengan **Plot Twist Batin (Kasyf)** khas puisi Sufi Jalaluddin Rumi di seluruh 74 halaman.
+   - Meruntuhkan ilusi ego pembaca dan membalik cermin 180 derajat ke batin sendiri (*the mirror flipped*).
+   - Memperbaiki ketidaksinkronan tematik pada halaman krusial (H04, H18, H19, H29, H65, H70, H71).
+   - Menjaga kepatuhan tanda baca: **0 titik dua (:), 0 titik koma (;), 0 em-dash (—), 0 en-dash (–), 0 spaced-hyphen ( - )**.
+   - Panjang proporsional 100–145 karakter (1–2 baris padat, tidak menutupi visual 9:16).
+   - Sinkronisasi penuh ke `src/data/book-pages.json`, `src/data/visual-narrative-74.json`, dan `docs/visual-narratives/bab-0*.json`.
+2. **Review Dokumen & Persetujuan**:
+   - Artifak review `rumi_twists_74_pages_audit.md` disetujui pengguna.
+   - Build TypeScript & Vite PASS 100% (18 modules transformed, exit code 0).
 
 ## Current State
 - **Production URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)
 - **Build & Verification**: PASS (`npm run build`, 18 modules transformed, exit code 0)
-- **Git State**: Clean working tree on `master`, fully synced with `origin/master` (`e785276`)
+- **Git State**: Ready to commit and push to `origin/master`
 - **Active Port**: http://localhost:4173 (preview ready)
 - **OpenCode Session**: `ses_f9de86d2cffeEHvpVqiwq3HP1P` (idle)
 
 ## Immediate Next Actions
-1. **Lakukan uji coba pembacaan visual di perangkat fisik** (Android / iPhone) untuk merasakan flow transisi naskah dan keterbacaan kartu Side A.
-2. **Review analitik respon pembaca atau kebutuhan kurasi visual tambahan** jika ada halaman tertentu yang ingin dieksplorasi lebih jauh.
-3. **Lanjutkan eksplorasi fitur audio atau pengalaman interaktif berikutnya** bila diperlukan.
+1. **Commit & Push**: Kunci pembaruan 74 refleksi Rumi ke `origin/master` untuk memicu auto-deploy Cloudflare Pages.
+2. **Live Visual Check**: Lakukan verifikasi visual di perangkat fisik (Android / iPhone) pada https://suatu-saat.pages.dev untuk memastikan keterbacaan kartu Side A.
+
