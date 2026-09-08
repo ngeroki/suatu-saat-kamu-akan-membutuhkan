@@ -35,13 +35,9 @@ Dalam perjalanan hidup sehari-hari, kamu pasti akan terus bertemu dengan sesama 
 
 Naluri kemanusiaan kita tentu tergerak untuk mengulurkan tangan. Namun di titik inilah kedewasaan batinmu diuji: apakah kamu tergerak karena welas asih murni, atau sekadar didorong oleh ego yang ingin merasa berjasa?
 
-Belajarlah untuk mendahulukan empati daripada solusi. Sering kali, orang yang sedang hancur hatinya sama sekali tidak membutuhkan nasihat pintarmu. Mereka tidak butuh diceramahi tentang hukum sebab akibat, tidak butuh dibacakan ayat-ayat penghiburan yang klise, dan tidak butuh disodori peta jalan keluar yang rumit. Yang mereka butuhkan hanyalah sepasang telinga yang mau mendengarkan tanpa memotong, dan kehadiran hening seseorang yang berani duduk bersama mereka di tengah kegelapan, seolah berkata tanpa suara: "Aku di sini bersamamu. Kamu tidak sendirian."
+Sering kali, orang yang sedang hancur hatinya sama sekali tidak membutuhkan nasihat pintarmu. Mereka tidak butuh diceramahi tentang hukum sebab akibat, tidak butuh dibacakan ayat-ayat penghiburan yang klise, dan tidak butuh disodori peta jalan keluar yang rumit. Yang mereka butuhkan hanyalah sepasang telinga yang mau mendengarkan tanpa memotong, dan kehadiran hening seseorang yang berani duduk bersama mereka di tengah kegelapan, seolah berkata tanpa suara: "Aku di sini bersamamu. Kamu tidak sendirian."
 
-Hargai pula kurikulum hidup setiap insan. Setiap jiwa memiliki musim berseminya masing-masing. Jangan pernah memaksakan pemahamanmu kepada orang lain hanya karena kamu merasa telah melihat secercah cahaya lebih dulu. Menolong seseorang terkadang berarti membiarkan dia melewati rasa perihnya sendiri dengan tetap menemaninya dari jarak yang aman, agar otot-otot batinnya terlatih dan ia sanggup menemukan kekuatannya sendiri.
-
-Jagalah selalu kerendahan hatimu. Ingatlah bahwa seluruh pemahaman yang kamu miliki tentang rahasia tubuh, jalur saraf, frekuensi batin, atau hukum semesta bukanlah mahkota emas untuk disombongkan di hadapan orang lain. Pengetahuan itu hanyalah cangkul. Ia adalah perkakas kasar yang fungsinya mencangkul tanah batinmu sendiri agar tidak ditumbuhi ilalang kesombongan. Cangkul yang paling tajam sekalipun akan melukai banyak orang jika diayunkan oleh tangan yang pongah.
-
-Dan ketika kamu memutuskan untuk memberi, berikanlah dengan tangan terbuka tanpa pernah menoleh lagi ke belakang. Jangan pernah menghitung-hitung budi, jangan mengharapkan ucapan terima kasih, dan jangan menuntut balasan setimpal. Jika kamu memberi dengan harapan akan mendapatkan balasan di kemudian hari, itu bukan cinta kasih. Itu hanyalah transaksi dagang yang bersembunyi di balik jubah kebajikan.
+Seluruh pemahaman yang kamu miliki tentang rahasia tubuh, jalur saraf, frekuensi batin, atau hukum semesta bukanlah mahkota emas untuk disombongkan di hadapan orang lain. Pengetahuan itu hanyalah cangkul. Ia adalah perkakas kasar yang fungsinya mencangkul tanah batinmu sendiri agar tidak ditumbuhi ilalang kesombongan. Cangkul yang paling tajam sekalipun akan melukai banyak orang jika diayunkan oleh tangan yang pongah.
 
 ---
 
