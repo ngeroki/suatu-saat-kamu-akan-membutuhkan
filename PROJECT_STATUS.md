@@ -1,8 +1,9 @@
 # 📊 PROJECT STATUS — SUATU SAAT (Mobile Digital Art Book)
 
-> **Last Updated**: 2026-09-08T18:40:00+07:00  
-> **Production URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)  
-> **Status**: 74-Page Pure Maiyah Monologue, Grounded Titles, 0 Punctuation Artifacts, 100% COMPLETE & LIVE  
+> **Last Updated**: 2026-09-09T19:42:00+07:00  
+> **Production Custom Domain**: https://suatusaat.com (🟢 ACTIVE - Cloudflare Edge Routing)  
+> **Origin URL**: https://suatu-saat.pages.dev (🟢 LIVE - Cloudflare Pages)  
+> **Status**: Custom Domain Live, 4 Dedicated Subchapters Integrated, 100% COMPLETE  
 > **Lead Architect**: Antigravity [AG]  
 > **Heavy Worker**: Antigravity [AG] Direct Execution
 
@@ -27,6 +28,8 @@
 
 ## 🚀 Status Milestone & Komponen
 |---|---|---|---|
+| **Setup Custom Domain `suatusaat.com` (JagoanHosting -> Cloudflare)** | `Cloudflare DNS`, `suatusaat-web worker` | ✅ Done | Nameservers JagoanHosting dialihkan ke `benedict.ns.cloudflare.com` & `cora.ns.cloudflare.com`; Zone aktif; Edge Worker `suatusaat-web` reverse-proxy ke `suatu-saat.pages.dev` dengan auto-redirect `www` -> apex & Always Use HTTPS |
+| **Ekstraksi Audio 2 Jam & Integrasi 4 Subbab Khusus Naskah Buku** | `naskah-buku/`, `ngobrol-offline/`, `transcripts/`, `scripts/compile_naskah_utuh.py` | ✅ Done | Mengekstrak rekaman 126m 36s (`20260908_211429.aac`) via FFmpeg + Groq Whisper (64.579 chars); mengintegrasikan 4 subbab khusus ke Bab 2 (Yasin 82 & cipto roso karso), Bab 3 (3 level puasa & protokol 3 otot), Bab 4 (Ley lines candi & purnama), dan Bab 5 (sacred sex, Sabdo Palon & menertawakan diri); mengompilasi naskah utuh (181.7 KB) dan sinkronisasi lintas workspace |
 | **Eradikasi 100% Titik Dua (:) & Titik Koma (;) (Pure Spoken Natural Rhythm)** | `src/data/book-pages.json`, `src/data/visual-narrative-74.json`, `src/screens/prolog.ts`, `src/screens/epilog.ts` | ✅ Done | Membersihkan tuntas 158 titik dua (`:`) dan 4 titik koma (`;`) dari seluruh naskah 74 halaman, Prolog, Epilog, dan metadata; mengubah jeda artifisial ala AI menjadi ritme tutur lisan alami Indonesia; 0 colon, 0 semicolon, 0 em-dash, 0 en-dash, 0 spaced-hyphen; build PASS |
 | **Restorasi 74 Judul & Deskripsi Membumi (Anti-Jargon & 100% Selaras Naskah)** | `src/data/book-pages.json`, `src/data/visual-narrative-74.json` | ✅ Done | Mengembalikan seluruh judul (`title`) dan deskripsi (`subtitle` / `teaser`) 74 halaman ke gaya bahasa hangat, puitis, dan mudah dipahami; membersihkan tuntas istilah nyeleneh & sensasional ala tabloid (*Residu Karma Seks Bebas*, *Protokol Higienitas*, *Laskar Katabolik*, dll); menyelaraskan 100% dengan naskah panggung Maiyah; build PASS |
 | **74 Jalaluddin Rumi Plot-Twist Reflections (Kasyf & Penyingkapan Tabir Batin)** | `src/data/book-pages.json`, `src/data/visual-narrative-74.json`, `docs/visual-narratives/` | ✅ Done | Merombak total 74 teks refleksi diri `side_a_text` di kartu visual Side A ke gaya mistik Sufi Jalaluddin Rumi dengan mekanisme Plot Twist Batin (Kasyf); meruntuhkan ilusi ego pembaca dan membalik cermin 180 derajat ke batin sendiri; eliminasi disonansi tematik pada halaman krusial; 0 colon (`:`), 0 semicolon (`;`), 0 em-dash (`—`), 0 en-dash (`–`), 0 spaced-hyphen (` - `); rentang 100–145 karakter pas untuk overlay 9:16 dan ekspor status WA; build PASS |
