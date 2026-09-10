@@ -20,6 +20,9 @@ Updated: 2026-09-09T19:35:00+07:00 | Branch: master | Status: 4 Dedicated Subcha
    - Cloudflare Zone status: Active (🟢).
    - Edge Worker `suatusaat-web` dideploy dan di-binding ke rute `suatusaat.com/*` & `www.suatusaat.com/*` (reverse-proxy transparan ke `suatu-saat.pages.dev`).
    - "Always Use HTTPS" diaktifkan; sertifikat SSL Universal (Google Trust Services / Let's Encrypt) aktif berproses.
+5. **Humanisasi Copy Teks Desktop & In-Reader Mobile Notice**:
+   - Membuang tuntas diksi robotik/SaaS kaku (*dipahat khusus untuk rasio vertikal 9:16*, *gestur sentuh*, *smartphone*, *sensasi visual & audio yang paling utuh*, *browser ponsel Anda*).
+   - Menggantinya dengan bahasa tutur lisan Indonesia yang hangat, akrab, dan santai (*Paling Enak Dibaca di HP*, *Buka suatusaat.com langsung dari browser HP kamu*).
 
 ## Current State
 - **Custom Domain**: https://suatusaat.com (🟢 ACTIVE - Cloudflare Edge Worker Proxy)
