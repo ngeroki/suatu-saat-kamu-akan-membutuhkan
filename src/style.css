@@ -2612,58 +2612,69 @@ body {
 .m-tut-cue-arrow-up {
   width: 0;
   height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 7px solid #C5A059;
-  margin-bottom: 2px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 9px solid #FFD875;
+  margin-bottom: 3px;
   margin-right: 48px;
+  filter: drop-shadow(0 0 6px rgba(255, 216, 117, 0.8));
+  animation: tut-arrow-bounce 1.9s infinite ease-in-out;
 }
 
 .m-tut-cue-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(17, 17, 15, 0.94);
-  border: 1px solid rgba(197, 160, 89, 0.45);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  padding: 8px 10px 8px 16px;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(32, 28, 20, 0.96) 0%, rgba(17, 17, 15, 0.98) 100%);
+  border: 1.5px solid #E5BA5D;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 16px rgba(229, 186, 93, 0.5);
+  padding: 9px 12px 9px 18px;
   border-radius: 999px;
-  color: #F4EFE6;
+  color: #FFFDF7;
   font-family: var(--sans);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
   user-select: none;
   pointer-events: auto;
   cursor: pointer;
-  animation: tut-pulse-gentle 2.4s infinite ease-in-out;
+  animation: tut-pulse-flashy 1.9s infinite ease-in-out;
   max-width: 95%;
+  backdrop-filter: blur(8px);
 }
 
 .m-tut-cue-icon {
-  font-size: 13px;
-  color: #C5A059;
+  font-size: 15px;
+  color: #FFD875;
   line-height: 1;
+  display: inline-block;
+  animation: tut-icon-pulse 1.9s infinite ease-in-out;
+}
+
+.m-tut-cue-text {
+  color: #FFFDF7;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 216, 117, 0.35);
 }
 
 .m-tut-cue-close {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  color: #DDD4C8;
-  font-size: 13px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #EDE4D8;
+  font-size: 14px;
   line-height: 1;
   cursor: pointer;
   margin-left: 6px;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
 }
 .m-tut-cue-close:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(243, 206, 114, 0.45);
   color: #FFF;
+  transform: scale(1.15);
 }
 
 @keyframes bookmark-slide-up {
@@ -2677,14 +2688,46 @@ body {
   }
 }
 
-@keyframes tut-pulse-gentle {
+@keyframes tut-pulse-flashy {
   0%, 100% {
-    border-color: rgba(197, 160, 89, 0.35);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    transform: scale(1);
+    border-color: rgba(229, 186, 93, 0.6);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 12px rgba(229, 186, 93, 0.35);
   }
   50% {
-    border-color: rgba(197, 160, 89, 0.7);
-    box-shadow: 0 10px 28px rgba(197, 160, 89, 0.22);
+    transform: scale(1.04);
+    border-color: #FFE699;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9), 0 0 26px rgba(255, 216, 117, 0.95), 0 0 45px rgba(229, 186, 93, 0.5);
+  }
+}
+
+@keyframes tut-icon-pulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 3px rgba(255, 216, 117, 0.4));
+  }
+  25% {
+    transform: scale(1.2) rotate(-10deg);
+    filter: drop-shadow(0 0 8px rgba(255, 216, 117, 1));
+  }
+  50% {
+    transform: scale(1.25) rotate(10deg);
+    filter: drop-shadow(0 0 10px rgba(255, 216, 117, 1));
+  }
+  75% {
+    transform: scale(1.1) rotate(0deg);
+    filter: drop-shadow(0 0 6px rgba(255, 216, 117, 0.7));
+  }
+}
+
+@keyframes tut-arrow-bounce {
+  0%, 100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 0 4px rgba(255, 216, 117, 0.5));
+  }
+  50% {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 0 12px rgba(255, 216, 117, 1));
   }
 }
 
