@@ -26,6 +26,10 @@ Updated: 2026-09-09T19:35:00+07:00 | Branch: master | Status: 4 Dedicated Subcha
 6. **Flashy Golden Breathing Pulse pada Tutorial Cue Pill**:
    - Merombak total petunjuk interaktif tutorial di dalam reader (`.m-tut-cue-pill`) dari yang sebelumnya gelap dan statis menjadi hidup dan menarik perhatian.
    - Menerapkan efek bernapas/berkedip pelan (*golden breathing pulse* `tut-pulse-flashy`) dengan pendar emas cerah (`#FFE699` / `#FFD875`), border menyala 1.5px emas, shadow aura hangat 26px, dan ikon `↺` yang bergerak dinamis (`tut-icon-pulse`).
+7. **Bentuk Panah Directional Callout pada Flexbox Tutorial**:
+   - Menambahkan pointer panah segitiga callout (`▲`) yang menonjol di atas flexbox menunjuk langsung ke area lembaran naskah buku dengan teks panduan (*"KETUK LEMBARAN"*).
+   - Menambahkan panah aksi beranimasi (`➔`) di dalam pill yang bergerak dinamis ke kanan untuk memperjelas arah membalik lembaran.
+   - Menambahkan visual arah usap dinamis (`◀ ── ▶`) pada langkah gestur swipe.
 
 ## Current State
 - **Custom Domain**: https://suatusaat.com (🟢 ACTIVE - Cloudflare Edge Worker Proxy)
