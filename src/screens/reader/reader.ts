@@ -794,10 +794,15 @@ export class ReaderScreen {
 
     if (this.tutorialStep === "flip") {
       layer.innerHTML = `
-        <div class="m-tut-cue-wrap">
-          <div class="m-tut-cue-pill" id="m-tut-cue-action" role="button" tabindex="0">
+        <div class="m-tut-cue-wrap m-tut-flip-wrap">
+          <div class="m-tut-pointer-arrow-up">
+            <span class="m-tut-arrow-head-icon">▲</span>
+            <span class="m-tut-arrow-label">Ketuk Lembaran</span>
+          </div>
+          <div class="m-tut-cue-pill has-callout-arrow" id="m-tut-cue-action" role="button" tabindex="0">
             <span class="m-tut-cue-icon">↺</span>
             <span class="m-tut-cue-text">Ketuk lembaran untuk membalik ke naskah</span>
+            <span class="m-tut-cue-action-arrow">➔</span>
             <span class="m-tut-cue-close" id="m-tut-btn-skip" role="button" aria-label="Lewati panduan" title="Lewati">×</span>
           </div>
         </div>
@@ -810,10 +815,11 @@ export class ReaderScreen {
       });
     } else if (this.tutorialStep === "swipe") {
       layer.innerHTML = `
-        <div class="m-tut-cue-wrap">
-          <div class="m-tut-cue-pill" id="m-tut-cue-action" role="button" tabindex="0">
+        <div class="m-tut-cue-wrap m-tut-swipe-wrap">
+          <div class="m-tut-cue-pill has-swipe-direction" id="m-tut-cue-action" role="button" tabindex="0">
             <span class="m-tut-cue-icon">‹ ›</span>
             <span class="m-tut-cue-text">Usap layar untuk beralih lembaran</span>
+            <span class="m-tut-cue-swipe-anim">◀ ── ▶</span>
             <span class="m-tut-cue-close" id="m-tut-btn-skip" role="button" aria-label="Lewati panduan" title="Lewati">×</span>
           </div>
         </div>
@@ -827,8 +833,10 @@ export class ReaderScreen {
     } else if (this.tutorialStep === "page-picker") {
       layer.innerHTML = `
         <div class="m-tut-cue-wrap m-tut-picker-wrap">
-          <div class="m-tut-cue-arrow-up"></div>
-          <div class="m-tut-cue-pill" id="m-tut-cue-action" role="button" tabindex="0">
+          <div class="m-tut-cue-arrow-up">
+            <span class="m-tut-arrow-head-icon">▲</span>
+          </div>
+          <div class="m-tut-cue-pill has-picker-arrow" id="m-tut-cue-action" role="button" tabindex="0">
             <span class="m-tut-cue-icon">✧</span>
             <span class="m-tut-cue-text">Ketuk nomor halaman untuk daftar bab</span>
             <span class="m-tut-cue-close" id="m-tut-btn-skip" role="button" aria-label="Lewati panduan" title="Lewati">×</span>
