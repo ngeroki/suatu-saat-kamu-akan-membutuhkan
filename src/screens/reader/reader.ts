@@ -753,7 +753,7 @@ export class ReaderScreen {
 
           <div class="m-bkmk-mobile-note">
             <span class="m-bkmk-mobile-icon">📱</span>
-            <span>Buku ini dirancang khusus untuk layar ponsel 9:16. Pengalaman visual, efek audio, dan gestur paling utuh tersaji di smartphone.</span>
+            <span>Buku ini lebih pas dibaca santai lewat layar HP sambil mendengarkan suaranya.</span>
           </div>
 
           <button type="button" class="m-bookmark-btn-start" id="m-btn-start-reading-guide">
